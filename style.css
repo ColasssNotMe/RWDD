@@ -21,6 +21,18 @@ button {
   border-radius: 1/2rem;
   border: none;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* set the height of the container to the full viewport height */
+  width: 100vw;
+}
+
+.content {
+  background-color: blue;
+  display: flex;
+  flex-grow: 1; /* allow the content to grow and take up the remaining space */
+}
 
 .left-side {
   display: flex;
@@ -72,6 +84,7 @@ ul {
   align-items: center;
   border-bottom: 1px solid;
   align-self: center;
+  width: 100%;
 }
 
 .header-button {
@@ -125,19 +138,10 @@ li {
 }
 
 .fullSize {
-  width: 100vw;
+  /* height: 100%; */
+  background-color: red;
+  /* width: 100vw; */
   height: 100vh;
-}
-
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  background-color: blue;
-  flex-grow: 1;
 }
 
 @media (min-width: 768px) {
