@@ -10,13 +10,44 @@
   <body>
     <div class="fullSize">
       <div class="header">
-        <div id="logo">Logo</div>
+        <div class="left-side">
+          <div id="logo">Logo</div>
+          <div id="toggleDarkMode">
+            <button type="button" class="no-style-button" id="header-button">
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/606/606795.png"
+                alt="toggle dark mode"
+              />
+            </button>
+          </div>
+        </div>
+
         <div>
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Get Started</li>
-            <li>Account img (Placeholder)</li>
+            <li>
+              <button class="nav" id="header-button" type="button">
+                <a href="/">Home</a>
+              </button>
+            </li>
+            <li>
+              <button class="nav" id="header-button" type="button">
+                <a href="/about.html"> About Us </a>
+              </button>
+            </li>
+            <li>
+              <button class="nav" id="header-button" type="button">
+                <a href="/register.html"> Get Started </a>
+              </button>
+            </li>
+            <li>
+              <button class="nav profile" id="header-button" type="button">
+                <a href="/account.html"
+                  ><img
+                    src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
+                    alt="profile"
+                /></a>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
