@@ -11,12 +11,25 @@
     <div class="fullSize">
       <div class="header">
         <div class="left-side">
-          <div id="logo">Logo</div>
+          <div>
+            <a href="/index.html">
+              <img
+                id="logo"
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P6Ynrv63gaeIP-B8lCdRYAHaBi%26pid%3DApi%26h%3D160&f=1&ipt=092c2d1bf8cf8e19f3bd1fba39d29d6d1f22fbf94c3cebe4881c13699de54f15&ipo=images"
+                alt="logo"
+              />
+            </a>
+          </div>
           <div id="toggleDarkMode">
-            <button type="button" class="no-style-button" id="header-button">
+            <button
+              type="button"
+              class="no-style-button header-button"
+              id="dark-mode-button"
+            >
               <img
                 src="https://cdn-icons-png.flaticon.com/128/606/606795.png"
                 alt="toggle dark mode"
+                class="icon"
               />
             </button>
           </div>
@@ -25,32 +38,40 @@
         <div>
           <ul>
             <li>
-              <button class="nav" id="header-button" type="button">
+              <button class="header-button" type="button">
                 <a href="/">Home</a>
               </button>
             </li>
             <li>
-              <button class="nav" id="header-button" type="button">
+              <button class="header-button" type="button">
                 <a href="/about.html"> About Us </a>
               </button>
             </li>
             <li>
-              <button class="nav" id="header-button" type="button">
+              <button class="header-button" type="button">
                 <a href="/register.html"> Get Started </a>
               </button>
             </li>
             <li>
-              <button class="nav profile" id="header-button" type="button">
-                <a href="/account.html"
-                  ><img
+              <button
+                class="header-button no-style-button"
+                type="button"
+                id="profile"
+              >
+                <a href="account.html" id="profile-a">
+                  <img
                     src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
                     alt="profile"
-                /></a>
+                    class="icon"
+                  />
+                </a>
               </button>
             </li>
           </ul>
         </div>
       </div>
+      <div class="content"></div>
     </div>
+    <div class="fullSize"></div>
   </body>
 </html>
