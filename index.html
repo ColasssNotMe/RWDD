@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RWDD assignment</title>
     <script src="script.js"></script>
+    <link rel="shortcut icon" href="favicon/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -15,7 +16,7 @@
             <a href="/index.html">
               <img
                 id="logo"
-                src="htt  ps://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P6Ynrv63gaeIP-B8lCdRYAHaBi%26pid%3DApi%26h%3D160&f=1&ipt=092c2d1bf8cf8e19f3bd1fba39d29d6d1f22fbf94c3cebe4881c13699de54f15&ipo=images"
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P6Ynrv63gaeIP-B8lCdRYAHaBi%26pid%3DApi%26h%3D160&f=1&ipt=092c2d1bf8cf8e19f3bd1fba39d29d6d1f22fbf94c3cebe4881c13699de54f15&ipo=images"
                 alt="logo"
               />
             </a>
@@ -38,23 +39,23 @@
         <div>
           <ul>
             <li>
-              <button class="header-button" type="button">
+              <button class="header-button hidden-sm" type="button">
                 <a href="/">Home</a>
               </button>
             </li>
             <li>
-              <button class="header-button" type="button">
+              <button class="header-button hidden-sm" type="button">
                 <a href="/about.html"> About Us </a>
               </button>
             </li>
             <li>
-              <button class="header-button" type="button">
+              <button class="header-button hidden-sm" type="button">
                 <a href="/register.html"> Get Started </a>
               </button>
             </li>
             <li>
               <button
-                class="header-button no-style-button"
+                class="header-button no-style-button hidden-sm"
                 type="button"
                 id="profile"
               >
@@ -62,7 +63,7 @@
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
                     alt="profile"
-                    class="icon"
+                    class="icon hidden-sm"
                   />
                 </a>
               </button>
@@ -70,8 +71,24 @@
           </ul>
         </div>
       </div>
-      <div class="content">Test</div>
+      <div class="content">
+        <div id="small-container">
+          <div class="box-center" id="website-name">Website Names</div>
+          <div class="box-center">
+            <button type="button" class="button large-button home-large-button">
+              Get Started
+            </button>
+            <button type="button" class="button large-button home-large-button">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="fullSize"></div>
+    <div class="fullSize">
+      <div class="box-center" id="how-it-works">
+        <div>How It Works?</div>
+      </div>
+    </div>
   </body>
 </html>
