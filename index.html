@@ -11,36 +11,37 @@
     <div class="container">
       <header>
         <div class="left-side">
-          <div>
-            <a href="/index.html">
-              <!-- add the logo img with name -->
-              <img
-                id="logo-with-name"
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P6Ynrv63gaeIP-B8lCdRYAHaBi%26pid%3DApi%26h%3D160&f=1&ipt=092c2d1bf8cf8e19f3bd1fba39d29d6d1f22fbf94c3cebe4881c13699de54f15&ipo=images"
-                alt="logo-with-name"
-              />
-            </a>
-
-            <div class="menu" onclick="toggleMenu(this)">
-              <div class="bar1"></div>
-              <div class="bar2"></div>
-              <div class="bar3"></div>
+          <div id="align-left-sm">
+            <div>
+              <a href="/index.html">
+                <!-- add the logo img with name -->
+                <img
+                  id="logo-with-name"
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P6Ynrv63gaeIP-B8lCdRYAHaBi%26pid%3DApi%26h%3D160&f=1&ipt=092c2d1bf8cf8e19f3bd1fba39d29d6d1f22fbf94c3cebe4881c13699de54f15&ipo=images"
+                  alt="logo-with-name"
+                />
+              </a>
+            </div>
+            <div id="toggleDarkMode">
+              <button
+                type="button"
+                class="no-style-button header-button"
+                id="dark-mode-button"
+                onclick="switchTheme()"
+              >
+                <img
+                  src="/res/img/moon.png"
+                  alt="toggle dark mode"
+                  class="icon"
+                  id="themeIcon"
+                />
+              </button>
             </div>
           </div>
-          <div id="toggleDarkMode">
-            <button
-              type="button"
-              class="no-style-button header-button"
-              id="dark-mode-button"
-              onclick="switchTheme()"
-            >
-              <img
-                src="/res/img/moon.png"
-                alt="toggle dark mode"
-                class="icon"
-                id="themeIcon"
-              />
-            </button>
+          <div class="menu" onclick="toggleMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
           </div>
         </div>
 

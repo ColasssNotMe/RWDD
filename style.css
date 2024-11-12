@@ -92,6 +92,7 @@ button {
   display: flex;
   align-items: center;
   width: 100vw;
+  justify-content: space-between;
 }
 
 /* menu */
@@ -144,6 +145,12 @@ button {
   height: auto;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+#align-left-sm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #profile {
@@ -221,6 +228,10 @@ header {
   border: 1px solid;
   padding: 5px;
   width: 100%;
+}
+
+header [data-theme="dark"] {
+  background-color: var(--background);
 }
 
 .header-button {
@@ -344,10 +355,10 @@ li {
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #dbe6fa;
-    --background: #010309;
-    --primary: #1d56d3;
-    --secondary: #791d11;
-    --accent: #afa518;
+    --dark-text: #dbe6fa;
+    --dark-background: #010309;
+    --dark-primary: #1d56d3;
+    --dark-secondary: #791d11;
+    --dark-accent: #afa518;
   }
 }

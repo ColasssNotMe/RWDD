@@ -12,9 +12,11 @@ function initTheme() {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       deviceTheme = "dark";
       html.setAttribute("data-theme", "dark");
+      themeIcon.src = "res/img/sun.png";
     } else {
       deviceTheme = "light";
       html.setAttribute("data-theme", "light");
+      themeIcon.src = "res/img/moon.png";
     }
   }
 }
@@ -24,11 +26,9 @@ function toggleMenu(x) {
 }
 
 function switchTheme() {
-  html.getAttribute("data-theme") == "light"
-    ? (html.setAttribute("data-theme", "dark"),
-      (themeIcon.src = "res/img/sun.png"),
-      console.log(html.getAttribute("data-themes")))
-    : (html.setAttribute("data-theme", "light"),
-      (themeIcon.src = "res/img/moon.png"),
-      console.log(html.getAttribute("data-themes")));
+  let currentTheme = html.getAttribute("data-theme");
+  let newTheme = currentTheme === "light" ? "dark" : "light";
+  html.setAttribute("data-theme", newTheme);
+  themeIcon.src = newTheme === "dark" ? "res/img/sun.png" : "res/img/moon.png";
+  localStorage.setItem("theme", newTheme);
 }
