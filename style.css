@@ -11,10 +11,21 @@ body {
   overflow-x: hidden;
   height: 100vh;
   width: 100vw;
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
 }
 
-body.dark {
+footer {
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+p {
+  font-size: 18px;
+}
+
+body[data-theme="dark"] {
   margin: 0;
   overflow-x: hidden;
   height: 100%;
@@ -30,7 +41,7 @@ body.dark {
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: purple;
+  /* background-color: purple; */
 }
 
 .content {
@@ -43,7 +54,7 @@ body.dark {
 }
 
 .fullSize {
-  background-color: pink;
+  /* background-color: pink; */
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -80,8 +91,38 @@ button {
 .left-side {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100vw;
+}
+
+/* menu */
+.menu {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
 }
 
 #small-container {
@@ -99,6 +140,10 @@ button {
   width: 100px;
   height: 100px;
   border: 1px solid;
+  flex-grow: 1;
+  height: auto;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #profile {
@@ -108,14 +153,28 @@ button {
   text-decoration: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+}
+
+#how-it-works-title {
+  font-size: 24px;
+  align-self: left;
+  justify-content: left;
+  margin-bottom: 10px;
 }
 
 #profile-a {
   display: flex;
 }
 
+#description {
+  font-size: 20px;
+  padding: 20px;
+}
+
 #website-name {
+  font-size: 30px;
+  text-align: center;
   padding: 100px;
   margin-bottom: 50px;
   border: 1px solid #d0bbd0;
@@ -141,7 +200,7 @@ a {
   background-color: transparent;
 }
 
-body.dark a {
+body[data-theme="dark"] a {
   color: white;
 }
 
@@ -155,12 +214,12 @@ ul {
   font-size: 12px;
 }
 
-.header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid;
-  /* align-self: center; */
+  padding: 5px;
   width: 100%;
 }
 
@@ -200,12 +259,21 @@ ul {
   border: none;
 }
 
+#footer-list {
+  gap: 10px;
+}
+
+#logo-with-name {
+  width: auto;
+  height: 20px;
+}
+
 #logo {
   /* padding-right: 20px; */
   margin-left: 2px;
   height: 10px;
   border: 1px solid;
-  width: 150px;
+  width: 10px;
   height: auto;
   margin-right: 2px;
   align-items: center;
@@ -262,5 +330,24 @@ li {
   .icon {
     width: 30px;
     height: 30px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #050f23;
+    --background: #f7f9fe;
+    --primary: #2c65e2;
+    --secondary: #ee9185;
+    --accent: #e7dd52;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #dbe6fa;
+    --background: #010309;
+    --primary: #1d56d3;
+    --secondary: #791d11;
+    --accent: #afa518;
   }
 }

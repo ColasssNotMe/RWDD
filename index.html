@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="" ="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RWDD assignment</title>
-    <script src="script.js"></script>
+    <title>Quizzation</title>
     <link rel="shortcut icon" href="favicon/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <div class="header">
+      <header>
         <div class="left-side">
           <div>
             <a href="/index.html">
+              <!-- add the logo img with name -->
               <img
-                id="logo"
+                id="logo-with-name"
                 src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P6Ynrv63gaeIP-B8lCdRYAHaBi%26pid%3DApi%26h%3D160&f=1&ipt=092c2d1bf8cf8e19f3bd1fba39d29d6d1f22fbf94c3cebe4881c13699de54f15&ipo=images"
-                alt="logo"
+                alt="logo-with-name"
               />
             </a>
+
+            <div class="menu" onclick="toggleMenu(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
           </div>
           <div id="toggleDarkMode">
             <button
               type="button"
               class="no-style-button header-button"
               id="dark-mode-button"
+              onclick="switchTheme()"
             >
               <img
-                src="https://cdn-icons-png.flaticon.com/128/606/606795.png"
+                src="/res/img/moon.png"
                 alt="toggle dark mode"
                 class="icon"
+                id="themeIcon"
               />
             </button>
           </div>
@@ -45,12 +53,12 @@
             </li>
             <li>
               <button class="header-button hidden-sm" type="button">
-                <a href="/about.html"> About Us </a>
+                <a href="/about.html">About Us</a>
               </button>
             </li>
             <li>
               <button class="header-button hidden-sm" type="button">
-                <a href="/register.html"> Get Started </a>
+                <a href="/register.html">Get Started</a>
               </button>
             </li>
             <li>
@@ -70,10 +78,18 @@
             </li>
           </ul>
         </div>
-      </div>
+      </header>
       <div class="content">
         <div id="small-container">
-          <div class="box-center" id="website-name">Website Names</div>
+          <div>
+            <div class="box-center" id="website-name">
+              Welcome to Quizzation
+              <div id="description">
+                Test your knowledge with our engaging and interactive quizzes.
+                Start learning today!
+              </div>
+            </div>
+          </div>
           <div class="box-center">
             <button type="button" class="button large-button home-large-button">
               Get Started
@@ -86,9 +102,34 @@
       </div>
     </div>
     <div class="fullSize">
-      <div class="box-center" id="how-it-works">
-        <div>How It Works?</div>
+      <div id="how-it-works">
+        <div id="how-it-works-title">How It Works?</div>
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
       </div>
     </div>
+    <footer>
+      <img
+        src="/res/img/generate_a_logo_that_are_related_to_quiz_webapp_-removebg.png"
+        alt="logo"
+        id="logo"
+      />
+      <ul id="footer-list">
+        <li><a href="/teacherPortal.html"></a>Teacher's Portal</li>
+        <li><a href="/about.html"></a>About Us</li>
+        <li><a href="/tnc.html"></a>Terms and Services</li>
+        <li><a href="/privacy.html"></a>Privacy Policy</li>
+      </ul>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
