@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="" ="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,8 +17,9 @@
                 <!-- add the logo img with name -->
                 <img
                   id="logo-with-name"
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P6Ynrv63gaeIP-B8lCdRYAHaBi%26pid%3DApi%26h%3D160&f=1&ipt=092c2d1bf8cf8e19f3bd1fba39d29d6d1f22fbf94c3cebe4881c13699de54f15&ipo=images"
+                  src="/res/img/Quizzation.png"
                   alt="logo-with-name"
+                  class="hidden-sm"
                 />
               </a>
             </div>
@@ -38,44 +39,40 @@
               </button>
             </div>
           </div>
+          <div id="temp-middle-logo">
+            <a href="/index.html">
+              <img
+                id="logo-middle-sm"
+                src="/res/img/Quizzation.png"
+                alt="logo-with-name"
+              />
+            </a>
+          </div>
           <div class="menu" onclick="toggleMenu(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
           </div>
         </div>
-
-        <div>
+        <div id="nav-button">
           <ul>
             <li>
-              <button class="header-button hidden-sm" type="button">
-                <a href="/">Home</a>
-              </button>
+              <a href="/" class="header-button">Home</a>
             </li>
             <li>
-              <button class="header-button hidden-sm" type="button">
-                <a href="/about.html">About Us</a>
-              </button>
+              <a href="/about.html" class="header-button">About Us</a>
             </li>
             <li>
-              <button class="header-button hidden-sm" type="button">
-                <a href="/register.html">Get Started</a>
-              </button>
+              <a href="/register.html" class="header-button">Get Started</a>
             </li>
             <li>
-              <button
-                class="header-button no-style-button hidden-sm"
-                type="button"
-                id="profile"
-              >
-                <a href="account.html" id="profile-a">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
-                    alt="profile"
-                    class="icon hidden-sm"
-                  />
-                </a>
-              </button>
+              <a href="account.html" class="header-button" id="profile-a">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
+                  alt="profile"
+                  class="icon"
+                />
+              </a>
             </li>
           </ul>
         </div>
@@ -87,24 +84,22 @@
               Welcome to Quizzation
               <div id="description">
                 Test your knowledge with our engaging and interactive quizzes.
-                Start learning today!
+                <br />
+                <b id="start-learning-today">Start learning today!</b>
               </div>
             </div>
           </div>
           <div class="box-center">
-            <button type="button" class="button large-button home-large-button">
-              Get Started
-            </button>
-            <button type="button" class="button large-button home-large-button">
-              Learn More
-            </button>
+            <a href="/select-form.html" class="large-button">Get Started</a>
+            <!-- TODO: scroll to bottom -->
+            <a href="" class="large-button">Learn More</a>
           </div>
         </div>
       </div>
     </div>
     <div class="fullSize">
       <div id="how-it-works">
-        <div id="how-it-works-title">How It Works?</div>
+        <div id="how-it-works-title"><b>How It Works?</b></div>
         <div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -125,10 +120,10 @@
         id="logo"
       />
       <ul id="footer-list">
-        <li><a href="/teacherPortal.html"></a>Teacher's Portal</li>
-        <li><a href="/about.html"></a>About Us</li>
-        <li><a href="/tnc.html"></a>Terms and Services</li>
-        <li><a href="/privacy.html"></a>Privacy Policy</li>
+        <li><a href="/teacher-portal.html">Teacher's Portal</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/tnc.html">Terms and Services</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
       </ul>
     </footer>
     <script src="script.js"></script>
