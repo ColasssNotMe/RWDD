@@ -8,17 +8,20 @@ const logoWithName = document.getElementById("logo-with-name");
 const middleLogo = document.getElementById("logo-middle-sm");
 const profileIcon = document.getElementById("profile-icon");
 
+var currentTheme;
 var deviceTheme;
-var theme;
 var form;
 initTheme();
 
 function initTheme() {
   const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    body.classList.add("dark-mode");
-  }
   if (savedTheme == "dark") {
+    currentTheme = "dark";
+    // body.classList.add("dark-mode");
+  } else {
+    currentTheme = "light";
+  }
+  if (currentTheme == "dark") {
     themeIcon.src = "/res/img/sun.png";
     logoWithName.src = "/res/img/Quizzation-white.png";
     profileIcon.src = "/res/img/userlight.png";
@@ -36,11 +39,17 @@ function toggleMenu(x) {
 }
 
 function switchTheme() {
-  body.classList.toggle("dark-mode");
-  const isDarkMode = body.classList.contains("dark-mode");
-  theme = isDarkMode ? "dark" : "light";
-  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-  if (theme == "dark") {
+  if (root.classList.contains("light")) {
+    currentTheme = "dark";
+    console.log("switched to dark");
+  } else {
+    currentTheme = "light";
+    console.log("switched to light");
+  }
+
+  // const isDarkMode = body.classList.contains("dark-mode");
+  localStorage.setItem("theme", currentTheme);
+  if (currentTheme == "dark") {
     themeIcon.src = "/res/img/sun.png";
     logoWithName.src = "/res/img/Quizzation-white.png";
     profileIcon.src = "/res/img/userlight.png";
@@ -52,7 +61,8 @@ function switchTheme() {
     middleLogo.src = "/res/img/Quizzation.png";
   }
 
-  console.log("Theme switched to:", isDarkMode ? "dark" : "light");
+  console.log("Theme switched to:", currentTheme);
+  console.log(localStorage.getItem("theme"));
 }
 
 function setForm(int) {

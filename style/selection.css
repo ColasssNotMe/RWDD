@@ -50,7 +50,3 @@
     grid-template-rows: auto auto;
   }
 }
-
-body {
-  background-color: light-dark(#ffffff, #ffffff);
-}

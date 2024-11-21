@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light dark;
+
   /* light */
   --text: #050f23;
   --background: #f7f9fe;
@@ -394,24 +396,17 @@ li {
 }
 /* color */
 body {
-  background-color: var(--background);
-  color: var(--text);
-}
-
-body.dark-mode {
-  background-color: var(--dark-background);
-  color: var(--dark-text);
+  background-color: light-dark(var(--background), var(--dark-background));
+  color: light-dark(var(--text), var(--dark-text));
 }
 
 header {
-  background-color: var(--header-background);
-  color: var(--text);
+  background-color: light-dark(
+    var(--header-background),
+    var(--dark-header-background)
+  );
+  color: light-dark(var(--text), var(--dark-text));
   transition: background-color 0.5s, color 0.5s;
-}
-
-body.dark-mode header {
-  background-color: var(--dark-header-background);
-  color: var(--dark-text);
 }
 
 .header-button {
