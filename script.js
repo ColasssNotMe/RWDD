@@ -5,10 +5,12 @@ const themeIcon = document.getElementById("themeIcon");
 const html = document.documentElement;
 const body = document.body;
 const logoWithName = document.getElementById("logo-with-name");
+const middleLogo = document.getElementById("logo-middle-sm");
 const profileIcon = document.getElementById("profile-icon");
 
 var deviceTheme;
 var theme;
+var form;
 initTheme();
 
 function initTheme() {
@@ -20,10 +22,12 @@ function initTheme() {
     themeIcon.src = "/res/img/sun.png";
     logoWithName.src = "/res/img/Quizzation-white.png";
     profileIcon.src = "/res/img/userlight.png";
+    middleLogo.src = "/res/img/Quizzation-white.png";
   } else {
     themeIcon.src = "/res/img/moon.png";
     logoWithName.src = "/res/img/Quizzation.png";
     profileIcon.src = "/res/img/user.png";
+    middleLogo.src = "/res/img/Quizzation.png";
   }
 }
 
@@ -40,13 +44,19 @@ function switchTheme() {
     themeIcon.src = "/res/img/sun.png";
     logoWithName.src = "/res/img/Quizzation-white.png";
     profileIcon.src = "/res/img/userlight.png";
+    middleLogo.src = "/res/img/Quizzation-white.png";
   } else {
     themeIcon.src = "/res/img/moon.png";
     logoWithName.src = "/res/img/Quizzation.png";
     profileIcon.src = "/res/img/user.png";
+    middleLogo.src = "/res/img/Quizzation.png";
   }
 
   console.log("Theme switched to:", isDarkMode ? "dark" : "light");
+}
+
+function setForm(int) {
+  form = int;
 }
 
 // darkButton.addEventListener("click", switchTheme);
