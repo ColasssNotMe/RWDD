@@ -406,7 +406,7 @@ body.dark-mode {
 header {
   background-color: var(--header-background);
   color: var(--text);
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 body.dark-mode header {

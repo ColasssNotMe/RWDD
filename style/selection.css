@@ -1,3 +1,23 @@
+:root {
+  /* light */
+  --text: #050f23;
+  --background: #f7f9fe;
+  --header-background: #efebeb;
+  --primary: #2c65e2;
+  --secondary: #ee9185;
+  --accent: #e7dd52;
+  /* dark */
+  --dark-text: #dbe6fa;
+  --dark-background: #010309;
+  --dark-header-background: #252525;
+  --dark-primary: #1d56d3;
+  --dark-secondary: #791d11;
+  --dark-accent: #afa518;
+  /* universal */
+  --hover: rgba(0, 0, 0, 0.159);
+  --dark-hover: rgba(255, 255, 255, 0.329);
+}
+
 .selection-body {
   height: 100svh;
   display: flex;
@@ -10,17 +30,15 @@
   display: grid;
   width: 100%;
   justify-content: space-evenly;
+  grid-template-columns: auto auto;
   row-gap: 20px;
   /* column-gap: 200px; */
 }
 
-.selection > a {
-  /* flex: 1 1 0; */
+.selection > button {
   width: 200px;
   height: 100px;
   padding: 50px;
-  /* background: red; */
-  border: 1px solid brown;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 10px;
@@ -29,6 +47,21 @@
   align-items: center;
   display: flex;
   border-radius: 0.6rem;
+  border-style: none;
+  cursor: pointer;
+}
+
+#confirmation-button {
+  padding: 10px 20px;
+  width: fit-content;
+  border-style: none;
+}
+
+#button-div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 @media (min-width: 768px) {
@@ -36,7 +69,7 @@
     height: 100%;
   }
   .selection {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
   }
 }
@@ -46,11 +79,34 @@
     height: 100%;
   }
   .selection {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto;
   }
 }
 
-body {
-  background-color: light-dark(#ffffff, #ffffff);
+/* Color */
+
+#confirmation-button {
+  background-color: var(--background);
+  transition: background-color 0.3s ease-in-out;
+}
+
+#confirmation-button:hover {
+  background-color: var(--hover);
+}
+
+body.dark-mode #confirmation-button {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+  border: 2px solid gray;
+  transition: background-color 0.3s ease-in-out;
+}
+body.dark-mode #confirmation-button:hover {
+  background-color: var(--dark-hover);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.selected {
+  border: 2px solid gray;
+  background-color: red;
 }
