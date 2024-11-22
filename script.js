@@ -7,11 +7,11 @@ const body = document.body;
 const logoWithName = document.getElementById("logo-with-name");
 const middleLogo = document.getElementById("logo-middle-sm");
 const profileIcon = document.getElementById("profile-icon");
-const subjectButton = document.getElementsByClassName("subject-button");
+const selectedForm = document.getElementsByClassName("form-button");
 
+var form = [];
 var deviceTheme;
 var theme;
-var form;
 var subjectSelected;
 initTheme();
 
@@ -57,9 +57,16 @@ function switchTheme() {
   console.log("Theme switched to:", isDarkMode ? "dark" : "light");
 }
 
-function addForm(int) {
-  form.add(int);
-  subjectButton.classList.toggle("selected");
+function addForm(event, formSelected) {
+  const button = event.target;
+  index = form.indexOf(formSelected);
+  if (index !== -1) {
+    form.splice(index, 1);
+  } else {
+    form.push(formSelected);
+  }
+  console.log(form);
+  button.classList.toggle("selected");
 }
 function setSubject(subject) {
   subjectSelected = subject;

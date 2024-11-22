@@ -21,7 +21,6 @@
 .selection-body {
   height: 100svh;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.173);
   flex-direction: column;
   height: fit-content;
 }
@@ -55,6 +54,7 @@
   padding: 10px 20px;
   width: fit-content;
   border-style: none;
+  cursor: pointer;
 }
 
 #button-div {
@@ -109,4 +109,11 @@ body.dark-mode #confirmation-button:hover {
 .selected {
   border: 2px solid gray;
   background-color: red;
+}
+
+.selection-body {
+  background-color: var(--background);
+}
+body.dark-mode .selection-body {
+  background-color: var(--dark-background);
 }
