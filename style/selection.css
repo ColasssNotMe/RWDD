@@ -31,6 +31,7 @@
   justify-content: space-evenly;
   grid-template-columns: auto auto;
   row-gap: 20px;
+  margin-top: 30px;
   /* column-gap: 200px; */
 }
 
@@ -50,11 +51,24 @@
   cursor: pointer;
 }
 
-#confirmation-button {
+.confirmation-button {
   padding: 10px 20px;
   width: fit-content;
-  border-style: none;
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
   cursor: pointer;
+}
+
+.subject-button {
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  width: 180px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 #button-div {
@@ -86,22 +100,22 @@
 
 /* Color */
 
-#confirmation-button {
+.confirmation-button {
   background-color: var(--background);
   transition: background-color 0.3s ease-in-out;
 }
 
-#confirmation-button:hover {
+.confirmation-button:hover {
   background-color: var(--hover);
 }
 
-body.dark-mode #confirmation-button {
+body.dark-mode .confirmation-button {
   background-color: var(--dark-background);
   color: var(--dark-text);
   border: 2px solid gray;
   transition: background-color 0.3s ease-in-out;
 }
-body.dark-mode #confirmation-button:hover {
+body.dark-mode .confirmation-button:hover {
   background-color: var(--dark-hover);
   transition: background-color 0.3s ease-in-out;
 }
@@ -115,5 +129,13 @@ body.dark-mode #confirmation-button:hover {
   background-color: var(--background);
 }
 body.dark-mode .selection-body {
+  background-color: var(--dark-background);
+}
+
+.subject-button {
+  background-color: var(--background);
+}
+
+body.dark-mode .subject-button {
   background-color: var(--dark-background);
 }

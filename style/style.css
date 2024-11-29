@@ -151,11 +151,9 @@ button {
   height: auto;
   margin-left: 20px;
   margin-right: 20px;
-  align-items: start;
-  justify-content: start;
+  align-content: center;
   flex-grow: 1;
   flex-direction: column;
-  justify-content: start;
 }
 
 #align-left-sm {
@@ -174,9 +172,8 @@ button {
   /* align-items: center; */
 /* } */
 #how-it-works-title {
-  font-size: 24px;
-  align-self: left;
-  justify-content: left;
+  text-align: center;
+  font-size: 30px;
   margin-bottom: 50px;
 }
 
@@ -200,6 +197,12 @@ button {
   height: 50px;
   justify-content: center;
   align-items: center;
+}
+
+.paragraph {
+  border: 2px solid;
+  padding: 50px 20px;
+  border-radius: 1.5rem;
 }
 
 .icon {
@@ -403,6 +406,7 @@ li {
 body {
   background-color: var(--background);
   color: var(--text);
+  transition: background-color 0.2s, color 0.3s;
 }
 
 body.dark-mode {
@@ -439,6 +443,7 @@ body.dark-mode .header-button {
 
 footer {
   background-color: var(--header-background);
+  transition: background-color 0.3s;
 }
 
 body.dark-mode footer {
