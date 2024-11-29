@@ -51,7 +51,7 @@ p {
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* set the height of the container to the full viewport height */
+  height: 100vh;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -59,7 +59,7 @@ p {
 
 .content {
   display: flex;
-  flex-grow: 1; /* allow the content to grow and take up the remaining space */
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -278,6 +278,9 @@ header {
 .no-style-button {
   background-color: transparent;
 }
+
+
+
 
 #footer-list {
   flex: 1 1 0;

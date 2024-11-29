@@ -72,4 +72,3 @@ function setSubject(subject) {
   subjectSelected = subject;
 }
 
-// darkButton.addEventListener("click", switchTheme);
