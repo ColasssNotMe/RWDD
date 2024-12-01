@@ -37,6 +37,13 @@ h1 {
   transform: translateX(-50%);
   margin-top: 40px;
 }
+h3 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}
 
 @media (min-width: 768px) {
   .form-container {
