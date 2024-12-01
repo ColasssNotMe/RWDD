@@ -279,9 +279,6 @@ header {
   background-color: transparent;
 }
 
-
-
-
 #footer-list {
   flex: 1 1 0;
   gap: 10px;
@@ -412,7 +409,7 @@ body {
   transition: background-color 0.2s, color 0.3s;
 }
 
-body.dark-mode {
+html.dark-mode body {
   background-color: var(--dark-background);
   color: var(--dark-text);
 }
@@ -423,7 +420,7 @@ header {
   transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark-mode header {
+html.dark-mode header {
   background-color: var(--dark-header-background);
   color: var(--dark-text);
 }
@@ -436,11 +433,11 @@ body.dark-mode header {
 .header-button:hover {
   background-color: var(--hover);
 }
-body.dark-mode .header-button:hover {
+html.dark-mode .header-button:hover {
   background-color: var(--dark-hover);
 }
 
-body.dark-mode .header-button {
+html.dark-mode .header-button {
   border-style: none;
 }
 
@@ -449,7 +446,7 @@ footer {
   transition: background-color 0.3s;
 }
 
-body.dark-mode footer {
+html.dark-mode footer {
   background-color: var(--dark-header-background);
 }
 
@@ -458,9 +455,9 @@ body .bar2,
 body .bar3 {
   background-color: black;
 }
-body.dark-mode .bar1,
-body.dark-mode .bar2,
-body.dark-mode .bar3 {
+html.dark-mode .bar1,
+html.dark-mode .bar2,
+html.dark-mode .bar3 {
   background-color: white;
 }
 
@@ -468,6 +465,6 @@ a {
   color: var(--text);
 }
 
-body.dark-mode a {
+html.dark-mode a {
   color: var(--dark-text);
 }

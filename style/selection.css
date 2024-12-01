@@ -68,7 +68,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 #button-div {
@@ -109,13 +108,13 @@
   background-color: var(--hover);
 }
 
-body.dark-mode .confirmation-button {
+html.dark-mode .confirmation-button {
   background-color: var(--dark-background);
   color: var(--dark-text);
   border: 2px solid gray;
   transition: background-color 0.3s ease-in-out;
 }
-body.dark-mode .confirmation-button:hover {
+html.dark-mode .confirmation-button:hover {
   background-color: var(--dark-hover);
   transition: background-color 0.3s ease-in-out;
 }
@@ -128,7 +127,7 @@ body.dark-mode .confirmation-button:hover {
 .selection-body {
   background-color: var(--background);
 }
-body.dark-mode .selection-body {
+html.dark-mode .selection-body {
   background-color: var(--dark-background);
 }
 
@@ -136,6 +135,6 @@ body.dark-mode .selection-body {
   background-color: var(--background);
 }
 
-body.dark-mode .subject-button {
+html.dark-mode .subject-button {
   background-color: var(--dark-background);
 }

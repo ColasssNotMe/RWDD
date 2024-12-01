@@ -13,14 +13,11 @@ var form = [];
 var deviceTheme;
 var theme;
 var subjectSelected;
-initTheme();
+updateIcons();
 
-function initTheme() {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    body.classList.add("dark-mode");
-  }
-  if (savedTheme == "dark") {
+function updateIcons() {
+  const isDarkMode = html.classList.contains("dark-mode");
+  if (isDarkMode) {
     themeIcon.src = "/res/img/sun.png";
     logoWithName.src = "/res/img/Quizzation-white.png";
     profileIcon.src = "/res/img/userlight.png";
@@ -33,13 +30,33 @@ function initTheme() {
   }
 }
 
+// initTheme();
+
+// function initTheme() {
+//   const savedTheme = localStorage.getItem("theme");
+//   if (savedTheme === "dark") {
+//     html.classList.add("dark-mode");
+//   }
+//   if (savedTheme == "dark") {
+//     themeIcon.src = "/res/img/sun.png";
+//     logoWithName.src = "/res/img/Quizzation-white.png";
+//     profileIcon.src = "/res/img/userlight.png";
+//     middleLogo.src = "/res/img/Quizzation-white.png";
+//   } else {
+//     themeIcon.src = "/res/img/moon.png";
+//     logoWithName.src = "/res/img/Quizzation.png";
+//     profileIcon.src = "/res/img/user.png";
+//     middleLogo.src = "/res/img/Quizzation.png";
+//   }
+// }
+
 function toggleMenu(x) {
   x.classList.toggle("change");
 }
 
 function switchTheme() {
-  body.classList.toggle("dark-mode");
-  const isDarkMode = body.classList.contains("dark-mode");
+  html.classList.toggle("dark-mode");
+  const isDarkMode = html.classList.contains("dark-mode");
   theme = isDarkMode ? "dark" : "light";
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   if (theme == "dark") {
@@ -53,8 +70,6 @@ function switchTheme() {
     profileIcon.src = "/res/img/user.png";
     middleLogo.src = "/res/img/Quizzation.png";
   }
-
-  console.log("Theme switched to:", isDarkMode ? "dark" : "light");
 }
 
 function addForm(event, formSelected) {
@@ -71,4 +86,3 @@ function addForm(event, formSelected) {
 function setSubject(subject) {
   subjectSelected = subject;
 }
-
