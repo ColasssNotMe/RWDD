@@ -18,13 +18,6 @@
   --dark-hover: rgba(255, 255, 255, 0.329);
 }
 
-.selection-body {
-  height: 100svh;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-}
-
 .selection {
   display: grid;
   width: 100%;
@@ -34,9 +27,8 @@
   margin-top: 30px;
   /* column-gap: 200px; */
 }
-
 .selection > button {
-  width: 200px;
+  width: 150px;
   height: 100px;
   padding: 50px;
   margin-top: 20px;
@@ -48,6 +40,21 @@
   display: flex;
   border-radius: 0.6rem;
   border-style: none;
+  cursor: pointer;
+}
+
+.selection > a {
+  width: 150px;
+  height: 100px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 0.6rem;
   cursor: pointer;
 }
 
@@ -63,7 +70,7 @@
   border: 1px solid lightgray;
   border-radius: 0.5rem;
   padding: 10px 20px;
-  width: 180px;
+  width: 150px;
   height: 80px;
   display: flex;
   align-items: center;
@@ -78,21 +85,26 @@
 }
 
 @media (min-width: 768px) {
-  .selection-body {
-    height: 100%;
-  }
   .selection {
+    display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
+  }
+  .subject-button {
+    width: 180px;
+  }
+  .selection > button {
+    width: 200px;
+  }
+  .selection > a {
+    width: 200px;
   }
 }
 
 @media (min-width: 1280px) {
-  .selection-body {
-    height: 100%;
-  }
   .selection {
-    grid-template-columns: auto auto auto auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
   }
 }
@@ -131,10 +143,18 @@ html.dark-mode .selection-body {
   background-color: var(--dark-background);
 }
 
-.subject-button {
-  background-color: var(--background);
-}
-
 html.dark-mode .subject-button {
   background-color: var(--dark-background);
+}
+
+#start-now {
+  background-color: lightgreen;
+  border-color: green;
+  color: var(--text);
+  transition: background-color 0.3s ease;
+}
+#start-now:hover {
+  background-color: rgba(2, 160, 2, 0.858);
+  color: var(--dark-text);
+  border-color: rgb(5, 171, 5);
 }

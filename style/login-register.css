@@ -7,7 +7,8 @@
   height: 80%;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid;
+  border-radius: 30px;
 }
 
 form {
@@ -49,4 +50,16 @@ h3 {
   .form-container {
     width: 60%;
   }
+}
+
+@media (min-width: 1280px) {
+}
+
+/* color */
+html.dark-mode .form-container {
+  border-color: rgba(167, 166, 166, 0.316);
+}
+
+.form-container {
+  border-color: rgba(200, 200, 200, 0.305);
 }

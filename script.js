@@ -8,6 +8,10 @@ const logoWithName = document.getElementById("logo-with-name");
 const middleLogo = document.getElementById("logo-middle-sm");
 const profileIcon = document.getElementById("profile-icon");
 const selectedForm = document.getElementsByClassName("form-button");
+const confirmSelectionButton = document.querySelector(".confirmation-button");
+const menuDropdown = document.querySelector(".menu-dropdown");
+const menu = document.querySelector(".menu");
+const svgElement = document.querySelector(".menu-dropdown svg");
 
 var form = [];
 var deviceTheme;
@@ -22,36 +26,28 @@ function updateIcons() {
     logoWithName.src = "/res/img/Quizzation-white.png";
     profileIcon.src = "/res/img/userlight.png";
     middleLogo.src = "/res/img/Quizzation-white.png";
+    svgElement.setAttribute("fill", "#ffffff");
   } else {
     themeIcon.src = "/res/img/moon.png";
     logoWithName.src = "/res/img/Quizzation.png";
     profileIcon.src = "/res/img/user.png";
     middleLogo.src = "/res/img/Quizzation.png";
+    svgElement.setAttribute("fill", "#000000");
   }
 }
 
-// initTheme();
+function checkUserSelection() {
+  if (form.length == 0) {
+    confirmSelectionButton.href = "";
+  } else {
+    confirmSelectionButton.href = "/select-subject.html";
+  }
+  console.log(form.length);
+}
 
-// function initTheme() {
-//   const savedTheme = localStorage.getItem("theme");
-//   if (savedTheme === "dark") {
-//     html.classList.add("dark-mode");
-//   }
-//   if (savedTheme == "dark") {
-//     themeIcon.src = "/res/img/sun.png";
-//     logoWithName.src = "/res/img/Quizzation-white.png";
-//     profileIcon.src = "/res/img/userlight.png";
-//     middleLogo.src = "/res/img/Quizzation-white.png";
-//   } else {
-//     themeIcon.src = "/res/img/moon.png";
-//     logoWithName.src = "/res/img/Quizzation.png";
-//     profileIcon.src = "/res/img/user.png";
-//     middleLogo.src = "/res/img/Quizzation.png";
-//   }
-// }
-
-function toggleMenu(x) {
-  x.classList.toggle("change");
+function toggleMenu() {
+  menu.classList.toggle("change");
+  menuDropdown.classList.toggle("change");
 }
 
 function switchTheme() {
@@ -64,11 +60,13 @@ function switchTheme() {
     logoWithName.src = "/res/img/Quizzation-white.png";
     profileIcon.src = "/res/img/userlight.png";
     middleLogo.src = "/res/img/Quizzation-white.png";
+    svgElement.setAttribute("fill", "#ffffff");
   } else {
     themeIcon.src = "/res/img/moon.png";
     logoWithName.src = "/res/img/Quizzation.png";
     profileIcon.src = "/res/img/user.png";
     middleLogo.src = "/res/img/Quizzation.png";
+    svgElement.setAttribute("fill", "#000000");
   }
 }
 
@@ -80,9 +78,17 @@ function addForm(event, formSelected) {
   } else {
     form.push(formSelected);
   }
+  checkUserSelection();
   console.log(form);
   button.classList.toggle("selected");
 }
-function setSubject(subject) {
-  subjectSelected = subject;
+
+function setSubject(event, subject) {
+  const target = event.target;
+  if (subjectSelected == null) {
+    subjectSelected = subject;
+    target.classList.toggle("selected");
+  } else {
+    subjectSelected.classList.toggle("selected");
+  }
 }
