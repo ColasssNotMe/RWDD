@@ -1,5 +1,28 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
 
+/* Base font size for the entire document */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem; /* 16px */
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Phone view */
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 :root {
   /* light */
   --text: #050f23;
@@ -8,6 +31,7 @@
   --primary: #2c65e2;
   --secondary: #ee9185;
   --accent: #e7dd52;
+  --button-background: #3534345c;
   /* dark */
   --dark-text: #dbe6fa;
   --dark-background: #010309;
@@ -15,9 +39,10 @@
   --dark-primary: #1d56d3;
   --dark-secondary: #791d11;
   --dark-accent: #afa518;
+  --dark-button-background: #ffffff60;
   /* universal */
-  --hover: rgba(0, 0, 0, 0.159);
-  --dark-hover: rgba(255, 255, 255, 0.329);
+  --hover: rgba(0, 0, 0);
+  --dark-hover: rgba(255, 255, 255);
 }
 
 /* DEBUG */
@@ -57,16 +82,6 @@ body {
   margin-top: 0px;
 }
 
-#website-name {
-  font-size: 30px;
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 50px;
-  border-radius: 10px;
-  height: 50px;
-  justify-content: center;
-  align-items: center;
-}
 
 footer {
   align-items: center;

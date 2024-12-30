@@ -50,6 +50,17 @@ p {
   gap: 50px;
 }
 
+#website-name {
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
 #how-it-works {
   width: 100vw;
   height: 100%;
