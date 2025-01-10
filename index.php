@@ -127,7 +127,6 @@
           </div>
           <div id="box-center">
             <a href="/select-form.html" class="large-button">Get Started</a>
-            <!-- TODO: make the button pressed will scroll to bottom -->
             <button
               onclick="document.getElementById('how-it-works').scrollIntoView()"
               class="large-button"
