@@ -92,3 +92,10 @@ function setSubject(event, subject) {
     subjectSelected.classList.toggle("selected");
   }
 }
+
+function getReq() {
+  $.ajax({
+    type: "GET",
+    data: { form: selectedForm, subject: subjectSelected },
+  });
+}
