@@ -91,22 +91,6 @@ p {
   border-radius: 1.5rem;
 }
 
-li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-ul {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: flex;
-  /* gap: 10px; */
-  justify-content: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 12px;
-}
-
 #start-learning-today {
   margin-top: 100px;
 }
@@ -123,15 +107,6 @@ ul {
 }
 
 @media (min-width: 768px) {
-  ul {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    gap: 20px;
-    justify-content: end;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
-  }
 
   #box-center {
     display: flex;
@@ -145,7 +120,4 @@ ul {
 }
 
 @media (min-width: 1280px) {
-  ul {
-    font-size: 22px;
-  }
 }

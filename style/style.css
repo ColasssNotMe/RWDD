@@ -42,9 +42,9 @@ body {
   --dark-button-background: #ffffff60;
   /* universal */
   --hover: rgba(0, 0, 0);
-  --hover-text:black;
+  --hover-text: black;
   --dark-hover: rgba(255, 255, 255);
-  --dark-hover-text:white;
+  --dark-hover-text: white;
 }
 
 /* DEBUG */
@@ -126,7 +126,6 @@ button {
   transition: right 0.3s;
   align-items: flex-start;
 }
-
 
 html.dark-mode .menu-dropdown {
   box-shadow: -10px 0 10px rgba(255, 255, 255, 0.25);
@@ -248,10 +247,6 @@ header {
   align-items: center;
 }
 
-li {
-  list-style-type: none;
-}
-
 @media (min-width: 768px) {
   header {
     position: initial;
@@ -259,11 +254,23 @@ li {
 
   #nav-button > ul {
     display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
   }
-  #nav-button >ul >li{
-  padding: 0 5px;
+  #nav-button > ul > li {
+    padding: 0 5px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
+
+
   .header-button {
     display: flex;
     width: 100px;
@@ -381,7 +388,7 @@ html.dark-mode header {
 
 .header-button:hover {
   background-color: var(--hover);
- color: var(--dark-text); 
+  color: var(--dark-text);
 }
 html.dark-mode .header-button:hover {
   background-color: var(--dark-hover);

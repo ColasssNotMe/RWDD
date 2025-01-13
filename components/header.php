@@ -3,10 +3,8 @@ require 'navigation.php';
 ?>
 
 
-
-
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="index.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
+<!-- <link rel="stylesheet" href="index.css"> -->
 
 <header>
     <div class="left-side">
@@ -91,7 +89,7 @@ require 'navigation.php';
                 <a href="<?php echo $select_form ?>" class="header-button">Get Started</a>
             </li>
             <li>
-                <a href="'<?php echo $account ?>    '" class="header-button" id="profile-a">
+                <a href="<?php echo $account ?>" class="header-button" id="profile-a">
                     <img
                         src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
                         alt="profile"
@@ -101,4 +99,4 @@ require 'navigation.php';
             </li>
         </ul>
     </div>
-</header>;
+</header>
