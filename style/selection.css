@@ -1,3 +1,23 @@
+:root {
+  /* light */
+  --text: #050f23;
+  --background: #f7f9fe;
+  --header-background: #efebeb;
+  --primary: #2c65e2;
+  --secondary: #ee9185;
+  --accent: #e7dd52;
+  /* dark */
+  --dark-text: #dbe6fa;
+  --dark-background: #010309;
+  --dark-header-background: #252525;
+  --dark-primary: #1d56d3;
+  --dark-secondary: #791d11;
+  --dark-accent: #afa518;
+  /* universal */
+  --hover: rgba(0, 0, 0, 0.159);
+  --dark-hover: rgba(255, 255, 255, 0.329);
+}
+
 .selection {
   display: grid;
   width: 100%;
@@ -41,13 +61,13 @@
 .confirmation-button {
   padding: 10px 20px;
   width: fit-content;
-  border: 1px solid rgba(255, 255, 255);
+  border: 1px solid lightgray;
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
 .subject-button {
-  border: 2px solid lightgray;
+  border: 1px solid lightgray;
   border-radius: 0.5rem;
   padding: 10px 20px;
   width: 150px;
@@ -92,12 +112,11 @@
 /* Color */
 
 .confirmation-button {
-  background-color: var(--primary);
+  background-color: var(--background);
   transition: background-color 0.3s ease-in-out;
 }
 
 .confirmation-button:hover {
-  color: var(--dark-text);
   background-color: var(--hover);
 }
 
@@ -105,14 +124,15 @@ html.dark-mode .confirmation-button {
   background-color: var(--dark-background);
   color: var(--dark-text);
   border: 2px solid gray;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
 }
 html.dark-mode .confirmation-button:hover {
   background-color: var(--dark-hover);
-  color: var(--text);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .selected {
+  border: 2px solid gray;
   background-color: red;
 }
 
@@ -123,21 +143,8 @@ html.dark-mode .selection-body {
   background-color: var(--dark-background);
 }
 
-.subject-button {
-  background-color: var(--background);
-}
-
 html.dark-mode .subject-button {
-  background-color: var(--dark-button-background);
-  color: var(--dark-text);
-}
-
-.subject-button:hover {
-  background-color: var(--hover);
-}
-
-html.dark-mode .subject-button:hover {
-  background-color: var(--dark-hover);
+  background-color: var(--dark-background);
 }
 
 #start-now {
