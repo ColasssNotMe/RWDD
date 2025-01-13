@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include("navigation.php"); ?>
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quizzation</title>
-  <link rel="shortcut icon" href="./favicon/icon.ico" type="image/x-icon" />
+  <title>Privacy Policy</title>
   <link rel="stylesheet" href="./style/style.css" />
-  <link rel="stylesheet" href="./style/index.css" />
+  <link rel="stylesheet" href="./style/footer-item.css" />
   <script src="theme.js"></script>
 </head>
 
 <body>
-  <div class="container">
     <header>
       <div class="left-side">
         <div id="align-left-sm">
           <div>
-            <a href=<?php $root ?>>
+            <a href="<?php $root ?>">
               <!-- add the logo img with name -->
               <img
                 id="logo-with-name"
@@ -45,7 +41,7 @@
           <a href=<?php $root ?>>
             <img
               id="logo-middle-sm"
-              src="/res/img/Quizzation.png"
+              src="./res/img/Quizzation.png"
               alt="logo-with-name" />
           </a>
         </div>
@@ -78,27 +74,27 @@
                 </g>
               </svg>
             </div>
-            <a href="/about">About</a>
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/tns.html">Terms and Services</a>
+            <a href="<?php echo $about ?>">About</a>
+            <a href="<?php echo $privacy ?>">Privacy Policy</a>
+            <a href="<?php echo $tns ?>">Terms and Services</a>
             <!-- TODO:DELETE if user is logged in  -->
-            <a href="/login.html">Login</a>
+            <a href="<?php echo $login ?>">Login</a>
           </div>
         </div>
       </div>
       <div id="nav-button">
         <ul>
           <li>
-            <a href="/" class="header-button">Home</a>
+            <a href="./" class="header-button">Home</a>
           </li>
           <li>
-            <a href="/about.html" class="header-button">About Us</a>
+            <a href="<?php echo $about ?>" class="header-button">About Us</a>
           </li>
           <li>
-            <a href="/select-form.html" class="header-button">Get Started</a>
+            <a href="<?php echo $select_form ?>" class="header-button">Get Started</a>
           </li>
           <li>
-            <a href="account.html" class="header-button" id="profile-a">
+            <a href="<?php echo $account ?>" class="header-button" id="profile-a">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
                 alt="profile"
@@ -108,58 +104,31 @@
           </li>
         </ul>
       </div>
-    </header>
-    <div class="content">
-      <div id="small-container">
-        <div>
-          <div id="website-name">
-            Welcome to Quizzation
-            <div id="description">
-              Test your knowledge with our engaging and interactive quizzes.
-              <br />
-              <b id="start-learning-today">Start learning today!</b>
-            </div>
-          </div>
-        </div>
-        <div id="box-center">
-          <a href="/select-form.html" class="large-button">Get Started</a>
-          <button
-            onclick="document.getElementById('how-it-works').scrollIntoView()"
-            class="large-button">
-            Learn More
-          </button>
-        </div>
+</header>
+  <div class="content">
+    <div class="center-container">
+      <h1 class="title">Privacy Policy</h1>
+      <div class="description">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit quis
+        nemo laboriosam fuga aliquid velit deserunt fugit, corporis libero
+        placeat voluptates exercitationem officia quibusdam asperiores minus
+        vel. Amet, suscipit impedit!
       </div>
     </div>
+    <script src="/script.js"></script>
+    <footer>
+      <img
+        src="/res/img/generate_a_logo_that_are_related_to_quiz_webapp_-removebg.png"
+        alt="logo"
+        id="logo" />
+      <ul id="footer-list">
+        <li><a href="/teacher-portal.html">Teacher's Portal</a></li>
+        <li><a href="" <?php $about ?>"">About Us</a></li>
+        <li><a href="/tns.html">Terms and Services</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </footer>
   </div>
-  <div class="fullSize">
-    <div id="how-it-works">
-      <div class="paragraph">
-        <div id="how-it-works-title"><b>How It Works?</b></div>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure,
-            totam enim facilis in perferendis deserunt, et quasi dolores animi
-            consectetur possimus, maxime corporis. Ratione vel itaque numquam
-            impedit ex dicta.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <img
-      src="/res/img/generate_a_logo_that_are_related_to_quiz_webapp_-removebg.png"
-      alt="logo"
-      id="logo" />
-    <ul id="footer-list">
-      <li><a href="/teacher-portal.html">Teacher's Portal</a></li>
-      <li><a href="/about.html">About Us</a></li>
-      <li><a href="/tns.html">Terms and Services</a></li>
-      <li><a href="/privacy.html">Privacy Policy</a></li>
-    </ul>
-  </footer>
-  <script src="script.js"></script>
 </body>
 
 </html>

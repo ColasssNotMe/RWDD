@@ -22,16 +22,16 @@ updateIcons();
 function updateIcons() {
   const isDarkMode = html.classList.contains("dark-mode");
   if (isDarkMode) {
-    themeIcon.src = "/res/img/sun.png";
-    logoWithName.src = "/res/img/Quizzation-white.png";
-    profileIcon.src = "/res/img/userlight.png";
-    middleLogo.src = "/res/img/Quizzation-white.png";
+    themeIcon.src = "./res/img/sun.png";
+    logoWithName.src = "./res/img/Quizzation-white.png";
+    profileIcon.src = "./res/img/userlight.png";
+    middleLogo.src = "./res/img/Quizzation-white.png";
     svgElement.setAttribute("fill", "#ffffff");
   } else {
-    themeIcon.src = "/res/img/moon.png";
-    logoWithName.src = "/res/img/Quizzation.png";
-    profileIcon.src = "/res/img/user.png";
-    middleLogo.src = "/res/img/Quizzation.png";
+    themeIcon.src = "./res/img/moon.png";
+    logoWithName.src = "./res/img/Quizzation.png";
+    profileIcon.src = "./res/img/user.png";
+    middleLogo.src = "./res/img/Quizzation.png";
     svgElement.setAttribute("fill", "#000000");
   }
 }
@@ -40,7 +40,7 @@ function checkUserSelection() {
   if (form.length == 0) {
     confirmSelectionButton.href = "";
   } else {
-    confirmSelectionButton.href = "/select-subject.html";
+    confirmSelectionButton.href = "./select-subject.html";
   }
   console.log(form.length);
 }
@@ -56,16 +56,16 @@ function switchTheme() {
   theme = isDarkMode ? "dark" : "light";
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   if (theme == "dark") {
-    themeIcon.src = "/res/img/sun.png";
-    logoWithName.src = "/res/img/Quizzation-white.png";
-    profileIcon.src = "/res/img/userlight.png";
-    middleLogo.src = "/res/img/Quizzation-white.png";
+    themeIcon.src = "./res/img/sun.png";
+    logoWithName.src = "./res/img/Quizzation-white.png";
+    profileIcon.src = "./res/img/userlight.png";
+    middleLogo.src = "./res/img/Quizzation-white.png";
     svgElement.setAttribute("fill", "#ffffff");
   } else {
-    themeIcon.src = "/res/img/moon.png";
-    logoWithName.src = "/res/img/Quizzation.png";
-    profileIcon.src = "/res/img/user.png";
-    middleLogo.src = "/res/img/Quizzation.png";
+    themeIcon.src = "./res/img/moon.png";
+    logoWithName.src = "./res/img/Quizzation.png";
+    profileIcon.src = "./res/img/user.png";
+    middleLogo.src = "./res/img/Quizzation.png";
     svgElement.setAttribute("fill", "#000000");
   }
 }
