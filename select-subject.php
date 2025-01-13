@@ -57,7 +57,7 @@
           <a href="/" class="header-button">Home</a>
         </li>
         <li>
-          <a href="/about.html" class="header-button">About Us</a>
+          <a href="" <?php $about ?>"" class="header-button">About Us</a>
         </li>
         <li>
           <a href="/register.html" class="header-button">Get Started</a>
