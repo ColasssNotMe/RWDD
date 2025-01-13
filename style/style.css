@@ -42,9 +42,7 @@ body {
   --dark-button-background: #ffffff60;
   /* universal */
   --hover: rgba(0, 0, 0);
-  --hover-text:black;
   --dark-hover: rgba(255, 255, 255);
-  --dark-hover-text:white;
 }
 
 /* DEBUG */
@@ -83,6 +81,7 @@ body {
 .body-without-header {
   margin-top: 0px;
 }
+
 
 footer {
   align-items: center;
@@ -126,7 +125,6 @@ button {
   transition: right 0.3s;
   align-items: flex-start;
 }
-
 
 html.dark-mode .menu-dropdown {
   box-shadow: -10px 0 10px rgba(255, 255, 255, 0.25);
@@ -369,15 +367,12 @@ html.dark-mode header {
 }
 
 .header-button {
-  background-color: var(--background);
-  color: var(--text);
   transition: background-color 0.3s;
   border: none;
 }
 
 .header-button:hover {
   background-color: var(--hover);
- color: var(--dark-text); 
 }
 html.dark-mode .header-button:hover {
   background-color: var(--dark-hover);
