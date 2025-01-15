@@ -12,8 +12,9 @@ switch ($connection) {
         break;
 }
 
+//get random 10 question
 if (isset($_GET['subject'])) {
     $getReq = $_GET[''];
-    $query = 'SELECT * from table where form = $form and subject = $subject';
+    $query = 'SELECT * from table where form = $form and subject = $subject ORDER BY RAND() LIMIT 10';
     $result = mysqli_query($connection, $query);
 }
