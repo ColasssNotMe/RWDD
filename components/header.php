@@ -3,9 +3,6 @@ require 'navigation.php';
 ?>
 
 
-<!-- <link rel="stylesheet" href="style.css"> -->
-<!-- <link rel="stylesheet" href="index.css"> -->
-
 <header>
     <div class="left-side">
         <div id="align-left-sm">

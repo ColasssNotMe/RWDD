@@ -23,7 +23,7 @@
         vel. Amet, suscipit impedit!
       </div>
     </div>
-    <script src="/script.js"></script>
+    <script src="./script.js"></script>
     <?php require_once 'components/footer.php'; ?>
   </div>
 </body>
