@@ -1,5 +1,3 @@
-//TODO: update dark mode reference
-
 const darkButton = document.getElementById("dark-mode-button");
 const themeIcon = document.getElementById("themeIcon");
 const html = document.documentElement;
@@ -106,6 +104,7 @@ function setSubject(event, subject) {
 //   });
 // }
 
+// TODO: test this function
 function getAllQuestion(subjectID, form, numQuestion) {
   fetch(
     "connection.php?subject=" +
@@ -115,4 +114,9 @@ function getAllQuestion(subjectID, form, numQuestion) {
       "numQuestion" +
       numQuestion
   );
+}
+
+// TODO: find a way to ask user about how many question they want to answer
+function startQuiz() {
+  getAllQuestion(subjectID, form, numQuestion);
 }

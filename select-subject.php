@@ -14,10 +14,11 @@
   <?php include_once './components/header.php' ?>
   <div class="content">
     <div id="button-div">
+      <!-- TODO: redirect to the question page -->
       <a
-        href="/select-subject.php"
+        href="/questionPage.php"
         class="confirmation-button"
-        id="start-now">
+        id="start-now" onclick=startQuiz()>
         Start Now
       </a>
     </div>
