@@ -40,7 +40,7 @@ function checkUserSelection() {
   if (form.length == 0) {
     confirmSelectionButton.href = "";
   } else {
-    confirmSelectionButton.href = "./select-subject.html";
+    confirmSelectionButton.href = "./select-subject.php";
   }
   console.log(form.length);
 }
@@ -98,4 +98,15 @@ function getReq() {
     type: "GET",
     data: { form: selectedForm, subject: subjectSelected },
   });
+}
+
+function getAllQuestion(subjectID, form, numQuestion) {
+  fetch(
+    "connection.php?subject=" +
+      subjectID +
+      "form" +
+      form +
+      "numQuestion" +
+      numQuestion
+  );
 }

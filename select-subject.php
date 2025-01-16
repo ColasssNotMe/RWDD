@@ -15,7 +15,7 @@
     <div class="left-side">
       <div id="align-left-sm">
         <div>
-          <a href="/index.html">
+          <a href="/index.php">
             <!-- add the logo img with name -->
             <img
               id="logo-with-name"
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div id="temp-middle-logo">
-        <a href="/index.html">
+        <a href="/index.php">
           <img
             id="logo-middle-sm"
             src="/res/img/Quizzation.png"
@@ -60,10 +60,10 @@
           <a href="" <?php $about ?>"" class="header-button">About Us</a>
         </li>
         <li>
-          <a href="/register.html" class="header-button">Get Started</a>
+          <a href="/register.php" class="header-button">Get Started</a>
         </li>
         <li>
-          <a href="/account.html" class="header-button" id="profile-a">
+          <a href="/account.php" class="header-button" id="profile-a">
             <img
               src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
               alt="profile"
@@ -77,7 +77,7 @@
   <div class="content">
     <div id="button-div">
       <a
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="confirmation-button"
         id="start-now">
         Start Now
@@ -85,73 +85,73 @@
     </div>
     <div class="selection">
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(1)">
         English
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(2)">
         Chinese
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(3)">
         Malay
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(4)">
         Science
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(5)">
         Math
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(6)">
         Add Math
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(7)">
         Biology
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(8)">
         History
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(9)">
         Physic
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(10)">
         Moral
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(11)">
         Economy
       </button>
       <button
-        href="/select-subject.html"
+        href="/select-subject.php"
         class="subject-button"
         onclick="setSubject(12)">
         Account

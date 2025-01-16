@@ -16,7 +16,7 @@
             <div class="left-side">
                 <div id="align-left-sm">
                     <div>
-                        <a href="/index.html">
+                        <a href="/index.php">
                             <!-- add the logo img with name -->
                             <img
                                 id="logo-with-name"
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div id="temp-middle-logo">
-                    <a href="/index.html">
+                    <a href="/index.php">
                         <img
                             id="logo-middle-sm"
                             src="/res/img/Quizzation.png"
@@ -58,13 +58,13 @@
                         <a href="/" class="header-button">Home</a>
                     </li>
                     <li>
-                        <a href="/about.html" class="header-button">About Us</a>
+                        <a href="/about.php" class="header-button">About Us</a>
                     </li>
                     <li>
-                        <a href="/register.html" class="header-button">Get Started</a>
+                        <a href="/register.php" class="header-button">Get Started</a>
                     </li>
                     <li>
-                        <a href="/account.html" class="header-button" id="profile-a">
+                        <a href="/account.php" class="header-button" id="profile-a">
                             <img
                                 src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
                                 alt="profile"

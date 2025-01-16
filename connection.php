@@ -14,7 +14,10 @@ switch ($connection) {
 
 //get random 10 question
 if (isset($_GET['subject'])) {
-    $getReq = $_GET[''];
-    $query = 'SELECT * from table where form = $form and subject = $subject ORDER BY RAND() LIMIT 10';
+    $query = "SELECT * from table where form =$_GET[$form] AND subject =$_GET[$subject] ORDER BY RAND() LIMIT $_GET[$numQuestion]";
     $result = mysqli_query($connection, $query);
+    if (mysqli_num_rows($result) > 0) {
+    } else {
+        echo 'Error occured at getting question';
+    }
 }
