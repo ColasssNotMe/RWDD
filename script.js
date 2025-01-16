@@ -17,6 +17,7 @@ var form = [];
 var deviceTheme;
 var theme;
 var subjectSelected;
+var lastSubjectSelected;
 updateIcons();
 
 function updateIcons() {
@@ -88,17 +89,22 @@ function setSubject(event, subject) {
   if (subjectSelected == null) {
     subjectSelected = subject;
     target.classList.toggle("selected");
+    lastSubjectSelected = target;
   } else {
-    subjectSelected.classList.toggle("selected");
+    // toggle off the last subject selected
+    lastSubjectSelected.classList.toggle("selected");
+    //toggle on current selected subject
+    target.classList.toggle("selected");
+    lastSubjectSelected = target;
   }
 }
 
-function getReq() {
-  $.ajax({
-    type: "GET",
-    data: { form: selectedForm, subject: subjectSelected },
-  });
-}
+// function getReq() {
+//   $.ajax({
+//     type: "GET",
+//     data: { form: selectedForm, subject: subjectSelected },
+//   });
+// }
 
 function getAllQuestion(subjectID, form, numQuestion) {
   fetch(
