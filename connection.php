@@ -15,12 +15,24 @@ switch ($connection) {
         break;
 }
 
+// getting the url param from script.js
+if (isset($_GET['subject']) && isset($_GET['form']) && isset($_GET['numQuestion'])) {
+    echo 'isset runnig';
+    $subject = $_GET['subject'];
+    $form = $_GET['form'];
+    $numQuestion = $_GET['numQuestion'];
+    getQuestion($connection, $form, $subject, $numQuestion);
+    header("Location: index.php");
+    // exit();
+}
+
 // get random request question
 function getQuestion($connection, $form, $subject, $numQuestion)
 {
     $query  = "SELECT * from question where form =$_GET[$form] AND subject =$_GET[$subject] ORDER BY RAND() LIMIT $_GET[$numQuestion]";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
+        echo  'num of row >0';
     } else {
         echo 'Error occured at getting question';
     }
@@ -55,7 +67,7 @@ function addRecord($connection, $score, $timeTaken, $userID, $quizID)
     if (!mysqli_query($connection, $query)) {
         echo "Error inserting data";
     } else {
-        header("Location:result.php");
+        header("Location: result.php");
     }
 }
 
@@ -65,7 +77,7 @@ function deleteRecord($connection, $recordID)
     if (!mysqli_query($connection, $query)) {
         echo "Error deleting data";
     } else {
-        header("Location:result.php");
+        header("Location: result.php");
     }
 }
 
@@ -75,7 +87,7 @@ function addUser($connection, $username, $password, $role)
     if (!mysqli_query($connection, $query)) {
         echo "Error adding user";
     } else {
-        header("Location:index.php");
+        header("Location: index.php");
     }
 }
 
@@ -85,7 +97,7 @@ function deleteUser($connection, $userID)
     if (!mysqli_query($connection, $query)) {
         echo "Error adding user";
     } else {
-        header("Location:index.php");
+        header("Location: index.php");
     }
 }
 

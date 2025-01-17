@@ -14,7 +14,7 @@
 <body>
   <?php require_once 'components/header.php' ?>
   <div class="content">
-    <div class="center-container">
+     <div class="center-container">
       <h1 class="title">About Us</h1>
       <div class="description">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit quis

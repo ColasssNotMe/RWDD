@@ -15,12 +15,11 @@
   <div class="content">
     <div id="button-div">
       <!-- TODO: redirect to the question page -->
-      <a
-        href="/questionPage.php"
+      <button
         class="confirmation-button"
         id="start-now" onclick=startQuiz()>
         Start Now
-      </a>
+      </button>
     </div>
     <div class="selection">
       <button

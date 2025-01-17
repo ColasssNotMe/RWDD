@@ -11,11 +11,13 @@ const menuDropdown = document.querySelector(".menu-dropdown");
 const menu = document.querySelector(".menu");
 const svgElement = document.querySelector(".menu-dropdown svg");
 
-var form = [];
+var formSelected;
+var lastFormSelected;
 var deviceTheme;
 var theme;
 var subjectSelected;
 var lastSubjectSelected;
+var numQuestion = 10;
 updateIcons();
 
 function updateIcons() {
@@ -44,7 +46,7 @@ function updateIcons() {
 }
 
 function checkUserSelection() {
-  if (form.length == 0) {
+  if (form.length == null) {
     confirmSelectionButton.href = "";
   } else {
     confirmSelectionButton.href = "./select-subject.php";
@@ -85,17 +87,19 @@ function switchTheme() {
   }
 }
 
-function addForm(event, formSelected) {
+function addForm(event, form) {
   const button = event.target;
-  index = form.indexOf(formSelected);
-  if (index !== -1) {
-    form.splice(index, 1);
+  if (formSelected == null) {
+    formSelected = form;
+    lastFormSelected = button;
+    button.classList.toggle("selected");
   } else {
-    form.push(formSelected);
+    lastFormSelected.classList.toggle("selected");
+    button.classList.toggle("selected");
+    lastFormSelected = button;
   }
   checkUserSelection();
   console.log(form);
-  button.classList.toggle("selected");
 }
 
 function setSubject(event, subject) {
@@ -122,17 +126,25 @@ function setSubject(event, subject) {
 
 // TODO: test this function
 function getAllQuestion(subjectID, form, numQuestion) {
-  fetch(
-    "connection.php?subject=" +
-      subjectID +
-      "form" +
-      form +
-      "numQuestion" +
-      numQuestion
-  );
+  try {
+    const url = `connection.php?subject=${subjectID}&form=${form}&numQuestion=${numQuestion}`;
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          alert("Fetched");
+        } else {
+          throw new Error("Network response was not ok.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error when fetching:", error);
+      });
+  } catch (error) {
+    "Error: ", error;
+  }
 }
 
 // TODO: find a way to ask user about how many question they want to answer
 function startQuiz() {
-  getAllQuestion(subjectID, form, numQuestion);
+  getAllQuestion(subjectSelected, form, numQuestion);
 }
