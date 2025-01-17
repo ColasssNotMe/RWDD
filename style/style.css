@@ -256,7 +256,6 @@ header {
     justify-content: center;
   }
 
-
   .header-button {
     display: flex;
     width: 100px;
@@ -372,10 +371,11 @@ html.dark-mode header {
 
 .header-button:hover {
   background-color: var(--hover);
- color: var(--dark-text); 
+  color: var(--dark-text);
 }
 html.dark-mode .header-button:hover {
   background-color: var(--dark-hover);
+  color: var(--text);
 }
 
 html.dark-mode .header-button {

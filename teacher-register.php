@@ -15,7 +15,7 @@
     <div class="left-side">
       <div id="align-left-sm">
         <div>
-          <a href="/index.html">
+          <a href="/index.php">
             <!-- add the logo img with name -->
             <img
               id="logo-with-name"
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div id="temp-middle-logo">
-        <a href="/index.html">
+        <a href="/index.php">
           <img
             id="logo-middle-sm"
             src="/res/img/Quizzation.png"
@@ -60,10 +60,10 @@
           <a href="" <?php $about ?>"" class="header-button">About Us</a>
         </li>
         <li>
-          <a href="/select-form.html" class="header-button">Get Started</a>
+          <a href="/select-form.php" class="header-button">Get Started</a>
         </li>
         <li>
-          <a href="account.html" class="header-button" id="profile-a">
+          <a href="account.php" class="header-button" id="profile-a">
             <img
               src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
               alt="profile"
@@ -81,7 +81,7 @@
         <h1>Teacher's Portal</h1>
         <h3>
           Have an account?
-          <i><u><a href="/teacher-portal.html">Log in now</a></u></i>
+          <i><u><a href="/teacher-portal.php">Log in now</a></u></i>
         </h3>
       </div>
 

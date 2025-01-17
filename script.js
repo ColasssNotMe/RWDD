@@ -1,5 +1,3 @@
-//TODO: update dark mode reference
-
 const darkButton = document.getElementById("dark-mode-button");
 const themeIcon = document.getElementById("themeIcon");
 const html = document.documentElement;
@@ -17,6 +15,7 @@ var form = [];
 var deviceTheme;
 var theme;
 var subjectSelected;
+var lastSubjectSelected;
 updateIcons();
 
 function updateIcons() {
@@ -26,8 +25,16 @@ function updateIcons() {
     logoWithName.src = "./res/img/Quizzation-white.png";
     profileIcon.src = "./res/img/userlight.png";
     middleLogo.src = "./res/img/Quizzation-white.png";
+    themeIcon.src = "./res/img/sun.png";
+    logoWithName.src = "./res/img/Quizzation-white.png";
+    profileIcon.src = "./res/img/userlight.png";
+    middleLogo.src = "./res/img/Quizzation-white.png";
     svgElement.setAttribute("fill", "#ffffff");
   } else {
+    themeIcon.src = "./res/img/moon.png";
+    logoWithName.src = "./res/img/Quizzation.png";
+    profileIcon.src = "./res/img/user.png";
+    middleLogo.src = "./res/img/Quizzation.png";
     themeIcon.src = "./res/img/moon.png";
     logoWithName.src = "./res/img/Quizzation.png";
     profileIcon.src = "./res/img/user.png";
@@ -40,7 +47,7 @@ function checkUserSelection() {
   if (form.length == 0) {
     confirmSelectionButton.href = "";
   } else {
-    confirmSelectionButton.href = "./select-subject.html";
+    confirmSelectionButton.href = "./select-subject.php";
   }
   console.log(form.length);
 }
@@ -60,8 +67,16 @@ function switchTheme() {
     logoWithName.src = "./res/img/Quizzation-white.png";
     profileIcon.src = "./res/img/userlight.png";
     middleLogo.src = "./res/img/Quizzation-white.png";
+    themeIcon.src = "./res/img/sun.png";
+    logoWithName.src = "./res/img/Quizzation-white.png";
+    profileIcon.src = "./res/img/userlight.png";
+    middleLogo.src = "./res/img/Quizzation-white.png";
     svgElement.setAttribute("fill", "#ffffff");
   } else {
+    themeIcon.src = "./res/img/moon.png";
+    logoWithName.src = "./res/img/Quizzation.png";
+    profileIcon.src = "./res/img/user.png";
+    middleLogo.src = "./res/img/Quizzation.png";
     themeIcon.src = "./res/img/moon.png";
     logoWithName.src = "./res/img/Quizzation.png";
     profileIcon.src = "./res/img/user.png";
@@ -88,14 +103,36 @@ function setSubject(event, subject) {
   if (subjectSelected == null) {
     subjectSelected = subject;
     target.classList.toggle("selected");
+    lastSubjectSelected = target;
   } else {
-    subjectSelected.classList.toggle("selected");
+    // toggle off the last subject selected
+    lastSubjectSelected.classList.toggle("selected");
+    //toggle on current selected subject
+    target.classList.toggle("selected");
+    lastSubjectSelected = target;
   }
 }
 
-function getReq() {
-  $.ajax({
-    type: "GET",
-    data: { form: selectedForm, subject: subjectSelected },
-  });
+// function getReq() {
+//   $.ajax({
+//     type: "GET",
+//     data: { form: selectedForm, subject: subjectSelected },
+//   });
+// }
+
+// TODO: test this function
+function getAllQuestion(subjectID, form, numQuestion) {
+  fetch(
+    "connection.php?subject=" +
+      subjectID +
+      "form" +
+      form +
+      "numQuestion" +
+      numQuestion
+  );
+}
+
+// TODO: find a way to ask user about how many question they want to answer
+function startQuiz() {
+  getAllQuestion(subjectID, form, numQuestion);
 }

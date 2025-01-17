@@ -122,10 +122,10 @@
       alt="logo"
       id="logo" />
     <ul id="footer-list">
-      <li><a href="/teacher-portal.html">Teacher's Portal</a></li>
+      <li><a href="/teacher-portal.php">Teacher's Portal</a></li>
       <li><a href="" <?php $about ?>"">About Us</a></li>
-      <li><a href="/tns.html">Terms and Services</a></li>
-      <li><a href="/privacy.html">Privacy Policy</a></li>
+      <li><a href="/tns.php">Terms and Services</a></li>
+      <li><a href="/privacy.php">Privacy Policy</a></li>
     </ul>
   </footer>
 </body>
