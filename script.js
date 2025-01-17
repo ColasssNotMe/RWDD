@@ -25,8 +25,16 @@ function updateIcons() {
     logoWithName.src = "./res/img/Quizzation-white.png";
     profileIcon.src = "./res/img/userlight.png";
     middleLogo.src = "./res/img/Quizzation-white.png";
+    themeIcon.src = "./res/img/sun.png";
+    logoWithName.src = "./res/img/Quizzation-white.png";
+    profileIcon.src = "./res/img/userlight.png";
+    middleLogo.src = "./res/img/Quizzation-white.png";
     svgElement.setAttribute("fill", "#ffffff");
   } else {
+    themeIcon.src = "./res/img/moon.png";
+    logoWithName.src = "./res/img/Quizzation.png";
+    profileIcon.src = "./res/img/user.png";
+    middleLogo.src = "./res/img/Quizzation.png";
     themeIcon.src = "./res/img/moon.png";
     logoWithName.src = "./res/img/Quizzation.png";
     profileIcon.src = "./res/img/user.png";
@@ -59,8 +67,16 @@ function switchTheme() {
     logoWithName.src = "./res/img/Quizzation-white.png";
     profileIcon.src = "./res/img/userlight.png";
     middleLogo.src = "./res/img/Quizzation-white.png";
+    themeIcon.src = "./res/img/sun.png";
+    logoWithName.src = "./res/img/Quizzation-white.png";
+    profileIcon.src = "./res/img/userlight.png";
+    middleLogo.src = "./res/img/Quizzation-white.png";
     svgElement.setAttribute("fill", "#ffffff");
   } else {
+    themeIcon.src = "./res/img/moon.png";
+    logoWithName.src = "./res/img/Quizzation.png";
+    profileIcon.src = "./res/img/user.png";
+    middleLogo.src = "./res/img/Quizzation.png";
     themeIcon.src = "./res/img/moon.png";
     logoWithName.src = "./res/img/Quizzation.png";
     profileIcon.src = "./res/img/user.png";
