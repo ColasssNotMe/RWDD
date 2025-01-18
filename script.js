@@ -46,12 +46,11 @@ function updateIcons() {
 }
 
 function checkUserSelection() {
-  if (form.length == null) {
+  if (formSelected == null) {
     confirmSelectionButton.href = "";
   } else {
     confirmSelectionButton.href = "./select-subject.php";
   }
-  console.log(form.length);
 }
 
 function toggleMenu() {
@@ -94,12 +93,13 @@ function addForm(event, form) {
     lastFormSelected = button;
     button.classList.toggle("selected");
   } else {
+    formSelected = form;
     lastFormSelected.classList.toggle("selected");
-    button.classList.toggle("selected");
     lastFormSelected = button;
+    button.classList.toggle("selected");
   }
   checkUserSelection();
-  console.log(form);
+  console.log(formSelected);
 }
 
 function setSubject(event, subject) {
@@ -109,6 +109,7 @@ function setSubject(event, subject) {
     target.classList.toggle("selected");
     lastSubjectSelected = target;
   } else {
+    subjectSelected = subject;
     // toggle off the last subject selected
     lastSubjectSelected.classList.toggle("selected");
     //toggle on current selected subject
@@ -117,14 +118,7 @@ function setSubject(event, subject) {
   }
 }
 
-// function getReq() {
-//   $.ajax({
-//     type: "GET",
-//     data: { form: selectedForm, subject: subjectSelected },
-//   });
-// }
-
-// TODO: test this function
+// TODO: redirect user to the quiz page
 function getAllQuestion(subjectID, form, numQuestion) {
   try {
     const url = `connection.php?subject=${subjectID}&form=${form}&numQuestion=${numQuestion}`;
@@ -132,6 +126,7 @@ function getAllQuestion(subjectID, form, numQuestion) {
       .then((response) => {
         if (response.ok) {
           alert("Fetched");
+          window.location.href = "question.php";
         } else {
           throw new Error("Network response was not ok.");
         }
@@ -146,5 +141,35 @@ function getAllQuestion(subjectID, form, numQuestion) {
 
 // TODO: find a way to ask user about how many question they want to answer
 function startQuiz() {
-  getAllQuestion(subjectSelected, form, numQuestion);
+  console.log(subjectSelected);
+  console.log(formSelected);
+  console.log(numQuestion);
+
+  getAllQuestion(subjectSelected, formSelected, numQuestion);
+}
+
+// just for storing value of form in connection.php
+function sendFormGetReq() {
+  alert("code sendformGetReq running", formSelected);
+  if (formSelected != null) {
+    try {
+      const url = `connection.php?form=${formSelected}`;
+      fetch(url)
+        .then((response) => {
+          if (response.ok) {
+            alert("sent get req for form");
+            window.location.href = "select-subject.php";
+          } else {
+            throw new Error("Error sending form");
+          }
+        })
+        .catch((error) => {
+          "Error when fetching:", error;
+        });
+    } catch (error) {
+      alert("catch statement:", error);
+    }
+  } else {
+    alert("Please choose one of the selection.");
+  }
 }

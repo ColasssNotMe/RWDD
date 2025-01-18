@@ -15,7 +15,9 @@
         <?php include_once 'components/header.php' ?>
         <div class="content">
             <div id="button-div">
-                <a href="" class="confirmation-button"> Next </a>
+                <!-- <a href="" class="confirmation-button"> -->
+                    <button onclick="sendFormGetReq()" class="confirmation-button">Next</button>
+                <!-- </a> -->
             </div>
 
             <div class="selection">
@@ -24,14 +26,12 @@
                 <button class="form-button" onclick="addForm(event,3)">Form 3</button>
                 <button class="form-button" onclick="addForm(event,4)">Form 4</button>
                 <button class="form-button" onclick="addForm(event,5)">Form 5</button>
-                <button class="form-button" onclick="addForm(event,0)">
-                    All Form
-                </button>
+                <button class="form-button" onclick="addForm(event,0)">All Form</button>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

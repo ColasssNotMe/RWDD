@@ -1,4 +1,5 @@
 <?php
+session_start();
 $server   = 'localhost';
 $user     = 'root';
 $password = '';
@@ -8,6 +9,8 @@ $listOfQuestion;
 // TODO: change "table" in the query to db table name
 //use a _GET to know when the button is pressed and then generate things -> replace the $var and then it should update on the question-page?
 
+// create session
+
 // create connection
 $connection = mysqli_connect($server, $user, $password, $database);
 switch ($connection) {
@@ -15,14 +18,22 @@ switch ($connection) {
         break;
 }
 
+
+
+// Getting and storing form in the session
+if (isset($_GET['form'])) {
+    $_SESSION['form'] = $_GET['form'];
+    // echo '<script>alert("Setting up var")</script>';
+}
+
 // getting the url param from script.js
 if (isset($_GET['subject']) && isset($_GET['form']) && isset($_GET['numQuestion'])) {
-    echo 'isset runnig';
+    echo 'isset running';
     $subject = $_GET['subject'];
     $form = $_GET['form'];
     $numQuestion = $_GET['numQuestion'];
     getQuestion($connection, $form, $subject, $numQuestion);
-    header("Location: index.php");
+    header("Location: question.php");
     // exit();
 }
 
