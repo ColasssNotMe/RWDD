@@ -125,10 +125,9 @@ function getAllQuestion(subjectID, form, numQuestion) {
     fetch(url)
       .then((response) => {
         if (response.ok) {
-          alert("Fetched");
           window.location.href = "question.php";
         } else {
-          throw new Error("Network response was not ok.");
+          throw new Error("Error: fetch request not successful.");
         }
       })
       .catch((error) => {
@@ -141,23 +140,17 @@ function getAllQuestion(subjectID, form, numQuestion) {
 
 // TODO: find a way to ask user about how many question they want to answer
 function startQuiz() {
-  console.log(subjectSelected);
-  console.log(formSelected);
-  console.log(numQuestion);
-
   getAllQuestion(subjectSelected, formSelected, numQuestion);
 }
 
 // just for storing value of form in connection.php
 function sendFormGetReq() {
-  alert("code sendformGetReq running", formSelected);
   if (formSelected != null) {
     try {
       const url = `connection.php?form=${formSelected}`;
       fetch(url)
         .then((response) => {
           if (response.ok) {
-            alert("sent get req for form");
             window.location.href = "select-subject.php";
           } else {
             throw new Error("Error sending form");
