@@ -1,6 +1,6 @@
 <?php
 $prefix = "assignment";
-$root = "./";
+$root = "./index.php";
 $contact = "./contact.php";
 // $tnc =  "./tnc.php";
 $login =  "./login.php";

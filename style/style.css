@@ -22,7 +22,6 @@
   --dark-hover-text: white;
 }
 
-/* DEBUG */
 #align-left-sm {
   display: flex;
   align-items: center;
@@ -35,7 +34,6 @@
   width: 100vw;
   justify-content: space-between;
 }
-/* DEBUG */
 
 * {
   margin: 0;
@@ -49,10 +47,25 @@ html {
 
 html,
 body {
-  margin: 0px;
+  margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* init the font size */
+h1 {
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+p {
+  font-size: 1.2rem;
 }
 
 .body-without-header {
@@ -70,10 +83,17 @@ body {
   align-items: center;
 }
 
+/* footer {
+  position: fixed;
+  bottom: 0;width: 100%;
+} */
 footer {
   align-items: center;
   justify-content: center;
   display: flex;
+  position: relative;
+  width: 100%;
+  bottom: 0;
 }
 
 footer > img {
@@ -367,12 +387,13 @@ html.dark-mode header {
 .header-button {
   transition: background-color 0.3s;
   border: none;
+
+  &:hover {
+    background-color: var(--hover);
+    color: var(--dark-text);
+  }
 }
 
-.header-button:hover {
-  background-color: var(--hover);
-  color: var(--dark-text);
-}
 html.dark-mode .header-button:hover {
   background-color: var(--dark-hover);
   color: var(--text);
