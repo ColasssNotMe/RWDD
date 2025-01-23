@@ -6,10 +6,11 @@ $password = '';
 $database = 'quizzation'; // insert database name
 $listOfQuestion;
 
+
 // TODO: change "table" in the query to db table name
 //use a _GET to know when the button is pressed and then generate things -> replace the $var and then it should update on the question-page?
 
-// create session
+
 
 // create connection
 $connection = mysqli_connect($server, $user, $password, $database);
@@ -18,12 +19,11 @@ switch ($connection) {
         break;
 }
 
-
-
 // Getting and storing form in the session
 if (isset($_GET['form'])) {
     $_SESSION['form'] = $_GET['form'];
 }
+
 
 // getting the url param from script.js
 if (isset($_GET['subject']) && isset($_GET['form']) && isset($_GET['numQuestion'])) {
@@ -47,15 +47,6 @@ function getQuestion($connection, $form, $subject, $numQuestion)
         echo 'Error occured at getting question';
     }
 }
-
-/* if (isset($_GET['subject'])) {
-    $query = "SELECT * from table where form =$_GET[$form] AND subject =$_GET[$subject] ORDER BY RAND() LIMIT $_GET[$numQuestion]";
-    $result = mysqli_query($connection, $query);
-    if (mysqli_num_rows($result) > 0) {
-    } else {
-        echo 'Error occured at getting question';
-    }
-} */
 
 // used for validate the login user + return the logged in user credential
 function validateUserCredential($connection, $username, $password)
