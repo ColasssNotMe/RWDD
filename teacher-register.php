@@ -96,6 +96,7 @@
       </div>
     </form>
   </div>
+  <?php require_once 'components/footers.php'?>
   <script src="/script.js"></script>
 </body>
 
