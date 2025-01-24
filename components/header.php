@@ -2,6 +2,8 @@
 require 'navigation.php';
 ?>
 
+<link rel="stylesheet" href="style/header.css">
+
 <header>
     <div class="left-side">
         <div id="align-left-sm">
