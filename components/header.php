@@ -86,13 +86,29 @@ require 'navigation.php';
                 <a href="<?php echo $select_form ?>" class="header-button">Get Started</a>
             </li>
             <li>
-                <a href="<?php echo $account ?>" class="header-button" id="profile-a">
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
-                        alt="profile"
-                        class="icon"
-                        id="profile-icon" />
-                </a>
+                <?php if ($logonUser != null) {
+                ?> <a href="<?php echo $account ?>" class="header-button" id="profile-a">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
+                            alt="profile"
+                            class="icon"
+                            id=" profile-icon" />
+                    </a>;
+                    <!-- close  the if statement -->
+                <?php
+                } else {
+                ?>
+                    <a href="<?php echo $login ?>" class="header-button" id="profile-a">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
+                            alt="profile"
+                            class="icon"
+                            id="profile-icon" />
+                    </a>;
+                    <!-- close the else statement -->
+                <?php
+                } ?>
+                
             </li>
         </ul>
     </div>

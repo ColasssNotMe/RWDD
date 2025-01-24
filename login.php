@@ -1,3 +1,6 @@
+<?php session_start() ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +34,7 @@
                 <br />
                 <input type="password" name="password" id="password" />
             </div>
+            <button type="submit" name="login">Login</button>
         </form>
     </div>
     <script src="./script.js"></script>
