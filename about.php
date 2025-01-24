@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us</title>
   <link rel="stylesheet" href="./style/style.css" />
-  <link rel="stylesheet" href="./style/footer-item.css" />
+  <link rel="stylesheet" href="style/index.css">
   <script src="theme.js"></script>
 </head>
 
@@ -24,8 +24,8 @@
       </div>
     </div>
     <script src="./script.js"></script>
-    <?php require_once 'components/footer.php'; ?>
   </div>
+  <?php require_once 'components/footer.php'; ?>
 </body>
 
 </html>

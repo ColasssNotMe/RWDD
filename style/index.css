@@ -60,6 +60,7 @@ p {
   align-content: center;
   flex-grow: 1;
   flex-direction: column;
+  margin-bottom: 100px;
 }
 
 #how-it-works-title {

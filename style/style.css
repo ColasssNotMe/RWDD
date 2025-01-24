@@ -51,8 +51,24 @@ html,
 body {
   margin: 0px;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* init the font size */
+h1 {
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+p {
+  font-size: 1.2rem;
 }
 
 .body-without-header {
@@ -70,15 +86,6 @@ body {
   align-items: center;
 }
 
-footer {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-footer > img {
-  display: none;
-}
 
 button {
   border-radius: 10px;
@@ -215,13 +222,6 @@ header {
   cursor: pointer;
 }
 
-#footer-list {
-  flex: 1 1 0;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 #logo {
   margin-left: 2px;
@@ -301,10 +301,6 @@ header {
     height: 60px;
     display: flex;
   }
-  footer > ul > li > a {
-    font-size: 20px;
-    gap: 10px;
-  }
   .bar1,
   .bar2,
   .bar3 {
@@ -326,13 +322,6 @@ header {
   #themeIcon {
     width: 20px;
     height: 20px;
-  }
-  #footer-list {
-    gap: 100px;
-    font-size: 20px;
-  }
-  #footer-list > li > a {
-    font-size: 16px;
   }
   .bar1,
   .bar2,
@@ -383,14 +372,10 @@ html.dark-mode .header-button {
   background-color: var(--dark-header-background);
 }
 
-footer {
-  background-color: var(--header-background);
-  transition: background-color 0.3s;
-}
 
-html.dark-mode footer {
+/* html.dark-mode footer {
   background-color: var(--dark-header-background);
-}
+} */
 
 body .bar1,
 body .bar2,
