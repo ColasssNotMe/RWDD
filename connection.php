@@ -27,7 +27,7 @@ if (isset($_GET['form'])) {
 }
 
 // getting the url param from script.js
-if (isset($_GET['subject']) && isset($_GET['form']) && isset($_GET['numQuestion'])) {
+if (isset($_GET['login'])) {
     echo 'isset running';
     $subject = $_GET['subject'];
     $form = $_GET['form'];
@@ -36,6 +36,12 @@ if (isset($_GET['subject']) && isset($_GET['form']) && isset($_GET['numQuestion'
     header("Location: question.php");
     // exit();
 }
+
+// search for login user
+if (isset($_GET['login'])) {
+    echo "login";
+}
+
 
 // get random request question
 function getQuestion($connection, $form, $subject, $numQuestion)
