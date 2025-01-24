@@ -81,6 +81,13 @@ p {
 button {
   border-radius: 10px;
   padding: 5px 10px;
+  margin: 10px 20px;
+  border: 1px solid;
+}
+
+.primary-button {
+  background-color: var(--accent);
+  border-color: var(--dark-accent);
 }
 
 a {
@@ -93,8 +100,8 @@ a {
   padding: 5px 10px;
   color: var(--text);
   &:hover {
-    color: var(--accent)
-  };
+    color: var(--accent);
+  }
 }
 
 html.dark-mode a {
