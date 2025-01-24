@@ -86,7 +86,6 @@ p {
   align-items: center;
 }
 
-
 button {
   border-radius: 10px;
   /* border: none; */
@@ -221,7 +220,6 @@ header {
   height: 40px;
   cursor: pointer;
 }
-
 
 #logo {
   margin-left: 2px;
@@ -371,11 +369,6 @@ html.dark-mode .header-button {
   border-style: none;
   background-color: var(--dark-header-background);
 }
-
-
-/* html.dark-mode footer {
-  background-color: var(--dark-header-background);
-} */
 
 body .bar1,
 body .bar2,
