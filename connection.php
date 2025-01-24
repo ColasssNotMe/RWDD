@@ -23,7 +23,6 @@ switch ($connection) {
 // Getting and storing form in the session
 if (isset($_GET['form'])) {
     $_SESSION['form'] = $_GET['form'];
-    // echo '<script>alert("Setting up var")</script>';
 }
 
 // getting the url param from script.js
@@ -34,7 +33,6 @@ if (isset($_GET['login'])) {
     $numQuestion = $_GET['numQuestion'];
     getQuestion($connection, $form, $subject, $numQuestion);
     header("Location: question.php");
-    // exit();
 }
 
 // search for login user
