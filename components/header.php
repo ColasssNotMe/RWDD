@@ -89,7 +89,7 @@ require 'navigation.php';
             <li>
                 <?php if (isset($_SESSION["currentLoginUser"])) {
                 ?>
-                    <a href="<?php echo $login ?>" class="header-button" id="profile-a">
+                    <a href="<?php echo $account ?>" class="header-button" id="profile-a">
                         <img
                             src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
                             alt="profile"
@@ -101,7 +101,7 @@ require 'navigation.php';
                 <?php
                 } else {
                 ?>
-                    <a href="<?php echo $account ?>" class="header-button" id="profile-a">
+                    <a href="<?php echo $login ?>" class="header-button" id="profile-a">
                         <img
                             src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
                             alt="profile"

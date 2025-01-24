@@ -43,6 +43,13 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.2s, color 0.3s;
+}
+html.dark-mode body {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
 }
 
 /* init the font size */
@@ -73,28 +80,21 @@ p {
 
 button {
   border-radius: 10px;
-  /* border: none; */
+  padding: 5px 10px;
 }
 
 a {
   text-decoration: none;
   background-color: transparent;
-}
-
-/* color */
-body {
-  background-color: var(--background);
   color: var(--text);
-  transition: background-color 0.2s, color 0.3s;
 }
 
-html.dark-mode body {
-  background-color: var(--dark-background);
-  color: var(--dark-text);
-}
-
-a {
+.link-as-button {
+  padding: 5px 10px;
   color: var(--text);
+  &:hover {
+    color: var(--accent)
+  };
 }
 
 html.dark-mode a {

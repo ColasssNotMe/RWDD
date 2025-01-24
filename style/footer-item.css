@@ -72,19 +72,19 @@ footer #logo:hover {
   gap: 1.5rem;
 }
 
-#footer-list li a {
+/* #footer-list li a {
   color: #333;
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   transition: all 0.3s ease;
-}
+} */
 
-#footer-list li a:hover {
+/* #footer-list li a:hover {
   background-color: #333;
   color: #fff;
-}
+} */
 
 @media (min-width: 768px) {
   .description {
