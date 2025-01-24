@@ -55,6 +55,7 @@ footer #logo {
   width: 120px;
   height: auto;
   transition: transform 0.3s ease;
+  border: none;
 }
 
 footer #logo:hover {
