@@ -18,7 +18,7 @@
         <h1>Teacher's Portal</h1>
         <h3>
           Have an account?
-          <i><u><a href="/teacher-portal.php">Log in now</a></u></i>
+          <i><u><a href="./teacher-portal.php">Log in now</a></u></i>
         </h3>
       </div>
 
@@ -33,7 +33,8 @@
       </div>
     </form>
   </div>
-  <script src="/script.js"></script>
+  <script src="./script.js"></script>
+  <?php require_once 'components/footer.php' ?>
 </body>
 
 </html>
