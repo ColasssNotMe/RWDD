@@ -1,15 +1,27 @@
 <?php
-session_start(); // Single session start at the beginning
+session_start();
 $server   = 'localhost';
 $user     = 'root';
 $password = '';
-$database = 'quizzation';
+$database = 'quizzation'; // insert database name
+$listOfQuestion;
+
+
+
+// TODO: change "table" in the query to db table name
+//use a _GET to know when the button is pressed and then generate things -> replace the $var and then it should update on the question-page?
+
+// create session
+
 
 // create connection
 $connection = mysqli_connect($server, $user, $password, $database);
-if (!$connection) {
-    die("Connection failed: " . mysqli_connect_error());
+switch ($connection) {
+    case false:
+        break;
 }
+
+
 
 // Getting and storing form in the session
 if (isset($_GET['form'])) {
@@ -17,13 +29,14 @@ if (isset($_GET['form'])) {
 }
 
 // getting the url param from script.js
+// FIXME: getting question
 if (isset($_GET['submit'])) {
+    echo 'isset running';
     $subject = $_GET['subject'];
     $form = $_GET['form'];
     $numQuestion = $_GET['numQuestion'];
     getQuestion($connection, $form, $subject, $numQuestion);
     header("Location: question.php");
-    exit();
 }
 
 // search for login user
@@ -31,114 +44,100 @@ if (isset($_GET['login'])) {
     validateUserCredential($connection, $_GET['username'], $_GET['password']);
 }
 
+
 // get random request question
 function getQuestion($connection, $form, $subject, $numQuestion)
 {
-    $stmt = $connection->prepare("SELECT * FROM question WHERE form = ? AND subject = ? ORDER BY RAND() LIMIT ?");
-    $stmt->bind_param("iii", $form, $subject, $numQuestion);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows > 0) {
-        $_SESSION['questions'] = $result->fetch_all(MYSQLI_ASSOC);
+    $query  = "SELECT * from question where form =$_GET[$form] AND subject =$_GET[$subject] ORDER BY RAND() LIMIT $_GET[$numQuestion]";
+    $result = mysqli_query($connection, $query);
+    if (mysqli_num_rows($result) > 0) {
+        echo  'num of row >0';
     } else {
-        $_SESSION['error'] = 'No questions found for the selected criteria';
+        echo 'Error occured at getting question';
     }
 }
+
+/* if (isset($_GET['subject'])) {
+    $query = "SELECT * from table where form =$_GET[$form] AND subject =$_GET[$subject] ORDER BY RAND() LIMIT $_GET[$numQuestion]";
+    $result = mysqli_query($connection, $query);
+    if (mysqli_num_rows($result) > 0) {
+    } else {
+        echo 'Error occured at getting question';
+    }
+} */
 
 // used for validate the login user + store the logged in user credential
 function validateUserCredential($connection, $username, $password)
 {
-    $stmt = $connection->prepare("SELECT * FROM user WHERE user_name = ? AND password = ?");
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows > 0) {
-        $_SESSION['currentLoginUser'] = $result->fetch_assoc(); // Store user data as associative array
-        header("Location: index.php");
-        exit();
+    $query  = "SELECT * FROM user where user_name=$username AND password=$password";
+    $result = mysqli_query($connection, $query);
+    if (mysqli_num_rows($result) > 0) {
+        $_SESSION['currentLoginUser'] = mysqli_fetch_row($result);
     } else {
-        echo "<script>alert('Invalid username or password')</script>";
+        echo "<script>alert('User not found')</script>";
     }
 }
 
 function addRecord($connection, $score, $timeTaken, $userID, $quizID)
 {
-    $stmt = $connection->prepare("INSERT INTO record (score, time_taken, user_id, quiz_id) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("iiii", $score, $timeTaken, $userID, $quizID);
-    
-    if (!$stmt->execute()) {
+    $query = "INSERT INTO record (score,time_taken,user_id,quiz_id) VALUES ($score,$timeTaken,$userID,$quizID)";
+    if (!mysqli_query($connection, $query)) {
         echo "Error inserting data";
     } else {
         header("Location: result.php");
-        exit();
     }
 }
 
 function deleteRecord($connection, $recordID)
 {
-    $stmt = $connection->prepare("DELETE FROM record WHERE record_id = ?");
-    $stmt->bind_param("i", $recordID);
-    
-    if (!$stmt->execute()) {
+    $query = "DELETE FROM record WHERE record_id = $recordID";
+    if (!mysqli_query($connection, $query)) {
         echo "Error deleting data";
     } else {
         header("Location: result.php");
-        exit();
     }
 }
 
 function addUser($connection, $username, $password, $role)
 {
-    $stmt = $connection->prepare("INSERT INTO user (user_name, password, role) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $password, $role);
-    
-    if (!$stmt->execute()) {
+    $query = "INSERT INTO user (user_name,password,role) VALUES ($username,$password,$role)";
+    if (!mysqli_query($connection, $query)) {
         echo "Error adding user";
     } else {
         header("Location: index.php");
-        exit();
     }
 }
 
 function deleteUser($connection, $userID)
 {
-    $stmt = $connection->prepare("DELETE FROM user WHERE user_id = ?");
-    $stmt->bind_param("i", $userID);
-    
-    if (!$stmt->execute()) {
-        echo "Error deleting user";
+    $query = "DELETE FROM user WHERE user_id = $userID";
+    if (!mysqli_query($connection, $query)) {
+        echo "Error adding user";
     } else {
         header("Location: index.php");
-        exit();
     }
 }
 
+
 function addQuestion($connection, $form, $subject, $picture, $question, $choice, $answer)
 {
-    $stmt = $connection->prepare("INSERT INTO question 
-        (question_form, question_subject, question_picture, question, question_choice, question_answer) 
-        VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iissss", $form, $subject, $picture, $question, $choice, $answer);
-    
-    if (!$stmt->execute()) {
-        echo "Error adding question";
+    $query = "INSERT INTO question 
+    (question_form,question_subject,question_picture,question,question_choice,question_answer) 
+    VALUES 
+   ($form, $subject, $picture,$question,$choice,$answer)";
+    if (!mysqli_query($connection, $query)) {
+        echo "Error adding user";
     } else {
-        header("Location: index.php");
-        exit();
+        header("Location:index.php");
     }
 }
 
 function deleteQuestion($connection, $questionID)
 {
-    $stmt = $connection->prepare("DELETE FROM question WHERE question_id = ?");
-    $stmt->bind_param("i", $questionID);
-    
-    if (!$stmt->execute()) {
-        echo "Error deleting question";
+    $query = "DELETE FROM question where question_id =$questionID";
+    if (!mysqli_query($connection, $query)) {
+        echo "Error adding user";
     } else {
-        header("Location: index.php");
-        exit();
+        header("Location:index.php");
     }
 }
