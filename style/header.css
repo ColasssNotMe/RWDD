@@ -143,14 +143,6 @@ html.dark-mode .menu-dropdown {
   box-shadow: -10px 0 10px rgba(255, 255, 255, 0.25);
 }
 
-.menu-dropdown .svg {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  cursor: pointer;
-}
-
 .change .menu-dropdown {
   right: 0;
 }
@@ -169,6 +161,7 @@ html.dark-mode .menu-dropdown {
   height: 5px;
   margin: 6px 0;
   transition: 0.4s;
+  border-radius: 1.2rem;
 }
 
 /* Rotate first bar */

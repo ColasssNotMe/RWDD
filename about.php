@@ -20,8 +20,8 @@
       Your SPM Success Partner
     </h1>
     <div class="description">
+      <h1>Our Mission</h1>
       <section class="mission-section">
-        <h1>Our Mission</h1>
         <p>To empower secondary school students with the knowledge and confidence they need to conquer their SPM exams. We strive to provide a fun and engaging learning experience that makes studying more effective and less stressful.</p>
       </section>
 
