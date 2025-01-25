@@ -18,6 +18,10 @@
       <div class="title">
         <h1>Teacher's Portal</h1>
         <h3>Login as Teacher</h3>
+        <h4>
+            Don't have an account?
+            <i><u><a href="./teacher-register.php">Register Now</a></u></i>
+        </h4>
       </div>
 
       <div class="forms-item">
