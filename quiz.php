@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <div class="content"></div>
+    <?php require_once 'components/header.php' ?>
     <script src="/script.js"></script>
+    <div class="content">
+      
+    </div>
   </body>
 </html>
