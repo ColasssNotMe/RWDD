@@ -31,7 +31,7 @@ require 'navigation.php';
             </div>
         </div>
         <div id="temp-middle-logo">
-            <a href=<?php $root ?>>
+            <a href=<?php echo $root ?>>
                 <img
                     id="logo-middle-sm"
                     src="./res/img/Quizzation.png"
