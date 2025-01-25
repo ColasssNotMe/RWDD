@@ -11,8 +11,8 @@
 </head>
 
 <body>
+  <?php include_once './components/header.php' ?>
   <div class="content">
-  <?php require_once './components/header.php' ?>
     <div id="button-div">
       <!-- TODO: redirect to the question page -->
       <button
@@ -96,7 +96,6 @@
       </button>
     </div>
   </div>
-  <?php include_once './components/footer.php' ?>
   <script src="./script.js"></script>
 </body>
 

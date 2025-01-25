@@ -14,29 +14,29 @@
     <?php require_once 'components/header.php' ?>
     <!-- From Uiverse.io by mi-series -->
     <div class="form-container">
-        <form action="" method="POST">
-            <div class="title">
-                <h1>Login</h1>
-                <h3>
-                    Don't have an account?
-                    <i><u><a href="./register.php">Register Now</a></u></i>
-                </h3>
-            </div>
-
-            <div class="forms-item">
-                <label for="username">Username</label>
-                <br />
-                <input type="text" name="username" id="username" />
-                <br />
-                <label for="">Password</label>
-                <br />
-                <input type="password" name="password" id="password" />
-            </div>
-            <button class="primary-button" type="submit" name="login">Login</button>
-        </form>
+        <div class="form_area">
+            <p class="form_title">SIGN IN </p>
+            <form action="">
+                <div class="form_group">
+                    <label class="form_sub_title" for="username">Username</label>
+                    <input placeholder="Enter your username" class="form_style" type="text">
+                </div>
+                <div class="form_group">
+                    <label class="form_sub_title" for="password">Password</label>
+                    <input placeholder="Enter your password" id="password" class="form_style" type="password">
+                </div>
+                <div>
+                    <button class="form_btn">SIGN UP</button>
+                    <p>Don't have an account?
+                        <a class="form_link" href="register.php">Register Here!</a>
+                    </p>
+                    <br>
+                </div>
+            </form>
+        </div>
     </div>
+    <script src="./script.js"></script>
     <?php require_once 'components/footer.php' ?>
-    <script src="/script.js"></script>
 </body>
 
 </html>
