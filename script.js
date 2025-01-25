@@ -125,7 +125,7 @@ function getAllQuestion(subjectID, form, numQuestion) {
     fetch(url)
       .then((response) => {
         if (response.ok) {
-          window.location.href = "question.php";
+          window.location.href = "quiz.php";
         } else {
           throw new Error("Error: fetch request not successful.");
         }
