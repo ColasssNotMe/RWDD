@@ -39,7 +39,7 @@
                 <input type="password" name="repassword" id="repassword" />
                 <br />
             </div>
-            <button type="submit" name="login">Register</button>
+            <button type="submit" name="register">Register</button>
         </form>
     </div>
     <script src="./script.js"></script>
