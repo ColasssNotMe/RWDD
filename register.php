@@ -33,11 +33,13 @@
                 <label for="">Password</label>
                 <br />
                 <input type="password" name="password" id="password" />
+                <br />
                 <label for="">Re-enter Password</label>
                 <br />
                 <input type="password" name="repassword" id="repassword" />
+                <br />
             </div>
-            <button type="submit" name="login">Login</button>
+            <button type="submit" name="login">Register</button>
         </form>
     </div>
     <script src="./script.js"></script>
