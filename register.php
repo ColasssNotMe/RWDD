@@ -34,7 +34,7 @@
                 <div>
                     <button class="form_btn">SIGN UP</button>
                     <p>Have an Account?
-                        <a class="form_link" href="">Login Here!</a>
+                        <a class="form_link" href="login.php">Login Here!</a>
                     </p>
                     <br>
                 </div>
