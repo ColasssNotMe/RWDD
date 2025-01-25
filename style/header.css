@@ -76,10 +76,6 @@ html.dark-mode .bar3 {
   background-color: white;
 }
 
-.menu-dropdown a:hover {
-  background-color: var(--hover);
-}
-
 .menu-dropdown {
   background-color: var(--background);
 }
@@ -113,15 +109,19 @@ html.dark-mode .menu > button {
 /* menu */
 .menu {
   display: inline-block;
+  position: sticky;
+  /* margin-bottom: 40px; */
 }
 
 .menu > button {
   border-style: none;
+  position: relative;
   padding: 8px;
+  background-color: transparent;
+  z-index: 101;
 }
 
 .menu > button:hover {
-  background-color: transparent;
   cursor: pointer;
 }
 
@@ -129,7 +129,7 @@ html.dark-mode .menu > button {
   position: fixed;
   height: 100%;
   width: 400px;
-  z-index: 1000;
+  z-index: 100;
   top: 0;
   right: -200%;
   overflow-x: visible;
