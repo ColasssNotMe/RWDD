@@ -96,6 +96,7 @@
       </button>
     </div>
   </div>
+  <?php include_once './components/footer.php' ?>
   <script src="./script.js"></script>
 </body>
 
