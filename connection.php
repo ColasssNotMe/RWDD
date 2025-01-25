@@ -6,10 +6,13 @@ $password = '';
 $database = 'quizzation'; // insert database name
 $listOfQuestion;
 
+
+
 // TODO: change "table" in the query to db table name
 //use a _GET to know when the button is pressed and then generate things -> replace the $var and then it should update on the question-page?
 
 // create session
+
 
 // create connection
 $connection = mysqli_connect($server, $user, $password, $database);
@@ -23,19 +26,24 @@ switch ($connection) {
 // Getting and storing form in the session
 if (isset($_GET['form'])) {
     $_SESSION['form'] = $_GET['form'];
-    // echo '<script>alert("Setting up var")</script>';
 }
 
 // getting the url param from script.js
-if (isset($_GET['subject']) && isset($_GET['form']) && isset($_GET['numQuestion'])) {
+// FIXME: getting question
+if (isset($_GET['submit'])) {
     echo 'isset running';
     $subject = $_GET['subject'];
     $form = $_GET['form'];
     $numQuestion = $_GET['numQuestion'];
     getQuestion($connection, $form, $subject, $numQuestion);
     header("Location: question.php");
-    // exit();
 }
+
+// search for login user
+if (isset($_GET['login'])) {
+    validateUserCredential($connection, $_GET['username'], $_GET['password']);
+}
+
 
 // get random request question
 function getQuestion($connection, $form, $subject, $numQuestion)
@@ -58,15 +66,13 @@ function getQuestion($connection, $form, $subject, $numQuestion)
     }
 } */
 
-// used for validate the login user + return the logged in user credential
+// used for validate the login user + store the logged in user credential
 function validateUserCredential($connection, $username, $password)
 {
     $query  = "SELECT * FROM user where user_name=$username AND password=$password";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
-        echo 'User found';
-        $currentLoginUser = mysqli_num_rows($result);
-        return $currentLoginUser;
+        $_SESSION['currentLoginUser'] = mysqli_fetch_row($result);
     } else {
         echo "<script>alert('User not found')</script>";
     }

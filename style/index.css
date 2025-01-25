@@ -14,6 +14,10 @@ p {
 
 .content {
   display: flex;
+  flex-grow: 1 ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -60,6 +64,7 @@ p {
   align-content: center;
   flex-grow: 1;
   flex-direction: column;
+  margin-bottom: 100px;
 }
 
 #how-it-works-title {
