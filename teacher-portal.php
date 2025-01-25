@@ -11,8 +11,7 @@
 </head>
 
 <body>
-  <header>
-    <?php require_once 'components/header.php' ?>
+  <?php require_once 'components/header.php' ?>
 
   <div class="form-container">
     <form action="" method="POST">
@@ -26,7 +25,7 @@
         <br />
         <input type="text" name="username" id="username" />
         <br />
-        <label for="">Password</label>
+        <label for="password">Password</label>
         <br />
         <input type="password" name="password" id="password" />
       </div>

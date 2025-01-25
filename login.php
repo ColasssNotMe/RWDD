@@ -27,13 +27,15 @@
                 <br />
                 <input type="text" name="username" id="username" />
                 <br />
-                <label for="">Password</label>
+                <label for="password">Password</label>
                 <br />
                 <input type="password" name="password" id="password" />
             </div>
+            <button class="primary-button" type="submit" name="login">Login</button>
         </form>
     </div>
     <?php require_once 'components/footer.php' ?>
+    <script src="/script.js"></script>
 </body>
 
 </html>
