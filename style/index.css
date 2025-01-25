@@ -64,13 +64,20 @@ section {
 #small-container {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid; */
   width: 100%;
   height: 600px;
   align-items: center;
-  justify-content: space-evenly;
-  border-radius: 50px;
-  gap: 50px;
+  justify-content: center;
+}
+
+#website-name {
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 #how-it-works {
@@ -97,6 +104,10 @@ section {
   margin: 0 auto;
 }
 
+#index_paragraph {
+  padding-top: 0;
+}
+
 .mission-section {
   padding: 12px 10px;
   border: 2px solid #264143;
@@ -106,7 +117,6 @@ section {
   font-size: 15px;
   margin: 0 20px;
   margin-bottom: 60px;
-
 }
 
 .title {

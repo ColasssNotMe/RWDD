@@ -18,21 +18,19 @@
 
     <div class="content">
       <div id="small-container">
-        <div>
-          <div id="website-name">
-            Welcome to Quizzation
-            <div id="description">
-              Test your knowledge with our engaging and interactive quizzes.
-              <br />
-              <b id="start-learning-today">Start learning today!</b>
-            </div>
+        <div id="website-name">
+          <h1>Welcome to Quizzation</h1>
+          <div class="description" id="index_paragraph">
+            <p>Test your knowledge with our engaging and interactive quizzes.</p>
+            <br />
+            <b id="start-learning-today">Start learning today!</b>
           </div>
         </div>
         <div id="box-center">
-          <a href="<?php echo $select_form ?>" class="large-button">Get Started</a>
+          <a href="<?php echo $select_form ?>" class="large-button primary-button">Get Started</a>
           <button
             onclick="document.getElementById('how-it-works').scrollIntoView()"
-            class="large-button">
+            class="large-button secondary-button">
             Learn More
           </button>
         </div>
