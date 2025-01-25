@@ -24,7 +24,7 @@ body {
   padding: 40px 20px;
   border: 2px solid #264143;
   border-radius: 20px;
-  box-shadow: 3px 4px 0px 1px #e99f4c;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
   width: 90%;
   max-width: 450px;
 }
@@ -50,7 +50,7 @@ body {
 .form_style {
   outline: none;
   border: 2px solid #264143;
-  box-shadow: 3px 4px 0px 1px #e99f4c;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
   width: 290px;
   padding: 12px 10px;
   border-radius: 4px;
@@ -60,7 +60,7 @@ body {
 .form_style:focus,
 .btn:focus {
   transform: translateY(4px);
-  box-shadow: 1px 2px 0px 0px #e99f4c;
+  box-shadow: 1px 2px 0px 0px var(--box-shadow);
 }
 
 .form_btn {
@@ -71,7 +71,7 @@ body {
   background: #de5499;
   border-radius: 10px;
   font-weight: 800;
-  box-shadow: 3px 3px 0px 0px #e99f4c;
+  box-shadow: 3px 3px 0px 0px var(--box-shadow);
 }
 
 .form_btn:hover {

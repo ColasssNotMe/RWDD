@@ -42,7 +42,9 @@
   <div class="fullSize">
     <div id="how-it-works">
       <div class="paragraph">
-        <div id="how-it-works-title"><b>How It Works?</b></div>
+        <div id="how-it-works-title"><b>
+            <h1>How It Works?</h1>
+          </b></div>
         <div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure,
@@ -54,7 +56,7 @@
       </div>
     </div>
   </div>
-  <?php require_once 'components/footer.php'?>
+  <?php require_once 'components/footer.php' ?>
   <script src="script.js"></script>
 </body>
 

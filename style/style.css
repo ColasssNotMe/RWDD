@@ -8,6 +8,8 @@
   --primary: #2c65e2;
   --secondary: #ee9185;
   --accent: #e7dd52;
+  --box-shadow: #e99f4c;
+
   /* dark */
   --dark-text: #dbe6fa;
   --dark-background: #010309;
@@ -58,6 +60,9 @@ h1 {
 }
 h2 {
   font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.4rem;
 }
 p {
   font-size: 1.2rem;
