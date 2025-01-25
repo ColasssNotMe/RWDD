@@ -29,6 +29,7 @@
         <br />
         <input type="password" name="password" id="password" />
       </div>
+      <button class="primary-button" type="submit" name="login">Login</button>
     </form>
   </div>
   <?php require_once 'components/footer.php' ?>
