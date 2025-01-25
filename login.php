@@ -12,6 +12,7 @@
 
 <body>
     <?php require_once 'components/header.php' ?>
+    <!-- From Uiverse.io by mi-series -->
     <div class="form-container">
         <form action="" method="POST">
             <div class="title">
@@ -27,7 +28,7 @@
                 <br />
                 <input type="text" name="username" id="username" />
                 <br />
-                <label for="password">Password</label>
+                <label for="">Password</label>
                 <br />
                 <input type="password" name="password" id="password" />
             </div>
