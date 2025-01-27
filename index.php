@@ -18,21 +18,19 @@
 
     <div class="content">
       <div id="small-container">
-        <div>
-          <div id="website-name">
-            Welcome to Quizzation
-            <div id="description">
-              Test your knowledge with our engaging and interactive quizzes.
-              <br />
-              <b id="start-learning-today">Start learning today!</b>
-            </div>
+        <div id="website-name">
+          <h1>Welcome to Quizzation</h1>
+          <div class="description" id="index_paragraph">
+            <p>Test your knowledge with our engaging and interactive quizzes.</p>
+            <br />
+            <b id="start-learning-today">Start learning today!</b>
           </div>
         </div>
         <div id="box-center">
-          <a href="<?php echo $select_form ?>" class="large-button">Get Started</a>
+          <a href="<?php echo $select_form ?>" class="large-button primary-button">Get Started</a>
           <button
             onclick="document.getElementById('how-it-works').scrollIntoView()"
-            class="large-button">
+            class="large-button secondary-button">
             Learn More
           </button>
         </div>
@@ -42,7 +40,9 @@
   <div class="fullSize">
     <div id="how-it-works">
       <div class="paragraph">
-        <div id="how-it-works-title"><b>How It Works?</b></div>
+        <div id="how-it-works-title"><b>
+            <h1>How It Works?</h1>
+          </b></div>
         <div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure,
@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-  <?php require_once 'components/footer.php'?>
+  <?php require_once 'components/footer.php' ?>
   <script src="script.js"></script>
 </body>
 

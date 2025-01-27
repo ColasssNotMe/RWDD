@@ -14,12 +14,40 @@
 <body>
   <?php require_once 'components/header.php' ?>
   <div class="content">
-    <h1 class="title">About Us</h1>
+    <h1 class="title"><b>Quizzation:</b>
+      <br>
+      <br>
+      Your SPM Success Partner
+    </h1>
     <div class="description">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit quis
-      nemo laboriosam fuga aliquid velit deserunt fugit, corporis libero
-      placeat voluptates exercitationem officia quibusdam asperiores minus
-      vel. Amet, suscipit impedit!
+      <h1>Our Mission</h1>
+      <section class="mission-section">
+        <p>To empower secondary school students with the knowledge and confidence they need to conquer their SPM exams. We strive to provide a fun and engaging learning experience that makes studying more effective and less stressful.</p>
+      </section>
+
+      <section>
+        <h1>What We Offer</h1>
+
+        <div class="all-cards">
+          <div class="card">
+            <h2><b>Comprehensive SPM Quizzes</b></h2>
+            <p>Covering all major subjects like Mathematics, Science, English, History, and more.</p>
+          </div>
+          <div class="card">
+            <h2><b>Interactive Learning</b></h2>
+            <p>Engaging quizzes, practice questions, and mock exams designed to test your knowledge and identify areas for improvement.</p>
+          </div>
+          <div class="card">
+            <h2><b>24/7 Access</b></h2>
+            <p>Learn at your own pace, anytime, anywhere, with access to our platform 24/7.</p>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
     </div>
     <script src="./script.js"></script>
   </div>
