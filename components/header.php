@@ -19,7 +19,7 @@ require 'navigation.php';
             <div id="toggleDarkMode">
                 <button
                     type="button"
-                    class="no-style-button header-button"
+                    class="no-style-button header-button "
                     id="dark-mode-button"
                     onclick="switchTheme()">
                     <img

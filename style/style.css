@@ -9,7 +9,7 @@
   --secondary: #ee9185;
   --accent: #e7dd52;
   --box-shadow: #e99f4c;
-
+--secondary-accent:
   /* dark */
   --dark-text: #dbe6fa;
   --dark-background: #010309;
@@ -72,12 +72,16 @@ p {
   margin-top: 0px;
 }
 
-
 button {
   border-radius: 10px;
   padding: 5px 10px;
   margin: 10px 20px;
   border: 1px solid;
+  background-color: var(--secondary-accent);
+  border-color: var(--dark-accent);
+  color: var(--text);
+  border: 2px solid black;
+  cursor: pointer;
 }
 
 .primary-button {
@@ -88,7 +92,9 @@ button {
   box-shadow: 2px 2px 2px var(--box-shadow);
   cursor: pointer;
 }
-
+.secondary-button{
+  box-shadow: 2px 2px 2px var(--box-shadow);
+}
 a {
   text-decoration: none;
   background-color: transparent;
