@@ -98,6 +98,8 @@ section {
 }
 
 .description {
+  display: flex;
+  flex-direction: column;
   padding-top: 50px;
   padding-bottom: 20px;
   width: 80%;
@@ -156,9 +158,30 @@ section {
     flex-direction: row;
   }
 
+  .description {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    width: 70%;
+    margin: 0 auto;
+  }
+
   #how-it-works {
     margin-left: 100px;
     margin-right: 100px;
+  }
+
+  .all-cards {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .card {
+    flex: 1 1 0;
+    padding: 12px 10px;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 10px 20px;
   }
 }
 
