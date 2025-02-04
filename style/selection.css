@@ -7,19 +7,16 @@
   margin-top: 30px;
   /* column-gap: 200px; */
 }
-.selection > button {
+.form-button{
   width: 150px;
   height: 100px;
   padding: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 20px 10px;
   justify-content: center;
   align-items: center;
   display: flex;
   border-radius: 0.6rem;
-  border-style: none;
+  border: 1px solid;
   cursor: pointer;
 }
 

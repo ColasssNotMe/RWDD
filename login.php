@@ -16,7 +16,7 @@
     <div class="form-container">
         <div class="form_area">
             <p class="form_title">SIGN IN </p>
-            <form action="">
+            <form action=""  >
                 <div class="form_group">
                     <label class="form_sub_title" for="username">Username</label>
                     <input placeholder="Enter your username" class="form_style" type="text">
@@ -26,7 +26,7 @@
                     <input placeholder="Enter your password" id="password" class="form_style" type="password">
                 </div>
                 <div>
-                    <button class="form_btn">SIGN UP</button>
+                    <button class="form_btn" type="submit">SIGN UP</button>
                     <p>Don't have an account?
                         <a class="form_link" href="register.php">Register Here!</a>
                     </p>

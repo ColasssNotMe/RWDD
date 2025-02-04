@@ -24,73 +24,73 @@
     <div class="selection">
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,1)">
         English
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,2)">
         Chinese
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,3)">
         Malay
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,4)">
         Science
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,5)">
         Math
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,6)">
         Add Math
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,7)">
         Biology
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,8)">
         History
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,9)">
         Physic
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,10)">
         Moral
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,11)">
         Economy
       </button>
       <button
         href="/select-subject.php"
-        class="subject-button"
+        class="secondary-button subject-button"
         onclick="setSubject(event,12)">
         Account
       </button>
