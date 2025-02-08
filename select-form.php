@@ -15,7 +15,7 @@
         <?php include_once 'components/header.php' ?>
         <div class="content">
             <div id="button-div">
-                <button onclick="sendFormGetReq()" class="confirmation-button">Next</button>
+                <button onclick="sendFormGetReq()" class="primary-button confirmation-button">Next</button>
             </div>
 
             <div class="selection">

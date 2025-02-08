@@ -9,7 +9,7 @@
   --secondary: #ee9185;
   --accent: #e7dd52;
   --box-shadow: #e99f4c;
---secondary-accent:
+  --secondary-accent: #f8f8f8;
   /* dark */
   --dark-text: #dbe6fa;
   --dark-background: #010309;
@@ -22,6 +22,8 @@
   --hover-text: black;
   --dark-hover: rgba(255, 255, 255);
   --dark-hover-text: white;
+
+  --selected:#ffd1b7;
 }
 
 * {
@@ -92,7 +94,7 @@ button {
   box-shadow: 2px 2px 2px var(--box-shadow);
   cursor: pointer;
 }
-.secondary-button{
+.secondary-button {
   box-shadow: 2px 2px 2px var(--box-shadow);
 }
 a {

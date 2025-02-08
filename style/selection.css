@@ -7,7 +7,7 @@
   margin-top: 30px;
   /* column-gap: 200px; */
 }
-.form-button{
+.form-button {
   width: 150px;
   height: 100px;
   padding: 50px;
@@ -16,7 +16,7 @@
   align-items: center;
   display: flex;
   border-radius: 0.6rem;
-  border: 1px solid;
+  border: 2px solid;
   cursor: pointer;
 }
 
@@ -110,7 +110,7 @@ html.dark-mode .confirmation-button:hover {
 
 .selected {
   border: 2px solid gray;
-  background-color: red;
+  background-color: var(--selected);
 }
 
 .selection-body {
