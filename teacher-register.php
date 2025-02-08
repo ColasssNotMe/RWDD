@@ -19,10 +19,14 @@
         <br>
         Register as a Teacher
       </h3>
-      <form action="">
+      <form action="" method="post">
         <div class="form_group">
-          <label class="form_sub_title" for="username">Username</label>
-          <input placeholder="Enter your username" class="form_style" type="text">
+          <label class="form_sub_title" for="name">Name</label>
+          <input placeholder="Enter your full name" class="form_style" type="text">
+        </div>
+        <div class="form_group">
+          <label class="form_sub_title" for="email">Email</label>
+          <input placeholder="Enter your email" id="email" class="form_style" type="email">
         </div>
         <div class="form_group">
           <label class="form_sub_title" for="password">Password</label>

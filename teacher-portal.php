@@ -20,7 +20,7 @@
         <br>
         Login as a Teacher
       </h3>
-      <form action="">
+      <form action="" method="post">
         <div class="form_group">
           <label class="form_sub_title" for="username">Username</label>
           <input placeholder="Enter your username" class="form_style" type="text">
@@ -39,7 +39,7 @@
       </form>
     </div>
   </div>
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
   <?php require_once "components/footer.php" ?>
 </body>
 
