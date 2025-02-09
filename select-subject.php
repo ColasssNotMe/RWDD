@@ -14,7 +14,6 @@
   <?php include_once './components/header.php' ?>
   <div class="content">
     <div id="button-div">
-      <!-- TODO: redirect to the question page -->
       <button
         class="confirmation-button"
         id="start-now" onclick=startQuiz()>
@@ -96,7 +95,7 @@
       </button>
     </div>
   </div>
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

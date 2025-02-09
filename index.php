@@ -19,11 +19,15 @@
     <div class="content">
       <div id="small-container">
         <div id="website-name">
-          <h1><b>Welcome to Quizzation</b></h1>
+          <h1><b>Welcome to
+              <br>
+              <span style="color: #e99f4c;font-size: 5rem;">
+                Quizzation
+              </span></b></h1>
           <div class="description" id="index_paragraph">
             <p>Test your knowledge with our engaging and interactive quizzes.</p>
             <br />
-            <b id="start-learning-today">Start learning today!</b>
+            <b id="start-learning-today" style="font-size:2rem; color:#ee9185;">Start learning today!</b>
           </div>
         </div>
         <div id="box-center">

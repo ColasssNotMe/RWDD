@@ -84,11 +84,11 @@ html.dark-mode .menu-dropdown {
   background-color: var(--dark-background);
 }
 
-.menu > button {
+.menu>button {
   background-color: var(--header-background);
 }
 
-html.dark-mode .menu > button {
+html.dark-mode .menu>button {
   background-color: var(--dark-header-background);
 }
 
@@ -113,7 +113,7 @@ html.dark-mode .menu > button {
   /* margin-bottom: 40px; */
 }
 
-.menu > button {
+.menu>button {
   border-style: none;
   position: relative;
   padding: 8px;
@@ -121,7 +121,7 @@ html.dark-mode .menu > button {
   z-index: 101;
 }
 
-.menu > button:hover {
+.menu>button:hover {
   cursor: pointer;
 }
 
@@ -203,7 +203,7 @@ html.dark-mode .menu-dropdown {
     position: initial;
   }
 
-  #nav-button > ul {
+  #nav-button>ul {
     display: flex;
     padding: 10px 0;
     gap: 10px;
@@ -212,7 +212,7 @@ html.dark-mode .menu-dropdown {
     font-size: 12px;
   }
 
-  #nav-button > ul > li {
+  #nav-button>ul>li {
     padding: 0 5px;
     list-style-type: none;
     display: flex;

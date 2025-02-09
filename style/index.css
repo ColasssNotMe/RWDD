@@ -115,9 +115,9 @@ section {
   justify-content: center;
   align-items: center;
   color: #000;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 10px 12px rgba(255, 255, 255, 0.5);
+  border: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 100px 200px rgba(255, 255, 255, 0.8);
 
   h1 {
     color: black;
