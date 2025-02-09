@@ -3,7 +3,7 @@
 :root {
   /* light */
   --text: #050f23;
-  --background: #f7f9fe;
+  --background: rgb(247, 249, 254);
   --header-background: #efebeb;
   --primary: #2c65e2;
   --secondary: #ee9185;
