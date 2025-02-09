@@ -1,4 +1,5 @@
 header {
+  z-index: 1002;
   background-color: var(--header-background);
   color: var(--text);
   transition: background-color 0.3s, color 0.3s;
