@@ -1,10 +1,16 @@
 <?php
 include "connection.php";
+$registrationMessage = ""; // Initialize variable
 if (isset($_POST['submit'])) {
-    addUser($connection, $_POST['name'], $_POST['password'], $_POST['email'], "student");
+    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['email'], "student");
+}
+if (!empty($registrationMessage)) {
+    echo "<script>alert('$registrationMessage');</script>";
+    if ($registrationMessage == "Account registered successful") {
+        echo "<script>window.location.href = 'index.php';</script>";
+    }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

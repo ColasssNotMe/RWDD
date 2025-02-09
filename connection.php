@@ -35,9 +35,6 @@ if (isset($_GET['getQuestionSubmit'])) {
 }
 
 // search for login user
-if (isset($_GET['login'])) {
-    validateUserCredential($connection, $_GET['username'], $_GET['password']);
-}
 
 
 // get random request question
@@ -64,12 +61,18 @@ function getQuestion($connection, $form, $subject, $numQuestion)
 // used for validate the login user + store the logged in user credential
 function validateUserCredential($connection, $username, $password)
 {
-    $query  = "SELECT * FROM user where user_name=$username AND password=$password";
-    $result = mysqli_query($connection, $query);
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+    $query  = "SELECT * FROM user WHERE user_name='$username' AND user_password='$password'";
+    $result = mysqli_query(
+        $connection,
+        $query
+    );
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['currentLoginUser'] = mysqli_fetch_row($result);
+        return "Login successful";
     } else {
-        echo "<script>alert('User not found')</script>";
+        return "User not found";
     }
 }
 
@@ -100,10 +103,9 @@ function addUser($connection, $username, $password, $email, $role)
     $email = mysqli_real_escape_string($connection, $email);
     $query = "INSERT INTO user (user_name,user_password,user_email, user_role) VALUES ('$username','$password','$email','$role')";
     if (!mysqli_query($connection, $query)) {
-        echo "<script>alert('Error when registering user')</script>";
+        return "Error when registering user";
     } else {
-        echo "<script>alert('Account registered successful')</script>";
-        header("Location: index.php");
+        return "Account registered successful. Login now to get full access of website";
     }
 }
 

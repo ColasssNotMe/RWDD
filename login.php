@@ -1,4 +1,19 @@
-<?php session_start() ?>
+<?php
+session_start();
+include 'connection.php';
+
+if (isset($_GET['signupBtn'])) {
+    $loginMessage = validateUserCredential($connection, $_GET['username'], $_GET['password']);
+}
+
+if (!empty($loginMessage)) {
+    echo "<script>alert('$loginMessage');</script>";
+    if ($loginMessage == "Login successful") {
+        echo "<script>alert('$loginMessage');</script>";
+        echo "<script>window.location.href = 'index.php';</script>";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,17 +33,17 @@
     <div class="form-container">
         <div class="form_area">
             <h1 class="form_title">SIGN IN </h1>
-            <form action="">
+            <form action="" method="get">
                 <div class="form_group">
                     <label class="form_sub_title" for="username">Username</label>
-                    <input placeholder="Enter your username" class="form_style" type="text">
+                    <input placeholder="Enter your username" class="form_style" type="text" name="username">
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="password">Password</label>
-                    <input placeholder="Enter your password" id="password" class="form_style" type="password">
+                    <input placeholder="Enter your password" id="password" class="form_style" name="password" type="password">
                 </div>
                 <div>
-                    <button class="form_btn" type="submit">SIGN UP</button>
+                    <button class="form_btn" type="submit" name="signupBtn">LOG IN</button>
                     <p>Don't have an account?
                         <a class="form_link" href="register.php">Register Here!</a>
                     </p>

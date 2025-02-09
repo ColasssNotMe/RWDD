@@ -1,10 +1,11 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
   /* light */
   --text: #050f23;
   --background: rgb(247, 249, 254);
-  --header-background: #efebeb;
+  --header-background: #f5f5f5;
   --primary: #2c65e2;
   --secondary: #ee9185;
   --accent: #e7dd52;
@@ -23,7 +24,7 @@
   --dark-hover: rgba(255, 255, 255);
   --dark-hover-text: white;
 
-  --selected:#ffd1b7;
+  --selected: #ffd1b7;
 }
 
 * {
@@ -45,6 +46,7 @@ body {
 }
 
 body {
+  font-family: "Open Sans", serif;
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
@@ -52,6 +54,7 @@ body {
   color: var(--text);
   transition: background-color 0.2s, color 0.3s;
 }
+
 html.dark-mode body {
   background-color: var(--dark-background);
   color: var(--dark-text);
@@ -61,12 +64,15 @@ html.dark-mode body {
 h1 {
   font-size: 1.8rem;
 }
+
 h2 {
   font-size: 1.5rem;
 }
+
 h3 {
   font-size: 1.4rem;
 }
+
 p {
   font-size: 1.2rem;
 }
@@ -95,9 +101,11 @@ button {
   box-shadow: 2px 2px 2px var(--box-shadow);
   cursor: pointer;
 }
+
 .secondary-button {
   box-shadow: 2px 2px 2px var(--box-shadow);
 }
+
 a {
   text-decoration: none;
   background-color: transparent;
@@ -107,6 +115,7 @@ a {
 .link-as-button {
   padding: 5px 10px;
   color: var(--text);
+
   &:hover {
     color: var(--accent);
   }
