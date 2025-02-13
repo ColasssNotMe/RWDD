@@ -59,17 +59,19 @@ function getQuestion($connection, $form, $subject, $numQuestion)
 } */
 
 // used for validate the login user + store the logged in user credential
-function validateUserCredential($connection, $username, $password)
+function validateUserCredential($connection, $email, $password)
 {
-    $username = mysqli_real_escape_string($connection, $username);
+    $email = mysqli_real_escape_string($connection, $email);
     $password = mysqli_real_escape_string($connection, $password);
-    $query  = "SELECT * FROM user WHERE user_name='$username' AND user_password='$password'";
+    $query  = "SELECT * FROM user WHERE user_email='$email' AND user_password='$password'";
     $result = mysqli_query(
         $connection,
         $query
     );
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['currentLoginUser'] = mysqli_fetch_row($result);
+    $row = mysqli_fetch_array($result);
+    $rowCount = mysqli_num_rows($result);
+    if ($rowCount > 0) {
+        $_SESSION['currentLoginUser'] = $row['user_id'];
         return "Login successful";
     } else {
         return "User not found";

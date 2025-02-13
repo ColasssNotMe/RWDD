@@ -3,7 +3,7 @@ session_start();
 include 'connection.php';
 
 if (isset($_GET['signupBtn'])) {
-    $loginMessage = validateUserCredential($connection, $_GET['username'], $_GET['password']);
+    $loginMessage = validateUserCredential($connection, $_GET['email'], $_GET['password']);
 }
 
 if (!empty($loginMessage)) {
