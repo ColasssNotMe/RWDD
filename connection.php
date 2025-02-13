@@ -1,6 +1,5 @@
 <?php
-session_start();
-$server   = 'localhost';
+$server = "localhost";
 $user     = 'root';
 $password = '';
 $database = 'quizzation'; // insert database name
@@ -10,9 +9,6 @@ $listOfQuestion;
 
 // TODO: change "table" in the query to db table name
 //use a _GET to know when the button is pressed and then generate things -> replace the $var and then it should update on the question-page?
-
-// create session
-
 
 // create connection
 $connection = mysqli_connect($server, $user, $password, $database);
@@ -30,8 +26,7 @@ if (isset($_GET['form'])) {
 
 // getting the url param from script.js
 // FIXME: getting question
-if (isset($_GET['submit'])) {
-    echo 'isset running';
+if (isset($_GET['getQuestionSubmit'])) {
     $subject = $_GET['subject'];
     $form = $_GET['form'];
     $numQuestion = $_GET['numQuestion'];
@@ -40,9 +35,6 @@ if (isset($_GET['submit'])) {
 }
 
 // search for login user
-if (isset($_GET['login'])) {
-    validateUserCredential($connection, $_GET['username'], $_GET['password']);
-}
 
 
 // get random request question
@@ -69,12 +61,18 @@ function getQuestion($connection, $form, $subject, $numQuestion)
 // used for validate the login user + store the logged in user credential
 function validateUserCredential($connection, $username, $password)
 {
-    $query  = "SELECT * FROM user where user_name=$username AND password=$password";
-    $result = mysqli_query($connection, $query);
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+    $query  = "SELECT * FROM user WHERE user_name='$username' AND user_password='$password'";
+    $result = mysqli_query(
+        $connection,
+        $query
+    );
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['currentLoginUser'] = mysqli_fetch_row($result);
+        return "Login successful";
     } else {
-        echo "<script>alert('User not found')</script>";
+        return "User not found";
     }
 }
 
@@ -82,7 +80,7 @@ function addRecord($connection, $score, $timeTaken, $userID, $quizID)
 {
     $query = "INSERT INTO record (score,time_taken,user_id,quiz_id) VALUES ($score,$timeTaken,$userID,$quizID)";
     if (!mysqli_query($connection, $query)) {
-        echo "Error inserting data";
+        echo "<script>alert('Error when inserting record')</script>";
     } else {
         header("Location: result.php");
     }
@@ -92,19 +90,22 @@ function deleteRecord($connection, $recordID)
 {
     $query = "DELETE FROM record WHERE record_id = $recordID";
     if (!mysqli_query($connection, $query)) {
-        echo "Error deleting data";
+        echo "<script>alert('Error when deleting record')</script>";
     } else {
         header("Location: result.php");
     }
 }
 
-function addUser($connection, $username, $password, $role)
+function addUser($connection, $username, $password, $email, $role)
 {
-    $query = "INSERT INTO user (user_name,password,role) VALUES ($username,$password,$role)";
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+    $email = mysqli_real_escape_string($connection, $email);
+    $query = "INSERT INTO user (user_name,user_password,user_email, user_role) VALUES ('$username','$password','$email','$role')";
     if (!mysqli_query($connection, $query)) {
-        echo "Error adding user";
+        return "Error when registering user";
     } else {
-        header("Location: index.php");
+        return "Account registered successful. Login now to get full access of website";
     }
 }
 

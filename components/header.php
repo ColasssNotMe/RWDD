@@ -16,10 +16,11 @@ require 'navigation.php';
                         alt="logo-with-name" />
                 </a>
             </div>
-            <div id="toggleDarkMode">
+            <!-- Dark mode button disable (too much of work) -->
+            <!-- <div id="toggleDarkMode">
                 <button
                     type="button"
-                    class="no-style-button header-button"
+                    class="no-style-button header-button "
                     id="dark-mode-button"
                     onclick="switchTheme()">
                     <img
@@ -28,7 +29,7 @@ require 'navigation.php';
                         class="icon"
                         id="themeIcon" />
                 </button>
-            </div>
+            </div> -->
         </div>
         <div id="temp-middle-logo">
             <a href=<?php echo $root ?>>

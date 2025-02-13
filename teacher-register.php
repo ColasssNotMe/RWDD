@@ -13,25 +13,34 @@
 <body>
   <?php require_once 'components/header.php' ?>
   <div class="form-container">
-    <form action="" method="POST">
-      <div class="title">
-        <h1>Teacher's Portal</h1>
-        <h3>
-          Have an account?
-          <i><u><a href="./teacher-portal.php">Log in now</a></u></i>
-        </h3>
-      </div>
-
-      <div class="forms-item">
-        <label for="username">Username</label>
-        <br />
-        <input type="text" name="username" id="username" />
-        <br />
-        <label for="">Password</label>
-        <br />
-        <input type="password" name="password" id="password" />
-      </div>
-    </form>
+    <div class="form_area">
+      <h3 class="form_title">
+        <span style="font-size: 2rem;">Teacher's Portal</span>
+        <br>
+        Register as a Teacher
+      </h3>
+      <form action="" method="post">
+        <div class="form_group">
+          <label class="form_sub_title" for="name">Name</label>
+          <input placeholder="Enter your full name" class="form_style" type="text">
+        </div>
+        <div class="form_group">
+          <label class="form_sub_title" for="email">Email</label>
+          <input placeholder="Enter your email" id="email" class="form_style" type="email">
+        </div>
+        <div class="form_group">
+          <label class="form_sub_title" for="password">Password</label>
+          <input placeholder="Enter your password" id="password" class="form_style" type="password">
+        </div>
+        <div>
+          <button class="form_btn" type="submit">SIGN UP</button>
+          <p>Already have account?
+            <a class="form_link" href="teacher-portal.php">Log in here!</a>
+          </p>
+          <br>
+        </div>
+      </form>
+    </div>
   </div>
   <script src="./script.js"></script>
   <?php require_once 'components/footer.php' ?>

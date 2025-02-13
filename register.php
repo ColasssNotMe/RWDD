@@ -1,5 +1,16 @@
-<?php session_start() ?>
-
+<?php
+include "connection.php";
+$registrationMessage = ""; // Initialize variable
+if (isset($_POST['submit'])) {
+    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['email'], "student");
+}
+if (!empty($registrationMessage)) {
+    echo "<script>alert('$registrationMessage');</script>";
+    if ($registrationMessage == "Account registered successful") {
+        echo "<script>window.location.href = 'index.php';</script>";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,21 +29,25 @@
     <div class="form-container">
         <div class="form_area">
             <p class="form_title">SIGN UP</p>
-            <form action="">
+            <form action="" method="post">
                 <div class="form_group">
                     <label class="form_sub_title" for="name">Name</label>
-                    <input placeholder="Enter your full name" class="form_style" type="text">
+                    <input placeholder="Enter your full name" name="name" class="form_style" type="text">
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="email">Email</label>
-                    <input placeholder="Enter your email" id="email" class="form_style" type="email">
+                    <input placeholder="Enter your email" name="email" class="form_style" type="email">
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="password">Password</label>
-                    <input placeholder="Enter your password" id="password" class="form_style" type="password">
+                    <input placeholder="Enter your password" name="password" class="form_style" type="password">
+                </div>
+                <div class="form_group">
+                    <label class="form_sub_title" for="password">Re-enter Password</label>
+                    <input placeholder="Re-Enter your password" name="repassword" class="form_style" type="password">
                 </div>
                 <div>
-                    <button class="form_btn">SIGN UP</button>
+                    <button class="form_btn" name="submit">SIGN UP</button>
                     <p>Have an Account?
                         <a class="form_link" href="login.php">Login Here!</a>
                     </p>

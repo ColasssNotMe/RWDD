@@ -11,89 +11,36 @@
 </head>
 
 <body>
-  <header>
-    <div class="left-side">
-      <div id="align-left-sm">
-        <div>
-          <a href="/index.php">
-            <!-- add the logo img with name -->
-            <img
-              id="logo-with-name"
-              src="/res/img/Quizzation.png"
-              alt="logo-with-name" />
-          </a>
-        </div>
-        <div id="toggleDarkMode">
-          <button
-            type="button"
-            class="no-style-button header-button"
-            id="dark-mode-button"
-            onclick="switchTheme()">
-            <img
-              src="/res/img/moon.png"
-              alt="toggle dark mode"
-              class="icon"
-              id="themeIcon" />
-          </button>
-        </div>
-      </div>
-      <div id="temp-middle-logo">
-        <a href="/index.php">
-          <img
-            id="logo-middle-sm"
-            src="/res/img/Quizzation.png"
-            alt="logo-with-name" />
-        </a>
-      </div>
-      <div class="menu" onclick="toggleMenu(this)">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
-    </div>
-    <div id="nav-button">
-      <ul>
-        <li>
-          <a href="/" class="header-button">Home</a>
-        </li>
-        <li>
-          <a href="" <?php $about ?>"" class="header-button">About Us</a>
-        </li>
-        <li>
-          <a href="/select-form.php" class="header-button">Get Started</a>
-        </li>
-        <li>
-          <a href="account.php" class="header-button" id="profile-a">
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
-              alt="profile"
-              class="icon"
-              id="profile-icon" />
-          </a>
-        </li>
-      </ul>
-    </div>
-  </header>
-
+  <?php require_once "components/header.php" ?>
+  <!-- From Uiverse.io by mi-series -->
   <div class="form-container">
-    <form action="" method="POST">
-      <div class="title">
-        <h1>Teacher's Portal</h1>
-        <h3>Login as Teacher</h3>
-      </div>
-
-      <div class="forms-item">
-        <label for="username">Username</label>
-        <br />
-        <input type="text" name="username" id="username" />
-        <br />
-        <label for="">Password</label>
-        <br />
-        <input type="password" name="password" id="password" />
-      </div>
-    </form>
+    <div class="form_area">
+      <h3 class="form_title">
+        <span style="font-size: 2rem;">Teacher's Portal</span>
+        <br>
+        Login as a Teacher
+      </h3>
+      <form action="" method="post">
+        <div class="form_group">
+          <label class="form_sub_title" for="username">Username</label>
+          <input placeholder="Enter your username" class="form_style" type="text">
+        </div>
+        <div class="form_group">
+          <label class="form_sub_title" for="password">Password</label>
+          <input placeholder="Enter your password" id="password" class="form_style" type="password">
+        </div>
+        <div>
+          <button class="form_btn" type="submit">LOG IN</button>
+          <p>Don't have an account?
+            <a class="form_link" href="teacher-register.php">Register Here!</a>
+          </p>
+          <br>
+        </div>
+      </form>
+    </div>
   </div>
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
+  <?php require_once "components/footer.php" ?>
 </body>
 
 </html>
