@@ -30,13 +30,15 @@ require "connection.php";
                 } else {
                     $result = mysqli_query($connection, $sql);
                     while ($row = mysqli_fetch_array($result)){
-                    echo '<h2 class="question_tittle">'.$row["question"].'</h2>';
+                    echo '<h1 class="question_tittle">'.$row["question"].'</h1>';
                     }
                 }
             ?>
             <button name='startBtn'
             class='start-now' onclick=startQuiz()>
             Start Now</button>
+            
+            
         </div>
     </div>
     <script src="script.js"></script>

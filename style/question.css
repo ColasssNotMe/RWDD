@@ -22,3 +22,19 @@
     width: 90%;
     max-width: 450px;
   }
+
+.question_title {
+    color: #264143;
+    font-weight: 900;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.question_field{
+    
+}
+
+.describe_field {
+    font-weight: 600;
+    margin: 5px 0;
+}
