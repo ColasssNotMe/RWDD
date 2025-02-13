@@ -7,6 +7,7 @@ if (isset($_GET['signupBtn'])) {
 }
 
 if (!empty($loginMessage)) {
+    // echo $loginMessage;
     if ($loginMessage == "Login successful") {
         echo $_SESSION['currentLoginUser'];
         echo "<script>alert('$loginMessage');</script>";
