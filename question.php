@@ -35,6 +35,7 @@ require "connection.php";
                         }
                     }
                 ?>
+                <h1>Tittle</h1>
                 <button name='startBtn'
                 class='start-now' onclick=startQuiz()>
                 Start Now</button>
