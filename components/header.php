@@ -74,8 +74,7 @@ require 'navigation.php';
                             alt="profile"
                             class="icon"
                             id="profile-icon" />
-                    </a>;
-                    ?>
+                    </a>
                     <!-- close  the if statement -->
                 <?php
                 } else {
