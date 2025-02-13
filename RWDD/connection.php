@@ -68,10 +68,8 @@ function validateUserCredential($connection, $username, $password)
         $connection,
         $query
     );
-    $row = mysqli_fetch_array($result);
-    $rowCount = mysqli_num_rows($result);
-    if ($rowCount > 0) {
-        $_SESSION['currentLoginUser'] = $row['user_id'];
+    if (mysqli_num_rows($result) > 0) {
+        $_SESSION['currentLoginUser'] = mysqli_fetch_row($result);
         return "Login successful";
     } else {
         return "User not found";

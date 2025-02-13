@@ -7,10 +7,10 @@ if (isset($_GET['signupBtn'])) {
 }
 
 if (!empty($loginMessage)) {
+    echo "<script>alert('$loginMessage');</script>";
     if ($loginMessage == "Login successful") {
-        echo $_SESSION['currentLoginUser'];
         echo "<script>alert('$loginMessage');</script>";
-        // echo "<script>window.location.href = 'index.php';</script>";
+        echo "<script>window.location.href = 'index.php';</script>";
     }
 }
 ?>
@@ -35,8 +35,8 @@ if (!empty($loginMessage)) {
             <h1 class="form_title">SIGN IN </h1>
             <form action="" method="get">
                 <div class="form_group">
-                    <label class="form_sub_title" for="email">Email</label>
-                    <input placeholder="Enter your email" class="form_style" type="email" name="email">
+                    <label class="form_sub_title" for="username">Username</label>
+                    <input placeholder="Enter your username" class="form_style" type="text" name="username">
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="password">Password</label>

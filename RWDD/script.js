@@ -127,7 +127,7 @@ function getAllQuestion(subjectID, form, numQuestion) {
         if (response.ok) {
           window.location.href = "question.php";
         } else {
-          throw new Error("Error: failed to fetch question ");
+          throw new Error("Error: fetch request not successful.");
         }
       })
       .catch((error) => {
