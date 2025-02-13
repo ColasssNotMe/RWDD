@@ -14,7 +14,7 @@
 
 <body>
   <div class="container">
-    <?php require_once "components/header.php" ?>
+    <?php include_once "components/header.php"; ?>
 
     <div class="content">
       <div id="small-container">

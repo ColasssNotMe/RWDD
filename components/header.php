@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'navigation.php';
 ?>
 
@@ -70,7 +71,7 @@ require 'navigation.php';
                 ?>
                     <a href="<?php echo $account ?>" class="header-button" id="profile-a">
                         <img
-                            src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
+                            src="https://images.pexels.com/photos/19526811/pexels-photo-19526811/free-photo-of-cake-on-white-background.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
                             alt="profile"
                             class="icon"
                             id="profile-icon" />
