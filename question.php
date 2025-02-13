@@ -19,18 +19,13 @@ require "connection.php";
     <?php include_once './components/header.php' ?>
     <div class='content'>
         <div id='quiz'>
-                
-            <a href="select-subject.php">
-                <button name='backBtn'>
-                    <
-                </button>
-            </a>
-            <h2>Tittle</h2>
+            <button name='backBtn'>
+                <a href="select-subject.php"><</a>
+            </button>
+            <h2></h2>
             <button name='startBtn'
             class='start-now' onclick=startQuiz()>
             Start Now</button>
-            <h2>Description</h2>
-            <p>[Description]</p>
         </div>
     </div>
     <script src="script.js"></script>
