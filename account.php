@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'connection.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +11,8 @@
     <title>profile</title>
 </head>
 <body>
-    <?php require_once 'components/header.php' ?>
+    <?php require_once 'components/header.php'; ?>
+
     <?php require_once 'components/footer.php'; ?>
 </body>
 </html>
