@@ -1,4 +1,4 @@
-.content {
+.question {
     display: flex;
     flex: 1;
     justify-content: flex-start;
@@ -8,3 +8,17 @@
     flex-direction: column;
     text-align: center;
 }
+
+.question_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--header-background);
+    padding: 230px 750px;
+    border: 2px solid #264143;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px var(--box-shadow);
+    width: 90%;
+    max-width: 450px;
+  }

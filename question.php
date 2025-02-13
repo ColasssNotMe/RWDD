@@ -17,8 +17,8 @@ require "connection.php";
 
 <body>
     <?php include_once './components/header.php' ?>
-    <div class='content'>
-        <div id='quiz'>
+    <div class='question'>
+        <div class='question_area'>
             <button name='backBtn'>
                 <a href="select-subject.php"><</a>
             </button>
@@ -29,6 +29,7 @@ require "connection.php";
         </div>
     </div>
     <script src="script.js"></script>
+    <?php include_once './components/footer.php' ?>
 </body>
 
 </html>
