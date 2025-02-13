@@ -61,7 +61,7 @@
 
       <h2>7. Contact Us</h2>
 
-      <p>If you have any questions about this Privacy Policy, please contact us at: [Your Contact Email Address]</p>
+      <p>If you have any questions about this Privacy Policy, please contact us at: quizzation@gmail.com</p>
 
       <p>Thank you for using SPM Quiz Prep!</p>
     </div>
