@@ -14,17 +14,19 @@
 <body>
   <?php require_once 'components/header.php' ?>
   <div class="content">
-    <h1 class="title"><b>Quizzation:</b>
-      <br>
-      <br>
-      Your SPM Success Partner
-    </h1>
-    <div id="about-description">
-      <h1>Our Mission</h1>
-      <section class="mission-section">
-        <p>To empower secondary school students with the knowledge and confidence they need to conquer their SPM exams. We strive to provide a fun and engaging learning experience that makes studying more effective and less stressful.
-        </p>
-      </section>
+    <div class="wrapper">
+      <h1 class="title"><b>Quizzation:</b>
+        <br>
+        <br>
+        Your SPM Success Partner
+      </h1>
+      <div id="about-description">
+        <h1>Our Mission</h1>
+        <section class="mission-section">
+          <p>To empower secondary school students with the knowledge and confidence they need to conquer their SPM exams. We strive to provide a fun and engaging learning experience that makes studying more effective and less stressful.
+          </p>
+        </section>
+      </div>
     </div>
     <script src="./script.js"></script>
   </div>
