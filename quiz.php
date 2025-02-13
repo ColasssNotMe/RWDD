@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <div class="content"></div>
+    <?php require_once 'components/header.php' ?>
     <script src="/script.js"></script>
+    
+    <div class="content">
+      <h1 class="tittle">Tittle</h1>
+      <h3>Description of Quiz</h3>
+      <img src="" alt="quiz-image" id="quiz-image">
+      <div class="description">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis sed tempora deserunt non quae iusto ab ex explicabo ut exercitationem repudiandae dolores harum, quas voluptatem, incidunt enim ipsum obcaecati odit?
+      </div>
+    </div>
+
+    <div class="button-div">
+      <button onclick="startQuiz()" class="start-button">Start Quiz</button>
+      <button onclick="window.location.href='select-subject.php'" class="back-button"><</button>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
