@@ -35,9 +35,15 @@ require "connection.php";
                         }
                     }
                 ?>
-            <button name='startBtn'
-            class='start-now' onclick=startQuiz()>
-            Start Now</button>
+                <button name='startBtn'
+                class='start-now' onclick=startQuiz()>
+                Start Now</button>
+            </div>
+            <div class="describe_field">
+                <div class="describe_box">
+                    <h2>Description</h2>
+                    <p>libxml_disable_entity_loader</p>
+                </div>
             </div>
 
             
