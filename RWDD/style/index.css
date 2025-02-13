@@ -1,0 +1,265 @@
+section {
+  width: 80%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.fullSize {
+  width: 100%;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.large-button {
+  border: 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 70px;
+  padding: 10px;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 20px;
+  width: 150px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+.all-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  border: 2px solid #264143;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  width: 290px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 10px 20px;
+}
+
+#small-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 600px;
+  align-items: center;
+  justify-content: start;
+  padding: 40px 0;
+
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../res/img/indexbg.jpg");
+  background-blend-mode: overlay; */
+
+  /* Option 2: Solid background color with opacity */
+  background-color: rgba(247, 249, 254, 0.5);
+  background-image:
+    linear-gradient(to bottom,
+      rgba(254, 249, 247, 0.2),
+      rgba(247, 249, 254, 0.3) 20%,
+      rgba(247, 249, 254, 0.4) 50%,
+      rgba(247, 249, 254, 0.5) 70%,
+      rgba(247, 249, 254, 1) 100%),
+    url("../res/img/indexbg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#about-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+
+  h1 {
+    align-self: self-start;
+  }
+
+}
+
+#website-name {
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  border: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 100px 200px rgba(255, 255, 255, 0.8);
+
+  h1 {
+    color: black;
+    font-size: 3rem;
+  }
+}
+
+#how-it-works {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  img {
+    width: 30px;
+    height: auto;
+  }
+
+  h1 {
+    align-self: flex-start;
+  }
+
+  .detail-steps {
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* align-content: center; */
+    flex-grow: 1;
+    flex-direction: column;
+    margin-bottom: 100px;
+    border: none;
+    text-wrap: balance;
+  }
+
+  p {
+    display: flex;
+
+  }
+
+  #steps {
+    display: block;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 10px;
+    border: 2px solid #264143;
+    box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  }
+}
+
+
+
+.description {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#index_paragraph {
+  padding-top: 0;
+}
+
+.mission-section {
+  padding: 12px 10px;
+  border: 2px solid #264143;
+  box-shadow: 5px 5px 10px 1px lightgray;
+  outline: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0 20px;
+  margin-bottom: 60px;
+}
+
+.title {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
+  margin-top: 40px;
+}
+
+
+#start-learning-today {
+  margin-top: 10px;
+}
+
+.no-style-button {
+  background-color: transparent;
+}
+
+#box-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  #box-center {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .description {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+
+  .all-cards {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .card {
+    flex: 1 1 0;
+    padding: 12px 10px;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 10px 20px;
+  }
+
+  #how-it-works {
+    .detail-steps {
+      flex: 1 1 0;
+    }
+
+    #steps {
+      display: flex;
+      flex: 1 1 0;
+      justify-content: center;
+      width: 100%;
+      padding: 40px 10px;
+      border: 2px solid #264143;
+      box-shadow: 3px 4px 0px 1px var(--box-shadow);
+    }
+  }
+}
