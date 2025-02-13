@@ -16,24 +16,24 @@ require "connection.php";
 
 <body>
     <?php include_once './components/header.php' ?>
-    <?php
-        $sql="SELECT question from question";
-        if(!mysqli_query($connection, $sql)){
-            die('Error: ' . mysqli_error($con));
-        } else {
-            $result = mysqli_query($connection, $sql);
-            while ($row = mysqli_fetch_array($result)){
-            echo '<h2 class="question_tittle">'.$row["question"].'</h2>';
-        }
-        }
-    ?>
     <div class='question'>
         <div class='question_area'>
-                <a href="select-subject.php">
-                    <button name='backBtn'>
-                        <
-                    </button>
-                </a>
+            <a href="select-subject.php">
+                <button name='backBtn'>
+                    <
+                </button>
+            </a>
+            <?php
+                $sql="SELECT question from question";
+                if(!mysqli_query($connection, $sql)){
+                    die('Error: ' . mysqli_error($con));
+                } else {
+                    $result = mysqli_query($connection, $sql);
+                    while ($row = mysqli_fetch_array($result)){
+                    echo '<h2 class="question_tittle">'.$row["question"].'</h2>';
+                    }
+                }
+            ?>
             <button name='startBtn'
             class='start-now' onclick=startQuiz()>
             Start Now</button>
