@@ -42,11 +42,11 @@
 
         <h2>7. Governing Law</h2>
 
-        <p>These terms and services shall be governed by and construed in accordance with the laws of [Your Jurisdiction - e.g., Malaysia].</p>
+        <p>These terms and services shall be governed by and construed in accordance with the laws of Contracts Act 1950.</p>
 
         <h2>8. Contact Us</h2>
 
-        <p>If you have any questions about these terms and services, please contact us at: [Your Contact Email Address]</p>
+        <p>If you have any questions about these terms and services, please contact us at: quzzation@gmail.com</p>
 
         <p>Thank you for using SPM Quiz Prep!</p>
     </div>
