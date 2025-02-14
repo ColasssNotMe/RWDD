@@ -9,7 +9,9 @@
   --primary: #2c65e2;
   --secondary: #ee9185;
   --accent: #e7dd52;
+  --accent-hover: #fff897;
   --box-shadow: #e99f4c;
+  --box-shadow-hover: #f09225ea;
   --secondary-accent: #f8f8f8;
   /* dark */
   --dark-text: #dbe6fa;
