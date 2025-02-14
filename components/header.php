@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'navigation.php';
 ?>
 
@@ -80,7 +79,6 @@ require 'navigation.php';
                             class="icon"
                             id="profile-icon" />
                     </a>
-                    <!-- close  the if statement -->
                 <?php
                 } else {
                 ?>
@@ -94,7 +92,6 @@ require 'navigation.php';
                     <!-- close the else statement -->
                 <?php
                 } ?>
-
             </li>
         </ul>
     </div>

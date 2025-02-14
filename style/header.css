@@ -163,14 +163,14 @@ html.dark-mode .menu-dropdown {
 }
 
 .close {
-  display: block; /* Use flexbox for centering */
-  align-items: center; /* Vertically center the crosses */
-  justify-content: center; /* Horizontally center the crosses */
-  position: absolute; /* Position it within the menu-dropdown */
-  top: 10px; /* Adjust as needed */
-  right: 10px; /* Adjust as needed */
-  width: 40px; /* Set a width */
-  height: 40px; /* Set a height */
+  display: block;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   z-index: 1001;
   border: none;

@@ -1,4 +1,7 @@
 <?php
+
+include 'session.php';
+ 
 require "connection.php";
 ?>
 
