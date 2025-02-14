@@ -85,18 +85,15 @@ html.dark-mode .menu-dropdown {
   background-color: var(--dark-background);
 }
 
-.menu>button {
+.menu > button {
   background-color: var(--header-background);
 }
 
-html.dark-mode .menu>button {
+html.dark-mode .menu > button {
   background-color: var(--dark-header-background);
 }
 
 #align-left-sm {
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   display: none;
 }
 
@@ -114,15 +111,14 @@ html.dark-mode .menu>button {
   /* margin-bottom: 40px; */
 }
 
-.menu>button {
+.menu > button {
   border-style: none;
   position: relative;
   padding: 8px;
   background-color: transparent;
-  z-index: 101;
 }
 
-.menu>button:hover {
+.menu > button:hover {
   cursor: pointer;
 }
 
@@ -163,22 +159,53 @@ html.dark-mode .menu-dropdown {
   margin: 6px 0;
   transition: 0.4s;
   border-radius: 1.2rem;
+  background-color: black;
 }
 
-/* Rotate first bar */
+.close {
+  display: block; /* Use flexbox for centering */
+  align-items: center; /* Vertically center the crosses */
+  justify-content: center; /* Horizontally center the crosses */
+  position: absolute; /* Position it within the menu-dropdown */
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  width: 40px; /* Set a width */
+  height: 40px; /* Set a height */
+  cursor: pointer;
+  z-index: 1001;
+  border: none;
+}
+
+.cross1,
+.cross2 {
+  width: 35px;
+  height: 5px;
+  /* margin: 6px 0;  Remove the margin */
+  border-radius: 1.2rem;
+  background-color: black;
+  position: absolute; /* Position them relative to .close */
+}
+
+.cross1 {
+  transform: rotate(-45deg);
+}
+
+.cross2 {
+  transform: rotate(45deg);
+}
+/* 
 .change .bar1 {
   transform: translate(0, 11px) rotate(-45deg);
 }
 
-/* Fade out the second bar */
 .change .bar2 {
   opacity: 0;
 }
 
-/* Rotate last bar */
 .change .bar3 {
   transform: translate(0, -11px) rotate(45deg);
 }
+*/
 
 #logo-with-name {
   display: none;
@@ -204,7 +231,7 @@ html.dark-mode .menu-dropdown {
     position: initial;
   }
 
-  #nav-button>ul {
+  #nav-button > ul {
     display: flex;
     padding: 10px 0;
     gap: 10px;
@@ -213,7 +240,7 @@ html.dark-mode .menu-dropdown {
     font-size: 12px;
   }
 
-  #nav-button>ul>li {
+  #nav-button > ul > li {
     padding: 0 5px;
     list-style-type: none;
     display: flex;
@@ -271,6 +298,13 @@ html.dark-mode .menu-dropdown {
   .bar2,
   .bar3 {
     display: none;
+  }
+
+  #align-left-sm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 }
 

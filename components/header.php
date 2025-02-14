@@ -32,14 +32,14 @@ require 'navigation.php';
                 </button>
             </div> -->
         </div>
-        <div id="temp-middle-logo">
+        <!-- <div id="temp-middle-logo">
             <a href=<?php echo $root ?>>
                 <img
                     id="logo-middle-sm"
                     src="./res/img/Quizzation.png"
                     alt="logo-with-name" />
             </a>
-        </div>
+        </div> -->
         <div class="menu">
             <button onclick="toggleMenu()">
                 <div class="bar1"></div>
@@ -47,6 +47,10 @@ require 'navigation.php';
                 <div class="bar3"></div>
             </button>
             <div class="menu-dropdown">
+                <button class="close" onclick="toggleMenu()">
+                    <div class="cross1"></div>
+                    <div class="cross2"></div>
+                </button>
                 <a href="<?php echo $about ?>">About</a>
                 <a href="<?php echo $privacy ?>">Privacy Policy</a>
                 <a href="<?php echo $tns ?>">Terms and Services</a>
