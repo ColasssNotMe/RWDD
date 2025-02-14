@@ -54,6 +54,8 @@
   justify-content: center;
 }
 
+.title
+
 #button-div {
   display: flex;
   width: 100%;
@@ -97,17 +99,6 @@
   background-color: var(--hover);
 }
 
-html.dark-mode .confirmation-button {
-  background-color: var(--dark-background);
-  color: var(--dark-text);
-  border: 2px solid gray;
-  transition: background-color 0.3s ease-in-out;
-}
-html.dark-mode .confirmation-button:hover {
-  background-color: var(--dark-hover);
-  transition: background-color 0.3s ease-in-out;
-}
-
 .selected {
   border: 2px solid gray;
   background-color: var(--selected);
@@ -116,16 +107,9 @@ html.dark-mode .confirmation-button:hover {
 .selection-body {
   background-color: var(--background);
 }
-html.dark-mode .selection-body {
-  background-color: var(--dark-background);
-}
 
 .subject-button {
   background-color: var(--background);
-}
-
-html.dark-mode .subject-button {
-  background-color: var(--dark-background);
 }
 
 #start-now {

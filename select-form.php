@@ -16,6 +16,9 @@ include 'session.php';
 <body>
     <div>
         <?php include_once 'components/header.php' ?>
+            <h1 class="title">
+                Select the form to be included in the quiz
+            </h1>
         <div class="content">
             <div id="button-div">
                 <button onclick="sendFormGetReq()" class="primary-button confirmation-button">Next</button>
