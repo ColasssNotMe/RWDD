@@ -19,7 +19,7 @@ include 'session.php';
   <div class="content">
     <div class="wrapper">
       <h1 class="title">
-        <b style="font-size: 5rem;color:var(--box-shadow)">Quizzation:</b>
+        <b style="color:var(--box-shadow)" class="super-large-title">Quizzation:</b>
         <br>
         <br>
         Your SPM Success Partner
