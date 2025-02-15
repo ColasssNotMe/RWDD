@@ -8,14 +8,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 15px;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   min-height: 70px;
-}
-
-html.dark-mode header {
-  background-color: var(--dark-header-background);
-  color: var(--dark-text);
+  /* position: sticky; */
 }
 
 .header-button {
@@ -53,44 +49,18 @@ html.dark-mode .header-button {
   align-items: center;
 }
 
-#dark-mode-button {
-  justify-content: center;
-  justify-self: center;
-  display: flex;
-  align-items: center;
-  align-self: center;
-  width: 50px;
-  height: 40px;
-  cursor: pointer;
-  padding: 8px;
-}
-
 body .bar1,
 body .bar2,
 body .bar3 {
   background-color: black;
 }
 
-html.dark-mode .bar1,
-html.dark-mode .bar2,
-html.dark-mode .bar3 {
-  background-color: white;
-}
-
 .menu-dropdown {
   background-color: var(--background);
 }
 
-html.dark-mode .menu-dropdown {
-  background-color: var(--dark-background);
-}
-
 .menu > button {
   background-color: var(--header-background);
-}
-
-html.dark-mode .menu > button {
-  background-color: var(--dark-header-background);
 }
 
 .left-side {
@@ -114,14 +84,11 @@ html.dark-mode .menu > button {
   background-color: transparent;
 }
 
-.menu > button:hover {
-  cursor: pointer;
-}
-
 .menu-dropdown {
   position: fixed;
-  height: 100%;
-  width: 400px;
+  width: 80%;
+  height: 100vh;
+  flex:1 1 0;
   z-index: 100;
   top: 0;
   right: -200%;
@@ -130,13 +97,10 @@ html.dark-mode .menu > button {
   box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
   transition: right 0.3s;
   align-items: flex-start;
+  overflow-y: auto;
 }
 
-html.dark-mode .menu-dropdown {
-  box-shadow: -10px 0 10px rgba(255, 255, 255, 0.25);
-}
-
-.change .menu-dropdown {
+.menu-dropdown.change {
   right: 0;
 }
 
@@ -160,14 +124,13 @@ html.dark-mode .menu-dropdown {
 
 .close {
   display: block;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
   width: 40px;
   height: 40px;
-  cursor: pointer;
   z-index: 1001;
   border: none;
 }
@@ -217,12 +180,6 @@ html.dark-mode .menu-dropdown {
 .icon {
   width: 20px;
   height: 20px;
-}
-
-#logo-middle-sm {
-  display: flex;
-  height: 50px;
-  width: auto;
 }
 
 @media (min-width: 768px) {

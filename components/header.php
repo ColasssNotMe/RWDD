@@ -20,17 +20,17 @@ require 'navigation.php';
             <div class="bar2"></div>
             <div class="bar3"></div>
         </button>
-        <div class="menu-dropdown">
-            <button class="close" onclick="toggleMenu()">
-                <div class="cross1"></div>
-                <div class="cross2"></div>
-            </button>
-            <a href="<?php echo $about ?>">About</a>
-            <a href="<?php echo $privacy ?>">Privacy Policy</a>
-            <a href="<?php echo $tns ?>">Terms and Services</a>
-            <!-- TODO:DELETE if user is logged in -->
-            <a href="<?php echo $login ?>">Login</a>
-        </div>
+    </div>
+    <div class="menu-dropdown">
+        <button class="close" onclick="toggleMenu()">
+            <div class="cross1"></div>
+            <div class="cross2"></div>
+        </button>
+        <a href="<?php echo $about ?>">About</a>
+        <a href="<?php echo $privacy ?>">Privacy Policy</a>
+        <a href="<?php echo $tns ?>">Terms and Services</a>
+        <!-- TODO:DELETE if user is logged in -->
+        <a href="<?php echo $login ?>">Login</a>
     </div>
     <div id="nav-button">
         <ul>
