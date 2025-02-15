@@ -63,7 +63,7 @@ html.dark-mode body {
 }
 
 /* init the font size */
-.super-large-title{
+.super-large-title {
   font-size: 4rem;
 }
 
@@ -127,7 +127,10 @@ a {
   }
 }
 
-@media (min-width: 768) {
+@media (min-width: 768px) {
+  .super-large-title {
+    font-size: 5rem;
+  }
   h1 {
     font-size: 2rem;
   }
