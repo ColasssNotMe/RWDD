@@ -7,7 +7,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 0 15px;
   width: 100%;
   overflow: hidden;
   min-height: 70px;
@@ -91,10 +91,6 @@ html.dark-mode .menu-dropdown {
 
 html.dark-mode .menu > button {
   background-color: var(--dark-header-background);
-}
-
-#align-left-sm {
-  display: none;
 }
 
 .left-side {
@@ -207,8 +203,11 @@ html.dark-mode .menu-dropdown {
 }
 */
 
-#logo-with-name {
-  display: none;
+#logo {
+  display: flex;
+  width: auto;
+  margin: 0 10px;
+  height: 60px;
 }
 
 #profile-a {
@@ -287,24 +286,17 @@ html.dark-mode .menu-dropdown {
     display: none;
   }
 
-  #logo-with-name {
+  #logo {
+    display: flex;
     width: auto;
     margin: 0 10px;
     height: 60px;
-    display: flex;
   }
 
   .bar1,
   .bar2,
   .bar3 {
     display: none;
-  }
-
-  #align-left-sm {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
   }
 }
 
@@ -313,10 +305,6 @@ html.dark-mode .menu-dropdown {
     width: 200px;
     height: 40px;
     font-size: large;
-  }
-
-  #logo-middle-sm {
-    display: none;
   }
 
   #themeIcon {

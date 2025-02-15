@@ -90,7 +90,7 @@
     display: flex;
     flex: 1 1 0;
     margin: 20px;
-    min-width: calc(100vw /4);
+    min-width: calc(100vw / 4);
   }
 
   .subject-button {
@@ -103,6 +103,19 @@
   .selection > a {
     width: 200px;
   }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 360deg);
+  }
+}
+
+.form-button:hover {
+  animation: rotate 30s ease-in-out;
 }
 
 /* Color */
