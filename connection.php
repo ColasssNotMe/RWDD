@@ -45,7 +45,7 @@ function getQuestion($connection, $form, $subject, $numQuestion)
     if (mysqli_num_rows($result) > 0) {
         echo  'num of row >0';
     } else {
-        echo 'Error occured at getting question';
+        echo 'Error occurred at getting question';
     }
 }
 
@@ -54,7 +54,7 @@ function getQuestion($connection, $form, $subject, $numQuestion)
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
     } else {
-        echo 'Error occured at getting question';
+        echo 'Error occurred at getting question';
     }
 } */
 
