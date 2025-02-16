@@ -55,15 +55,20 @@
 }
 
 #important-text {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--box-shadow);
+}
+
+i.zmdi {
+  font-size: 1.2rem;
 }
 
 #button-div {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
+  width: 90%;
+  justify-content: space-between;
+  /* margin-top: 10px; */
+  margin: 10px auto;
 }
 
 @media (min-width: 768px) {

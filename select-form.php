@@ -10,18 +10,20 @@ include 'session.php';
     <title>Select Form</title>
     <link rel="stylesheet" href="./style/selection.css" />
     <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <script src="theme.js"></script>
 </head>
 
 <body>
     <div>
         <?php include_once 'components/header.php' ?>
-        <h1 class="title">
-            <span id="important-text">Select the form</span> <p id="mini-text">to be included in the quiz</p>
-        </h1>
         <div class="content">
+                <h1 class="title">
+                    <span id="important-text">Choose a form</span>
+                </h1>
             <div id="button-div">
-                <button onclick="sendFormGetReq()" class="primary-button confirmation-button">Next</button>
+                <button class="secondary-button confirmation-button"><i class="zmdi zmdi-long-arrow-return"></i></button>
+                <button onclick="sendFormGetReq()" class="primary-button confirmation-button"><i class="zmdi zmdi-arrow-right"></i></button>
             </div>
 
             <div class="selection">

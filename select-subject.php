@@ -9,6 +9,7 @@ include 'session.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style/style.css" />
   <link rel="stylesheet" href="./style/selection.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <title>Select Subject</title>
   <script src="./theme.js"></script>
 </head>
@@ -19,8 +20,15 @@ include 'session.php';
     <div id="button-div">
       <button
         class="confirmation-button"
+        id="start-now">
+        <a href="select-form.php">
+          <i class="zmdi zmdi-long-arrow-return"></i>
+        </a>
+      </button>
+      <button
+        class="confirmation-button"
         id="start-now" onclick=startQuiz()>
-        Start Now
+        <i class="zmdi zmdi-play"></i>
       </button>
     </div>
     <div class="selection">
