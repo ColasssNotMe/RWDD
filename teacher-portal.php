@@ -21,7 +21,7 @@ include 'session.php';
       <h3 class="form_title">
         <span style="font-size: 2rem;">Teacher's Portal</span>
         <br>
-        Login as a Teacher
+        <p>Login as a Teacher</p>
       </h3>
       <form action="" method="post">
         <div class="form_group">
