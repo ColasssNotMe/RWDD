@@ -17,10 +17,13 @@ include 'session.php';
 <body>
   <?php include_once './components/header.php' ?>
   <div class="content">
+    <h1 class="title">
+      <span id="important-text">Choose a subject</span>
+    </h1>
     <div id="button-div">
       <button
-        class="confirmation-button"
-        id="start-now">
+        class="secondary-button"
+        id="return">
         <a href="select-form.php">
           <i class="zmdi zmdi-long-arrow-return"></i>
         </a>

@@ -71,6 +71,11 @@ i.zmdi {
   margin: 10px auto;
 }
 
+#return {
+  width: 50px;
+  height: 50px;
+}
+
 @media (min-width: 768px) {
   .selection {
     display: grid;
@@ -120,10 +125,6 @@ i.zmdi {
   transition: background-color 0.3s ease-in-out;
 }
 
-.confirmation-button:hover {
-  background-color: var(--accent-hover);
-}
-
 .selected {
   border: 2px solid gray;
   background-color: var(--selected);
@@ -134,13 +135,24 @@ i.zmdi {
 }
 
 #start-now {
-  background-color: lightgreen;
-  border-color: green;
+  background-color: var(--secondary-accent);
+  border: 2px solid #000000;
   color: var(--text);
   transition: background-color 0.3s ease;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
 }
+
+i.zmdi-play {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  color: lightgreen;
+}
+
 #start-now:hover {
-  background-color: rgba(2, 160, 2, 0.858);
+  background-color: var(--accent-hover);
   color: var(--dark-text);
   border-color: rgb(5, 171, 5);
+  i.zmdi-play {
+    transform: rotate(125deg);
+  }
 }

@@ -104,12 +104,17 @@ button {
   border-color: var(--dark-accent);
   color: var(--text);
   border: 2px solid black;
-  box-shadow: 2px 2px 2px var(--box-shadow);
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
   cursor: pointer;
 }
 
 .secondary-button {
-  box-shadow: 2px 2px 2px var(--box-shadow);
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  border: 2px solid black;
+}
+
+.secondary-button:hover {
+  background-color: var(--accent-hover);
 }
 
 a {
