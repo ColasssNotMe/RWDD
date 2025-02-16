@@ -1,4 +1,8 @@
 <?php
+
+
+include 'session.php';
+
 include "connection.php";
 $registrationMessage = ""; // Initialize variable
 if (isset($_POST['submit'])) {

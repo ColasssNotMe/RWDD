@@ -4,6 +4,7 @@
 }
 
 footer {
+  z-index: 1001;
   background-color: #f5f5f5;
   padding: 2rem;
   margin-top: 3rem;

@@ -1,59 +1,36 @@
 <?php
-session_start();
 require 'navigation.php';
 ?>
 
 <link rel="stylesheet" href="style/header.css">
 
 <header>
-    <div class="left-side">
-        <div id="align-left-sm">
-            <div>
-                <a href="<?php echo $root ?>">
-                    <!-- add the logo img with name -->
-                    <img
-                        id="logo-with-name"
-                        src="./res/img/Quizzation.png"
-                        alt="logo-with-name" />
-                </a>
-            </div>
-            <!-- Dark mode button disable (too much of work) -->
-            <!-- <div id="toggleDarkMode">
-                <button
-                    type="button"
-                    class="no-style-button header-button "
-                    id="dark-mode-button"
-                    onclick="switchTheme()">
-                    <img
-                        src="./res/img/moon.png"
-                        alt="toggle dark mode"
-                        class="icon"
-                        id="themeIcon" />
-                </button>
-            </div> -->
-        </div>
-        <div id="temp-middle-logo">
-            <a href=<?php echo $root ?>>
-                <img
-                    id="logo-middle-sm"
-                    src="./res/img/Quizzation.png"
-                    alt="logo-with-name" />
-            </a>
-        </div>
-        <div class="menu">
-            <button onclick="toggleMenu()">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </button>
-            <div class="menu-dropdown">
-                <a href="<?php echo $about ?>">About</a>
-                <a href="<?php echo $privacy ?>">Privacy Policy</a>
-                <a href="<?php echo $tns ?>">Terms and Services</a>
-                <!-- TODO:DELETE if user is logged in -->
-                <a href="<?php echo $login ?>">Login</a>
-            </div>
-        </div>
+    <div>
+        <a href="<?php echo $root ?>">
+            <!-- add the logo img with name -->
+            <img
+                id="logo"
+                src="./res/img/Quizzation.png"
+                alt="logo-with-name" />
+        </a>
+    </div>
+    <div class="menu">
+        <button onclick="toggleMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </button>
+    </div>
+    <div class="menu-dropdown">
+        <button class="close" onclick="toggleMenu()">
+            <div class="cross1"></div>
+            <div class="cross2"></div>
+        </button>
+        <a href="<?php echo $about ?>">About</a>
+        <a href="<?php echo $privacy ?>">Privacy Policy</a>
+        <a href="<?php echo $tns ?>">Terms and Services</a>
+        <!-- TODO:DELETE if user is logged in -->
+        <a href="<?php echo $login ?>">Login</a>
     </div>
     <div id="nav-button">
         <ul>
@@ -76,7 +53,6 @@ require 'navigation.php';
                             class="icon"
                             id="profile-icon" />
                     </a>
-                    <!-- close  the if statement -->
                 <?php
                 } else {
                 ?>
@@ -90,7 +66,6 @@ require 'navigation.php';
                     <!-- close the else statement -->
                 <?php
                 } ?>
-
             </li>
         </ul>
     </div>

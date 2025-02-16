@@ -43,22 +43,37 @@
   cursor: pointer;
 }
 
-.subject-button {
-  border: 1px solid lightgray;
-  border-radius: 0.5rem;
-  padding: 10px 20px;
-  width: 150px;
-  height: 80px;
+.title {
   display: flex;
-  align-items: center;
+  width: 100vw;
+  align-items: end;
   justify-content: center;
+}
+
+#mini-text {
+  position: sticky;
+}
+
+#important-text {
+  font-size: 2rem;
+  color: var(--box-shadow);
+}
+
+i.zmdi {
+  font-size: 1.2rem;
 }
 
 #button-div {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
+  width: 90%;
+  justify-content: space-between;
+  /* margin-top: 10px; */
+  margin: 10px auto;
+}
+
+#return {
+  width: 50px;
+  height: 50px;
 }
 
 @media (min-width: 768px) {
@@ -66,10 +81,17 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
+    flex: 1 1 0;
+    flex-wrap: wrap;
   }
-  .subject-button {
-    width: 180px;
+
+  .form-button {
+    display: flex;
+    flex: 1 1 0;
+    margin: 20px;
+    min-width: calc(100vw / 4);
   }
+
   .selection > button {
     width: 200px;
   }
@@ -78,33 +100,28 @@
   }
 }
 
-@media (min-width: 1280px) {
-  .selection {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 360deg);
   }
 }
+
+.selected {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px var(--box-shadow);
+}
+
+/* .form-button:hover {
+  animation: rotate 30s ease-in-out;
+} */
 
 /* Color */
 
 .confirmation-button {
   background-color: var(--background);
-  transition: background-color 0.3s ease-in-out;
-}
-
-.confirmation-button:hover {
-  background-color: var(--hover);
-}
-
-html.dark-mode .confirmation-button {
-  background-color: var(--dark-background);
-  color: var(--dark-text);
-  border: 2px solid gray;
-  transition: background-color 0.3s ease-in-out;
-}
-html.dark-mode .confirmation-button:hover {
-  background-color: var(--dark-hover);
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -116,26 +133,26 @@ html.dark-mode .confirmation-button:hover {
 .selection-body {
   background-color: var(--background);
 }
-html.dark-mode .selection-body {
-  background-color: var(--dark-background);
-}
-
-.subject-button {
-  background-color: var(--background);
-}
-
-html.dark-mode .subject-button {
-  background-color: var(--dark-background);
-}
 
 #start-now {
-  background-color: lightgreen;
-  border-color: green;
+  background-color: var(--secondary-accent);
+  border: 2px solid #000000;
   color: var(--text);
   transition: background-color 0.3s ease;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
 }
+
+i.zmdi-play {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  color: lightgreen;
+}
+
 #start-now:hover {
-  background-color: rgba(2, 160, 2, 0.858);
+  background-color: var(--accent-hover);
   color: var(--dark-text);
   border-color: rgb(5, 171, 5);
+  i.zmdi-play {
+    transform: rotate(125deg);
+  }
 }

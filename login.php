@@ -1,4 +1,5 @@
 <?php
+include 'session.php';
 include 'connection.php';
 
 if (isset($_GET['signupBtn'])) {
@@ -8,7 +9,7 @@ if (isset($_GET['signupBtn'])) {
 if (!empty($loginMessage)) {
     // echo $loginMessage;
     if ($loginMessage == "Login successful") {
-        echo $_SESSION['currentLoginUser'];
+        // echo $_SESSION['currentLoginUser'];
         echo "<script>alert('$loginMessage');</script>";
         echo "<script>window.location.href = 'index.php';</script>";
     }
