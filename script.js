@@ -58,7 +58,7 @@ function toggleMenu() {
   menuDropdown.classList.toggle("change");
 }
 
-// function switchTheme() {
+/* function switchTheme() {
 //   html.classList.toggle("dark-mode");
 //   const isDarkMode = html.classList.contains("dark-mode");
 //   theme = isDarkMode ? "dark" : "light";
@@ -85,6 +85,7 @@ function toggleMenu() {
 //     svgElement.setAttribute("fill", "#000000");
 //   }
 // }
+*/
 
 function addForm(event, form) {
   const button = event.target;
