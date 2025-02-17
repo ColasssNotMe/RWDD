@@ -22,7 +22,9 @@ include 'session.php';
                 <span id="important-text">Choose a form</span>
             </h1>
             <div id="button-div">
-                <button class="secondary-button confirmation-button"><i class="zmdi zmdi-long-arrow-return"></i></button>
+                <button class="secondary-button" id="return">
+                    <i class="zmdi zmdi-long-arrow-return"></i>
+                </button>
                 <button onclick="sendFormGetReq()" class="primary-button confirmation-button"><i class="zmdi zmdi-arrow-right"></i></button>
             </div>
 

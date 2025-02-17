@@ -59,10 +59,6 @@
   color: var(--box-shadow);
 }
 
-i.zmdi {
-  font-size: 1.2rem;
-}
-
 #button-div {
   display: flex;
   width: 90%;
@@ -71,9 +67,27 @@ i.zmdi {
   margin: 10px auto;
 }
 
+input {
+}
+
+label:before {
+  background-color: red;
+}
+
+input[type="radio"]:checked + label {
+  background-color: var(--accent-hover);
+}
+
 #return {
   width: 50px;
   height: 50px;
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+  }
 }
 
 @media (min-width: 768px) {
