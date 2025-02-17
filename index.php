@@ -86,7 +86,7 @@ include 'session.php';
           </div>
         </div>
       </div>
-  </section>
+    </section>
   </div>
   <?php require_once 'components/footer.php' ?>
   <script src="script.js"></script>

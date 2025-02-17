@@ -1,7 +1,5 @@
 <?php
-
 include 'session.php';
-
 require "connection.php";
 ?>
 
@@ -27,17 +25,8 @@ require "connection.php";
                         <
                             </button>
                 </a>
-                <?php
-                $sql = "SELECT question from question";
-                if (!mysqli_query($connection, $sql)) {
-                    die('Error: ' . mysqli_error($con));
-                } else {
-                    $result = mysqli_query($connection, $sql);
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo '<h1 class="question_title">' . $row["question"] . '</h1>';
-                    }
-                }
-                ?>
+
+
                 <h1>Title</h1>
                 <button name='startBtn'
                     class='start-now' onclick=startQuiz()>

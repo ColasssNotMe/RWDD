@@ -1,26 +1,80 @@
-#box{
-    width:max-content;
-    height:max-content;
-    float: left;
-    background-color: rgba(255, 255, 0, 0.41);
-    margin:15px;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 10%;
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  width: 90%;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
-.logout-btn {
-    display: inline-block;
-    background-color: #e74c3c; /* Red color */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
+.button-div {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+#delete-button {
+  background-color: red;
+  color: white;
+
+  &:hover {
+    background-color: #ff1919a9;
+  }
+}
+
+.account-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-self: stretch;
+  margin: none;
+  button {
+    margin: 10px 0;
+    flex: 1 1 0;
+    align-self: stretch;
+    width: 100%;
+  }
+}
+
+#delete-button {
+  background-color: red;
+  color: white;
+  &:hover {
+    background-color: #ff1919a9;
+  }
+}
+
+.logout-btn{
+  color: white;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  border: 2px solid black;
+  padding: 3rem 4rem;
+
+  h1 {
+    margin-bottom: 3rem;
     text-align: center;
-    margin-top: 20px;
+  }
+
+  * {
+    padding: 10px 0;
+    margin: 0 auto;
+  }
 }
 
-.logout-btn:hover {
-    background-color: #c0392b; /* Darker red for hover effect */
+@media (min-width: 768px) {
 }

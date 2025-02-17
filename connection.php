@@ -26,6 +26,7 @@ if (isset($_GET['form'])) {
 
 // getting the url param from script.js
 // FIXME: getting question
+// TODO: store in session?
 if (isset($_GET['getQuestionSubmit'])) {
     $subject = $_GET['subject'];
     $form = $_GET['form'];
@@ -71,7 +72,7 @@ function validateUserCredential($connection, $email, $password)
     $row = mysqli_fetch_array($result);
     $rowCount = mysqli_num_rows($result);
     if ($rowCount > 0) {
-        $_SESSION['currentLoginUser'] = $row['user_id'];
+        $_SESSION['currentLoginUser'] = $row;
         return "Login successful";
     } else {
         return "User not found";

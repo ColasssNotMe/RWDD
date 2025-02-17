@@ -93,6 +93,7 @@ button {
   margin: 10px 20px;
   border: 1px solid;
   background-color: var(--secondary-accent);
+  
   border-color: var(--dark-accent);
   color: var(--text);
   border: 2px solid black;
