@@ -3,12 +3,12 @@ require 'session.php';
 require 'connection.php';
 require_once 'navigation.php';
 
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
-    exit();
-}
+// if (!isset($_SESSION['user'])) {
+//     header("Location: login.php");
+//     exit();
+// }
 
-$user = $_SESSION['user'];
+$currentLoginUser = $_SESSION['currentLoginUser'];
 ?>
 
 <!DOCTYPE html>
@@ -24,21 +24,22 @@ $user = $_SESSION['user'];
 
 <body>
     <?php require_once 'components/header.php'; ?>
-
     <div class="account-container">
-        <h1>My Account</h1>
-
         <div class="profile-section">
-            <img src="<?php echo htmlspecialchars($user['profile_pic'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
+            <h1>My Account</h1>
+            <img src="<?php echo htmlspecialchars($currentLoginUser['profile_pic'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
                 alt="Profile Picture" class="profile-pic">
-            <p><strong>User ID:</strong> <?php echo htmlspecialchars($user['id']); ?></p>
-            <p><strong>Username:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-            <a href="editAccount.php" class="edit-btn">Edit Profile</a>
-            <a href="logout.php" class="logout-btn">Logout</a>
+            <p><strong>User ID:</strong> <?php echo $currentLoginUser['user_id']; ?></p>
+            <p><strong>Username:</strong> <?php echo htmlspecialchars($currentLoginUser['user_name']); ?></p>
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($currentLoginUser['user_email']); ?></p>
+            <button class="secondary-button">
+                <a href="editAccount.php" class="edit-btn">Edit Profile</a>
+            </button>
+            <button class="secondary-button">
+               <a href="logout.php" class="logout-btn">Logout</a>
+            </button>
         </div>
     </div>
-
     <?php require_once 'components/footer.php'; ?>
 </body>
 

@@ -25,5 +25,18 @@
   }
 }
 
+
+.account-container{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-section{
+ display: flex; 
+ flex-direction: column;
+}
+
 @media (min-width: 768px) {
 }
