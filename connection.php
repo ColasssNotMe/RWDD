@@ -26,6 +26,7 @@ if (isset($_GET['form'])) {
 
 // getting the url param from script.js
 // FIXME: getting question
+// TODO: store in session?
 if (isset($_GET['getQuestionSubmit'])) {
     $subject = $_GET['subject'];
     $form = $_GET['form'];

@@ -121,10 +121,11 @@ function setSubject(event, subject) {
 // TODO: redirect user to the quiz page
 function getAllQuestion(subjectID, form, numQuestion) {
   try {
-    const url = `connection.php?subject=${subjectID}&form=${form}&numQuestion=${numQuestion}`;
+    const url = `connection.php?subject=${subjectID}&form=${form}&numQuestion=${numQuestion}&getQuestionSubmit=`;
     fetch(url)
       .then((response) => {
         if (response.ok) {
+          alert("response ok");
           window.location.href = "question.php";
         } else {
           throw new Error("Error: failed to fetch question ");
