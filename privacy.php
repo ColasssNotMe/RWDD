@@ -1,3 +1,7 @@
+<?php
+include 'session.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +21,7 @@
     <div class="wrapper">
       <h1 class="title">Privacy Policy</h1>
       <div class="description">
-        <p>This Privacy Policy describes how SPM Quiz Prep collects, uses, and protects the information of users who visit and use our website. We are committed to protecting your privacy and ensuring the security of your personal information.</p>
+        <p>This Privacy Policy describes how Quizzation collects, uses, and protects the information of users who visit and use our website. We are committed to protecting your privacy and ensuring the security of your personal information.</p>
         <h2>1. Information We Collect</h2>
         <p>We may collect the following types of information:</p>
         <ul>
@@ -49,7 +53,7 @@
         <p>We may update this Privacy Policy from time to time. We will post any changes on this page. Your continued use of the website following the posting of such changes constitutes acceptance of the revised Privacy Policy.</p>
         <h2>7. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us at: quizzation@gmail.com</p>
-        <p>Thank you for using SPM Quiz Prep!</p>
+        <p>Thank you for using Quizzation!</p>
       </div>
     </div>
     <script src="./script.js"></script>

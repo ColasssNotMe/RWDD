@@ -1,3 +1,8 @@
+<?php
+include 'session.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +18,14 @@
 </head>
 
 <body>
+  <?php include_once "components/header.php"; ?>
   <div class="container">
-    <?php include_once "components/header.php"; ?>
-
     <div class="content">
       <div id="small-container">
         <div id="website-name">
           <h1><b>Welcome to
               <br>
-              <span style="color: #e99f4c;font-size: 5rem;">
+              <span class="super-large-title" style=" color: #e99f4c;">
                 Quizzation
               </span></b></h1>
           <div class="description" id="index_paragraph">
@@ -82,8 +86,7 @@
           </div>
         </div>
       </div>
-  </div>
-  </section>
+    </section>
   </div>
   <?php require_once 'components/footer.php' ?>
   <script src="script.js"></script>

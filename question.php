@@ -1,4 +1,5 @@
 <?php
+include 'session.php';
 require "connection.php";
 ?>
 
@@ -22,32 +23,24 @@ require "connection.php";
                 <a href="select-subject.php">
                     <button name='backBtn'>
                         <
-                    </button>
-               </a>
-                <?php
-                    $sql="SELECT question from question";
-                    if(!mysqli_query($connection, $sql)){
-                        die('Error: ' . mysqli_error($con));
-                    } else {
-                        $result = mysqli_query($connection, $sql);
-                        while ($row = mysqli_fetch_array($result)){
-                        echo '<h1 class="question_tittle">'.$row["question"].'</h1>';
-                        }
-                    }
-                ?>
-                <h1>Tittle</h1>
+                            </button>
+                </a>
+
+
+                <h1>Title</h1>
                 <button name='startBtn'
-                class='start-now' onclick=startQuiz()>
-                Start Now</button>
+                    class='start-now' onclick=startQuiz()>
+                    Start Now</button>
             </div>
             <div class="describe_field">
+                <div class="image-field">image here</div>
                 <div class="describe_box">
                     <h2>Description</h2>
                     <p>libxml_disable_entity_loader</p>
                 </div>
             </div>
 
-            
+
         </div>
     </div>
     <script src="script.js"></script>
