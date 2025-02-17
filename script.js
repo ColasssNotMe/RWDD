@@ -151,25 +151,25 @@ function startQuiz() {
 }
 
 // just for storing value of form in connection.php
-// function sendFormGetReq() {
-//   if (formSelected != null) {
-//     try {
-//       const url = `connection.php?formOnly=${formSelected}`;
-//       fetch(url)
-//         .then((response) => {
-//           if (response.ok) {
-//             window.location.href = "select-subject.php";
-//           } else {
-//             throw new Error("Error sending form");
-//           }
-//         })
-//         .catch((error) => {
-//           "Error when fetching:", error;
-//         });
-//     } catch (error) {
-//       alert("catch statement:", error);
-//     }
-//   } else {
-//     alert("Please choose one of the selection.");
-//   }
-// }
+function sendFormGetReq() {
+  if (formSelected != null) {
+    try {
+      const url = `connection.php?formOnly=${formSelected}`;
+      fetch(url)
+        .then((response) => {
+          if (response.ok) {
+            window.location.href = "select-subject.php";
+          } else {
+            throw new Error("Error sending form");
+          }
+        })
+        .catch((error) => {
+          "Error when fetching:", error;
+        });
+    } catch (error) {
+      alert("catch statement:", error);
+    }
+  } else {
+    alert("Please choose one of the selection.");
+  }
+}

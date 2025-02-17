@@ -67,15 +67,42 @@
   margin: 10px auto;
 }
 
-input {
+input[type="radio"] {
+  display: none;
+}
+label {
+  position: relative;
+  background-color: var(--secondary-accent);
+  border: 2px solid #000000;
+  color: var(--text);
+  transition: background-color 0.3s ease;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8em;
+  padding: 1em 2em;
+  border-radius: 0.5em;
 }
 
 label:before {
-  background-color: red;
+  height: 2em;
+  width: 2em;
+  border: 2px solid black;
+  border-radius: 50%;
 }
 
+/* input[type="radio"]:checked + label:before {
+  height: 1em;
+  width: 1em;
+  border: 0.65em solid #ffffff;
+  background-color: #4189e0;
+} */
+
 input[type="radio"]:checked + label {
-  background-color: var(--accent-hover);
+  background-color:var(--accent-hover);
+  color: black;
 }
 
 #return {

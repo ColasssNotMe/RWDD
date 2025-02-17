@@ -39,11 +39,23 @@ include 'session.php';
 
 
       <div class="selection">
-        <label for="english" class="secondary-button form-button">
-          <input type="radio" name="english" value="English">
+        <input type="radio" name="subject" value="english" id="english" />
+        <label for="english">
           English
-          </input>
         </label>
+
+        <input type="radio" name="subject" value="chinese" id="chinese" />
+        <label for="chinese">
+          Chinese
+        </label>
+
+        <input type="radio" name="subject" value="history" id="history" />
+        <label for="history">
+          History
+        </label>
+
+
+
       </div>
 
 
