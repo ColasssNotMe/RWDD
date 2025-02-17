@@ -1,0 +1,29 @@
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  width: 90%;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.button-div {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+#delete-button {
+  background-color: red;
+  color: white;
+
+  &:hover {
+    background-color: #ff1919a9;
+  }
+}
+
+@media (min-width: 768px) {
+}
