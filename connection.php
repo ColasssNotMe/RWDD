@@ -28,20 +28,24 @@ if (isset($_GET['form'])) {
 // FIXME: getting question
 // TODO: store in session?
 if (isset($_GET['getQuestionSubmit'])) {
-    $subject = $_GET['subject'];
-    $form = $_GET['form'];
-    $numQuestion = $_GET['numQuestion'];
-    getQuestion($connection, $form, $subject, $numQuestion);
-    header("Location: question.php");
+    $_SESSION['subject'] = $_GET['subject'];
+    $_SESSION['form'] = $_GET['form'];
+    $_SESSION['numQuestion'] = $_GET['numQuestion'];
+    getQuestion($connection);
+    // header("Location: question.php");
+}
+
+if (isset($_GET['formOnly'])) {
+    $_SESSION['form'] = $_GET['form'];
 }
 
 // search for login user
 
 
 // get random request question
-function getQuestion($connection, $form, $subject, $numQuestion)
+function getQuestion($connection)
 {
-    $query  = "SELECT * from question where form =$_GET[$form] AND subject =$_GET[$subject] ORDER BY RAND() LIMIT $_GET[$numQuestion]";
+    $query  = "SELECT * from question where form = '{$_SESSION['form']}' AND subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT {$_SESSION['numQuestion']}";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
         echo  'num of row >0';

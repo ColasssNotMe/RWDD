@@ -126,11 +126,15 @@ function getAllQuestion(subjectID, form, numQuestion) {
     fetch(url)
       .then((response) => {
         if (response.ok) {
-          alert("response ok");
-          window.location.href = "question.php";
+          // return response.text();
         } else {
           throw new Error("Error: failed to fetch question ");
         }
+      })
+      .then((data) => {
+        // console.log("Server response:", data);
+        alert("response ok");
+        window.location.href = "question.php";
       })
       .catch((error) => {
         console.error("Error when fetching:", error);
@@ -142,6 +146,8 @@ function getAllQuestion(subjectID, form, numQuestion) {
 
 // TODO: find a way to ask user about how many question they want to answer
 function startQuiz() {
+  console.log(subjectSelected, formSelected, numQuestion);
+
   getAllQuestion(subjectSelected, formSelected, numQuestion);
 }
 
@@ -149,7 +155,7 @@ function startQuiz() {
 function sendFormGetReq() {
   if (formSelected != null) {
     try {
-      const url = `connection.php?form=${formSelected}`;
+      const url = `connection.php?formOnly=${formSelected}`;
       fetch(url)
         .then((response) => {
           if (response.ok) {
