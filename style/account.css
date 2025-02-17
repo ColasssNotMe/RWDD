@@ -1,0 +1,26 @@
+#box{
+    width:max-content;
+    height:max-content;
+    float: left;
+    background-color: rgba(255, 255, 0, 0.41);
+    margin:15px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10%;
+}
+
+.logout-btn {
+    display: inline-block;
+    background-color: #e74c3c; /* Red color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b; /* Darker red for hover effect */
+}
