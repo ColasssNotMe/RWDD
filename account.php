@@ -1,6 +1,6 @@
 <?php
-session_start();
-require 'connection.php'; 
+require 'session.php';
+require 'connection.php';
 require_once 'navigation.php';
 
 if (!isset($_SESSION['user'])) {
@@ -29,8 +29,8 @@ $user = $_SESSION['user'];
         <h1>My Account</h1>
 
         <div class="profile-section">
-            <img src="<?php echo htmlspecialchars($user['profile_pic'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>" 
-                 alt="Profile Picture" class="profile-pic">
+            <img src="<?php echo htmlspecialchars($user['profile_pic'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
+                alt="Profile Picture" class="profile-pic">
             <p><strong>User ID:</strong> <?php echo htmlspecialchars($user['id']); ?></p>
             <p><strong>Username:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
