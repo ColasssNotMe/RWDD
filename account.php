@@ -34,15 +34,16 @@ $currentLoginUser = $_SESSION['currentLoginUser'];
             <p><strong>Email:</strong> <?php echo htmlspecialchars($currentLoginUser['user_email']); ?></p>
             <div class="button-div">
                 <button class="secondary-button">
-                    <a href="editAccount.php" class="edit-btn">Edit Profile</a>
+                    <a href=<?php echo $editAccount ?> class="edit-btn">Edit Profile</a>
                 </button>
                 <button class="secondary-button" id="delete-button">
-                    <a href="logout.php" class="logout-btn" >Logout</a>
+                    <a href=<?php echo $logout ?> class="logout-btn">Logout</a>
                 </button>
             </div>
         </div>
     </div>
     <?php require_once 'components/footer.php'; ?>
+    <script src="script.js"></script>
 </body>
 
 </html>

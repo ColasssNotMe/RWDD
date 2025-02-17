@@ -30,7 +30,20 @@ require 'navigation.php';
         <a href="<?php echo $privacy ?>">Privacy Policy</a>
         <a href="<?php echo $tns ?>">Terms and Services</a>
         <!-- TODO:DELETE if user is logged in -->
-        <a href="<?php echo $login ?>">Login</a>
+
+        <?php if (isset($_SESSION["currentLoginUser"])) {
+        ?>
+            <a href="<?php echo $account ?>">Account</a>
+        <?php
+        } else {
+        ?>
+            <a href="<?php echo $login ?>">Login</a>
+        <?php
+        } ?>
+
+
+
+
     </div>
     <div id="nav-button">
         <ul>

@@ -14,3 +14,5 @@ $teacher_register = "./teacher-register.php";
 $teacher_portal = "./teacher-portal.php";
 $select_form = "./select-form.php";
 $account = "./account.php";
+$editAccount = "./editAccount.php";
+$logout = "./logout.php";
