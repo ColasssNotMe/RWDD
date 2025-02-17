@@ -27,17 +27,19 @@ $currentLoginUser = $_SESSION['currentLoginUser'];
     <div class="account-container">
         <div class="profile-section">
             <h1>My Account</h1>
-            <img src="<?php echo htmlspecialchars($currentLoginUser['profile_pic'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
+            <img src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
                 alt="Profile Picture" class="profile-pic">
             <p><strong>User ID:</strong> <?php echo $currentLoginUser['user_id']; ?></p>
             <p><strong>Username:</strong> <?php echo htmlspecialchars($currentLoginUser['user_name']); ?></p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($currentLoginUser['user_email']); ?></p>
-            <button class="secondary-button">
-                <a href="editAccount.php" class="edit-btn">Edit Profile</a>
-            </button>
-            <button class="secondary-button">
-               <a href="logout.php" class="logout-btn">Logout</a>
-            </button>
+            <div class="button-div">
+                <button class="secondary-button">
+                    <a href="editAccount.php" class="edit-btn">Edit Profile</a>
+                </button>
+                <button class="secondary-button" id="delete-button">
+                    <a href="logout.php" class="logout-btn" >Logout</a>
+                </button>
+            </div>
         </div>
     </div>
     <?php require_once 'components/footer.php'; ?>
