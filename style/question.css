@@ -39,6 +39,10 @@
   justify-content: center;
 }
 
+.quiz_title{
+  text-transform: capitalize;
+}
+
 .start-now {
   width: 93px;
   height: 55px;

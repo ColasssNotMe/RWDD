@@ -3,7 +3,9 @@ $server = "localhost";
 $user     = 'root';
 $password = '';
 $database = 'quizzation'; // insert database name
-$listOfQuestion;
+$_SESSION['listOfQuestion'] = array();
+// $_SESSION['subject'] = 'math';
+// $_SESSION['form'] = '1';
 
 
 
@@ -25,31 +27,31 @@ if (isset($_GET['form'])) {
 
 if (isset($_GET['subject'])) {
     $_SESSION['subject'] = $_GET['subject'];
+    $_SESSION['questionList'] = getQuestion($connection);
+    $_SESSION['currentQuestionNum'] = 1;
 }
-
-// search for login user
-
 
 // get random request question
 function getQuestion($connection)
 {
-    $query  = "SELECT * from question where form = '{$_SESSION['form']}' AND subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT {$_SESSION['numQuestion']}";
+    $query  = "SELECT * from question where question_form = '{$_SESSION['form']}' AND question_subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT 10";
     $result = mysqli_query($connection, $query);
-    if (mysqli_num_rows($result) > 0) {
-        echo  'num of row >0';
+    $numRow = mysqli_fetch_row($result);
+    $listOfQuestion = array();
+    $i = 1;
+    if ($numRow > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $listOfQuestion[$i] = $row;
+            $i++;
+        }
+        $_SESSION['listOfQuestion'] = $listOfQuestion;
+        $_SESSION['currentQuestion'] = $listOfQuestion[1];
+        // var_dump($_SESSION['currentQuestion']);
     } else {
-        echo 'Error occurred at getting question';
+        echo 'No question returned';
     }
 }
 
-/* if (isset($_GET['subject'])) {
-    $query = "SELECT * from table where form =$_GET[$form] AND subject =$_GET[$subject] ORDER BY RAND() LIMIT $_GET[$numQuestion]";
-    $result = mysqli_query($connection, $query);
-    if (mysqli_num_rows($result) > 0) {
-    } else {
-        echo 'Error occurred at getting question';
-    }
-} */
 
 // used for validate the login user + store the logged in user credential
 function validateUserCredential($connection, $email, $password)

@@ -35,10 +35,6 @@ if (!isset($_SESSION['form']) || !isset($_SESSION['subject'])) {
 <body>
     <?php include_once './components/header.php' ?>
     <div class='question'>
-        <?php echo $_SESSION['form'];
-        echo $_SESSION['subject'];
-
-        ?>
         <div class='question_area'>
             <div class="button_field">
                 <button class="secondary-button" id="back-button">
@@ -46,7 +42,7 @@ if (!isset($_SESSION['form']) || !isset($_SESSION['subject'])) {
                         <i class="zmdi zmdi-long-arrow-return"></i>
                     </a>
                 </button>
-                <h1>
+                <h1 class="quiz_title">
                     <?php echo $_SESSION['subject'] ?>
                 </h1>
                 <button name='startBtn'
@@ -56,7 +52,7 @@ if (!isset($_SESSION['form']) || !isset($_SESSION['subject'])) {
             </div>
             <div class="describe_field">
                 <div class="describe_box">
-                    <h2>Description</h2>
+                    <h2>You</h2>
                     <p>libxml_disable_entity_loader</p>
                 </div>
             </div>
