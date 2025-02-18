@@ -4,10 +4,10 @@ require "connection.php";
 
 
 // Check if form and subject are set in the session
-if (!isset($_SESSION['form']) || !isset($_SESSION['subject'])) {
-    echo "Error: Form or subject not selected.";
-    exit;
-}
+// if (!isset($_SESSION['form']) || !isset($_SESSION['subject'])) {
+//     echo "Error: Form or subject not selected.";
+//     exit;
+// }
 
 // if (isset($_GET['question'])) {
 //     header("Location:question-page.php");

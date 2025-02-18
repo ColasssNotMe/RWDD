@@ -37,15 +37,18 @@ function getQuestion($connection)
     $query  = "SELECT * from question where question_form = '{$_SESSION['form']}' AND question_subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT 10";
     $result = mysqli_query($connection, $query);
     $numRow = mysqli_fetch_row($result);
+    $row = mysqli_fetch_array($result);
+    var_dump($result);
     $listOfQuestion = array();
-    $i = 1;
+    $i = 0;
     if ($numRow > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $listOfQuestion[$i] = $row;
             $i++;
         }
+        // var_dump($listOfQuestion);
         $_SESSION['listOfQuestion'] = $listOfQuestion;
-        $_SESSION['currentQuestion'] = $listOfQuestion[1];
+        $_SESSION['currentQuestion'] = $listOfQuestion[0];
         // var_dump($_SESSION['currentQuestion']);
     } else {
         echo 'No question returned';
@@ -58,7 +61,7 @@ function validateStudentCredential($connection, $email, $password)
 {
     $email = mysqli_real_escape_string($connection, $email);
     $password = mysqli_real_escape_string($connection, $password);
-    $query  = "SELECT * FROM user WHERE user_email='$email' AND user_password='$password' AND user_role=student";
+    $query  = "SELECT * FROM user WHERE user_email='$email' AND user_password='$password' AND user_role='student'";
     $result = mysqli_query(
         $connection,
         $query
@@ -77,7 +80,7 @@ function validateTeacherCredential($connection, $email, $password)
 {
     $email = mysqli_real_escape_string($connection, $email);
     $password = mysqli_real_escape_string($connection, $password);
-    $query  = "SELECT * FROM user WHERE user_email='$email' AND user_password='$password' AND user_role=teacher";
+    $query  = "SELECT * FROM user WHERE user_email='$email' AND user_password='$password' AND user_role='teacher'";
     $result = mysqli_query(
         $connection,
         $query
