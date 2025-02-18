@@ -79,6 +79,6 @@ function toggleMenu() {
 // }
 */
 
-function startQuiz() {
-  window.location.href = "question-page.php";
-}
+// function startQuiz() {
+//   window.location.href = "question-page.php";
+// }

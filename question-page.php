@@ -1,40 +1,37 @@
-
 <?php
 include 'session.php';
 include 'connection.php';
-$currentQuestion = $_SESSION['currentQuestion'];
 
 function nextQuestion()
 {
-    $_SESSION['currentQuestionNum'] += 1;
-    $questionList = $_SESSION['listOfQuestion'];
-     // Check if the next question exists in the array
-    if (isset($questionList[$_SESSION['currentQuestionNum']])) {
-        $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
-    } else {
-        // Handle the case where there are no more questions, possibly redirect to a results page or display a message
-        echo "<script>alert('No more questions. Redirecting to results page.'); window.location.href='result.php';</script>";
-        exit();
-    }
-    header("Location:question-page.php");
-    exit();
+    // $_SESSION['currentQuestionNum'] += 1;
+    // $questionList = $_SESSION['listOfQuestion'];
+    // // Check if the next question exists in the array
+    // if (isset($questionList[$_SESSION['currentQuestionNum']])) {
+    //     $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
+    // } else {
+    //     // redirect when no more question
+    //     echo "<script>alert('No more questions. Redirecting to results page.'); window.location.href='result.php';</script>";
+    //     exit();
+    // }
+    // header("Location:question-page.php");
+    // exit();
 };
 
 function prevQuestion()
 {
-    $_SESSION['currentQuestionNum'] -= 1;
-    $questionList = $_SESSION['listOfQuestion'];
-     // Check if the previous question exists in the array
-    if (isset($questionList[$_SESSION['currentQuestionNum']])) {
-        $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
-    } else {
-        // Handle the case where there are no previous questions, possibly stay on the current question or display a message
-        echo "<script>alert('This is the first question.');</script>";
-        $_SESSION['currentQuestionNum'] = 0;
-        $_SESSION['currentQuestion'] = $questionList[0];
-    }
-    header("Location:question-page.php");
-    exit();
+    // $_SESSION['currentQuestionNum'] -= 1;
+    // $questionList = $_SESSION['listOfQuestion'];
+    // // Check if the previous question exists in the array
+    // if (isset($questionList[$_SESSION['currentQuestionNum']])) {
+    //     $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
+    // } else {
+    //     echo "<script>alert('This is the first question.');</script>";
+    //     $_SESSION['currentQuestionNum'] = 0;
+    //     $_SESSION['currentQuestion'] = $questionList[0];
+    // }
+    // header("Location:question-page.php");
+    // exit();
 };
 
 if (isset($_POST['nextBtn'])) {
@@ -44,6 +41,11 @@ if (isset($_POST['nextBtn'])) {
 if (isset($_POST['prevBtn'])) {
     prevQuestion();
 };
+
+if (isset($_GET['question'])) {
+    $_SESSION['currentQuestionNum'] = $_GET['question'];
+    // echo "something";
+}
 
 ?>
 
@@ -65,9 +67,12 @@ if (isset($_POST['prevBtn'])) {
     <div class='question'>
         <div class='question_area'>
 
-            <form method="post">
+            <form action="#" method="get">
                 <div class="button_field">
-                    <button type='submit' name="prevBtn" class="secondary-button" id="back-button">
+                    <?php
+                    $prevQuestionNum = max(1, $_SESSION['currentQuestionNum'] - 1); // Ensure it doesn't go below 1
+                    ?>
+                    <button type='submit' name="question" value="<?php echo $prevQuestionNum; ?>" class="secondary-button" id="back-button">
                         <i class="zmdi zmdi-arrow-left"></i>
                     </button>
                     <h1>Question
@@ -75,7 +80,10 @@ if (isset($_POST['prevBtn'])) {
                         echo $_SESSION['currentQuestionNum']; ?>
 
                     </h1>
-                    <button type="submit" name="nextBtn" id="back-button" class='primary-button' type="submit">
+                    <?php
+                    $nextQuestionNum = min(10, $_SESSION['currentQuestionNum'] + 1); // Ensure it doesn't exceed 10
+                    ?>
+                    <button type="submit" name="question" value="<?php echo  $nextQuestionNum ?>" id="back-button" class='primary-button' type="submit">
                         <i class="zmdi zmdi-arrow-right"></i>
                     </button>
                 </div>
@@ -95,12 +103,12 @@ if (isset($_POST['prevBtn'])) {
                     </h2>
                     <p>
                         <?php
-                         if (isset($currentQuestion['question_choice'])) {
+                        if (isset($currentQuestion['question_choice'])) {
                             $choices = explode(",", $currentQuestion['question_choice']);
                             foreach ($choices as $choice) {
                                 echo $choice . "<br>";
                             }
-                         }
+                        }
                         ?>
                     </p>
                 </div>
