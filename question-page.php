@@ -1,3 +1,4 @@
+
 <?php
 include 'session.php';
 include 'connection.php';
@@ -7,15 +8,43 @@ function nextQuestion()
 {
     $_SESSION['currentQuestionNum'] += 1;
     $questionList = $_SESSION['listOfQuestion'];
-    $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
+     // Check if the next question exists in the array
+    if (isset($questionList[$_SESSION['currentQuestionNum']])) {
+        $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
+    } else {
+        // Handle the case where there are no more questions, possibly redirect to a results page or display a message
+        echo "<script>alert('No more questions. Redirecting to results page.'); window.location.href='result.php';</script>";
+        exit();
+    }
+    header("Location:question-page.php");
+    exit();
 };
 
 function prevQuestion()
 {
     $_SESSION['currentQuestionNum'] -= 1;
     $questionList = $_SESSION['listOfQuestion'];
-    $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
+     // Check if the previous question exists in the array
+    if (isset($questionList[$_SESSION['currentQuestionNum']])) {
+        $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
+    } else {
+        // Handle the case where there are no previous questions, possibly stay on the current question or display a message
+        echo "<script>alert('This is the first question.');</script>";
+        $_SESSION['currentQuestionNum'] = 0;
+        $_SESSION['currentQuestion'] = $questionList[0];
+    }
+    header("Location:question-page.php");
+    exit();
 };
+
+if (isset($_POST['nextBtn'])) {
+    nextQuestion();
+};
+
+if (isset($_POST['prevBtn'])) {
+    prevQuestion();
+};
+
 ?>
 
 
@@ -33,29 +62,47 @@ function prevQuestion()
 
 <body>
     <?php require_once 'components/header.php'; ?>
-
     <div class='question'>
-
         <div class='question_area'>
 
-            <form action="" method="get">
+            <form method="post">
                 <div class="button_field">
-                    <button type='submit' class="secondary-button" id="back-button">
+                    <button type='submit' name="prevBtn" class="secondary-button" id="back-button">
                         <i class="zmdi zmdi-arrow-left"></i>
                     </button>
-                    <h1 class="quiz_title">
+                    <h1>Question
                         <?php
-                        echo $currentQuestion['question_title'] ?>
+                        echo $_SESSION['currentQuestionNum']; ?>
+
                     </h1>
                     <button type="submit" name="nextBtn" id="back-button" class='primary-button' type="submit">
                         <i class="zmdi zmdi-arrow-right"></i>
                     </button>
                 </div>
-                <div class="describe_field">
-                    <div class="describe_box">
-                        <h2>You</h2>
-                        <p>libxml_disable_entity_loader</p>
-                    </div>
+                <div class="describe_box">
+
+                    <!--For question image  -->
+                    <?php if (isset($_SESSION['currentQuestion']['question_picture']) && $_SESSION['currentQuestion']['question_picture']) { ?>
+                        <img src=<?php echo $_SESSION['currentQuestion']['question_picture'] ?>
+                            alt="image of the question">
+                    <?php } else {
+                        echo "<div></div>";
+                    } ?>
+
+
+                    <h2>
+                        <?php echo isset($currentQuestion['question_title']) ? $currentQuestion['question_title'] : ''; ?>
+                    </h2>
+                    <p>
+                        <?php
+                         if (isset($currentQuestion['question_choice'])) {
+                            $choices = explode(",", $currentQuestion['question_choice']);
+                            foreach ($choices as $choice) {
+                                echo $choice . "<br>";
+                            }
+                         }
+                        ?>
+                    </p>
                 </div>
             </form>
 
