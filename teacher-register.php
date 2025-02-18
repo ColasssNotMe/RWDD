@@ -1,6 +1,16 @@
-<?php 
-
+<?php
 include 'session.php';
+include 'connection.php';
+
+if (isset($_POST['submit'])) {
+  $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['email'], "teacher");
+}
+if (!empty($registrationMessage)) {
+  echo "<script>alert('$registrationMessage');</script>";
+  if ($registrationMessage == "Account registered successful") {
+    echo "<script>window.location.href = 'index.php';</script>";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +47,7 @@ include 'session.php';
           <input placeholder="Enter your password" id="password" class="form_style" type="password">
         </div>
         <div>
-          <button class="form_btn" type="submit">SIGN UP</button>
+          <button class="form_btn" name="submit" type="submit">SIGN UP</button>
           <p>Already have account?
             <a class="form_link" href="teacher-portal.php">Log in here!</a>
           </p>
