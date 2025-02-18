@@ -3,7 +3,7 @@ include 'session.php';
 include 'connection.php';
 
 if (isset($_GET['signupBtn'])) {
-    $loginMessage = validateUserCredential($connection, $_GET['email'], $_GET['password']);
+    $loginMessage = validateStudentCredential($connection, $_GET['email'], $_GET['password']);
 }
 
 if (!empty($loginMessage)) {

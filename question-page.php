@@ -47,6 +47,10 @@ if (isset($_GET['question'])) {
     // echo "something";
 }
 
+if (isset($_GET['result'])) {
+    header("Location:result.php");
+}
+
 ?>
 
 
@@ -82,13 +86,24 @@ if (isset($_GET['question'])) {
                     </h1>
                     <?php
                     $nextQuestionNum = min(10, $_SESSION['currentQuestionNum'] + 1); // Ensure it doesn't exceed 10
+                    if ($_SESSION['currentQuestionNum'] == 10) {
                     ?>
-                    <button type="submit" name="question" value="<?php echo  $nextQuestionNum ?>" id="back-button" class='primary-button' type="submit">
-                        <i class="zmdi zmdi-arrow-right"></i>
-                    </button>
-                </div>
-                <div class="describe_box">
+                        <button type="submit" name="result" id="back-button" class='primary-button' type="submit">
+                            <i class="zmdi zmdi-arrow-right"></i>
+                        </button>
+                    <?php
+                    } else {
+                    ?>
+                        <button type="submit" name="question" value="<?php echo  $nextQuestionNum ?>" id="back-button" class='primary-button' type="submit">
+                            <i class="zmdi zmdi-arrow-right"></i>
+                        </button>
+                    <?php
+                    }
+                    ?>
 
+                </div>
+
+                <div class="describe_box">
                     <!--For question image  -->
                     <?php if (isset($_SESSION['currentQuestion']['question_picture']) && $_SESSION['currentQuestion']['question_picture']) { ?>
                         <img src=<?php echo $_SESSION['currentQuestion']['question_picture'] ?>
@@ -96,7 +111,6 @@ if (isset($_GET['question'])) {
                     <?php } else {
                         echo "<div></div>";
                     } ?>
-
 
                     <h2>
                         <?php echo isset($currentQuestion['question_title']) ? $currentQuestion['question_title'] : ''; ?>
@@ -113,8 +127,6 @@ if (isset($_GET['question'])) {
                     </p>
                 </div>
             </form>
-
-
         </div>
     </div>
 </body>
