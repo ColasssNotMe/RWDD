@@ -1,5 +1,14 @@
 <?php
 include 'session.php';
+include 'connection.php'
+
+// if ($_SERVER["REQUEST_METHOD"] == "GET") {
+//     if (isset($_GET['form'])) {
+//         $_SESSION['form'] = $_GET['form'];
+//         header("Location: select-subject.php");
+//         exit();
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,21 +30,49 @@ include 'session.php';
             <h1 class="title">
                 <span id="important-text">Choose a form</span>
             </h1>
-            <div id="button-div">
-                <button class="secondary-button" id="return">
-                    <i class="zmdi zmdi-long-arrow-return"></i>
-                </button>
-                <button onclick="sendFormGetReq()" class="primary-button confirmation-button"><i class="zmdi zmdi-arrow-right"></i></button>
-            </div>
+            <form method="get">
+                <div id="button-div">
+                    <button class="secondary-button" id="return">
+                        <i class="zmdi zmdi-long-arrow-return"></i>
+                    </button>
+                    <button type="submit" class="primary-button confirmation-button">
+                        <i class="zmdi zmdi-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="selection">
+                    <input type="radio" name="form" value="1" id="form1" />
+                    <label for="form1">
+                        Form 1
+                    </label>
 
-            <div class="selection">
-                <button class="secondary-button form-button" onclick="addForm(event,1)">Form 1</button>
-                <button class="secondary-button form-button" onclick="addForm(event,2)">Form 2</button>
-                <button class="secondary-button form-button" onclick="addForm(event,3)">Form 3</button>
-                <button class="secondary-button form-button" onclick="addForm(event,4)">Form 4</button>
-                <button class="secondary-button form-button" onclick="addForm(event,5)">Form 5</button>
-                <button class="secondary-button form-button" onclick="addForm(event,0)">All Form</button>
-            </div>
+                    <input type="radio" name="form" value="2" id="form2" />
+                    <label for="form2">
+                        Form 2
+                    </label>
+
+
+                    <input type="radio" name="form" value="3" id="form3" />
+                    <label for="form3">
+                        Form 3
+                    </label>
+
+                    <input type="radio" name="form" value="4" id="form4" />
+                    <label for="form4">
+                        Form 4
+                    </label>
+
+                    <input type="radio" name="form" value="5" id="form5" />
+                    <label for="form5">
+                        Form 5
+                    </label>
+
+                    <input type="radio" name="form" value="0" id="form0" />
+                    <label for="form0">
+                        All Form
+                    </label>
+                </div>
+            </form>
+
         </div>
     </div>
 

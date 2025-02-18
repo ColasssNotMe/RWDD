@@ -18,25 +18,13 @@ switch ($connection) {
 }
 
 
-
-// Getting and storing form in the session
 if (isset($_GET['form'])) {
     $_SESSION['form'] = $_GET['form'];
+    header("Location:select-subject.php");
 }
 
-// getting the url param from script.js
-// FIXME: getting question
-// TODO: store in session?
-if (isset($_GET['getQuestionSubmit'])) {
+if (isset($_GET['subject'])) {
     $_SESSION['subject'] = $_GET['subject'];
-    $_SESSION['form'] = $_GET['form'];
-    $_SESSION['numQuestion'] = $_GET['numQuestion'];
-    getQuestion($connection);
-    // header("Location: question.php");
-}
-
-if (isset($_GET['formOnly'])) {
-    $_SESSION['form'] = $_GET['form'];
 }
 
 // search for login user

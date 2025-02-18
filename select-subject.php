@@ -1,5 +1,8 @@
 <?php
 include 'session.php';
+include 'connection.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,11 +65,6 @@ include 'session.php';
         <input type="radio" name="subject" value="malay" id="malay" />
         <label for="malay">
           Malay
-        </label>
-
-        <input type="radio" name="subject" value="history" id="history" />
-        <label for="history">
-          History
         </label>
 
         <input type="radio" name="subject" value="science" id="science" />

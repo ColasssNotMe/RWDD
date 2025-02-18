@@ -1,6 +1,22 @@
 <?php
 include 'session.php';
 require "connection.php";
+
+// Retrieve form and subject from GET parameters and store in session
+if (isset($_GET['form'])) {
+    $_SESSION['form'] = $_GET['form'];
+}
+
+if (isset($_GET['subject'])) {
+    $_SESSION['subject'] = $_GET['subject'];
+}
+
+// Check if form and subject are set in the session
+if (!isset($_SESSION['form']) || !isset($_SESSION['subject'])) {
+    // Handle the case where form or subject is not set
+    echo "Error: Form or subject not selected.";
+    exit; // Stop further execution
+}
 ?>
 
 
@@ -19,9 +35,8 @@ require "connection.php";
 <body>
     <?php include_once './components/header.php' ?>
     <div class='question'>
-        <?php echo $_SESSION['subject'];
-        echo $_SESSION['form'];
-        echo $_SESSION['numQuestion'];
+        <?php echo $_SESSION['form'];
+        echo $_SESSION['subject'];
 
         ?>
         <div class='question_area'>
