@@ -54,7 +54,50 @@ include 'session.php';
           History
         </label>
 
+        <input type="radio" name="subject" value="addmath" id="addmath" />
+        <label for="addmath">
+          Add Math
+        </label>
 
+        <input type="radio" name="subject" value="malay" id="malay" />
+        <label for="malay">
+          Malay
+        </label>
+
+        <input type="radio" name="subject" value="history" id="history" />
+        <label for="history">
+          History
+        </label>
+
+        <input type="radio" name="subject" value="science" id="science" />
+        <label for="science">
+          Science
+        </label>
+
+        <input type="radio" name="subject" value="math" id="math" />
+        <label for="math">
+          Math
+        </label>
+
+        <input type="radio" name="subject" value="physics" id="physics" />
+        <label for="physics">
+          Physics
+        </label>
+
+        <input type="radio" name="subject" value="moral" id="moral" />
+        <label for="moral">
+          Moral
+        </label>
+
+        <input type="radio" name="subject" value="economy" id="economy" />
+        <label for="economy">
+          Economy
+        </label>
+
+        <input type="radio" name="subject" value="account" id="account" />
+        <label for="account">
+          Account
+        </label>
 
       </div>
 
