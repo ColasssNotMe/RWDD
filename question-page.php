@@ -48,8 +48,8 @@ if (isset($_GET['question'])) {
     if (isset($_GET['answer'])) {
         $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
     }
-    var_dump($_SESSION['userAns']);
-    var_dump($_SESSION['lastQuestionNum']);
+    // var_dump($_SESSION['userAns']);
+    // var_dump($_SESSION['lastQuestionNum']);
 }
 
 if (isset($_GET['result'])) {
