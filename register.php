@@ -10,8 +10,8 @@ if (isset($_POST['submit'])) {
 }
 if (!empty($registrationMessage)) {
     echo "<script>alert('$registrationMessage');</script>";
-    if ($registrationMessage == "Account registered successful") {
-        echo "<script>window.location.href = 'index.php';</script>";
+    if ($registrationMessage == "Account registered successful. Login now to get full access of website.") {
+        echo "<script>window.location.href = 'login.php';</script>";
     }
 }
 ?>

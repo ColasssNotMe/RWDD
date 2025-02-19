@@ -126,7 +126,7 @@ function addUser($connection, $username, $password, $rePassword, $email, $role){
     }elseif ($password !== $rePassword) {
         return "Passwords do not match. Please try again.";
     } else {
-        $query = "SELECT * FROM users WHERE email = '$email'";
+        $query = "SELECT * FROM user WHERE user_email = '$email'";
         $result = mysqli_query($connection, $query);
         if (mysqli_num_rows($result) > 0) {
             return "Email is already taken. Please use a different one.";
@@ -135,7 +135,7 @@ function addUser($connection, $username, $password, $rePassword, $email, $role){
             if (!mysqli_query($connection, $query)) {
                 return "Error when registering user";
             } else {
-                return "Account registered successful. Login now to get full access of website";
+                return "Account registered successful. Login now to get full access of website.";
             }
         }
     }
