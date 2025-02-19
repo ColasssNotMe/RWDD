@@ -142,7 +142,7 @@ function deleteUser($connection, $userID)
 function addQuestion($connection, $form, $subject, $picture, $question, $choice, $answer)
 {
     $query = "INSERT INTO question 
-    (question_form,question_subject,question_picture,question,question_choice,question_answer) 
+    (question_form,question_subject,question_picture,question_title,question_choice,question_answer) 
     VALUES 
    ($form, $subject, $picture,$question,$choice,$answer)";
     if (!mysqli_query($connection, $query)) {
