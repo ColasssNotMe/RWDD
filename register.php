@@ -1,10 +1,8 @@
 <?php
 
-
 include 'session.php';
-
 include "connection.php";
-$registrationMessage = ""; // Initialize variable
+
 if (isset($_POST['submit'])) {
     $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['rePassword'], $_POST['email'], "student");
 }
