@@ -11,7 +11,7 @@
   --accent: #e7dd52;
   --accent-hover: #fff897;
   --box-shadow-dark: black;
-  --box-shadow-dark-hover:black;
+  --box-shadow-dark-hover: black;
   --box-shadow: #e99f4c;
   --box-shadow-hover: #f09225ea;
   --secondary-accent: #f8f8f8;
@@ -47,7 +47,6 @@ body {
   height: 100%;
   width: 100vw;
 }
-
 
 body {
   font-family: "Open Sans", serif;
@@ -138,13 +137,13 @@ a {
   }
 }
 
-button{
-  box-shadow: 3px 4px 0px 1px var(--box-shadow-dark) !important;
+button {
+  box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
 }
 
-button:hover{
-  transform:translateY(4px);
-  box-shadow: 1px 2px 0px 0px var(--box-shadow-dark) !important;
+button:hover {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px var(--box-shadow-dark);
 }
 
 @media (min-width: 768px) {

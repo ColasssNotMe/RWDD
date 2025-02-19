@@ -59,10 +59,6 @@ body .bar3 {
   background-color: var(--background);
 }
 
-.menu > button {
-  background-color: var(--header-background);
-}
-
 .left-side {
   display: flex;
   align-items: center;
@@ -78,17 +74,21 @@ body .bar3 {
 }
 
 .menu > button {
+  background-color: var(--header-background);
+  border: none;
+  box-shadow: none !important;
   border-style: none;
   position: relative;
   padding: 8px;
   background-color: transparent;
+  transform: none;
 }
 
 .menu-dropdown {
   position: fixed;
   width: 80%;
   height: 100vh;
-  flex:1 1 0;
+  flex: 1 1 0;
   z-index: 100;
   top: 0;
   right: -200%;
@@ -133,6 +133,8 @@ body .bar3 {
   height: 40px;
   z-index: 1001;
   border: none;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .cross1,

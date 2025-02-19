@@ -9,16 +9,30 @@
 
 .question_area {
   display: flex;
-  transform: rotate(2deg);
+  flex-grow: 1;
   flex-direction: column;
-  background-color: var(--header-background);
-  margin: auto;
+  /* background-color: var(--box-shadow);  Remove this line */
   padding-top: 2rem;
   width: 95%;
   height: 95%;
   border: 2px solid #264143;
   box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
+  position: relative;
+  overflow: hidden;
+  transform: rotate(2deg);
 }
+
+.question_area::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--box-shadow);
+  z-index: -1;
+}
+
 .question_area > * {
   transform: rotate(-2deg);
 }
@@ -35,6 +49,8 @@ input[type="radio"] {
 
 label {
   position: relative;
+  min-height: 100px ;
+  min-width: 100px ;
   background-color: var(--secondary-accent);
   border: 2px solid #000000;
   color: var(--text);
@@ -95,8 +111,8 @@ input[type="radio"]:checked + label {
   width: 93px;
   height: 55px;
   background-color: rgb(34, 197, 94);
-  &:hover{
-    background-color:rgb(27, 163, 77) ;
+  &:hover {
+    background-color: rgb(27, 163, 77);
   }
 }
 
