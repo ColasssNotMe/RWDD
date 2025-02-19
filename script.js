@@ -2,14 +2,14 @@
 // const themeIcon = document.getElementById("themeIcon");
 const html = document.documentElement;
 const body = document.body;
-// const logoWithName = document.getElementById("logo-with-name");
-// const middleLogo = document.getElementById("logo-middle-sm");
 const profileIcon = document.getElementById("profile-icon");
 const selectedForm = document.getElementsByClassName("form-button");
 const confirmSelectionButton = document.querySelector(".confirmation-button");
 const menuDropdown = document.querySelector(".menu-dropdown");
 const menu = document.querySelector(".menu");
 const svgElement = document.querySelector(".menu-dropdown svg");
+
+const returnButton = document.getElementById("#return");
 
 var formSelected;
 var lastFormSelected;
@@ -19,6 +19,7 @@ var subjectSelected;
 var lastSubjectSelected;
 var numQuestion = 10;
 // updateIcons();
+
 
 // function updateIcons() {
 //   const isDarkMode = html.classList.contains("dark-mode");
