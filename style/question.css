@@ -14,13 +14,87 @@
   flex-direction: column;
   background-color: var(--header-background);
   margin: auto;
-  width: 80%;
-  height: 80%;
+  padding-top: 2rem;
+  width: 95%;
+  height: 95%;
   border: 2px solid #264143;
   border-radius: 20px;
   box-shadow: 3px 4px 0px 1px var(--box-shadow);
   /* width: 90%; */
   /* max-width: 450px; */
+}
+
+.choice-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  position: relative;
+  background-color: var(--secondary-accent);
+  border: 2px solid #000000;
+  color: var(--text);
+  transition: background-color 0.3s ease;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  flex-grow: 1;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+label:before {
+  height: 2em;
+  width: 2em;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked + label {
+  background-color: var(--accent-hover);
+  color: black;
+}
+
+/* .choices {
+  display: flex;
+  flex-grow: 1;
+  border: 2px solid #264143;
+  margin: 1rem 3rem;
+  border-radius: 1.1em;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+} */
+
+#back-button {
+  width: 93px;
+  height: 55px;
+  align-items: center;
+  justify-content: center;
+  /* border-radius: 12px; */
+}
+
+.back-button-a {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz_title {
+  text-transform: capitalize;
+}
+
+.start-now {
+  width: 93px;
+  height: 55px;
 }
 
 .question_title {
@@ -32,28 +106,32 @@
 
 .button_field {
   display: flex;
-  justify-content: space-between;
-  justify-self: start;
+  flex: 1 1 0;
+  max-height: 5rem;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0 10px;
+  align-items: center;
   /* width: 100%; */
   /* margin: 10px 100px; */
 }
 
-.describe_field {
-  font-weight: 600;
-  margin: 5px 0;
-  flex: 1 1 0;
-  display: flex;
-  align-items: stretch;
-}
-
 .describe_box {
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
-  width: 1000px;
+  height: 100%;
+  flex-grow: 1;
+  margin-top: 2rem;
 }
 
 .image-field {
   display: flex;
   flex-direction: column;
   width: 1000px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

@@ -42,7 +42,7 @@ $result = mysqli_query($connection, $query);
                     <a href=<?php echo $editAccount ?> class="edit-btn">Edit Profile</a>
                 </button>
                 <button class="secondary-button" id="delete-button">
-                    <a href=<?php echo $logout ?> class="logout-btn">Logout</a>
+                    <a href=<?php echo $logout ?> id="logout-btn" >Logout</a>
                 </button>
             </div>
         </div>

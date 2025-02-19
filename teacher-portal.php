@@ -1,6 +1,22 @@
 <?php
 include 'session.php';
+include 'connection.php';
+
+
+if (isset($_POST['signinBtn'])) {
+  $loginMessage = validateTeacherCredential($connection, $_POST['email'], $_POST['password']);
+}
+
+if (!empty($loginMessage)) {
+  // echo $loginMessage;
+  if ($loginMessage == "Login successful") {
+    // echo $_SESSION['currentLoginUser'];
+    echo "<script>alert('$loginMessage');</script>";
+    echo "<script>window.location.href = 'index.php';</script>";
+  }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,17 +39,17 @@ include 'session.php';
         <br>
         <p>Login as a Teacher</p>
       </h3>
-      <form action="" method="post">
+      <form method="post">
         <div class="form_group">
           <label class="form_sub_title" for="username">Username</label>
-          <input placeholder="Enter your username" class="form_style" type="text">
+          <input placeholder="Enter your username" name="email" class="form_style" type="text" required>
         </div>
         <div class="form_group">
           <label class="form_sub_title" for="password">Password</label>
-          <input placeholder="Enter your password" id="password" class="form_style" type="password">
+          <input placeholder="Enter your password" name="password" id="password" class="form_style" type="password" required>
         </div>
         <div>
-          <button class="form_btn" type="submit">LOG IN</button>
+          <button class="form_btn" name="signinBtn" type="submit">LOG IN</button>
           <p>Don't have an account?
             <a class="form_link" href="teacher-register.php">Register Here!</a>
           </p>
