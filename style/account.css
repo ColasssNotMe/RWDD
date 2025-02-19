@@ -30,14 +30,15 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .button-div {
   display: flex;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
   align-self: stretch;
-  margin: none;
+  margin: 0 10px;
   button {
     margin: 10px 0;
     flex: 1 1 0;
@@ -59,11 +60,14 @@
 }
 
 .profile-section {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 3px 4px 0px 1px var(--box-shadow);
   border: 2px solid black;
-  padding: 3rem 4rem;
+    
 
   h1 {
     margin-bottom: 3rem;
@@ -74,6 +78,36 @@
     padding: 10px 0;
     margin: 0 auto;
   }
+}
+
+.record-section {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  border: 2px solid black;
+  text-align: center;
+}
+
+.record-section h2 {
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
 }
 
 @media (min-width: 768px) {
