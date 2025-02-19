@@ -66,14 +66,15 @@
 }
 
 .profile-section {
-  width: 100%;
+  min-width: fit-content;
+  width: 80%;
+  padding: 1rem 2rem;
   max-width: 600px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 3px 4px 0px 1px var(--box-shadow);
   border: 2px solid black;
-    
 
   h1 {
     margin-bottom: 3rem;
@@ -87,7 +88,9 @@
 }
 
 .record-section {
-  width: 100%;
+  min-width: fit-content;
+  width: 80%;
+  padding: 1rem 2rem;
   max-width: 600px;
   margin-top: 20px;
   padding: 20px;
@@ -106,7 +109,8 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   border: 1px solid #ddd;
   text-align: center;
