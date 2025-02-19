@@ -37,12 +37,12 @@ $percentage = $correctAns / 10 * 100;
             <h1>Result</h1>
             <div>
                 <div class="percentage-circle">
-                    <?php echo $_SESSION['correctAns'] / 10 ?>%
+                    <?php echo $percentage ?>%
 
                 </div>
                 <p><strong>Correct Answer:</strong>
                     <br>
-                    <?php echo $_SESSION['correctAns'] ?> / 10
+                    <?php echo $correctAns ?> / 10
                 </p>
                 <p><strong>Time Taken:</strong> </p>
             </div>
@@ -59,7 +59,7 @@ $percentage = $correctAns / 10 * 100;
                 <table>
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th>No.</th>
                             <th>Question</th>
                             <th>Answer</th>
                         </tr>
