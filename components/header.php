@@ -26,6 +26,7 @@ require 'navigation.php';
             <div class="cross1"></div>
             <div class="cross2"></div>
         </button>
+        <a href="<?php echo $select_form ?>">Start Now</a>
         <a href="<?php echo $about ?>">About</a>
         <a href="<?php echo $privacy ?>">Privacy Policy</a>
         <a href="<?php echo $tns ?>">Terms and Services</a>

@@ -10,6 +10,8 @@
   --secondary: #ee9185;
   --accent: #e7dd52;
   --accent-hover: #fff897;
+  --box-shadow-dark: black;
+  --box-shadow-dark-hover: black;
   --box-shadow: #e99f4c;
   --box-shadow-hover: #f09225ea;
   --secondary-accent: #f8f8f8;
@@ -32,7 +34,6 @@
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
 }
 
 html {
@@ -89,11 +90,10 @@ p {
 
 button {
   border-radius: 10px;
-  padding: 5px 10px;
   margin: 10px 20px;
   border: 1px solid;
   background-color: var(--secondary-accent);
-  
+
   border-color: var(--dark-accent);
   color: var(--text);
   border: 2px solid black;
@@ -107,6 +107,10 @@ button {
   border: 2px solid black;
   box-shadow: 3px 4px 0px 1px var(--box-shadow);
   cursor: pointer;
+}
+
+i.zmdi {
+  font-size: 1.2rem;
 }
 
 .secondary-button {
@@ -131,6 +135,15 @@ a {
   &:hover {
     color: var(--accent);
   }
+}
+
+button {
+  box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
+}
+
+button:hover {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px var(--box-shadow-dark);
 }
 
 @media (min-width: 768px) {

@@ -2,8 +2,8 @@
 include 'session.php';
 include 'connection.php';
 
-if (isset($_GET['signupBtn'])) {
-    $loginMessage = validateUserCredential($connection, $_GET['email'], $_GET['password']);
+if (isset($_POST['signinBtn'])) {
+    $loginMessage = validateStudentCredential($connection, $_POST['email'], $_POST['password']);
 }
 
 if (!empty($loginMessage)) {
@@ -20,6 +20,7 @@ if (!empty($loginMessage)) {
 <html lang="en">
 
 <head>
+    <?php include_once 'extrahead.php' ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
@@ -34,17 +35,17 @@ if (!empty($loginMessage)) {
     <div class="form-container">
         <div class="form_area">
             <h1 class="form_title">SIGN IN </h1>
-            <form action="" method="get">
+            <form action="" method="post">
                 <div class="form_group">
                     <label class="form_sub_title" for="email">Email</label>
-                    <input placeholder="Enter your email" class="form_style" type="email" name="email">
+                    <input placeholder="Enter your email" class="form_style" type="email" name="email" required>
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="password">Password</label>
-                    <input placeholder="Enter your password" id="password" class="form_style" name="password" type="password">
+                    <input placeholder="Enter your password" id="password" class="form_style" name="password" type="password" required>
                 </div>
                 <div>
-                    <button class="form_btn" type="submit" name="signupBtn">LOG IN</button>
+                    <button class="form_btn" type="submit" name="signinBtn">LOG IN</button>
                     <p>Don't have an account?
                         <a class="form_link" href="register.php">Register Here!</a>
                     </p>

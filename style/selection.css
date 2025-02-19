@@ -59,10 +59,6 @@
   color: var(--box-shadow);
 }
 
-i.zmdi {
-  font-size: 1.2rem;
-}
-
 #button-div {
   display: flex;
   width: 90%;
@@ -71,9 +67,60 @@ i.zmdi {
   margin: 10px auto;
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  position: relative;
+  background-color: var(--secondary-accent);
+  border: 2px solid #000000;
+  color: var(--text);
+  transition: background-color 0.3s ease;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  padding: 1em 2em;
+  width: 10em;
+  height: 8rem;
+  border-radius: 0.5em;
+}
+
+label:before {
+
+  height: 2em;
+  width: 2em;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+/* input[type="radio"]:checked + label:before {
+  height: 1em;
+  width: 1em;
+  border: 0.65em solid #ffffff;
+  background-color: #4189e0;
+} */
+
+input[type="radio"]:checked + label {
+  background-color: var(--box-shadow);
+  color: black;
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px var(--box-shadow-dark);
+}
+
 #return {
   width: 50px;
   height: 50px;
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+  }
 }
 
 @media (min-width: 768px) {
@@ -111,15 +158,10 @@ i.zmdi {
 
 .selected {
   transform: translateY(4px);
-  box-shadow: 1px 2px 0px 0px var(--box-shadow);
+  box-shadow: 1px 2px 0px 0px var(--box-shadow-dark);
 }
 
-/* .form-button:hover {
-  animation: rotate 30s ease-in-out;
-} */
-
 /* Color */
-
 .confirmation-button {
   background-color: var(--background);
   transition: background-color 0.3s ease-in-out;
@@ -139,7 +181,6 @@ i.zmdi {
   border: 2px solid #000000;
   color: var(--text);
   transition: background-color 0.3s ease;
-  box-shadow: 3px 4px 0px 1px var(--box-shadow);
 }
 
 i.zmdi-play {
@@ -154,5 +195,12 @@ i.zmdi-play {
   border-color: rgb(5, 171, 5);
   i.zmdi-play {
     transform: rotate(125deg);
+  }
+}
+
+@media (min-width: 768px) {
+  label {
+    width: 18em;
+    height: 8em;
   }
 }
