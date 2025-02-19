@@ -34,17 +34,19 @@ function prevQuestion()
     // exit();
 };
 
-if (isset($_POST['nextBtn'])) {
-    nextQuestion();
-};
+function updateQuestionDisplay()
+{
+    $_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum']];
+    var_dump($_SESSION['listOfQuestion']);
+}
 
-if (isset($_POST['prevBtn'])) {
-    prevQuestion();
-};
+
 
 if (isset($_GET['question'])) {
     $_SESSION['currentQuestionNum'] = $_GET['question'];
-    // echo "something";
+    // Update currentQuestion based on the new question number
+    // var_dump($_SESSION['listOfQuestion']);
+    $_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum'] - 1];
 }
 
 if (isset($_GET['result'])) {
@@ -71,7 +73,7 @@ if (isset($_GET['result'])) {
     <div class='question'>
         <div class='question_area'>
 
-            <form action="#" method="get">
+            <form method="get">
                 <div class="button_field">
                     <?php
                     $prevQuestionNum = max(1, $_SESSION['currentQuestionNum'] - 1); // Ensure it doesn't go below 1
@@ -113,7 +115,7 @@ if (isset($_GET['result'])) {
                     } ?>
 
                     <h2>
-                        <?php echo isset($currentQuestion['question_title']) ? $currentQuestion['question_title'] : ''; ?>
+                        <?php echo isset($_SESSION['currentQuestion']['question_title']) ? $_SESSION['currentQuestion']['question_title'] : 'no question title found'; ?>
                     </h2>
                     <p>
                         <?php

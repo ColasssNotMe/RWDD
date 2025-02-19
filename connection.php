@@ -3,7 +3,7 @@ $server = "localhost";
 $user     = 'root';
 $password = '';
 $database = 'quizzation'; // insert database name
-$_SESSION['listOfQuestion'] = array();
+// $_SESSION['listOfQuestion'] = array();
 // $_SESSION['subject'] = 'math';
 // $_SESSION['form'] = '1';
 
@@ -36,12 +36,10 @@ function getQuestion($connection)
 {
     $query  = "SELECT * from question where question_form = '{$_SESSION['form']}' AND question_subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT 10";
     $result = mysqli_query($connection, $query);
-    $numRow = mysqli_fetch_row($result);
-    $row = mysqli_fetch_array($result);
-    var_dump($result);
+    $numRows = mysqli_num_rows($result);
     $listOfQuestion = array();
     $i = 0;
-    if ($numRow > 0) {
+    if ($numRows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $listOfQuestion[$i] = $row;
             $i++;
@@ -50,6 +48,7 @@ function getQuestion($connection)
         $_SESSION['listOfQuestion'] = $listOfQuestion;
         $_SESSION['currentQuestion'] = $listOfQuestion[0];
         // var_dump($_SESSION['currentQuestion']);
+        // var_dump($_SESSION['listOfQuestion']);
     } else {
         echo 'No question returned';
     }
