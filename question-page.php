@@ -68,6 +68,7 @@ if (isset($_GET['result'])) {
 <html lang="en">
 
 <head>
+    <?php include_once 'extrahead.php' ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
@@ -126,7 +127,6 @@ if (isset($_GET['result'])) {
                         <?php echo isset($_SESSION['currentQuestion']['question_title']) ? $_SESSION['currentQuestion']['question_title'] : 'no question title found'; ?>
                     </h2>
                     <div class="choice-section">
-
                         <?php
                         if (isset($_SESSION['currentQuestion']['question_choice'])) {
                             $choices = explode(",", $_SESSION['currentQuestion']['question_choice']);

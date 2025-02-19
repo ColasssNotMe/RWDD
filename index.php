@@ -8,10 +8,10 @@ include 'session.php';
 
 
 <head>
+  <?php include_once 'extrahead.php' ?>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quizzation</title>
-  <link rel="shortcut icon" href="./favicon/icon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./style/style.css" />
   <link rel="stylesheet" href="./style/index.css" />
   <script src="theme.js"></script>

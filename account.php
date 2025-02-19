@@ -10,7 +10,7 @@ require_once 'navigation.php';
 
 $currentLoginUser = $_SESSION['currentLoginUser'];
 // Extract the user ID properly
-$userId = $currentLoginUser['user_id']; 
+$userId = $currentLoginUser['user_id'];
 
 // Use a safe query with prepared statements
 $query = "SELECT record_id, score, time_taken FROM record WHERE user_id = '$userId'";
@@ -21,6 +21,7 @@ $result = mysqli_query($connection, $query);
 <html lang="en">
 
 <head>
+    <?php include_once 'extrahead.php' ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
@@ -42,7 +43,7 @@ $result = mysqli_query($connection, $query);
                     <a href=<?php echo $editAccount ?> class="edit-btn">Edit Profile</a>
                 </button>
                 <button class="secondary-button" id="delete-button">
-                    <a href=<?php echo $logout ?> id="logout-btn" >Logout</a>
+                    <a href=<?php echo $logout ?> id="logout-btn">Logout</a>
                 </button>
             </div>
         </div>
@@ -58,25 +59,25 @@ $result = mysqli_query($connection, $query);
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                ?>
+                    <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['quiz_name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['score']); ?></td>
+                                <td><?php echo htmlspecialchars($row['date_taken']); ?></td>
+                            </tr>
+                        <?php
+                        }
+                    } else {
+                        ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($row['quiz_name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['score']); ?></td>
-                            <td><?php echo htmlspecialchars($row['date_taken']); ?></td>
+                            <td colspan="3">No results found</td>
                         </tr>
-                <?php
+                    <?php
                     }
-                } else {
-                ?>
-                    <tr>
-                        <td colspan="3">No results found</td>
-                    </tr>
-                <?php
-                }
-                ?>
+                    ?>
                 </tbody>
             </table>
         </div>

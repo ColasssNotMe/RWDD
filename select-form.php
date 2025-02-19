@@ -2,18 +2,12 @@
 include 'session.php';
 include 'connection.php'
 
-// if ($_SERVER["REQUEST_METHOD"] == "GET") {
-//     if (isset($_GET['form'])) {
-//         $_SESSION['form'] = $_GET['form'];
-//         header("Location: select-subject.php");
-//         exit();
-//     }
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <?php include_once 'extrahead.php' ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Select Form</title>
@@ -32,7 +26,7 @@ include 'connection.php'
             </h1>
             <form method="get">
                 <div id="button-div">
-                    <button class="secondary-button" id="return">
+                    <button class="secondary-button" id="return" onclick="window.location.href='./index.php';return false">
                         <i class="zmdi zmdi-long-arrow-return"></i>
                     </button>
                     <button type="submit" class="primary-button confirmation-button">
@@ -75,7 +69,6 @@ include 'connection.php'
 
         </div>
     </div>
-
     <script src="./script.js"></script>
 </body>
 
