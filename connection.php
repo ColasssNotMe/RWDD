@@ -115,16 +115,29 @@ function deleteRecord($connection, $recordID)
     }
 }
 
-function addUser($connection, $username, $password, $email, $role)
-{
+function addUser($connection, $username, $password, $rePassword, $email, $role){
     $username = mysqli_real_escape_string($connection, $username);
-    $password = mysqli_real_escape_string($connection, $password);
     $email = mysqli_real_escape_string($connection, $email);
-    $query = "INSERT INTO user (user_name,user_password,user_email, user_role) VALUES ('$username','$password','$email','$role')";
-    if (!mysqli_query($connection, $query)) {
-        return "Error when registering user";
+    $password = isset($password) ? $password : '';
+    $rePassword = isset($rePassword) ? $rePassword : '';
+
+    if (!preg_match("/^[a-zA-Z ]*$/", $username)) {
+        return "Name can only letters and spaces are allowed.";
+    }elseif ($password !== $rePassword) {
+        return "Passwords do not match. Please try again.";
     } else {
-        return "Account registered successful. Login now to get full access of website";
+        $query = "SELECT * FROM user WHERE user_email = '$email'";
+        $result = mysqli_query($connection, $query);
+        if (mysqli_num_rows($result) > 0) {
+            return "Email is already taken. Please use a different one.";
+        } else {
+            $query = "INSERT INTO user (user_name,user_password,user_email, user_role) VALUES ('$username','$password','$email','$role')";
+            if (!mysqli_query($connection, $query)) {
+                return "Error when registering user";
+            } else {
+                return "Account registered successful. Login now to get full access of website.";
+            }
+        }
     }
 }
 
