@@ -15,14 +15,62 @@
   background-color: var(--header-background);
   margin: auto;
   padding-top: 2rem;
-  width: 80%;
-  height: 80%;
+  width: 95%;
+  height: 95%;
   border: 2px solid #264143;
   border-radius: 20px;
   box-shadow: 3px 4px 0px 1px var(--box-shadow);
   /* width: 90%; */
   /* max-width: 450px; */
 }
+
+.choice-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  position: relative;
+  background-color: var(--secondary-accent);
+  border: 2px solid #000000;
+  color: var(--text);
+  transition: background-color 0.3s ease;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  flex-grow: 1;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+label:before {
+  height: 2em;
+  width: 2em;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked + label {
+  background-color: var(--accent-hover);
+  color: black;
+}
+
+/* .choices {
+  display: flex;
+  flex-grow: 1;
+  border: 2px solid #264143;
+  margin: 1rem 3rem;
+  border-radius: 1.1em;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow);
+} */
 
 #back-button {
   width: 93px;
@@ -82,7 +130,7 @@
   width: 1000px;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   height: 100%;

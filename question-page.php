@@ -1,3 +1,6 @@
+<!-- TODO: add a new array to store the answer and select the radio accordingly -->
+<!--lastQuestionNum, currentQuestionNum array starts at index 1  -->
+
 <?php
 include 'session.php';
 include 'connection.php';
@@ -34,19 +37,19 @@ function prevQuestion()
     // exit();
 };
 
-function updateQuestionDisplay()
-{
-    $_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum']];
-    var_dump($_SESSION['listOfQuestion']);
-}
-
-
-
 if (isset($_GET['question'])) {
+    $_SESSION['lastQuestionNum'] = $_SESSION['currentQuestionNum'];
     $_SESSION['currentQuestionNum'] = $_GET['question'];
     // Update currentQuestion based on the new question number
-    // var_dump($_SESSION['listOfQuestion']);
     $_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum'] - 1];
+    if (!isset($_SESSION['userAns'])) {
+        $_SESSION['userAns'] = array();
+    }
+    if (isset($_GET['answer'])) {
+        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
+    }
+    var_dump($_SESSION['userAns']);
+    var_dump($_SESSION['lastQuestionNum']);
 }
 
 if (isset($_GET['result'])) {
@@ -117,20 +120,38 @@ if (isset($_GET['result'])) {
                     <h2>
                         <?php echo isset($_SESSION['currentQuestion']['question_title']) ? $_SESSION['currentQuestion']['question_title'] : 'no question title found'; ?>
                     </h2>
-                    <p>
+                    <div class="choice-section">
+
                         <?php
-                        if (isset($currentQuestion['question_choice'])) {
-                            $choices = explode(",", $currentQuestion['question_choice']);
+                        if (isset($_SESSION['currentQuestion']['question_choice'])) {
+                            $choices = explode(",", $_SESSION['currentQuestion']['question_choice']);
+                            $i = 1;
                             foreach ($choices as $choice) {
-                                echo $choice . "<br>";
+                        ?>
+
+                                <input type='radio' name='answer' id='selection<?php echo $i ?>' value='<?php echo $i ?>'
+                                    <?php
+                                    $temp = $_SESSION['currentQuestionNum'];
+                                    if (isset($_SESSION['userAns'][$temp])) {
+                                        if ($i == $_SESSION['userAns'][$temp]) {
+                                            echo "checked";
+                                        }
+                                    }
+
+                                    ?> />
+                                <label class="choices" for="selection<?php echo $i ?>"><?php echo $choice ?></label>
+
+                        <?php
+                                $i++;
                             }
                         }
                         ?>
-                    </p>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

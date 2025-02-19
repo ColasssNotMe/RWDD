@@ -29,6 +29,7 @@ if (isset($_GET['subject'])) {
     $_SESSION['subject'] = $_GET['subject'];
     $_SESSION['questionList'] = getQuestion($connection);
     $_SESSION['currentQuestionNum'] = 1;
+    $_SESSION['userAns']=array();
 }
 
 // get random request question
