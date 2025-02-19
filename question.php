@@ -44,14 +44,17 @@ require "connection.php";
                         <?php echo $_SESSION['subject'] ?>
                     </h1>
                     <button name='question' value="1"
-                        class='primary-button start-now' type="submit">
-                        Start Now
+                        class='primary-button ' type="submit" id="start-now">
+                        GO!
                     </button>
                 </div>
                 <div class="describe_field">
                     <div class="describe_box">
-                        <h2>You</h2>
-                        <p>libxml_disable_entity_loader</p>
+                        <h2>Quiz Details:</h2>
+                        <ul>
+                            <li>10 mind-bending questions</li>
+                            <li>ONLY INCLUDE the form selected</li>
+                        </ul>
                     </div>
                 </div>
             </form>
