@@ -53,7 +53,12 @@ if (isset($_GET['question'])) {
 }
 
 if (isset($_GET['result'])) {
-    header("Location:result.php");
+    $confirm_message = "You have reached the end of this quiz. Submit?";
+    echo "<script>
+        if (confirm('$confirm_message')) {
+            window.location.href = 'result.php';
+        }
+    </script>";
 }
 
 ?>
