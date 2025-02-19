@@ -18,7 +18,7 @@ var lastFormSelected;
 var subjectSelected;
 var lastSubjectSelected;
 var numQuestion = 10;
-updateIcons();
+// updateIcons();
 
 // function updateIcons() {
 //   const isDarkMode = html.classList.contains("dark-mode");
