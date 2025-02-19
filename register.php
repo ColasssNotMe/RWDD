@@ -6,7 +6,7 @@ include 'session.php';
 include "connection.php";
 $registrationMessage = ""; // Initialize variable
 if (isset($_POST['submit'])) {
-    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['email'], "student");
+    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['rePassword'], $_POST['email'], "student");
 }
 if (!empty($registrationMessage)) {
     echo "<script>alert('$registrationMessage');</script>";
@@ -48,7 +48,7 @@ if (!empty($registrationMessage)) {
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="password">Re-enter Password</label>
-                    <input placeholder="Re-Enter your password" name="repassword" class="form_style" type="password" required>
+                    <input placeholder="Re-Enter your password" name="rePassword" class="form_style" type="password" required>
                 </div>
                 <div>
                     <button class="form_btn" name="submit">SIGN UP</button>
