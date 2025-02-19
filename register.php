@@ -36,19 +36,19 @@ if (!empty($registrationMessage)) {
             <form action="" method="post">
                 <div class="form_group">
                     <label class="form_sub_title" for="name">Name</label>
-                    <input placeholder="Enter your full name" name="name" class="form_style" type="text">
+                    <input placeholder="Enter your full name" name="name" class="form_style" type="text" required>
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="email">Email</label>
-                    <input placeholder="Enter your email" name="email" class="form_style" type="email">
+                    <input placeholder="Enter your email" name="email" class="form_style" type="email" required>
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="password">Password</label>
-                    <input placeholder="Enter your password" name="password" class="form_style" type="password">
+                    <input placeholder="Enter your password" name="password" class="form_style" type="password" required>
                 </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="password">Re-enter Password</label>
-                    <input placeholder="Re-Enter your password" name="repassword" class="form_style" type="password">
+                    <input placeholder="Re-Enter your password" name="repassword" class="form_style" type="password" required>
                 </div>
                 <div>
                     <button class="form_btn" name="submit">SIGN UP</button>
