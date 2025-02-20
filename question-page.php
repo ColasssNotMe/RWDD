@@ -8,6 +8,7 @@ include 'connection.php';
 if (isset($_GET['question'])) {
     $_SESSION['lastQuestionNum'] = $_SESSION['currentQuestionNum'];
     $_SESSION['currentQuestionNum'] = $_GET['question'];
+
     // Update currentQuestion based on the new question number
     $_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum'] - 1];
     if (!isset($_SESSION['userAns'])) {
@@ -19,8 +20,13 @@ if (isset($_GET['question'])) {
     }
 
     if (isset($_GET['answer'])) {
-        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
-        $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
+        if (!$_GET['answer']) {
+            $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = 0;
+            $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
+        } else {
+            $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
+            $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
+        }
     }
     // var_dump($_SESSION['userAns']);
     // var_dump($_SESSION['lastQuestionNum']);

@@ -20,7 +20,7 @@
   box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
   position: relative;
   overflow: hidden;
-  transform: rotate(1deg);
+  /* transform: rotate(1deg); */
   margin: auto;
 }
 
@@ -36,13 +36,15 @@
 }
 
 .question_area > * {
-  transform: rotate(-1deg);
+  /* transform: rotate(-1deg); */
 }
 
 .choice-section {
   display: flex;
   flex-direction: column;
   flex: 1 1 0;
+width: 85%;
+margin: 0 auto;
 }
 
 input[type="radio"] {
@@ -66,6 +68,7 @@ label {
   flex-grow: 1;
   margin: 0.5em;
   border-radius: 0.5em;
+  padding: 2rem;
 }
 
 label:before {
@@ -164,19 +167,18 @@ form {
 }
 
 @media (min-width: 768px) {
-.choice-section{
-  display: flex;
-  flex-direction: row;
-  flex: 0 0 0 ;
-}
-.describe_box{
-  justify-content: start;
-}
+  .choice-section {
+    display: flex;
+    flex-grow: 1;
+    flex: 0 0 0;
+  }
+  .describe_box {
+    justify-content: start;
+  }
 
-.question_area{
-  height: fit-content;
-  /* flex: 0 1 0; */
-  padding-bottom: 3rem;
+  .question_area {
+    height: fit-content;
+    /* flex: 0 1 0; */
+    padding-bottom: 3rem;
+  }
 }
-}
-
