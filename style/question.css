@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
+  margin-top: 1rem;
 }
 
 .question_area {
@@ -13,13 +14,14 @@
   flex-direction: column;
   /* background-color: var(--box-shadow);  Remove this line */
   padding-top: 2rem;
-  width: 95%;
-  height: 95%;
+  width: 90%;
+  height: 90%;
   border: 2px solid #264143;
   box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
   position: relative;
   overflow: hidden;
   transform: rotate(1deg);
+  margin: auto;
 }
 
 .question_area::before {
@@ -49,8 +51,8 @@ input[type="radio"] {
 
 label {
   position: relative;
-  min-height: 100px ;
-  min-width: 100px ;
+  min-height: 100px;
+  min-width: 100px;
   background-color: var(--secondary-accent);
   border: 2px solid #000000;
   color: var(--text);
@@ -160,3 +162,21 @@ form {
   flex-direction: column;
   height: 100%;
 }
+
+@media (min-width: 768px) {
+.choice-section{
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 0 ;
+}
+.describe_box{
+  justify-content: start;
+}
+
+.question_area{
+  height: fit-content;
+  /* flex: 0 1 0; */
+  padding-bottom: 3rem;
+}
+}
+
