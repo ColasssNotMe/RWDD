@@ -1,6 +1,20 @@
 <?php
 include 'session.php';
 include 'connection.php';
+include 'navigation.php';
+
+
+$i = 0;
+$correctAns = 0;
+foreach ($_SESSION['userAnsData'] as $choice) {
+    if ($choice == $_SESSION['listOfQuestion'][$i]['question_answer']) {
+        $correctAns++;
+    }
+}
+
+$percentage = $correctAns / 10 * 100;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,15 +35,51 @@ include 'connection.php';
     <div class="content">
         <div class="result-section">
             <h1>Result</h1>
-            <p><strong>Total:</strong> </p>
-            <p><strong>Email:</strong> </p>
+            <div>
+                <div class="percentage-circle">
+                    <?php echo $percentage ?>%
+
+                </div>
+                <p><strong>Correct Answer:</strong>
+                    <br>
+                    <?php echo $correctAns ?> / 10
+                </p>
+                <p><strong>Time Taken:</strong> </p>
+            </div>
             <div class="button-div">
                 <button class="secondary-button">
                     Save as collection
                 </button>
                 <button class="primary-button" id="return-home">
-                    <a href=<?php echo $index ?> id="return-button">Return to home</a>
+                    <a href=<?php echo $root ?> id="return-button">Return to home</a>
                 </button>
+            </div>
+
+            <div class="record-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $j = 1;
+                        foreach ($_SESSION['listOfQuestion'] as $question) {
+                        ?>
+                            <tr>
+                                <td><?php echo $j; ?></td>
+                                <td><?php echo $question['question_title'] ?></td>
+                                <td><?php echo $_SESSION['listOfQuestion'][$j-1]['question_answer'] ?></td>
+                            </tr>
+                        <?php
+                            $j++;
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
 

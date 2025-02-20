@@ -19,7 +19,7 @@
   box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
   position: relative;
   overflow: hidden;
-  transform: rotate(2deg);
+  transform: rotate(1deg);
 }
 
 .question_area::before {
@@ -34,7 +34,7 @@
 }
 
 .question_area > * {
-  transform: rotate(-2deg);
+  transform: rotate(-1deg);
 }
 
 .choice-section {

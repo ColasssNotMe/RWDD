@@ -30,6 +30,7 @@ if (isset($_GET['subject'])) {
     $_SESSION['questionList'] = getQuestion($connection);
     $_SESSION['currentQuestionNum'] = 1;
     $_SESSION['userAns']=array();
+    $_SESSION['userAnsData']=array();
 }
 
 // get random request question
