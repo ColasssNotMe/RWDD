@@ -1,6 +1,30 @@
 <?php
 include 'session.php';
 include 'connection.php';
+
+if (isset($_POST['submit'])) {
+    $choices = array(
+        $_POST['choice1'],
+        $_POST['choice2'],
+        $_POST['choice3'],
+        $_POST['choice4']
+    );
+
+    $choiceString = implode(",", $choices);
+
+    $answer = $choices[$_POST['answer']];
+
+
+    addQuestion(
+        $connection,
+        $_POST['form'],
+        $_POST['subject'],
+        $_POST['picture'],
+        $_POST['title'],
+        $choiceString,
+        $answer
+    );
+}
 ?>
 
 <!DOCTYPE html>
@@ -117,13 +141,13 @@ include 'connection.php';
 
                 <h3>Enter Choices</h1>
                     <label class="form_sub_title" for="choice1">Choice 1</label>
-                    <input placeholder="Enter choices" class="form_style" type="text" name="choice1">
-                    <label class="form_sub_title" for="choice">Choice 2</label>
-                    <input placeholder="Enter choices" class="form_style" type="text" name="choice2">
+                    <input placeholder="Enter choice 1" class="form_style" type="text" name="choice1">
+                    <label class="form_sub_title" for="choice2">Choice 2</label>
+                    <input placeholder="Enter choice 2" class="form_style" type="text" name="choice2">
                     <label class="form_sub_title" for="choice">Choice 3</label>
-                    <input placeholder="Enter choices" class="form_style" type="text" name="choice3">
+                    <input placeholder="Enter choice 3" class="form_style" type="text" name="choice3">
                     <label class="form_sub_title" for="choice">Choice 4</label>
-                    <input placeholder="Enter choices" class="form_style" type="text" name="choice4">
+                    <input placeholder="Enter choice 4" class="form_style" type="text" name="choice4">
 
                     <h3>Select the answer for the question</h3>
                     <label class="form_sub_title" for="answer">Choice 1</label>
@@ -134,6 +158,8 @@ include 'connection.php';
                     <input type="radio" name="answer" value="3">
                     <label class="form_sub_title" for="answer">Choice 4</label>
                     <input type="radio" name="answer" value='4'>
+
+                    <button type="submit" name="submit">Add Question</button>
             </form>
         </div>
     </div>
