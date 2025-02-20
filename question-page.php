@@ -19,14 +19,13 @@ if (isset($_GET['question'])) {
         $_SESSION['userAnsData'] = array();
     }
 
+    if (!isset($_GET['answer'])) {
+        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = 0;
+        $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
+    }
     if (isset($_GET['answer'])) {
-        if (!$_GET['answer']) {
-            $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = 0;
-            $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
-        } else {
-            $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
-            $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
-        }
+        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
+        $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']];
     }
     // var_dump($_SESSION['userAns']);
     // var_dump($_SESSION['lastQuestionNum']);

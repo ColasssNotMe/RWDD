@@ -73,6 +73,7 @@ $percentage = $correctAnsCount / 10 * 100;
                     <tbody>
                         <?php
                         $j = 1;
+                        var_dump($_SESSION['userAnsData']);
                         foreach ($_SESSION['listOfQuestion'] as $question) {
                         ?>
                             <tr class=<?php if ($question['question_answer'] == $_SESSION['userAnsData'][$j]) {
