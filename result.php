@@ -6,14 +6,14 @@ include 'navigation.php';
 
 $i = 0;
 $correctAnsCount = 0;
-var_dump($_SESSION['userAnsData']);
+// var_dump($_SESSION['userAnsData']);
 foreach ($_SESSION['userAnsData'] as $choice) {
     // echo $i;
     // echo $choice;
     // echo "<br>";
     // echo $_SESSION['listOfQuestion'][$i]['question_answer'];
     if ($choice == $_SESSION['listOfQuestion'][$i]['question_answer']) {
-        echo $choice;
+        // echo $choice;
         $correctAnsCount++;
     }
     $i++;
