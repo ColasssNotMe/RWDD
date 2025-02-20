@@ -1,26 +1,21 @@
+<!-- filepath: /c:/wamp64/www/Assignment/RWDD/result.php -->
 <?php
 include 'session.php';
 include 'connection.php';
 include 'navigation.php';
 
-
 $i = 0;
 $correctAnsCount = 0;
-var_dump($_SESSION['userAnsData']);
 foreach ($_SESSION['userAnsData'] as $choice) {
-    // echo $i;
-    // echo $choice;
-    // echo "<br>";
-    // echo $_SESSION['listOfQuestion'][$i]['question_answer'];
     if ($choice == $_SESSION['listOfQuestion'][$i]['question_answer']) {
-        echo $choice;
         $correctAnsCount++;
     }
     $i++;
 }
 
 $percentage = $correctAnsCount / 10 * 100;
-
+$circumference = 2 * pi() * 62; // Calculate circumference
+$offset = $circumference - ($percentage / 100 * $circumference); // Calculate offset
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +37,17 @@ $percentage = $correctAnsCount / 10 * 100;
         <div class="result-section">
             <h1>Result</h1>
             <div>
-                <div class="percentage-circle">
-                    <?php echo $percentage ?>%
-
+                <div class="outer-circle">
+                    <div class="inner-circle">
+                        <h2 id="percentage">
+                            <?php echo $percentage ?>%
+                        </h2>
+                    </div>
+                    <svg width="100%" height="100%" viewBox="0 0 150 150">
+                        <circle r="62" cx="75" cy="75" fill="transparent" stroke="black" stroke-width="25" stroke-dasharray="<?php echo $circumference; ?>" stroke-dashoffset="<?php echo $offset; ?>" />
+                    </svg>
                 </div>
+
                 <p><strong>Correct Answer:</strong>
                     <br>
                     <?php echo $correctAnsCount ?> / 10
@@ -81,7 +83,7 @@ $percentage = $correctAnsCount / 10 * 100;
                                             echo "wrong-ans";
                                         }
                                         ?>>
-                                <td ><?php echo $j; ?></td>
+                                <td><?php echo $j; ?></td>
                                 <td><?php echo $question['question_title'] ?></td>
                                 <td><?php echo $question['question_answer'] ?></td>
                             </tr>
@@ -96,6 +98,7 @@ $percentage = $correctAnsCount / 10 * 100;
 
     </div>
 
+    <script src="script.js"></script>
     <?php require_once 'components/footer.php'; ?>
 </body>
 

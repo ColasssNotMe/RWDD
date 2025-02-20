@@ -20,6 +20,21 @@ var lastSubjectSelected;
 var numQuestion = 10;
 // updateIcons();
 
+function toggleMenu() {
+  menu.classList.toggle("change");
+  menuDropdown.classList.toggle("change");
+}
+
+// let percentage = document.getElementById("percentage");
+// let counter = 0;
+// setInterval(() => {
+//   if ((counter == 100)) {
+//     clearInterval;
+//   } else {
+//     counter++;
+//     percentage.innerHTML = `${counter}%`;
+//   }
+// }, 30);
 
 // function updateIcons() {
 //   const isDarkMode = html.classList.contains("dark-mode");
@@ -45,11 +60,6 @@ var numQuestion = 10;
 //     svgElement.setAttribute("fill", "#000000");
 //   }
 // }
-
-function toggleMenu() {
-  menu.classList.toggle("change");
-  menuDropdown.classList.toggle("change");
-}
 
 /* function switchTheme() {
 //   html.classList.toggle("dark-mode");
