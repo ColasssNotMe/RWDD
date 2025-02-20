@@ -40,46 +40,15 @@ $result = mysqli_query($connection, $query);
             <p><strong>Email:</strong> <?php echo htmlspecialchars($currentLoginUser['user_email']); ?></p>
             <div class="button-div">
                 <button class="secondary-button">
+                    <a href=<?php echo $addQuestion ?> class="edit-btn">Add Question</a>
+                </button>
+                <button class="secondary-button">
                     <a href=<?php echo $editAccount ?> class="edit-btn">Edit Profile</a>
                 </button>
                 <button class="secondary-button" id="delete-button">
                     <a href=<?php echo $logout ?> id="logout-btn">Logout</a>
                 </button>
             </div>
-        </div>
-
-        <div class="record-section">
-            <h2>Quiz Records</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Quiz Name</th>
-                        <th>Score</th>
-                        <th>Date Taken</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($row['quiz_name']); ?></td>
-                                <td><?php echo htmlspecialchars($row['score']); ?></td>
-                                <td><?php echo htmlspecialchars($row['date_taken']); ?></td>
-                            </tr>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <tr>
-                            <td colspan="3">No results found</td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
         </div>
     </div>
     <?php require_once 'components/footer.php'; ?>

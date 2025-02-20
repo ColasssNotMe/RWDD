@@ -33,11 +33,15 @@ require 'navigation.php';
         <!-- TODO:DELETE if user is logged in -->
 
         <?php if (isset($_SESSION["currentLoginUser"])) {
+            if ($_SESSION['currentLoginUser']['user_role'] == "student") {
         ?>
-            <a href="<?php echo $account ?>">Account</a>
-        <?php
+                <a href="<?php echo $account ?>">Account</a>
+            <?php
+            } else { ?>
+                <a href="<?php echo $teacher_dashboard ?>">Account</a>
+            <?php }
         } else {
-        ?>
+            ?>
             <a href="<?php echo $login ?>">Login</a>
         <?php
         } ?>
