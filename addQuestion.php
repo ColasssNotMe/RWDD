@@ -164,6 +164,7 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 
+    <script src="script.js"></script>
     <?php include_once 'components/footer.php'; ?>
 </body>
 
