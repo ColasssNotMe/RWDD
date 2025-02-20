@@ -5,15 +5,21 @@ include 'navigation.php';
 
 
 $i = 0;
-$correctAns = 0;
+$correctAnsCount = 0;
+var_dump($_SESSION['userAnsData']);
 foreach ($_SESSION['userAnsData'] as $choice) {
+    // echo $i;
+    // echo $choice;
+    // echo "<br>";
+    // echo $_SESSION['listOfQuestion'][$i]['question_answer'];
     if ($choice == $_SESSION['listOfQuestion'][$i]['question_answer']) {
-        $correctAns++;
+        echo $choice;
+        $correctAnsCount++;
     }
+    $i++;
 }
 
-$percentage = $correctAns / 10 * 100;
-
+$percentage = $correctAnsCount / 10 * 100;
 
 ?>
 
@@ -42,7 +48,7 @@ $percentage = $correctAns / 10 * 100;
                 </div>
                 <p><strong>Correct Answer:</strong>
                     <br>
-                    <?php echo $correctAns ?> / 10
+                    <?php echo $correctAnsCount ?> / 10
                 </p>
                 <p><strong>Time Taken:</strong> </p>
             </div>
@@ -69,10 +75,15 @@ $percentage = $correctAns / 10 * 100;
                         $j = 1;
                         foreach ($_SESSION['listOfQuestion'] as $question) {
                         ?>
-                            <tr>
-                                <td><?php echo $j; ?></td>
+                            <tr class=<?php if ($question['question_answer'] == $_SESSION['userAnsData'][$j]) {
+                                            echo "right-ans";
+                                        } else {
+                                            echo "wrong-ans";
+                                        }
+                                        ?>>
+                                <td ><?php echo $j; ?></td>
                                 <td><?php echo $question['question_title'] ?></td>
-                                <td><?php echo $_SESSION['listOfQuestion'][$j-1]['question_answer'] ?></td>
+                                <td><?php echo $question['question_answer'] ?></td>
                             </tr>
                         <?php
                             $j++;

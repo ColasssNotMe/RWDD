@@ -38,3 +38,11 @@
     align-self: stretch;
   }
 }
+
+.wrong-ans{
+  background-color: red;
+}
+
+.right-ans{
+  background-color: green;
+}
