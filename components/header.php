@@ -60,8 +60,7 @@ require 'navigation.php';
             <li>
                 <?php if (isset($_SESSION["currentLoginUser"])) {
                 ?>
-
-                    <a href="<?php if ($_SESSION["currentLoginUser"]['user_type'] == "student") {
+                    <a href="<?php if ($_SESSION["currentLoginUser"]['user_role'] == "student") {
                                     echo $account;
                                 } else {
                                     echo $teacher_dashboard;
