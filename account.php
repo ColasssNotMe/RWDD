@@ -11,8 +11,17 @@ require_once 'navigation.php';
 $currentLoginUser = $_SESSION['currentLoginUser'];
 $userId = $currentLoginUser['user_id'];
 
-// Use a safe query with prepared statements
-$query = "SELECT record_id, score, time_taken FROM record WHERE user_id = '$userId'";
+$query = "SELECT 
+            r.record_id, 
+            r.score, 
+            r.time_taken,
+            q.question_form,
+            q.question_subject,
+            r.date_taken
+          FROM record r
+          JOIN question q ON r.question_id = q.question_id
+          WHERE r.user_id = '$userId'";
+
 $result = mysqli_query($connection, $query);
 ?>
 
@@ -52,27 +61,39 @@ $result = mysqli_query($connection, $query);
             <table>
                 <thead>
                     <tr>
-                        <th>Quiz Name</th>
+                        <th>No.</th>
+                        <th>Form</th>
+                        <th>Subject</th>
                         <th>Score</th>
                         <th>Date Taken</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                    $count = 1;
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
                     ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($row['quiz_name']); ?></td>
+                                <td><?php echo $count; ?></td>
+                                <td><?php
+                                    if ($row['question_form'] == "0") {
+                                        echo "All Form";
+                                    } else {
+                                        echo htmlspecialchars($row['question_form']);
+                                    }
+                                    ?></td>
+                                <td><?php echo htmlspecialchars($row['question_subject']); ?></td>
                                 <td><?php echo htmlspecialchars($row['score']); ?></td>
                                 <td><?php echo htmlspecialchars($row['date_taken']); ?></td>
                             </tr>
                         <?php
+                            $count++;
                         }
                     } else {
                         ?>
                         <tr>
-                            <td colspan="3">No results found</td>
+                            <td colspan="5">No results found</td>
                         </tr>
                     <?php
                     }

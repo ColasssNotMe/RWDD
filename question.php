@@ -34,31 +34,33 @@ require "connection.php";
     <div class='question'>
         <div class='question_area'>
             <!-- <div class="background-div"> -->
-                <form action="question-page.php" method="get">
-                    <div class="button_field">
-                        <button class="secondary-button" id="back-button">
-                            <a class="back-button-a" href="select-subject.php">
-                                <i class="zmdi zmdi-long-arrow-return"></i>
-                            </a>
-                        </button>
-                        <h1 class="quiz_title">
-                            <?php echo $_SESSION['subject'] ?>
-                        </h1>
-                        <button name='question' value="1"
-                            class='primary-button ' type="submit" id="start-now">
-                            GO!
-                        </button>
+            <form action="question-page.php" method="get">
+                <div class="button_field">
+                    <button class="secondary-button" id="back-button">
+                        <a class="back-button-a" href="select-subject.php">
+                            <i class="zmdi zmdi-long-arrow-return"></i>
+                        </a>
+                    </button>
+                    <h1 class="quiz_title">
+                        <?php echo $_SESSION['subject'] ?>
+                    </h1>
+                    <input type="text" style="display: none; " name="answer" value="0">
+                    <input type="text" style="display: none; " name="start_time" value=<?php $_SESSION['startTime'] = time() ?>>
+                    <button name='question' value="1"
+                        class='primary-button ' type="submit" id="start-now">
+                        GO!
+                    </button>
+                </div>
+                <div class="describe_field">
+                    <div class="describe_box">
+                        <h2>Quiz Details:</h2>
+                        <ul>
+                            <li>10 mind-bending questions</li>
+                            <li>ONLY INCLUDE the form selected</li>
+                        </ul>
                     </div>
-                    <div class="describe_field">
-                        <div class="describe_box">
-                            <h2>Quiz Details:</h2>
-                            <ul>
-                                <li>10 mind-bending questions</li>
-                                <li>ONLY INCLUDE the form selected</li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
+                </div>
+            </form>
         </div>
     </div>
     <script src="script.js"></script>

@@ -5,54 +5,36 @@
 include 'session.php';
 include 'connection.php';
 
-function nextQuestion()
-{
-    // $_SESSION['currentQuestionNum'] += 1;
-    // $questionList = $_SESSION['listOfQuestion'];
-    // // Check if the next question exists in the array
-    // if (isset($questionList[$_SESSION['currentQuestionNum']])) {
-    //     $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
-    // } else {
-    //     // redirect when no more question
-    //     echo "<script>alert('No more questions. Redirecting to results page.'); window.location.href='result.php';</script>";
-    //     exit();
-    // }
-    // header("Location:question-page.php");
-    // exit();
-};
-
-function prevQuestion()
-{
-    // $_SESSION['currentQuestionNum'] -= 1;
-    // $questionList = $_SESSION['listOfQuestion'];
-    // // Check if the previous question exists in the array
-    // if (isset($questionList[$_SESSION['currentQuestionNum']])) {
-    //     $_SESSION['currentQuestion'] = $questionList[$_SESSION['currentQuestionNum']];
-    // } else {
-    //     echo "<script>alert('This is the first question.');</script>";
-    //     $_SESSION['currentQuestionNum'] = 0;
-    //     $_SESSION['currentQuestion'] = $questionList[0];
-    // }
-    // header("Location:question-page.php");
-    // exit();
-};
-
 if (isset($_GET['question'])) {
     $_SESSION['lastQuestionNum'] = $_SESSION['currentQuestionNum'];
     $_SESSION['currentQuestionNum'] = $_GET['question'];
+
     // Update currentQuestion based on the new question number
     $_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum'] - 1];
     if (!isset($_SESSION['userAns'])) {
         $_SESSION['userAns'] = array();
     }
+
+    if (!isset($_SESSION['userAnsData'])) {
+        $_SESSION['userAnsData'] = array();
+    }
+
+    if (!isset($_GET['answer'])) {
+        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = 0;
+        $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
+    }
     if (isset($_GET['answer'])) {
         $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
+        $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']];
     }
     // var_dump($_SESSION['userAns']);
     // var_dump($_SESSION['lastQuestionNum']);
 }
 
 if (isset($_GET['result'])) {
+    $_SESSION['userAns'][10] = $_GET['answer'];
+    $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
+    $_SESSION['endTime'] = time();
     $confirm_message = "You have reached the end of this quiz. Submit?";
     echo "<script>
         if (confirm('$confirm_message')) {
@@ -132,6 +114,7 @@ if (isset($_GET['result'])) {
                             $choices = explode(",", $_SESSION['currentQuestion']['question_choice']);
                             $i = 1;
                             foreach ($choices as $choice) {
+                                $_SESSION['currentQuestionChoice'][$i - 1] = $choice;
                         ?>
 
                                 <input type='radio' name='answer' id='selection<?php echo $i ?>' value='<?php echo $i ?>'

@@ -29,7 +29,8 @@ if (isset($_GET['subject'])) {
     $_SESSION['subject'] = $_GET['subject'];
     $_SESSION['questionList'] = getQuestion($connection);
     $_SESSION['currentQuestionNum'] = 1;
-    $_SESSION['userAns']=array();
+    $_SESSION['userAns'] = array();
+    $_SESSION['userAnsData'] = array();
 }
 
 // get random request question
@@ -99,13 +100,11 @@ function validateTeacherCredential($connection, $email, $password)
     }
 }
 
-function addRecord($connection, $score, $timeTaken, $userID, $quizID)
+function addRecord($connection, $score, $timeTaken, $userID, $questionID)
 {
-    $query = "INSERT INTO record (score,time_taken,user_id,quiz_id) VALUES ($score,$timeTaken,$userID,$quizID)";
+    $query = "INSERT INTO record (score,time_taken,user_id,question_id) VALUES ($score,$timeTaken,$userID,'$questionID')";
     if (!mysqli_query($connection, $query)) {
-        echo "<script>alert('Error when inserting record')</script>";
-    } else {
-        header("Location: result.php");
+        echo "<script>alert('Error when storing record')</script>";
     }
 }
 
@@ -119,15 +118,16 @@ function deleteRecord($connection, $recordID)
     }
 }
 
-function addUser($connection, $username, $password, $rePassword, $email, $role){
+function addUser($connection, $username, $password, $rePassword, $email, $role)
+{
     $username = mysqli_real_escape_string($connection, $username);
     $email = mysqli_real_escape_string($connection, $email);
     $password = isset($password) ? $password : '';
     $rePassword = isset($rePassword) ? $rePassword : '';
 
     if (!preg_match("/^[a-zA-Z ]*$/", $username)) {
-        return "Name can only letters and spaces are allowed.";
-    }elseif ($password !== $rePassword) {
+        return "Only letters and spaces are allowed.";
+    } elseif ($password !== $rePassword) {
         return "Passwords do not match. Please try again.";
     } else {
         $query = "SELECT * FROM user WHERE user_email = '$email'";
