@@ -96,9 +96,9 @@ function validateTeacherCredential($connection, $email, $password)
     }
 }
 
-function addRecord($connection, $score, $timeTaken, $userID, $quizID)
+function addRecord($connection, $score, $timeTaken, $userID, $questionID)
 {
-    $query = "INSERT INTO record (score,time_taken,user_id,quiz_id) VALUES ($score,$timeTaken,$userID,$quizID)";
+    $query = "INSERT INTO record (score,time_taken,user_id,quiz_id) VALUES ($score,$timeTaken,$userID,$questionID)";
     if (!mysqli_query($connection, $query)) {
         echo "<script>alert('Error when inserting record')</script>";
     } else {
@@ -123,7 +123,7 @@ function addUser($connection, $username, $password, $rePassword, $email, $role){
     $rePassword = isset($rePassword) ? $rePassword : '';
 
     if (!preg_match("/^[a-zA-Z ]*$/", $username)) {
-        return "Name can only letters and spaces are allowed.";
+        return "Only letters and spaces are allowed.";
     }elseif ($password !== $rePassword) {
         return "Passwords do not match. Please try again.";
     } else {
