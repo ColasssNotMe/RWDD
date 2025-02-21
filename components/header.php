@@ -60,12 +60,16 @@ require 'navigation.php';
             <li>
                 <?php if (isset($_SESSION["currentLoginUser"])) {
                 ?>
-                    <a href="<?php echo $account ?>" class="header-button" id="profile-a">
-                        <img 
-                        id="headerProfilePic" 
-                        src="<?php echo htmlspecialchars($_SESSION["currentLoginUser"]['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>" 
-                        alt="Profile Picture" 
-                        class="header-profile-pic">
+                    <a href="<?php if ($_SESSION["currentLoginUser"]['user_role'] == "student") {
+                                    echo $account;
+                                } else {
+                                    echo $teacher_dashboard;
+                                } ?>" class="header-button" id="profile-a">
+                        <img
+                            id="headerProfilePic"
+                            src="<?php echo htmlspecialchars($_SESSION["currentLoginUser"]['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
+                            alt="Profile Picture"
+                            class="header-profile-pic">
                     </a>
                 <?php
                 } else {
