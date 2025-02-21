@@ -33,15 +33,11 @@ require 'navigation.php';
         <!-- TODO:DELETE if user is logged in -->
 
         <?php if (isset($_SESSION["currentLoginUser"])) {
-            if ($_SESSION['currentLoginUser']['user_role'] == "student") {
         ?>
-                <a href="<?php echo $account ?>">Account</a>
-            <?php
-            } else { ?>
-                <a href="<?php echo $teacher_dashboard ?>">Account</a>
-            <?php }
+            <a href="<?php echo $account ?>">Account</a>
+        <?php
         } else {
-            ?>
+        ?>
             <a href="<?php echo $login ?>">Login</a>
         <?php
         } ?>
@@ -63,39 +59,31 @@ require 'navigation.php';
             </li>
             <li>
                 <?php if (isset($_SESSION["currentLoginUser"])) {
-                    if ($_SESSION['currentLoginUser']['user_role'] == "student") {
                 ?>
-                        <a href="<?php echo $account ?>" class="header-button" id="profile-a">
-                            <img
-                                src="https://images.pexels.com/photos/19526811/pexels-photo-19526811/free-photo-of-cake-on-white-background.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-                                alt="profile"
-                                class="icon"
-                                id="profile-icon" />
-                        </a>
-                    <?php
-                    } else { ?>
-                        <a href="<?php echo $teacher_dashboard ?>" class="header-button" id="profile-a">
-                            <img
-                                src="https://images.pexels.com/photos/19526811/pexels-photo-19526811/free-photo-of-cake-on-white-background.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-                                alt="profile"
-                                class="icon"
-                                id="profile-icon" />
-                        </a>
-
-                        <?php
-                        }
-                    } else {
-                            ?>
-                        <a href="<?php echo $login ?>" class="header-button" id="profile-a">
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
-                                alt="profile"
-                                class="icon"
-                                id=" profile-icon" />
-                        </a>
-                        <!-- close the else statement -->
-                    <?php
-                    } ?>
+                    <a href="<?php if ($_SESSION["currentLoginUser"]['user_role'] == "student") {
+                                    echo $account;
+                                } else {
+                                    echo $teacher_dashboard;
+                                } ?>" class="header-button" id="profile-a">
+                        <img
+                            id="profilePreview"
+                            src="<?php echo htmlspecialchars($_SESSION["currentLoginUser"]['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
+                            alt="Profile Picture"
+                            class="header-profile-pic">
+                    </a>
+                <?php
+                } else {
+                ?>
+                    <a href="<?php echo $login ?>" class="header-button" id="profile-a">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
+                            alt="profile"
+                            class="icon"
+                            id=" profile-icon" />
+                    </a>
+                    <!-- close the else statement -->
+                <?php
+                } ?>
             </li>
         </ul>
     </div>

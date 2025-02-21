@@ -106,6 +106,23 @@ form {
   height: 100%;
 }
 
+.checkbox-group {
+  display: flex;
+  flex-direction: row; /* Ensures elements stay in one line */
+  align-items: center;
+  gap: 5px; /* Adds spacing between checkbox and label */
+}
+
+.form_group.profile-group {
+    align-items: center;
+}
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
 h1 {
   text-align: center;
   margin: 40px 0 20px;

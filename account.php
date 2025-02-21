@@ -41,7 +41,7 @@ $result = mysqli_query($connection, $query);
     <?php require_once 'components/header.php'; ?>
     <div class="account-container">
         <div class="profile-section">
-            <h1>My Account</h1>
+            <h1>MY ACCOUNT</h1>
             <img src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
                 alt="Profile Picture" class="profile-pic">
             <p><strong>Username:</strong> <?php echo htmlspecialchars($currentLoginUser['user_name']); ?></p>
@@ -58,48 +58,50 @@ $result = mysqli_query($connection, $query);
 
         <div class="record-section">
             <h2>Quiz Records</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Form</th>
-                        <th>Subject</th>
-                        <th>Score</th>
-                        <th>Date Taken</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $count = 1;
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_array($result)) {
-                    ?>
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Form</th>
+                            <th>Subject</th>
+                            <th>Score</th>
+                            <th>Date Taken</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $count = 1;
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $count; ?></td>
+                                    <td><?php
+                                        if ($row['question_form'] == "0") {
+                                            echo "All Form";
+                                        } else {
+                                            echo htmlspecialchars($row['question_form']);
+                                        }
+                                        ?></td>
+                                    <td><?php echo htmlspecialchars($row['question_subject']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['score']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['date_taken']); ?></td>
+                                </tr>
+                            <?php
+                                $count++;
+                            }
+                        } else {
+                            ?>
                             <tr>
-                                <td><?php echo $count; ?></td>
-                                <td><?php
-                                    if ($row['question_form'] == "0") {
-                                        echo "All Form";
-                                    } else {
-                                        echo htmlspecialchars($row['question_form']);
-                                    }
-                                    ?></td>
-                                <td><?php echo htmlspecialchars($row['question_subject']); ?></td>
-                                <td><?php echo htmlspecialchars($row['score']); ?></td>
-                                <td><?php echo htmlspecialchars($row['date_taken']); ?></td>
+                                <td colspan="5">No results found</td>
                             </tr>
                         <?php
-                            $count++;
                         }
-                    } else {
                         ?>
-                        <tr>
-                            <td colspan="5">No results found</td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <?php require_once 'components/footer.php'; ?>
