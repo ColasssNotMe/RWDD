@@ -9,7 +9,6 @@ require_once 'navigation.php';
 // }
 
 $currentLoginUser = $_SESSION['currentLoginUser'];
-// Extract the user ID properly
 $userId = $currentLoginUser['user_id'];
 
 // Use a safe query with prepared statements
@@ -33,7 +32,7 @@ $result = mysqli_query($connection, $query);
     <?php require_once 'components/header.php'; ?>
     <div class="account-container">
         <div class="profile-section">
-            <h1>My Account</h1>
+            <h1>MY ACCOUNT</h1>
             <img src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
                 alt="Profile Picture" class="profile-pic">
             <p><strong>Username:</strong> <?php echo htmlspecialchars($currentLoginUser['user_name']); ?></p>
