@@ -20,6 +20,18 @@ var lastSubjectSelected;
 var numQuestion = 10;
 // updateIcons();
 
+function previewImage(event) {
+    const image = document.getElementById('questionImage');
+    const file = event.target.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            image.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
 // function updateIcons() {
 //   const isDarkMode = html.classList.contains("dark-mode");

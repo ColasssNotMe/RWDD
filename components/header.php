@@ -62,7 +62,7 @@ require 'navigation.php';
                 ?>
                     <a href="<?php echo $account ?>" class="header-button" id="profile-a">
                         <img 
-                        id="profilePreview" 
+                        id="headerProfilePic" 
                         src="<?php echo htmlspecialchars($_SESSION["currentLoginUser"]['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>" 
                         alt="Profile Picture" 
                         class="header-profile-pic">

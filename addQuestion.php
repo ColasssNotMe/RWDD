@@ -51,7 +51,10 @@ if (isset($_POST['submit'])) {
                         <input placeholder="Enter question's title" class="form_style" type="text" name="title" required>
                         <hr>
                             <h2><b>Picture (optional)</b></h2>
-                        <input placeholder="Enter target subject" class="form_style" type="text" name="subject">
+                        <img id="questionImage" 
+                            src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'res/img/addImage.jpg'); ?>" 
+                            alt="Question Picture" class="question-pic">
+                        <input type="file" name="profile_picture" class="form_style" accept="image/*" onchange="previewImage(event)">
                         <hr>
                         <h2><b>Enter Choices</b></h2>
                         <label class="form_sub_title" for="choice1">Choice 1</label>
