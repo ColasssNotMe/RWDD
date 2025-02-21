@@ -82,7 +82,7 @@ require 'navigation.php';
                                 id="profile-icon" />
                         </a>
 
-                        ?><?php
+                        <?php
                         }
                     } else {
                             ?>
