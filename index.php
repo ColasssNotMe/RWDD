@@ -35,7 +35,7 @@ include 'session.php';
           </div>
         </div>
         <div id="box-center">
-          <a href="<?php echo $select_form ?>" class="large-button primary-button">Get Started</a>
+          <button class="primary-button large-button"><a href="<?php echo $select_form ?>">Get Started</a></button>
           <button
             onclick="document.getElementById('how-it-works').scrollIntoView()"
             class="large-button secondary-button">
