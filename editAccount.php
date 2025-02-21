@@ -31,7 +31,7 @@ $userId = $currentLoginUser['user_id'];
                 src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>" 
                 alt="Profile Picture" class="profile-pic">
             <div class="form_group profile-group">
-                <input type="file" name="profile_picture" class="form_style" accept="image/*" onchange="previewImage(event)">
+                <input type="file" name="profilePreview" class="form_style" accept="image/*" onchange="previewImage(event)">
             </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="name">Name</label>
@@ -85,6 +85,20 @@ $userId = $currentLoginUser['user_id'];
             inputs.forEach(input => input.value = ""); 
         }
     }
+
+    function previewImage(event) {
+        const image = document.getElementById('profilePreview');
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                image.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
     </script>
 </body>
 
