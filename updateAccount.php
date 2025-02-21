@@ -36,12 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             echo "<script>alert('Error updating profile. Please try again.'); window.location.href='editAccount.php';</script>";
         }
+        exit();
     }
 
     if (!empty($_POST['currentPassword']) && !empty($_POST['newPassword']) && !empty($_POST['rePassword'])) {
         changeUserPassword($connection, $userId, $_POST['currentPassword'], $_POST['newPassword'], $_POST['rePassword']);
     }
-    exit();
 }
 
 

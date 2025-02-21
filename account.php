@@ -47,8 +47,8 @@ $result = mysqli_query($connection, $query);
             <p><strong>Username:</strong> <?php echo htmlspecialchars($currentLoginUser['user_name']); ?></p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($currentLoginUser['user_email']); ?></p>
             <div class="button-div">
-                <button class="secondary-button">
-                    <a href=<?php echo $editAccount ?> class="edit-btn">Edit Profile</a>
+                <button class="secondary-button" id="editProfile" onclick="window.location.href='editAccount.php'">
+                    Edit Profile
                 </button>
                 <button class="secondary-button" id="delete-button">
                     <a href=<?php echo $logout ?> id="logout-btn">Logout</a>
