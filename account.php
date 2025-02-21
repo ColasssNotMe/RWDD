@@ -76,7 +76,13 @@ $result = mysqli_query($connection, $query);
                     ?>
                             <tr>
                                 <td><?php echo $count; ?></td>
-                                <td><?php echo htmlspecialchars($row['question_form']); ?></td>
+                                <td><?php
+                                    if ($row['question_form'] == "0") {
+                                        echo "All Form";
+                                    } else {
+                                        echo htmlspecialchars($row['question_form']);
+                                    }
+                                    ?></td>
                                 <td><?php echo htmlspecialchars($row['question_subject']); ?></td>
                                 <td><?php echo htmlspecialchars($row['score']); ?></td>
                                 <td><?php echo htmlspecialchars($row['date_taken']); ?></td>
