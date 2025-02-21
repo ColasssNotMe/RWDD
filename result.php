@@ -3,14 +3,28 @@ include 'session.php';
 include 'connection.php';
 include 'navigation.php';
 
-
 $i = 0;
 $correctAnsCount = 0;
+$timeTaken = $_SESSION['endTime'] - $_SESSION['startTime'];
 foreach ($_SESSION['userAnsData'] as $choice) {
     if ($choice == $_SESSION['listOfQuestion'][$i]['question_answer']) {
         $correctAnsCount++;
     }
     $i++;
+}
+
+// Check if the record has already been added
+if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
+    $j = 0;
+    foreach ($_SESSION['listOfQuestion'] as $question) {
+        $questionID[$j] = $question['question_id'];
+        $j++;
+    }
+    $questionIDString = implode(",", $questionID);
+    addRecord($connection, $correctAnsCount, $timeTaken, $_SESSION['currentLoginUser']['user_id'], $questionIDString);
+
+    // Set a session variable to indicate that the record has been added
+    $_SESSION['recordAdded'] = true;
 }
 
 $percentage = $correctAnsCount / 10 * 100;

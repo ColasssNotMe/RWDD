@@ -45,6 +45,7 @@ require "connection.php";
                         <?php echo $_SESSION['subject'] ?>
                     </h1>
                     <input type="text" style="display: none; " name="answer" value="0">
+                    <input type="text" style="display: none; " name="start_time" value=<?php $_SESSION['startTime'] = time() ?>>
                     <button name='question' value="1"
                         class='primary-button ' type="submit" id="start-now">
                         GO!

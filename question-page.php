@@ -34,7 +34,7 @@ if (isset($_GET['question'])) {
 if (isset($_GET['result'])) {
     $_SESSION['userAns'][10] = $_GET['answer'];
     $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
-
+    $_SESSION['endTime'] = time();
     $confirm_message = "You have reached the end of this quiz. Submit?";
     echo "<script>
         if (confirm('$confirm_message')) {
