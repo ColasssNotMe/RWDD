@@ -61,7 +61,7 @@ $percentage = $correctAnsCount / 10 * 100;
                 <p><strong>Time Taken:</strong> </p>
             </div>
             <div class="button-div">
-                <button class="secondary-button">
+                <button class="secondary-button" id="save-collection">
                     Save as collection
                 </button>
                 <button class="primary-button" id="return-home">
