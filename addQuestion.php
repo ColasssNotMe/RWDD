@@ -65,14 +65,14 @@ if (isset($_POST['submit'])) {
                         <hr>
                         <h2><b>Select the answer</b></h2>
                         <div class="answer">
-                            <label for="answer">Choice 1</label>
-                            <input type="radio" name="answer" value="1">
-                            <label for="answer">Choice 2</label>
-                            <input type="radio" name="answer" value="2">
-                            <label for="answer">Choice 3</label>
-                            <input type="radio" name="answer" value="3">
-                            <label for="answer">Choice 4</label>
-                            <input type="radio" name="answer" value='4'>
+                            <input type="radio" name="answer" value="1" id="choice1">
+                            <label for="choice1">Choice 1</label>
+                            <input type="radio" name="answer" value="2" id="choice2">
+                            <label for="choice2">Choice 2</label>
+                            <input type="radio" name="answer" value="3" id="choice3">
+                            <label for="choice3">Choice 3</label>
+                            <input type="radio" name="answer" value='4' id="choice4">
+                            <label for="choice4">Choice 4</label>
                         </div>
                     </div>
                     <div class="lower">
