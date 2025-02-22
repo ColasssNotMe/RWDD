@@ -1,20 +1,20 @@
 <?php
+include 'connection.php';
 include 'session.php';
-include 'connection.php'
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include_once 'extrahead.php' ?>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Select Form</title>
+    <?php require_once 'extraheader.php' ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/selection.css" />
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <script src="theme.js"></script>
+    <title>Edit Question</title>
 </head>
 
 <body>
@@ -22,9 +22,9 @@ include 'connection.php'
         <?php include_once 'components/header.php' ?>
         <div class="content">
             <h1 class="title">
-                <span id="important-text">Choose a form</span>
+                <span id="important-text">Select Form </span>
             </h1>
-            <form method="get">
+            <form method="get" action="editQuestionSubject.php">
                 <div id="button-div">
                     <button class="secondary-button" id="return" onclick="window.location.href='./index.php';return false">
                         <i class="zmdi zmdi-long-arrow-return"></i>
@@ -71,5 +71,6 @@ include 'connection.php'
     </div>
     <script src="./script.js"></script>
 </body>
+
 
 </html>

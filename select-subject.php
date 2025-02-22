@@ -1,8 +1,8 @@
 <?php
-session_start();
+include "session.php";
 include 'connection.php';
 
-$_SESSION['subject']="";
+$_SESSION['subject'] = "";
 
 ?>
 <!DOCTYPE html>
