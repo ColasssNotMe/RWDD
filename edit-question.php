@@ -8,6 +8,10 @@ if ($currentLoginUser['user_role'] !== 'teacher') {
     exit();
 }
 
+if (isset($_GET) ){
+    # code...
+}
+
 if (isset($_POST['submit'])) {
     $choices = array_filter([
         $_POST['choice1'] ?? '',
