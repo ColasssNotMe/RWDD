@@ -39,12 +39,12 @@ if (isset($_GET['result'])) {
     if (isset($_GET['answer'])) {
         $_SESSION['userAns'][10] = $_GET['answer'];
         $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
-        $_SESSION['endTime'] = time();
     } else {
         $_SESSION['userAns'][10] = 0;
         $_SESSION['userAnsData'][10] = "not answered";
     }
     $confirm_message = "You have reached the end of this quiz. Submit?";
+    $_SESSION['endTime'] = time();
     echo "<script>
         if (confirm('$confirm_message')) {
             window.location.href = 'result.php';
@@ -120,7 +120,7 @@ if (isset($_GET['result'])) {
                     <div class="choice-section">
                         <?php
                         if (isset($_SESSION['currentQuestion']['question_choice'])) {
-                            $choices = $_SESSION['currentQuestion']['question_choice']; 
+                            $choices = $_SESSION['currentQuestion']['question_choice'];
                             $i = 1;
                             foreach ($choices as $choice) {
                                 $_SESSION['currentQuestionChoice'][$i - 1] = $choice;
