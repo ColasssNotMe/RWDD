@@ -74,7 +74,7 @@ $result = mysqli_query($connection, $query);
                                     <td><?php echo $count; ?></td>
                                     <td><?php
                                         if ($row['question_form'] == "0") {
-                                            echo "All Form";
+                                            // echo "All Form";
                                         } else {
                                             echo htmlspecialchars($row['question_form']);
                                         }

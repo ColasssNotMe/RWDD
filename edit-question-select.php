@@ -30,7 +30,7 @@ $result = mysqli_query($connection, $query);
             <span id="important-text">Form > Subject > Select Question</span>
         </h1>
         <hr>
-        <button class="add-question primary-button" onclick="header.location.href='addQuestion.php'">Add New Question</button>
+        <button class="add-question primary-button" onclick="window.location.href='addQuestion.php'">Add New Question</button>
 
         <div>
             <table>
