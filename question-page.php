@@ -115,7 +115,7 @@ if (isset($_GET['result'])) {
                     <div class="choice-section">
                         <?php
                         if (isset($_SESSION['currentQuestion']['question_choice'])) {
-                            $choices = explode(",", $_SESSION['currentQuestion']['question_choice']);
+                            $choices = $_SESSION['currentQuestion']['question_choice']; 
                             $i = 1;
                             foreach ($choices as $choice) {
                                 $_SESSION['currentQuestionChoice'][$i - 1] = $choice;

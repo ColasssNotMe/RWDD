@@ -3,23 +3,33 @@ include 'session.php';
 include 'connection.php';
 
 if (isset($_POST['submit'])) {
-    $choices = array(
-        $_POST['choice1'],
-        $_POST['choice2'],
-        $_POST['choice3'],
-        $_POST['choice4']
-    );
+    $choices = array_filter([
+        $_POST['choice1'] ?? '',
+        $_POST['choice2'] ?? '',
+        $_POST['choice3'] ?? '',
+        $_POST['choice4'] ?? ''
+    ], fn($choice) => !empty($choice));
 
-    $choiceString = implode(",", $choices);
+    // Encode choices to JSON format
+    $choiceString = json_encode($choices, JSON_UNESCAPED_UNICODE);
 
-    $answer = $choices[$_POST['answer']];
+    // Handle image upload
+    $questionImage = uploadPicture($_FILES['question_image'], NULL, 'uploads/question/', 'addQuestion.php');
 
+    // Validate answer index to avoid errors
+    $answerIndex = $_POST['answer'] ?? null;
+    $answer = isset($choices[$answerIndex]) ? $choices[$answerIndex] : null;
 
+    if ($answer === null) {
+        echo "<script>alert('Please select a valid answer!'); window.location.href='addQuestion.php';</script>";
+        exit();
+    }
+    // Insert question into the database
     addQuestion(
         $connection,
         $_POST['form'],
         $_POST['subject'],
-        $_POST['picture'],
+        $questionImage,
         $_POST['title'],
         $choiceString,
         $answer
@@ -44,7 +54,7 @@ if (isset($_POST['submit'])) {
     <div class="form-container">
         <div class="form_area">
             <h1>Add Question</h1>
-            <form method="post" action="#">
+            <form method="post" action="#" enctype="multipart/form-data">
                 <div class="content">
                     <div class="upper">
                         <h2><b>Question Title</b></h2>
@@ -52,9 +62,10 @@ if (isset($_POST['submit'])) {
                         <hr>
                             <h2><b>Picture (optional)</b></h2>
                         <img id="questionImage" 
-                            src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'res/img/addImage.jpg'); ?>" 
+                            src="<?php echo htmlspecialchars($_FILES['question_image'] ?? 'res/img/addImage.jpg'); ?>" 
                             alt="Question Picture" class="question-pic">
-                        <input type="file" name="profile_picture" class="form_style" accept="image/*" onchange="previewImage(event)">
+                        <input type="file" name="question_image" class="form_style" accept="image/*" onchange="previewImage(event)">
+                        <button type="button" onclick="removeImage()"class="secondary-button" id="remove">Remove Picture</button>
                         <hr>
                         <h2><b>Enter Choices</b></h2>
                         <label class="form_sub_title" for="choice1">Choice 1</label>

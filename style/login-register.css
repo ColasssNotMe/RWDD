@@ -145,6 +145,13 @@ h3 {
   border-color: rgba(200, 200, 200, 0.305);
 }
 
+input[type="file"] {
+  display: block;
+  margin: 10px auto;
+  font-size: 14px;
+  padding: 5px;
+}
+
 input[type="file"]::-webkit-file-upload-button {
   background-color: #de5499;
   border: 2px solid #264143;
@@ -154,4 +161,8 @@ input[type="file"]::-webkit-file-upload-button {
   color: white;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #264143;
 }

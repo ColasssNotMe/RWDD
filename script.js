@@ -33,6 +33,11 @@ function previewImage(event) {
     }
 }
 
+function removeImage() {
+    document.getElementById('questionImage').src = 'res/img/addImage.jpg'; // Set back to default
+    document.querySelector('input[name="profile_picture"]').value = ''; // Clear input field
+}
+
 // function updateIcons() {
 //   const isDarkMode = html.classList.contains("dark-mode");
 //   if (isDarkMode) {

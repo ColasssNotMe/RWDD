@@ -34,8 +34,7 @@ if (isset($_GET['subject'])) {
 }
 
 // get random request question
-function getQuestion($connection)
-{
+function getQuestion($connection){
     $query  = "SELECT * from question where question_form = '{$_SESSION['form']}' AND question_subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT 10";
     $result = mysqli_query($connection, $query);
     $numRows = mysqli_num_rows($result);
@@ -43,6 +42,7 @@ function getQuestion($connection)
     $i = 0;
     if ($numRows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+            $row['question_choice'] = json_decode($row['question_choice'], true);
             $listOfQuestion[$i] = $row;
             $i++;
         }
@@ -208,16 +208,31 @@ function deleteUser($connection, $userID)
 
 function addQuestion($connection, $form, $subject, $picture, $question, $choice, $answer)
 {
+    // Use prepared statement to prevent SQL injection
     $query = "INSERT INTO question 
-    (question_form,question_subject,question_picture,question_title,question_choice,question_answer) 
-    VALUES 
-   ($form, $subject, $picture,$question,$choice,$answer)";
-    if (!mysqli_query($connection, $query)) {
-        echo "Error adding user";
+        (question_form, question_subject, question_picture, question_title, question_choice, question_answer) 
+        VALUES (?, ?, ?, ?, ?, ?)";
+
+    $stmt = mysqli_prepare($connection, $query);
+    if ($stmt) {
+        // Bind parameters (s = string, i = integer, NULL is handled as string)
+        mysqli_stmt_bind_param($stmt, "isssss", $form, $subject, $picture, $question, $choice, $answer);
+
+        // Execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            echo "<script>alert('Question added successfully!'); window.location.href='viewQuestions.php';</script>";
+            header("Location: index.php");
+        } else {
+            echo "Error executing query: " . mysqli_stmt_error($stmt);
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
     } else {
-        header("Location:index.php");
+        echo "Error preparing query: " . mysqli_error($connection);
     }
 }
+
 
 function deleteQuestion($connection, $questionID)
 {
@@ -260,9 +275,9 @@ function uploadPicture($file, $currentProfilePath, $uploadFileLocation, $failBac
     // Move uploaded file to destination
     if (move_uploaded_file($fileTmpPath, $newPath)) {
         // Delete old profile picture if exists
-        if (!empty($currentProfilePath) && file_exists($currentProfilePath)) {
-            unlink($currentProfilePath);
-        }
+        // if (!empty($currentProfilePath) && file_exists($currentProfilePath)) {
+        //     unlink($currentProfilePath);
+        // }
         return $newPath;
     } else {
         echo "<script>alert('File upload failed! Please try again.'); window.location.href='$failBackTo';</script>";
