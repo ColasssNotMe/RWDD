@@ -147,15 +147,42 @@ input[type="radio"]:checked + label {
   flex-direction: column;
   height: 100%;
   flex-grow: 1;
-  /* margin-top: 2rem; */
-  align-items: center;
+  align-items: flex-start; /* Align items to the start */
   justify-content: center;
+  padding: 20px; /* Add some padding */
+  /* border: 2px solid #000; Add a border */
+  /* border-top: none; */
+  /* box-shadow: 4px 4px 0px #000; Add a box shadow */
+
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #264143;
+  }
   ul {
     flex-grow: 0;
-    width: fit-content;
+    width: 100%; /* Make the list take full width */
     list-style: none;
-    font-size: 3rem;
+    padding: 0; /* Remove default padding */
   }
+
+  li {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+}
+
+.describe_box li div {
+  padding: 10px;
+  /* border: 2px solid #000; */
+  /* border-top: none; */
+  background-color: #fff; /* Optional: Add background color */
+  /* box-shadow: 2px 2px 0px #000; */
+}
+
+.describe_box b {
+  font-weight: bolder;
 }
 
 .image-field {
@@ -176,8 +203,14 @@ form {
     flex-grow: 1;
     flex: 0 0 0;
   }
+
   .describe_box {
     justify-content: start;
+    align-items: flex-start; /* Keep alignment to the start on larger screens */
+  }
+
+  .describe_box ul {
+    font-size: 1.5rem;
   }
 
   .question_area {

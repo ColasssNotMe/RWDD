@@ -55,8 +55,12 @@ if ($_SESSION['subject'] == "" || !isset($_SESSION['subject'])) {
                     <div class="describe_box">
                         <h2>Quiz Details:</h2>
                         <ul>
-                            <li><b>10 questions</b></li>
-                            <li><b>ONLY INCLUDE</b> the form selected</li>
+                            <li>
+                                <div><b>10 questions</b></div>
+                            </li>
+                            <li>
+                                <div><b>ONLY INCLUDE</b> the form selected</div>
+                            </li>
                         </ul>
                     </div>
                 </div>
