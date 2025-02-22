@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
     <?php include_once 'components/header.php'; ?>
     <div class="form-container">
         <div class="form_area">
-            <h1>Add Question</h1>
+            <h1>Edit Question</h1>
             <form method="post" action="#" enctype="multipart/form-data">
                 <div class="content">
                     <div class="upper">

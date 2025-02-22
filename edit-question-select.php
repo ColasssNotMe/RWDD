@@ -40,6 +40,7 @@ $result = mysqli_query($connection, $query);
                         <th>Question</th>
                         <th>Choices</th>
                         <th>Answer</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,11 @@ $result = mysqli_query($connection, $query);
                                 <!-- FIXME: split the choice -->
                                 <td><?php echo htmlspecialchars($temp_choice); ?></td>
                                 <td><?php echo htmlspecialchars($row['question_answer']); ?></td>
+                                <td>
+                                    <?php
+                                    $question_id = $row['question_id'];
+                                    echo "<button class='secondary-button edit-button'><a  href='edit-question.php?id=$question_id'>Edit</a></button>"; ?>
+                                </td>
                             </tr>
                         <?php
                             $count++;
