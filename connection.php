@@ -30,7 +30,8 @@ if (isset($_GET['subject'])) {
 }
 
 // get random request question
-function getQuestion($connection){
+function getQuestion($connection)
+{
     $query  = "SELECT * from question where question_form = '{$_SESSION['form']}' AND question_subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT 10";
     $result = mysqli_query($connection, $query);
     $numRows = mysqli_num_rows($result);
@@ -188,7 +189,7 @@ function deleteQuestion($connection, $questionID)
 {
     $query = "DELETE FROM question where question_id =$questionID";
     if (!mysqli_query($connection, $query)) {
-        echo "Error adding user";
+        echo "Error deleting question";
     } else {
         header("Location:index.php");
     }

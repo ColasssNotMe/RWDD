@@ -8,9 +8,22 @@ if ($currentLoginUser['user_role'] !== 'teacher') {
     exit();
 }
 
-if (isset($_GET) ){
-    # code...
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $query  = "SELECT * FROM question WHERE question_id ='$id'";
+    $result = mysqli_query($connection, $query);
+
+    $i = 0;
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            $temp_choice = json_decode($row['question_choice'], true);
+            foreach ($temp_choice as $choice) {
+                $choice[$i];
+            }
+        }
+    }
 }
+
 
 if (isset($_POST['submit'])) {
     $choices = array_filter([
@@ -34,16 +47,17 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('Please select a valid answer!'); window.location.href='addQuestion.php';</script>";
         exit();
     }
-    // Insert question into the database
-    addQuestion(
-        $connection,
-        $_POST['form'],
-        $_POST['subject'],
-        $questionImage,
-        $_POST['title'],
-        $choiceString,
-        $answer
-    );
+
+    // FIXME: add update function instead of add question
+    // addQuestion(
+    //     $connection,
+    //     $_POST['form'],
+    //     $_POST['subject'],
+    //     $questionImage,
+    //     $_POST['title'],
+    //     $choiceString,
+    //     $answer
+    // );
 }
 ?>
 
@@ -56,7 +70,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/insert.css">
-    <title>Add Question</title>
+    <title>Edit Question</title>
 </head>
 
 <body>
@@ -70,22 +84,22 @@ if (isset($_POST['submit'])) {
                         <h2><b>Question Title</b></h2>
                         <input placeholder="Enter question's title" class="form_style" type="text" name="title" required>
                         <hr>
-                            <h2><b>Picture (optional)</b></h2>
-                        <img id="questionImage" 
-                            src="<?php echo htmlspecialchars($_FILES['question_image'] ?? 'res/img/addImage.jpg'); ?>" 
+                        <h2><b>Picture (optional)</b></h2>
+                        <img id="questionImage"
+                            src="<?php echo htmlspecialchars($_FILES['question_image'] ?? 'res/img/addImage.jpg'); ?>"
                             alt="Question Picture" class="question-pic">
                         <input type="file" name="question_image" class="form_style" accept="image/*" onchange="previewImage(event)">
-                        <button type="button" onclick="removeImage()"class="secondary-button" id="remove">Remove Picture</button>
+                        <button type="button" onclick="removeImage()" class="secondary-button" id="remove">Remove Picture</button>
                         <hr>
                         <h2><b>Enter Choices</b></h2>
                         <label class="form_sub_title" for="choice1">Choice 1</label>
-                        <input placeholder="Enter choice 1" class="form_style" type="text" name="choice1">
+                        <input placeholder="Enter choice 1" class="form_style" type="text" name="choice1" value=<?php echo $choice[0] ?>>
                         <label class="form_sub_title" for="choice2">Choice 2</label>
-                        <input placeholder="Enter choice 2" class="form_style" type="text" name="choice2">
+                        <input placeholder="Enter choice 2" class="form_style" type="text" name="choice2" value=<?php echo $choice[1] ?>>
                         <label class="form_sub_title" for="choice">Choice 3</label>
-                        <input placeholder="Enter choice 3" class="form_style" type="text" name="choice3">
+                        <input placeholder="Enter choice 3" class="form_style" type="text" name="choice3" value=<?php echo $choice[2] ?>>
                         <label class="form_sub_title" for="choice">Choice 4</label>
-                        <input placeholder="Enter choice 4" class="form_style" type="text" name="choice4">
+                        <input placeholder="Enter choice 4" class="form_style" type="text" name="choice4" value=<?php echo $choice[3] ?>>
                         <hr>
                         <h2><b>Select the answer</b></h2>
                         <div class="answer">
@@ -123,7 +137,7 @@ if (isset($_POST['submit'])) {
                                 Form 5
                             </label>
                         </div>
-                            <h2><b>Subject</b></h2>
+                        <h2><b>Subject</b></h2>
                         <div class="selection">
                             <input type="radio" name="subject" value="english" id="english" />
                             <label for="english">
