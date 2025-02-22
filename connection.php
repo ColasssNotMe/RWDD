@@ -62,7 +62,7 @@ function validateStudentCredential($connection, $email, $password)
 {
     $email = mysqli_real_escape_string($connection, $email);
     $query  = "SELECT * FROM user WHERE user_email='$email' AND user_role='student'";
-    $result = mysqli_query($connection,$query);
+    $result = mysqli_query($connection, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -84,7 +84,7 @@ function validateTeacherCredential($connection, $email, $password)
     $email = mysqli_real_escape_string($connection, $email);
     $query  = "SELECT * FROM user WHERE user_email='$email' AND user_role='teacher'";
     $result = mysqli_query($connection, $query);
-    
+
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
 
@@ -102,7 +102,8 @@ function validateTeacherCredential($connection, $email, $password)
 
 function addRecord($connection, $score, $timeTaken, $userID, $questionID)
 {
-    $query = "INSERT INTO record (score,time_taken,user_id,question_id) VALUES ($score,$timeTaken,$userID,'$questionID')";
+    $date = date("Y-m-d");
+    $query = "INSERT INTO record (score,time_taken,user_id,question_id,date_taken) VALUES ($score,$timeTaken,$userID,'$questionID',$date)";
     if (!mysqli_query($connection, $query)) {
         echo "<script>alert('Error when storing record')</script>";
     }
@@ -146,7 +147,8 @@ function addUser($connection, $username, $password, $rePassword, $email, $role)
     }
 }
 
-function editUser($profile, $connection, $username, $password, $rePassword, $email, $role, $userID) {
+function editUser($profile, $connection, $username, $password, $rePassword, $email, $role, $userID)
+{
     // Escape user inputs
     $profile = mysqli_real_escape_string($connection, $profile);
     $username = mysqli_real_escape_string($connection, $username);
@@ -244,7 +246,8 @@ function deleteQuestion($connection, $questionID)
     }
 }
 
-function uploadPicture($file, $currentProfilePath, $uploadFileLocation, $failBackTo) {
+function uploadPicture($file, $currentProfilePath, $uploadFileLocation, $failBackTo)
+{
     // Check if a file is selected
     if (!isset($file) || $file['error'] === UPLOAD_ERR_NO_FILE) {
         return $currentProfilePath;
@@ -285,9 +288,10 @@ function uploadPicture($file, $currentProfilePath, $uploadFileLocation, $failBac
     }
 }
 
-function changeUserPassword($connection, $userId, $currentPassword, $newPassword, $rePassword) {
+function changeUserPassword($connection, $userId, $currentPassword, $newPassword, $rePassword)
+{
     // Fetch current password from database
-    $query ="SELECT user_password FROM user WHERE user_id = '$userId'";
+    $query = "SELECT user_password FROM user WHERE user_id = '$userId'";
     $result = mysqli_query($connection, $query);
     // Check if the query was successful
     if (!$result) {
@@ -313,7 +317,7 @@ function changeUserPassword($connection, $userId, $currentPassword, $newPassword
     }
 
     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-    
+
     if (!mysqli_query($connection, "UPDATE user SET user_password = '$hashedPassword' WHERE user_id = '$userId'")) {
         echo "<script>alert('Error updating password.'); window.location.href='editAccount.php';</script>";
         exit();

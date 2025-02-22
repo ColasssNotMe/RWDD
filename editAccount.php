@@ -26,13 +26,13 @@ $userId = $currentLoginUser['user_id'];
     <div class="form-container">
         <div class="form_area">
             <p class="form_title">EDIT DETAILS</p>
-        <form action="updateAccount.php" method="post" enctype="multipart/form-data">
-            <img id="profilePreview" 
-                src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>" 
-                alt="Profile Picture" class="profile-pic">
-            <div class="form_group profile-group">
-                <input type="file" name="profilePreview" class="form_style" accept="image/*" onchange="previewImage(event)">
-            </div>
+            <form action="updateAccount.php" method="post" enctype="multipart/form-data">
+                <img id="profilePreview"
+                    src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>"
+                    alt="Profile Picture" class="profile-pic">
+                <div class="form_group profile-group">
+                    <input type="file" name="profile_picture" class="form_style" accept="image/*" onchange="previewImage(event)">
+                </div>
                 <div class="form_group">
                     <label class="form_sub_title" for="name">Name</label>
                     <input value="<?php echo htmlspecialchars($currentLoginUser['user_name'] ?? ''); ?>" name="name" class="form_style" type="text" required>
@@ -69,36 +69,35 @@ $userId = $currentLoginUser['user_id'];
     </div>
     <script src="./script.js"></script>
     <?php require_once 'components/footer.php' ?>
-    
+
     <script>
-    function togglePasswordFields() {
-        var passwordFields = document.getElementById("passwordFields");
-        var checkbox = document.getElementById("changePasswordCheckbox");
-        var inputs = passwordFields.querySelectorAll("input");
+        function togglePasswordFields() {
+            var passwordFields = document.getElementById("passwordFields");
+            var checkbox = document.getElementById("changePasswordCheckbox");
+            var inputs = passwordFields.querySelectorAll("input");
 
-        if (checkbox.checked) {
-            passwordFields.style.display = "block";
-            inputs.forEach(input => input.setAttribute("required", "true"));
-        } else {
-            passwordFields.style.display = "none";
-            inputs.forEach(input => input.removeAttribute("required")); 
-            inputs.forEach(input => input.value = ""); 
+            if (checkbox.checked) {
+                passwordFields.style.display = "block";
+                inputs.forEach(input => input.setAttribute("required", "true"));
+            } else {
+                passwordFields.style.display = "none";
+                inputs.forEach(input => input.removeAttribute("required"));
+                inputs.forEach(input => input.value = "");
+            }
         }
-    }
 
-    function previewImage(event) {
-        const image = document.getElementById('profilePreview');
-        const file = event.target.files[0];
+        function previewImage(event) {
+            const image = document.getElementById('profilePreview');
+            const file = event.target.files[0];
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                image.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    image.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
         }
-    }
-
     </script>
 </body>
 

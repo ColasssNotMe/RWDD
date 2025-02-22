@@ -4,10 +4,10 @@ require "connection.php";
 
 
 // Check if form and subject are set in the session
-// if (!isset($_SESSION['form']) || !isset($_SESSION['subject'])) {
-//     echo "Error: Form or subject not selected.";
-//     exit;
-// }
+if ($_SESSION['subject'] == "" || !isset($_SESSION['subject'])) {
+    echo "<script>alert('Error: Subject not selected.');window.location.href='select-subject.php'</script>";
+    exit();
+}
 
 // if (isset($_GET['question'])) {
 //     header("Location:question-page.php");
@@ -55,8 +55,12 @@ require "connection.php";
                     <div class="describe_box">
                         <h2>Quiz Details:</h2>
                         <ul>
-                            <li>10 mind-bending questions</li>
-                            <li>ONLY INCLUDE the form selected</li>
+                            <li>
+                                <div><b>10 questions</b></div>
+                            </li>
+                            <li>
+                                <div><b>ONLY INCLUDE</b> the form selected</div>
+                            </li>
                         </ul>
                     </div>
                 </div>

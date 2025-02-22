@@ -2,6 +2,7 @@
 include 'session.php';
 include 'connection.php';
 
+$_SESSION['subject']="";
 
 ?>
 <!DOCTYPE html>

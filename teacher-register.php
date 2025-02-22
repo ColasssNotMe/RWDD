@@ -3,7 +3,7 @@ include 'session.php';
 include 'connection.php';
 
 if (isset($_POST['submit'])) {
-    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['rePassword'], $_POST['email'], "student");
+    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['rePassword'], $_POST['email'], "teacher");
 }
 if (!empty($registrationMessage)) {
     echo "<script>alert('$registrationMessage');</script>";

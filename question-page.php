@@ -29,16 +29,21 @@ if (isset($_GET['question'])) {
     }
     if (isset($_GET['answer'])) {
         $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
-        if(isset($_SESSION['currentQuestionChoice'][$_GET['answer']])){
+        if (isset($_SESSION['currentQuestionChoice'][$_GET['answer']])) {
             $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']];
         }
     }
 }
 
 if (isset($_GET['result'])) {
-    $_SESSION['userAns'][10] = $_GET['answer'];
-    $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
-    $_SESSION['endTime'] = time();
+    if (isset($_GET['answer'])) {
+        $_SESSION['userAns'][10] = $_GET['answer'];
+        $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
+        $_SESSION['endTime'] = time();
+    } else {
+        $_SESSION['userAns'][10] = 0;
+        $_SESSION['userAnsData'][10] = "not answered";
+    }
     $confirm_message = "You have reached the end of this quiz. Submit?";
     echo "<script>
         if (confirm('$confirm_message')) {
