@@ -47,6 +47,7 @@ $result = mysqli_query($connection, $query);
                     $count = 1;
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
+                            $temp_choice = json_decode($row['question_choice'], true);
                     ?>
                             <tr>
                                 <td><?php echo $count; ?></td>
@@ -54,7 +55,7 @@ $result = mysqli_query($connection, $query);
                                     echo htmlspecialchars($row['question_title']);
                                     ?></td>
                                 <!-- FIXME: split the choice -->
-                                <td><?php echo htmlspecialchars($row['question_subject']); ?></td>
+                                <td><?php echo htmlspecialchars($temp_choice); ?></td>
                                 <td><?php echo htmlspecialchars($row['question_answer']); ?></td>
                             </tr>
                         <?php
