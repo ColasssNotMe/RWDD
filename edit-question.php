@@ -12,16 +12,25 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $query  = "SELECT * FROM question WHERE question_id ='$id'";
     $result = mysqli_query($connection, $query);
-
+    $choice = array();
     $i = 0;
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
+            $title = $row['question_title'];
+            $form = $row['question_form'];
+            $subject = $row['question_subject'];
+            $answer = $row['question_answer'];
+
+
+            var_dump($row);
             $temp_choice = json_decode($row['question_choice'], true);
-            foreach ($temp_choice as $choice) {
-                $choice[$i];
+            foreach ($temp_choice as $preChoice) {
+                $choice[$i] = $preChoice;
+                $i++;
             }
         }
     }
+    // var_dump($choice);
 }
 
 
@@ -82,7 +91,7 @@ if (isset($_POST['submit'])) {
                 <div class="content">
                     <div class="upper">
                         <h2><b>Question Title</b></h2>
-                        <input placeholder="Enter question's title" class="form_style" type="text" name="title" required>
+                        <input placeholder="Enter question's title" class="form_style" type="text" name="title" value=<?php echo $title ?> required>
                         <hr>
                         <h2><b>Picture (optional)</b></h2>
                         <img id="questionImage"
@@ -103,87 +112,88 @@ if (isset($_POST['submit'])) {
                         <hr>
                         <h2><b>Select the answer</b></h2>
                         <div class="answer">
-                            <input type="radio" name="answer" value="1" id="choice1">
+                            <input type="radio" name="answer" value="0" id="choice1" <?php if ($answer == $choice[0]) echo "checked"; ?>>
                             <label for="choice1">Choice 1</label>
-                            <input type="radio" name="answer" value="2" id="choice2">
+                            <input type="radio" name="answer" value="1" id="choice2" <?php if ($answer == $choice[1]) echo "checked"; ?>>
                             <label for="choice2">Choice 2</label>
-                            <input type="radio" name="answer" value="3" id="choice3">
+                            <input type="radio" name="answer" value="2" id="choice3" <?php if ($answer == $choice[2]) echo "checked"; ?>>
                             <label for="choice3">Choice 3</label>
-                            <input type="radio" name="answer" value='4' id="choice4">
+                            <input type="radio" name="answer" value='3' id="choice4" <?php if ($answer == $choice[3]) echo "checked"; ?>>
                             <label for="choice4">Choice 4</label>
                         </div>
                     </div>
                     <div class="lower">
                         <h2><b>Form</b></h2>
                         <div class="selection">
-                            <input type="radio" name="form" value="1" id="form1" />
+                            <input type="radio" name="form" value="1" id="form1" <?php if ($form == '1') echo 'checked'; ?> />
                             <label for="form1">
                                 Form 1
                             </label>
-                            <input type="radio" name="form" value="2" id="form2" />
+                            <input type="radio" name="form" value="2" id="form2" <?php if ($form == '2') echo 'checked'; ?> />
                             <label for="form2">
                                 Form 2
                             </label>
-                            <input type="radio" name="form" value="3" id="form3" />
+                            <input type="radio" name="form" value="3" id="form3" <?php if ($form == '3') echo 'checked'; ?> />
                             <label for="form3">
                                 Form 3
                             </label>
-                            <input type="radio" name="form" value="4" id="form4" />
+                            <input type="radio" name="form" value="4" id="form4" <?php if ($form == '4') echo 'checked'; ?> />
                             <label for="form4">
                                 Form 4
                             </label>
-                            <input type="radio" name="form" value="5" id="form5" />
+                            <input type="radio" name="form" value="5" id="form5" <?php if ($form == '5') echo 'checked'; ?> />
                             <label for="form5">
                                 Form 5
                             </label>
                         </div>
                         <h2><b>Subject</b></h2>
                         <div class="selection">
-                            <input type="radio" name="subject" value="english" id="english" />
+                            <input type="radio" name="subject" value="english" id="english" <?php if ($subject == 'english') echo 'checked'; ?> />
                             <label for="english">
                                 English
                             </label>
-                            <input type="radio" name="subject" value="chinese" id="chinese" />
+                            <input type="radio" name="subject" value="chinese" id="chinese" <?php if ($subject == 'chinese') echo 'checked'; ?> />
                             <label for="chinese">
                                 Chinese
                             </label>
-                            <input type="radio" name="subject" value="history" id="history" />
+                            <input type="radio" name="subject" value="history" id="history" <?php if ($subject == 'history') echo 'checked'; ?> />
                             <label for="history">
                                 History
                             </label>
-                            <input type="radio" name="subject" value="addmath" id="addmath" />
+                            <input type="radio" name="subject" value="addmath" id="addmath" <?php if ($subject == 'addmath') echo 'checked'; ?> />
                             <label for="addmath">
                                 Add Math
                             </label>
-                            <input type="radio" name="subject" value="malay" id="malay" />
+                            <input type="radio" name="subject" value="malay" id="malay" <?php if ($subject == 'malay') echo 'checked'; ?> />
                             <label for="malay">
                                 Malay
                             </label>
-                            <input type="radio" name="subject" value="science" id="science" />
+                            <input type="radio" name="subject" value="science" id="science" <?php if ($subject == 'science') echo 'checked'; ?> />
                             <label for="science">
                                 Science
                             </label>
-                            <input type="radio" name="subject" value="math" id="math" />
+                            <input type="radio" name="subject" value="math" id="math" <?php if ($subject == 'math') echo 'checked'; ?> />
                             <label for="math">
                                 Math
                             </label>
-                            <input type="radio" name="subject" value="physics" id="physics" />
+                            <input type="radio" name="subject" value="physics" id="physics" <?php if ($subject == 'physics') echo 'checked'; ?> />
                             <label for="physics">
                                 Physics
                             </label>
-                            <input type="radio" name="subject" value="moral" id="moral" />
+                            <input type="radio" name="subject" value="moral" id="moral" <?php if ($subject == 'moral') echo 'checked'; ?> />
                             <label for="moral">
                                 Moral
                             </label>
-                            <input type="radio" name="subject" value="economy" id="economy" />
+                            <input type="radio" name="subject" value="economy" id="economy" <?php if ($subject == 'economy') echo 'checked'; ?> />
                             <label for="economy">
                                 Economy
                             </label>
-                            <input type="radio" name="subject" value="account" id="account" />
+                            <input type="radio" name="subject" value="account" id="account" <?php if ($subject == 'account') echo 'checked'; ?> />
                             <label for="account">
                                 Account
                             </label>
                         </div>
+                        ...existing code...
                     </div>
                 </div>
 
