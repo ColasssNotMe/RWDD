@@ -9,8 +9,7 @@ body {
   flex: 1 1 0;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  padding: 20px;
+  margin-top: 1rem;
   flex-direction: column;
   text-align: center;
 }
@@ -105,6 +104,23 @@ form {
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: row; /* Ensures elements stay in one line */
+  align-items: center;
+  gap: 5px; /* Adds spacing between checkbox and label */
+}
+
+.form_group.profile-group {
+    align-items: center;
+}
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: cover;
 }
 
 h1 {

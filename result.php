@@ -3,17 +3,31 @@ include 'session.php';
 include 'connection.php';
 include 'navigation.php';
 
-
 $i = 0;
-$correctAns = 0;
+$correctAnsCount = 0;
+$timeTaken = $_SESSION['endTime'] - $_SESSION['startTime'];
 foreach ($_SESSION['userAnsData'] as $choice) {
     if ($choice == $_SESSION['listOfQuestion'][$i]['question_answer']) {
-        $correctAns++;
+        $correctAnsCount++;
     }
+    $i++;
 }
 
-$percentage = $correctAns / 10 * 100;
+// Check if the record has already been added
+if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
+    $j = 0;
+    foreach ($_SESSION['listOfQuestion'] as $question) {
+        $questionID[$j] = $question['question_id'];
+        $j++;
+    }
+    $questionIDString = implode(",", $questionID);
+    addRecord($connection, $correctAnsCount, $timeTaken, $_SESSION['currentLoginUser']['user_id'], $questionIDString);
 
+    // Set a session variable to indicate that the record has been added
+    $_SESSION['recordAdded'] = true;
+}
+
+$percentage = $correctAnsCount / 10 * 100;
 
 ?>
 
@@ -42,12 +56,12 @@ $percentage = $correctAns / 10 * 100;
                 </div>
                 <p><strong>Correct Answer:</strong>
                     <br>
-                    <?php echo $correctAns ?> / 10
+                    <?php echo $correctAnsCount ?> / 10
                 </p>
                 <p><strong>Time Taken:</strong> </p>
             </div>
             <div class="button-div">
-                <button class="secondary-button">
+                <button class="secondary-button" id="save-collection">
                     Save as collection
                 </button>
                 <button class="primary-button" id="return-home">
@@ -69,10 +83,15 @@ $percentage = $correctAns / 10 * 100;
                         $j = 1;
                         foreach ($_SESSION['listOfQuestion'] as $question) {
                         ?>
-                            <tr>
+                            <tr class=<?php if ($question['question_answer'] == $_SESSION['userAnsData'][$j]) {
+                                            echo "right-ans";
+                                        } else {
+                                            echo "wrong-ans";
+                                        }
+                                        ?>>
                                 <td><?php echo $j; ?></td>
                                 <td><?php echo $question['question_title'] ?></td>
-                                <td><?php echo $_SESSION['listOfQuestion'][$j-1]['question_answer'] ?></td>
+                                <td><?php echo $question['question_answer'] ?></td>
                             </tr>
                         <?php
                             $j++;

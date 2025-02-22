@@ -16,3 +16,5 @@ $select_form = "./select-form.php";
 $account = "./account.php";
 $editAccount = "./editAccount.php";
 $logout = "./logout.php";
+$teacher_dashboard = "./teacherdashboard.php";
+$addQuestion = "./addQuestion.php";

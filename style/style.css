@@ -109,6 +109,10 @@ button {
   cursor: pointer;
 }
 
+.primary-button:hover {
+  background-color: var(--dark-accent);
+}
+
 i.zmdi {
   font-size: 1.2rem;
 }
