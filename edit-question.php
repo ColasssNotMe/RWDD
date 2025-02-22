@@ -56,16 +56,16 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    // FIXME: add update function instead of add question
-    // addQuestion(
-    //     $connection,
-    //     $_POST['form'],
-    //     $_POST['subject'],
-    //     $questionImage,
-    //     $_POST['title'],
-    //     $choiceString,
-    //     $answer
-    // );
+    updateQuestion(
+        $connection,
+        $id,
+        $_POST['form'],
+        $_POST['subject'],
+        $questionImage,
+        $_POST['title'],
+        $choiceString,
+        $answer
+    );
 }
 ?>
 
@@ -87,6 +87,7 @@ if (isset($_POST['submit'])) {
         <div class="form_area">
             <h1>Edit Question</h1>
             <form method="post" action="#" enctype="multipart/form-data">
+                <input type="text" name="id" value=<?php echo $id ?> id="" style="display: none;">
                 <div class="content">
                     <div class="upper">
                         <h2><b>Question Title</b></h2>
