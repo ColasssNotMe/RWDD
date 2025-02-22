@@ -4,6 +4,11 @@ include 'connection.php';
 
 $_SESSION['subject'] = "";
 
+if (isset($_GET['subject'])) {
+    $_SESSION['subject'] = $_GET['subject'];
+    header("Location:edit-question-select.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +17,10 @@ $_SESSION['subject'] = "";
     <?php include_once 'extrahead.php' ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/edit-question.css" />
     <link rel="stylesheet" href="./style/style.css" />
-    <link rel="stylesheet" href="./style/selection.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <title>Select Subject</title>
-    <script src="./theme.js"></script>
 </head>
 
 <body>
@@ -25,12 +29,12 @@ $_SESSION['subject'] = "";
         <h1 class="title">
             <span id="important-text">Form > Select Subject</span>
         </h1>
-        <form action="question.php" method="get">
+        <form  method="get">
             <div id="button-div">
                 <button
                     class="secondary-button"
                     id="return">
-                    <a href="select-form.php">
+                    <a href="edit-question-form.php">
                         <i class="zmdi zmdi-long-arrow-return"></i>
                     </a>
                 </button>
@@ -104,6 +108,7 @@ $_SESSION['subject'] = "";
 
         </form>
     </div>
+    <?php include_once 'components/footer.php' ?>
     <script src="script.js"></script>
 </body>
 

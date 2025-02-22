@@ -1,7 +1,11 @@
 <?php
 include 'session.php';
-include 'connection.php'
+include 'connection.php';
 
+if (isset($_GET['form'])) {
+    $_SESSION['form'] = $_GET['form'];
+    header("Location:select-subject.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

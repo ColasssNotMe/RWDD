@@ -20,10 +20,6 @@ switch ($connection) {
 }
 
 
-if (isset($_GET['form'])) {
-    $_SESSION['form'] = $_GET['form'];
-    header("Location:select-subject.php");
-}
 
 if (isset($_GET['subject'])) {
     $_SESSION['subject'] = $_GET['subject'];

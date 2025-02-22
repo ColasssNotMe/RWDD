@@ -29,10 +29,10 @@ require 'navigation.php';
         <?php if (isset($_SESSION["currentLoginUser"])) {
             if ($_SESSION['currentLoginUser']['user_role'] == "teacher") { ?>
                 <a href="<?php echo $addQuestion ?>">Add New Question</a>
+                <a href="<?php echo $editQuestion ?>">Edit Question</a>
             <?php
             } else { ?>
                 <a href="<?php echo $select_form ?>">Start Now</a>
-
             <?php } ?>
         <?php
         } ?>
@@ -66,13 +66,12 @@ require 'navigation.php';
                 <a href="<?php echo $about ?>" class="header-button">About Us</a>
             </li>
             <li>
-
                 <?php if (isset($_SESSION["currentLoginUser"])) {
                     if ($_SESSION['currentLoginUser']['user_role'] == "teacher") { ?>
-                        <a href="<?php echo $addQuestion ?>">Add Questions</a>
+                        <a class="header-button" href="<?php echo $addQuestion ?>">Add Questions</a>
                     <?php
                     } else { ?>
-                        <a href="<?php echo $select_form ?>" class="header-button">Get Started</a>
+                        <a class="header-button" href="<?php echo $select_form ?>" class="header-button">Get Started</a>
                     <?php }
                 } else {
                     ?>
@@ -80,10 +79,18 @@ require 'navigation.php';
                 <?php
                 } ?>
 
-
-
-
             </li>
+            <?php if (isset($_SESSION["currentLoginUser"])) {
+                if ($_SESSION['currentLoginUser']['user_role'] == "teacher") { ?>
+                    <li>
+                        <a class="header-button" href="<?php echo $editQuestion ?>">Edit Questions</a>
+                    </li>
+            <?php
+                }
+            } ?>
+
+
+
             <li>
                 <?php if (isset($_SESSION["currentLoginUser"])) {
                 ?>

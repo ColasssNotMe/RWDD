@@ -18,3 +18,4 @@ $editAccount = "./editAccount.php";
 $logout = "./logout.php";
 $teacher_dashboard = "./teacherdashboard.php";
 $addQuestion = "./addQuestion.php";
+$editQuestion = "./edit-question-form.php";
