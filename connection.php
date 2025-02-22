@@ -146,6 +146,7 @@ function addUser($connection, $username, $password, $rePassword, $email, $role)
 
 
 
+
 function deleteUser($connection, $userID)
 {
     $query = "DELETE FROM user WHERE user_id = $userID";
@@ -178,6 +179,52 @@ function addQuestion($connection, $form, $subject, $picture, $question, $choice,
         }
 
         // Close statement
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "Error preparing query: " . mysqli_error($connection);
+    }
+}
+
+function updateQuestion(
+    $connection,
+    $questionID,
+    $form,
+    $subject,
+    $picture,
+    $question,
+    $choice,
+    $answer
+) {
+    $query = "UPDATE question SET 
+            question_form = ?, 
+            question_subject = ?, 
+            question_picture = ?, 
+            question_title = ?, 
+            question_choice = ?, 
+            question_answer = ?
+            WHERE question_id = ?";
+    $stmt = mysqli_prepare($connection, $query);
+    if ($stmt) {
+        // Bind parameters (s = string, i = integer, NULL is handled as string)
+        mysqli_stmt_bind_param(
+            $stmt,
+            "isssssi",
+            $form,
+            $subject,
+            $picture,
+            $question,
+            $choice,
+            $answer,
+            $questionID
+        );
+
+        // Execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            echo "<script>alert('Question updated successfully!'); window.location.href='viewQuestions.php';</script>";
+            exit();
+        } else {
+            echo "Error executing query: " . mysqli_stmt_error($stmt);
+        }
         mysqli_stmt_close($stmt);
     } else {
         echo "Error preparing query: " . mysqli_error($connection);
