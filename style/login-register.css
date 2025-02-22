@@ -108,9 +108,9 @@ form {
 
 .checkbox-group {
   display: flex;
-  flex-direction: row; /* Ensures elements stay in one line */
+  flex-direction: row; 
   align-items: center;
-  gap: 5px; /* Adds spacing between checkbox and label */
+  gap: 5px; 
 }
 
 .form_group.profile-group {
@@ -165,4 +165,8 @@ input[type="file"]::-webkit-file-upload-button {
 
 input[type="file"]::-webkit-file-upload-button:hover {
   background-color: #264143;
+}
+
+#update{
+  padding: 1rem 5rem;
 }

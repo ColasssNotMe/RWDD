@@ -1,12 +1,7 @@
 <?php
-session_start();
-include 'connection.php';
 
-// Ensure user is logged in
-if (!isset($_SESSION['currentLoginUser'])) {
-    header("Location: login.php");
-    exit();
-}
+include 'connection.php';
+include 'session.php';
 
 $currentLoginUser = $_SESSION['currentLoginUser'];
 $userId = $currentLoginUser['user_id'];
@@ -32,7 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['currentLoginUser']['user_name'] = $name;
             $_SESSION['currentLoginUser']['user_email'] = $email;
             $_SESSION['currentLoginUser']['user_profile'] = $profile_picture;
-            echo "<script>alert('Profile updated successfully!'); window.location.href='account.php';</script>";
+            if ($_SESSION['currentLoginUser']['user_role'] == 'teacher') {
+                echo "<script>alert('Profile updated successfully!'); window.location.href='teacherdashboard.php';</script>";
+            } else {
+                echo "<script>alert('Profile updated successfully!'); window.location.href='account.php';</script>";
+            }
         } else {
             echo "<script>alert('Error updating profile. Please try again.'); window.location.href='editAccount.php';</script>";
         }
@@ -43,7 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         changeUserPassword($connection, $userId, $_POST['currentPassword'], $_POST['newPassword'], $_POST['rePassword']);
     }
 }
-
-
-echo "<script>alert('No changes made.'); window.location.href='Account.php';</script>";
+if ($_SESSION['currentLoginUser']['user_role'] == 'teacher') {
+    echo "<script>alert('Profile updated successfully!'); window.location.href='teacherdashboard.php';</script>";
+} else {
+    echo "<script>alert('Profile updated successfully!'); window.location.href='account.php';</script>";
+}
 exit();

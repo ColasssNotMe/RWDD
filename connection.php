@@ -147,54 +147,6 @@ function addUser($connection, $username, $password, $rePassword, $email, $role)
     }
 }
 
-function editUser($profile, $connection, $username, $password, $rePassword, $email, $role, $userID)
-{
-    // Escape user inputs
-    $profile = mysqli_real_escape_string($connection, $profile);
-    $username = mysqli_real_escape_string($connection, $username);
-    $email = mysqli_real_escape_string($connection, $email);
-    $userID = isset($userID) ? mysqli_real_escape_string($connection, $userID) : '';
-
-    // Validate User ID
-    if ($userID == "") {
-        return "Error... ID is empty.";
-    }
-
-    // Validate Name
-    if (!preg_match("/^[a-zA-Z ]*$/", $username)) {
-        return "Name can only contain letters and spaces.";
-    }
-
-    // Validate Passwords
-    if (!empty($password) && $password !== $rePassword) {
-        return "Passwords do not match. Please try again.";
-    }
-
-    // Check if email is already taken (exclude the current user)
-    $query = "SELECT user_id FROM user WHERE user_email = '$email' AND user_id != '$userID'";
-    $result = mysqli_query($connection, $query);
-    if (mysqli_num_rows($result) > 0) {
-        return "Email is already taken. Please use a different one.";
-    }
-
-    // Hash the password if provided
-    $passwordQuery = "";
-    if (!empty($password)) {
-        $passwordQuery = ", user_password = '$hashedPassword'";
-    }
-
-    // Update user details
-    $query = "UPDATE user 
-              SET user_name = '$username', user_email = '$email', user_role = '$role', user_profile = '$profile' 
-              $passwordQuery
-              WHERE user_id = '$userID'";
-
-    if (!mysqli_query($connection, $query)) {
-        return "Error updating user: " . mysqli_error($connection);
-    } else {
-        return "Profile updated successfully!";
-    }
-}
 
 
 function deleteUser($connection, $userID)

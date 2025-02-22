@@ -2,7 +2,7 @@
 <!--lastQuestionNum, currentQuestionNum array starts at index 1  -->
 
 <?php
-include 'session.php';
+session_start();
 include 'connection.php';
 
 if (isset($_GET['question'])) {

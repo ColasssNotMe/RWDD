@@ -3,11 +3,6 @@ require 'session.php';
 require 'connection.php';
 require_once 'navigation.php';
 
-// if (!isset($_SESSION['user'])) {
-//     header("Location: login.php");
-//     exit();
-// }
-
 $currentLoginUser = $_SESSION['currentLoginUser'];
 $userId = $currentLoginUser['user_id'];
 

@@ -2,6 +2,12 @@
 include 'session.php';
 include 'connection.php';
 
+$currentLoginUser = $_SESSION['currentLoginUser'];
+if ($currentLoginUser['user_role'] !== 'teacher') {
+    echo "<script>alert('Access denied! Only teachers can add questions.'); window.location.href='index.php';</script>";
+    exit();
+}
+
 if (isset($_POST['submit'])) {
     $choices = array_filter([
         $_POST['choice1'] ?? '',
