@@ -2,7 +2,7 @@
 <!--lastQuestionNum, currentQuestionNum array starts at index 1  -->
 
 <?php
-include 'session.php';
+session_start();
 include 'connection.php';
 
 if (isset($_GET['question'])) {
@@ -29,17 +29,22 @@ if (isset($_GET['question'])) {
     }
     if (isset($_GET['answer'])) {
         $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
-        if(isset($_SESSION['currentQuestionChoice'][$_GET['answer']])){
+        if (isset($_SESSION['currentQuestionChoice'][$_GET['answer']])) {
             $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']];
         }
     }
 }
 
 if (isset($_GET['result'])) {
-    $_SESSION['userAns'][10] = $_GET['answer'];
-    $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
-    $_SESSION['endTime'] = time();
+    if (isset($_GET['answer'])) {
+        $_SESSION['userAns'][10] = $_GET['answer'];
+        $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
+    } else {
+        $_SESSION['userAns'][10] = 0;
+        $_SESSION['userAnsData'][10] = "not answered";
+    }
     $confirm_message = "You have reached the end of this quiz. Submit?";
+    $_SESSION['endTime'] = time();
     echo "<script>
         if (confirm('$confirm_message')) {
             window.location.href = 'result.php';
@@ -115,7 +120,7 @@ if (isset($_GET['result'])) {
                     <div class="choice-section">
                         <?php
                         if (isset($_SESSION['currentQuestion']['question_choice'])) {
-                            $choices = explode(",", $_SESSION['currentQuestion']['question_choice']);
+                            $choices = $_SESSION['currentQuestion']['question_choice'];
                             $i = 1;
                             foreach ($choices as $choice) {
                                 $_SESSION['currentQuestionChoice'][$i - 1] = $choice;

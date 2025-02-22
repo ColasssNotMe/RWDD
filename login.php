@@ -1,6 +1,12 @@
 <?php
-include 'session.php';
+session_start();
 include 'connection.php';
+
+if (isset($_SESSION['currentLoginUser'])) {
+    echo "<script>alert('You are already logged in. Please log out before signing in again.');</script>";
+    echo "<script>window.location.href = 'index.php';</script>"; // Redirect to homepage or dashboard
+    exit();
+}
 
 if (isset($_POST['signinBtn'])) {
     $loginMessage = validateStudentCredential($connection, $_POST['email'], $_POST['password']);

@@ -108,9 +108,9 @@ form {
 
 .checkbox-group {
   display: flex;
-  flex-direction: row; /* Ensures elements stay in one line */
+  flex-direction: row; 
   align-items: center;
-  gap: 5px; /* Adds spacing between checkbox and label */
+  gap: 5px; 
 }
 
 .form_group.profile-group {
@@ -143,4 +143,30 @@ h3 {
 /* color */
 .form-container {
   border-color: rgba(200, 200, 200, 0.305);
+}
+
+input[type="file"] {
+  display: block;
+  margin: 10px auto;
+  font-size: 14px;
+  padding: 5px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: #de5499;
+  border: 2px solid #264143;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #264143;
+}
+
+#update{
+  padding: 1rem 5rem;
 }

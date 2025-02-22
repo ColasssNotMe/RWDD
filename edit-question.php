@@ -8,6 +8,10 @@ if ($currentLoginUser['user_role'] !== 'teacher') {
     exit();
 }
 
+if (isset($_GET) ){
+    # code...
+}
+
 if (isset($_POST['submit'])) {
     $choices = array_filter([
         $_POST['choice1'] ?? '',
@@ -59,7 +63,7 @@ if (isset($_POST['submit'])) {
     <?php include_once 'components/header.php'; ?>
     <div class="form-container">
         <div class="form_area">
-            <h1>Add Question</h1>
+            <h1>Edit Question</h1>
             <form method="post" action="#" enctype="multipart/form-data">
                 <div class="content">
                     <div class="upper">
