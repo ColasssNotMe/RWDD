@@ -69,15 +69,15 @@ require 'navigation.php';
             <li>
 
                 <?php if (isset($_SESSION["currentLoginUser"])) {
-                    if ($_SESSION['currentLoginUser']['user_role'] == "student") { ?>
-                        <a href="<?php echo $select_form ?>" class="header-button">Get Started</a>
+                    if ($_SESSION['currentLoginUser']['user_role'] == "teacher") { ?>
+                        <a href="<?php echo $addQuestion ?>">Add Questions</a>
                     <?php
                     } else { ?>
-                        <a href="<?php echo $addQuestion ?>">Add Questions</a>
+                        <a href="<?php echo $select_form ?>" class="header-button">Get Started</a>
                     <?php }
                 } else {
                     ?>
-                    <a href="<?php echo $login ?>">Login</a>
+                    <a href="<?php echo $select_form ?>" class="header-button">Get Started</a>
                 <?php
                 } ?>
 
