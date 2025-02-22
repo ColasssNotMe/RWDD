@@ -27,14 +27,13 @@ require 'navigation.php';
             <div class="cross2"></div>
         </button>
         <?php if (isset($_SESSION["currentLoginUser"])) {
-            if ($_SESSION['currentLoginUser']['user_role'] == "student") { ?>
-                <a href="<?php echo $select_form ?>">Start Now</a>
+            if ($_SESSION['currentLoginUser']['user_role'] == "teacher") { ?>
+                <a href="<?php echo $addQuestion ?>">Add New Question</a>
             <?php
             } else { ?>
-            <?php }
-        } else {
-            ?>
-            <a href="<?php echo $login ?>">Login</a>
+                <a href="<?php echo $select_form ?>">Start Now</a>
+
+            <?php } ?>
         <?php
         } ?>
         <a href="<?php echo $about ?>">About</a>
