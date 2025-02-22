@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
             $answer = $row['question_answer'];
 
 
-            var_dump($row);
+            // var_dump($row);
             $temp_choice = json_decode($row['question_choice'], true);
             foreach ($temp_choice as $preChoice) {
                 $choice[$i] = $preChoice;
@@ -30,7 +30,6 @@ if (isset($_GET['id'])) {
             }
         }
     }
-    // var_dump($choice);
 }
 
 
