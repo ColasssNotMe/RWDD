@@ -193,7 +193,6 @@ if (isset($_POST['submit'])) {
                                 Account
                             </label>
                         </div>
-                        ...existing code...
                     </div>
                 </div>
 
