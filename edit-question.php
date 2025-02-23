@@ -16,8 +16,6 @@ if (isset($_GET['id'])) {
     $i = 0;
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
-            var_dump($row);
-            echo $row['question_title'];
             $title = $row['question_title'];
             $form = $row['question_form'];
             $subject = $row['question_subject'];
