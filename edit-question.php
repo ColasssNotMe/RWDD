@@ -20,6 +20,8 @@ if (isset($_GET['id'])) {
             $form = $row['question_form'];
             $subject = $row['question_subject'];
             $answer = $row['question_answer'];
+            $picture = $row['question_picture'];
+
 
 
             // var_dump($row);
@@ -95,7 +97,9 @@ if (isset($_POST['submit'])) {
                         <hr>
                         <h2><b>Picture (optional)</b></h2>
                         <img id="questionImage"
-                            src="<?php echo htmlspecialchars($_FILES['question_image'] ?? 'res/img/addImage.jpg'); ?>"
+                            src="<?php echo htmlspecialchars(
+                                        $picture ?? 'res/img/addImage.jpg'
+                                    ); ?>"
                             alt="Question Picture" class="question-pic">
                         <input type="file" name="question_image" class="form_style" accept="image/*" onchange="previewImage(event)">
                         <button type="button" onclick="removeImage()" class="secondary-button" id="remove">Remove Picture</button>
