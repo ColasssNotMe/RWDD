@@ -42,7 +42,9 @@ if (isset($_GET['question'])) {
 
 if (isset($_GET['result'])) {
     if (isset($_GET['answer'])) {
+        // int[]
         $_SESSION['userAns'][10] = $_GET['answer'];
+        // data[]
         $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
     } else {
         $_SESSION['userAns'][10] = 0;
@@ -126,25 +128,25 @@ if (isset($_GET['result'])) {
                         <?php
                         if (isset($_SESSION['currentQuestion']['question_choice'])) {
                             $choices = $_SESSION['currentQuestion']['question_choice'];
-                            $i = 1;
+                            $b = 1;
                             foreach ($choices as $choice) {
-                                $_SESSION['currentQuestionChoice'][$i - 1] = $choice;
+                                $_SESSION['currentQuestionChoice'][$b - 1] = $choice;
                         ?>
 
-                                <input type='radio' name='answer' id='selection<?php echo $i ?>' value='<?php echo $i ?>'
+                                <input type='radio' name='answer' id='selection<?php echo $b ?>' value='<?php echo $b-1 ?>'
                                     <?php
                                     $temp = $_SESSION['currentQuestionNum'];
                                     if (isset($_SESSION['userAns'][$temp])) {
-                                        if ($i == $_SESSION['userAns'][$temp]) {
+                                        if ($b == $_SESSION['userAns'][$temp]) {
                                             echo "checked";
                                         }
                                     }
 
                                     ?> />
-                                <label class="choices" for="selection<?php echo $i ?>"><?php echo $choice ?></label>
+                                <label class="choices" for="selection<?php echo $b ?>"><?php echo $choice ?></label>
 
                         <?php
-                                $i++;
+                                $b++;
                             }
                         }
                         ?>

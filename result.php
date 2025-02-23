@@ -10,12 +10,17 @@ $timeFormatted = gmdate("H:i:s", $timeTaken);
 $correctAnsCount = 0;
 $totalQuestions = count($_SESSION['listOfQuestion'] ?? []);
 
+$a = 0;
+
+var_dump($_SESSION['userAnsData']);
+var_dump($_SESSION['listOfQuestion']);
 if ($totalQuestions > 0) {
-    foreach ($_SESSION['listOfQuestion'] as $index => $question) {
-        $userAnswer = $_SESSION['userAnsData'][$index] ?? "No Answer";
-        if ($userAnswer == $question['question_answer']) {
+    foreach ($_SESSION['userAnsData'] as $userAns) {
+        $realAns = $_SESSION['listOfQuestion'][$a];
+        if ($userAns == $realAns['question_answer']) {
             $correctAnsCount++;
         }
+        $a++;
     }
 }
 $percentage = ($totalQuestions > 0) ? ($correctAnsCount / $totalQuestions) * 100 : 0.0;
@@ -27,7 +32,7 @@ if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
 
     // Insert record into `record` table
     $recordID = addRecord($connection, $userID, $correctAnsCount, $timeFormatted, $dateTaken);
-    
+
     if ($recordID) {
         foreach ($_SESSION['listOfQuestion'] as $index => $question) {
             saveUserAnswer($connection, $recordID, $question['question_id'], $_SESSION['userAnsData'][$index] ?? "No Answer");
@@ -40,6 +45,7 @@ if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php include_once 'extrahead.php'; ?>
     <meta charset="UTF-8">
@@ -48,6 +54,7 @@ if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
     <link rel="stylesheet" href="style/result.css">
     <title>Result</title>
 </head>
+
 <body>
     <?php require_once 'components/header.php'; ?>
 
@@ -109,4 +116,5 @@ if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
 
     <?php require_once 'components/footer.php'; ?>
 </body>
+
 </html>
