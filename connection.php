@@ -269,7 +269,7 @@ function updateQuestion(
 
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {
-            echo "<script>alert('Question updated successfully!'); window.location.href='viewQuestions.php';</script>";
+            echo "<script>alert('Question updated successfully!'); window.location.href='edit-question-select.php';</script>";
             exit();
         } else {
             echo "Error executing query: " . mysqli_stmt_error($stmt);
