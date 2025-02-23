@@ -6,6 +6,11 @@ session_start();
 include 'connection.php';
 
 if (isset($_GET['question'])) {
+    if ($_SESSION['listOfQuestion'] == 0) {
+        echo '<script>alert("There\'s no question for selected subject"); window.location.href="select-form.php"</script>';
+        // header("Location:select-form.php");
+        exit();
+    }
     $_SESSION['lastQuestionNum'] = $_SESSION['currentQuestionNum'];
     $_SESSION['currentQuestionNum'] = $_GET['question'];
 

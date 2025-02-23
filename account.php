@@ -48,7 +48,9 @@ $result = mysqli_stmt_get_result($stmt);
             <p><strong>Username:</strong> <?php echo htmlspecialchars($currentLoginUser['user_name']); ?></p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($currentLoginUser['user_email']); ?></p>
             <div class="button-div">
+
                 <button class="secondary-button" id="editProfile" onclick="window.location.href='editAccount.php'">
+
                     Edit Profile
                 </button>
                 <button class="secondary-button" id="delete-button">
@@ -80,7 +82,7 @@ $result = mysqli_stmt_get_result($stmt);
                                     <td><?php echo $count; ?></td>
                                     <td><?php
                                         if ($row['question_form'] == "0") {
-                                            echo "All Form";
+                                            // echo "All Form";
                                         } else {
                                             echo htmlspecialchars($row['question_form']);
                                         }

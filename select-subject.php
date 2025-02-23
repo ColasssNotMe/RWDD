@@ -1,8 +1,8 @@
 <?php
-session_start();
+include "session.php";
 include 'connection.php';
 
-$_SESSION['subject']="";
+$_SESSION['subject'] = "";
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,6 @@ $_SESSION['subject']="";
   <link rel="stylesheet" href="./style/selection.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <title>Select Subject</title>
-  <script src="./theme.js"></script>
 </head>
 
 <body>

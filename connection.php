@@ -20,10 +20,6 @@ switch ($connection) {
 }
 
 
-if (isset($_GET['form'])) {
-    $_SESSION['form'] = $_GET['form'];
-    header("Location:select-subject.php");
-}
 
 if (isset($_GET['subject'])) {
     $_SESSION['subject'] = $_GET['subject'];
@@ -34,7 +30,8 @@ if (isset($_GET['subject'])) {
 }
 
 // get random request question
-function getQuestion($connection){
+function getQuestion($connection)
+{
     $query  = "SELECT * from question where question_form = '{$_SESSION['form']}' AND question_subject = '{$_SESSION['subject']}' ORDER BY RAND() LIMIT 10";
     $result = mysqli_query($connection, $query);
     $numRows = mysqli_num_rows($result);
@@ -52,7 +49,8 @@ function getQuestion($connection){
         // var_dump($_SESSION['currentQuestion']);
         // var_dump($_SESSION['listOfQuestion']);
     } else {
-        echo 'No question returned';
+        $_SESSION['listOfQuestion'] = 0;
+        $_SESSION['currentQuestion'] = 0;
     }
 }
 
@@ -198,6 +196,7 @@ function addUser($connection, $username, $password, $rePassword, $email, $role)
 
 
 
+
 function deleteUser($connection, $userID)
 {
     $query = "DELETE FROM user WHERE user_id = $userID";
@@ -223,8 +222,8 @@ function addQuestion($connection, $form, $subject, $picture, $question, $choice,
 
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {
-            echo "<script>alert('Question added successfully!'); window.location.href='viewQuestions.php';</script>";
-            header("Location: index.php");
+            echo "<script>alert('Question added successfully!'); window.location.href='addQuestion.php';</script>";
+            // header("Location: index.php");
         } else {
             echo "Error executing query: " . mysqli_stmt_error($stmt);
         }
@@ -236,12 +235,58 @@ function addQuestion($connection, $form, $subject, $picture, $question, $choice,
     }
 }
 
+function updateQuestion(
+    $connection,
+    $questionID,
+    $form,
+    $subject,
+    $picture,
+    $question,
+    $choice,
+    $answer
+) {
+    $query = "UPDATE question SET 
+            question_form = ?, 
+            question_subject = ?, 
+            question_picture = ?, 
+            question_title = ?, 
+            question_choice = ?, 
+            question_answer = ?
+            WHERE question_id = ?";
+    $stmt = mysqli_prepare($connection, $query);
+    if ($stmt) {
+        // Bind parameters (s = string, i = integer, NULL is handled as string)
+        mysqli_stmt_bind_param(
+            $stmt,
+            "isssssi",
+            $form,
+            $subject,
+            $picture,
+            $question,
+            $choice,
+            $answer,
+            $questionID
+        );
+
+        // Execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            echo "<script>alert('Question updated successfully!'); window.location.href='viewQuestions.php';</script>";
+            exit();
+        } else {
+            echo "Error executing query: " . mysqli_stmt_error($stmt);
+        }
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "Error preparing query: " . mysqli_error($connection);
+    }
+}
+
 
 function deleteQuestion($connection, $questionID)
 {
     $query = "DELETE FROM question where question_id =$questionID";
     if (!mysqli_query($connection, $query)) {
-        echo "Error adding user";
+        echo "Error deleting question";
     } else {
         header("Location:index.php");
     }

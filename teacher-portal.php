@@ -3,9 +3,9 @@ session_start();
 include 'connection.php';
 
 if (isset($_SESSION['currentLoginUser'])) {
-    echo "<script>alert('You are already logged in. Please log out before signing in again.');</script>";
-    echo "<script>window.location.href = 'index.php';</script>"; // Redirect to homepage or dashboard
-    exit();
+  echo "<script>alert('You are already logged in. Please log out before signing in again.');</script>";
+  echo "<script>window.location.href = 'index.php';</script>"; // Redirect to homepage or dashboard
+  exit();
 }
 
 if (isset($_POST['signinBtn'])) {
@@ -47,7 +47,7 @@ if (!empty($loginMessage)) {
       </h3>
       <form method="post">
         <div class="form_group">
-          <label class="form_sub_title" for="username">Username</label>
+          <label class="form_sub_title" for="username">Email</label>
           <input placeholder="Enter your username" name="email" class="form_style" type="text" required>
         </div>
         <div class="form_group">
