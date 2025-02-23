@@ -13,11 +13,12 @@ $totalQuestions = count($_SESSION['listOfQuestion'] ?? []);
 $a = 0;
 
 var_dump($_SESSION['userAnsData']);
-var_dump($_SESSION['listOfQuestion']);
+// var_dump($_SESSION['listOfQuestion']);
+// var_dump($_SESSION['recordAdded']);
 if ($totalQuestions > 0) {
     foreach ($_SESSION['userAnsData'] as $userAns) {
-        $realAns = $_SESSION['listOfQuestion'][$a];
-        if ($userAns == $realAns['question_answer']) {
+        $realAns = $_SESSION['listOfQuestion'][$a]['question_answer'];
+        if ($userAns == $realAns) {
             $correctAnsCount++;
         }
         $a++;
@@ -96,7 +97,7 @@ if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
                         <?php
                         $j = 0;
                         foreach ($_SESSION['listOfQuestion'] as $question) {
-                            $userAnswer = $_SESSION['userAnsData'][$j] ?? "No Answer";
+                            $userAnswer = $_SESSION['userAnsData'][$j + 1] ?? "No Answer";
                             $isCorrect = ($userAnswer == $question['question_answer']);
                         ?>
                             <tr class="<?php echo $isCorrect ? 'right-ans' : 'wrong-ans'; ?>">

@@ -33,9 +33,11 @@ if (isset($_GET['question'])) {
         $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
     }
     if (isset($_GET['answer'])) {
-        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
+        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'] - 1;
         if (isset($_SESSION['currentQuestionChoice'][$_GET['answer']])) {
-            $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']];
+            if ($_GET['answer'] != 0) {
+                $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
+            }
         }
     }
 }
@@ -128,12 +130,13 @@ if (isset($_GET['result'])) {
                         <?php
                         if (isset($_SESSION['currentQuestion']['question_choice'])) {
                             $choices = $_SESSION['currentQuestion']['question_choice'];
+                            // choice start from 1
                             $b = 1;
                             foreach ($choices as $choice) {
                                 $_SESSION['currentQuestionChoice'][$b - 1] = $choice;
                         ?>
 
-                                <input type='radio' name='answer' id='selection<?php echo $b ?>' value='<?php echo $b-1 ?>'
+                                <input type='radio' name='answer' id='selection<?php echo $b ?>' value='<?php echo $b ?>'
                                     <?php
                                     $temp = $_SESSION['currentQuestionNum'];
                                     if (isset($_SESSION['userAns'][$temp])) {
