@@ -25,9 +25,10 @@ if (isset($_GET['form'])) {
 
 <body>
     <?php include_once 'components/header.php' ?>
+    <p class="breadcrumb">Form</p>
     <div class="content">
         <h1 class="title">
-            <span id="important-text">Select form</span>
+            <span id="important-text">Select Form</span>
         </h1>
         <form method="get">
             <div id="button-div">

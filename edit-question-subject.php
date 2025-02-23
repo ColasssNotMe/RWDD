@@ -25,11 +25,12 @@ if (isset($_GET['subject'])) {
 
 <body>
     <?php include_once './components/header.php' ?>
+    <p class="breadcrumb">Form > Subject</p>
     <div class="content">
         <h1 class="title">
-            <span id="important-text">Form > Select Subject</span>
+            <span id="important-text">Select Subject</span>
         </h1>
-        <form  method="get">
+        <form method="get">
             <div id="button-div">
                 <button
                     class="secondary-button"

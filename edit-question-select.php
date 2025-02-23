@@ -25,9 +25,10 @@ $result = mysqli_query($connection, $query);
 
 <body>
     <?php include_once 'components/header.php' ?>
+    <p class="breadcrumb">Form > Subject > Question</p>
     <div class="content">
         <h1 class="title">
-            <span id="important-text">Form > Subject > Select Question</span>
+            <span id="important-text">Select Question</span>
         </h1>
         <hr>
         <button class="add-question primary-button" onclick="window.location.href='addQuestion.php'">Add New Question</button>

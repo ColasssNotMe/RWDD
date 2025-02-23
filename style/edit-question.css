@@ -6,7 +6,15 @@
   justify-content: center;
   text-align: left;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  box-shadow: 3px 4px 0px 1px var(--box-shadow-dark);
+}
+
+.breadcrumb{
+  font-size: 1rem;
+  color: gray;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 .add-question {
@@ -18,7 +26,7 @@
   padding: 1.2rem;
 }
 
-.edit-button{
+.edit-button {
   padding: 1rem;
   aspect-ratio: 2;
   display: flex;
