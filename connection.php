@@ -49,7 +49,8 @@ function getQuestion($connection)
         // var_dump($_SESSION['currentQuestion']);
         // var_dump($_SESSION['listOfQuestion']);
     } else {
-        echo 'No question returned';
+        $_SESSION['listOfQuestion'] = 0;
+        $_SESSION['currentQuestion'] = 0;
     }
 }
 
