@@ -172,8 +172,8 @@ function addQuestion($connection, $form, $subject, $picture, $question, $choice,
 
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {
-            echo "<script>alert('Question added successfully!'); window.location.href='viewQuestions.php';</script>";
-            header("Location: index.php");
+            echo "<script>alert('Question added successfully!'); window.location.href='addQuestion.php';</script>";
+            // header("Location: index.php");
         } else {
             echo "Error executing query: " . mysqli_stmt_error($stmt);
         }
