@@ -33,12 +33,17 @@ if (isset($_GET['question'])) {
         $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
     }
     if (isset($_GET['answer'])) {
-        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'] - 1;
-        if (isset($_SESSION['currentQuestionChoice'][$_GET['answer']])) {
-            if ($_GET['answer'] != 0) {
-                $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
-            }
+        if ($_GET['answer'] == 0) {
+            $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = 0;
+        } else {
+            $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'] ;
+            $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
         }
+        // if (isset($_SESSION['currentQuestionChoice'][$_GET['answer']])) {
+        //     if ($_GET['answer'] != 0) {
+        //         $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
+        //     }
+        // }
     }
 }
 
@@ -149,6 +154,8 @@ if (isset($_GET['result'])) {
                                 <label class="choices" for="selection<?php echo $b ?>"><?php echo $choice ?></label>
 
                         <?php
+                                // var_dump($_SESSION['userAns']);
+                                // var_dump($_SESSION['userAns'][$temp]);
                                 $b++;
                             }
                         }
