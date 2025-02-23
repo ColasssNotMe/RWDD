@@ -12,7 +12,6 @@ $totalQuestions = count($_SESSION['listOfQuestion'] ?? []);
 
 $a = 0;
 
-var_dump($_SESSION['userAnsData']);
 // var_dump($_SESSION['listOfQuestion']);
 // var_dump($_SESSION['recordAdded']);
 if ($totalQuestions > 0) {
