@@ -60,12 +60,12 @@ $percentage = $correctAnsCount / 10 * 100;
                 </p>
                 <p><strong>Time Taken:</strong>
                     <br>
-                    <?php echo $timeTaken ?>   Seconds
+                    <?php echo $timeTaken ?> Seconds
                 </p>
             </div>
             <div class="button-div">
-                <button class="secondary-button" id="save-collection">
-                    Save as collection
+                <button class="secondary-button" id="save-collection" onclick="window.location.href='select-form.php'">
+                    Retry
                 </button>
                 <button class="primary-button" id="return-home">
                     <a href=<?php echo $root ?> id="return-button">Return to home</a>
