@@ -16,6 +16,8 @@ if (isset($_GET['id'])) {
     $i = 0;
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
+            var_dump($row);
+            echo $row['question_title'];
             $title = $row['question_title'];
             $form = $row['question_form'];
             $subject = $row['question_subject'];
@@ -91,7 +93,7 @@ if (isset($_POST['submit'])) {
                 <div class="content">
                     <div class="upper">
                         <h2><b>Question Title</b></h2>
-                        <input placeholder="Enter question's title" class="form_style" type="text" name="title" value=<?php echo $title ?> required>
+                        <input placeholder="Enter question's title" class="form_style" type="text" name="title" value="<?php echo htmlspecialchars($title) ?>" required>
                         <hr>
                         <h2><b>Picture (optional)</b></h2>
                         <img id="questionImage"
@@ -102,13 +104,13 @@ if (isset($_POST['submit'])) {
                         <hr>
                         <h2><b>Enter Choices</b></h2>
                         <label class="form_sub_title" for="choice1">Choice 1</label>
-                        <input placeholder="Enter choice 1" class="form_style" type="text" name="choice1" value=<?php echo $choice[0] ?>>
+                        <input placeholder="Enter choice 1" class="form_style" type="text" name="choice1" value="<?php echo htmlspecialchars($choice[0]) ?>">
                         <label class="form_sub_title" for="choice2">Choice 2</label>
-                        <input placeholder="Enter choice 2" class="form_style" type="text" name="choice2" value=<?php echo $choice[1] ?>>
+                        <input placeholder="Enter choice 2" class="form_style" type="text" name="choice2" value="<?php echo htmlspecialchars($choice[1]) ?>">
                         <label class="form_sub_title" for="choice">Choice 3</label>
-                        <input placeholder="Enter choice 3" class="form_style" type="text" name="choice3" value=<?php echo $choice[2] ?>>
+                        <input placeholder="Enter choice 3" class="form_style" type="text" name="choice3" value="<?php echo htmlspecialchars($choice[2]) ?>">
                         <label class="form_sub_title" for="choice">Choice 4</label>
-                        <input placeholder="Enter choice 4" class="form_style" type="text" name="choice4" value=<?php echo $choice[3] ?>>
+                        <input placeholder="Enter choice 4" class="form_style" type="text" name="choice4" value="<?php echo htmlspecialchars($choice[3]) ?>">
                         <hr>
                         <h2><b>Select the answer</b></h2>
                         <div class="answer">
