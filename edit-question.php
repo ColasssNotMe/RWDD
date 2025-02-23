@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
     $choiceString = json_encode($choices, JSON_UNESCAPED_UNICODE);
 
     // Handle image upload
-    $questionImage = uploadPicture($_FILES['question_image'], NULL, 'uploads/question/', 'addQuestion.php');
+    $questionImage = uploadPicture($_FILES['question_image'], $picture, 'uploads/question/', 'addQuestion.php');
 
     // Validate answer index to avoid errors
     $answerIndex = $_POST['answer'] ?? null;
