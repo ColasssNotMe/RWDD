@@ -6,6 +6,9 @@ if (isset($_GET['form'])) {
     $_SESSION['form'] = $_GET['form'];
     header("Location:select-subject.php");
 }
+
+$_SESSION['recordAdded'] = false;
+var_dump($_SESSION['recordAdded']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
