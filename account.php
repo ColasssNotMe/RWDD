@@ -3,11 +3,6 @@ require 'session.php';
 require 'connection.php';
 require_once 'navigation.php';
 
-// if (!isset($_SESSION['user'])) {
-//     header("Location: login.php");
-//     exit();
-// }
-
 $currentLoginUser = $_SESSION['currentLoginUser'];
 $userId = $currentLoginUser['user_id'];
 
@@ -47,7 +42,9 @@ $result = mysqli_query($connection, $query);
             <p><strong>Username:</strong> <?php echo htmlspecialchars($currentLoginUser['user_name']); ?></p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($currentLoginUser['user_email']); ?></p>
             <div class="button-div">
-                <button class="secondary-button" onclick="window.location.href='editAccount.php'">
+
+                <button class="secondary-button" id="editProfile" onclick="window.location.href='editAccount.php'">
+
                     Edit Profile
                 </button>
                 <button class="secondary-button" id="delete-button">
@@ -79,7 +76,7 @@ $result = mysqli_query($connection, $query);
                                     <td><?php echo $count; ?></td>
                                     <td><?php
                                         if ($row['question_form'] == "0") {
-                                            echo "All Form";
+                                            // echo "All Form";
                                         } else {
                                             echo htmlspecialchars($row['question_form']);
                                         }

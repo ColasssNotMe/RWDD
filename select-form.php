@@ -1,7 +1,11 @@
 <?php
 include 'session.php';
-include 'connection.php'
+include 'connection.php';
 
+if (isset($_GET['form'])) {
+    $_SESSION['form'] = $_GET['form'];
+    header("Location:select-subject.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,10 +64,10 @@ include 'connection.php'
                         Form 5
                     </label>
 
-                    <input type="radio" name="form" value="0" id="form0" />
+                    <!-- <input type="radio" name="form" value="0" id="form0" />
                     <label for="form0">
                         All Form
-                    </label>
+                    </label> -->
                 </div>
             </form>
 

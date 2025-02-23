@@ -1,14 +1,14 @@
 <?php
-include 'session.php';
+session_start();
 include 'connection.php';
 
 if (isset($_POST['submit'])) {
-    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['rePassword'], $_POST['email'], "student");
+    $registrationMessage = addUser($connection, $_POST['name'], $_POST['password'], $_POST['rePassword'], $_POST['email'], "teacher");
 }
 if (!empty($registrationMessage)) {
     echo "<script>alert('$registrationMessage');</script>";
     if ($registrationMessage == "Account registered successful. Login now to get full access of website.") {
-        echo "<script>window.location.href = 'login.php';</script>";
+        echo "<script>window.location.href = 'teacher-portal.php';</script>";
     }
 }
 ?>

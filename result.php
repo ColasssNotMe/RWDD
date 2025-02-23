@@ -1,5 +1,5 @@
 <?php
-include 'session.php';
+session_start();
 include 'connection.php';
 include 'navigation.php';
 
@@ -58,7 +58,10 @@ $percentage = $correctAnsCount / 10 * 100;
                     <br>
                     <?php echo $correctAnsCount ?> / 10
                 </p>
-                <p><strong>Time Taken:</strong> </p>
+                <p><strong>Time Taken:</strong>
+                    <br>
+                    <?php echo $timeTaken ?>   Seconds
+                </p>
             </div>
             <div class="button-div">
                 <button class="secondary-button" id="save-collection">
