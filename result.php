@@ -26,14 +26,14 @@ if ($totalQuestions > 0) {
 $percentage = ($totalQuestions > 0) ? ($correctAnsCount / $totalQuestions) * 100 : 0.0;
 
 // Insert record if user is logged in and it hasn't been recorded already
-if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
+if (isset($_SESSION['currentLoginUser'])) {
     $userID = $_SESSION['currentLoginUser']['user_id'];
     $dateTaken = date("Y-m-d");
 
     // Insert record into `record` table
     $recordID = addRecord($connection, $userID, $correctAnsCount, $timeFormatted, $dateTaken);
 
-    $c=1;
+    $c = 1;
     if ($recordID) {
         foreach ($_SESSION['listOfQuestion'] as $question) {
             saveUserAnswer($connection, $recordID, $question['question_id'], $_SESSION['userAnsData'][$c] ?? "No Answer");
