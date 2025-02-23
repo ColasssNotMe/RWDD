@@ -33,9 +33,11 @@ if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
     // Insert record into `record` table
     $recordID = addRecord($connection, $userID, $correctAnsCount, $timeFormatted, $dateTaken);
 
+    $c=1;
     if ($recordID) {
-        foreach ($_SESSION['listOfQuestion'] as $index => $question) {
-            saveUserAnswer($connection, $recordID, $question['question_id'], $_SESSION['userAnsData'][$index] ?? "No Answer");
+        foreach ($_SESSION['listOfQuestion'] as $question) {
+            saveUserAnswer($connection, $recordID, $question['question_id'], $_SESSION['userAnsData'][$c] ?? "No Answer");
+            $c++;
         }
     }
     $_SESSION['recordAdded'] = true;
