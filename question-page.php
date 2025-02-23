@@ -5,58 +5,52 @@
 session_start();
 include 'connection.php';
 
-if (isset($_GET['question'])) {
-    if ($_SESSION['listOfQuestion'] == 0) {
-        echo '<script>alert("There\'s no question for selected subject"); window.location.href="select-form.php"</script>';
-        // header("Location:select-form.php");
-        exit();
-    }
-    $_SESSION['lastQuestionNum'] = $_SESSION['currentQuestionNum'];
-    $_SESSION['currentQuestionNum'] = $_GET['question'];
-
-    // Update currentQuestion based on the new question number
-    $_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum'] - 1];
-    if (!isset($_SESSION['userAns'])) {
-        $_SESSION['userAns'] = array();
-    }
-
-    if (!isset($_SESSION['userAnsData'])) {
-        $_SESSION['userAnsData'] = array();
-    }
-    if (!isset($_SESSION['currentQuestionChoice'])) {
-        $_SESSION['currentQuestionChoice'] = null;
-    }
-
-    // init the session var
-    if (!isset($_GET['answer'])) {
-        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = 0;
-        $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
-    }
-    if (isset($_GET['answer'])) {
-        $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
-        if (isset($_SESSION['currentQuestionChoice'][$_GET['answer']])) {
-            $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']];
-        }
-    }
+// Ensure question list exists
+if (empty($_SESSION['listOfQuestion'])) {
+    echo '<script>alert("There\'s no question for the selected subject"); window.location.href="select-form.php"</script>';
+    exit();
 }
 
-if (isset($_GET['result'])) {
-    if (isset($_GET['answer'])) {
-        $_SESSION['userAns'][10] = $_GET['answer'];
-        $_SESSION['userAnsData'][10] = $_SESSION['currentQuestionChoice'][$_GET['answer'] - 1];
-    } else {
-        $_SESSION['userAns'][10] = 0;
-        $_SESSION['userAnsData'][10] = "not answered";
-    }
-    $confirm_message = "You have reached the end of this quiz. Submit?";
-    $_SESSION['endTime'] = time();
+// Set question data
+$_SESSION['lastQuestionNum'] = $_SESSION['currentQuestionNum'] ?? 1;
+$_SESSION['currentQuestionNum'] = $_GET['question'] ?? 1;
+$_SESSION['currentQuestion'] = $_SESSION['listOfQuestion'][$_SESSION['currentQuestionNum'] - 1];
+
+// Fetch choices from the database
+$currentQuestionId = $_SESSION['currentQuestion']['question_id'];
+$query = "SELECT question_choice FROM question WHERE question_id = $currentQuestionId";
+$result = mysqli_query($connection, $query);
+
+if ($row = mysqli_fetch_assoc($result)) {
+    $_SESSION['currentQuestionChoice'] = json_decode($row['question_choice'], true);
+}
+
+// Debugging: Show choices fetched from DB
+echo "<pre>Fetched Choices: " . print_r($_SESSION['currentQuestionChoice'], true) . "</pre>";
+
+// Handle answer selection
+if (isset($_GET['answer'])) {
+    $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = $_GET['answer'];
+    $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']] ?? "Invalid choice";
+} else {
+    $_SESSION['userAns'][$_SESSION['lastQuestionNum']] = 0;
+    $_SESSION['userAnsData'][$_SESSION['lastQuestionNum']] = "not answered";
+}
+
+// Check if it's the last question
+$totalQuestions = count($_SESSION['listOfQuestion']);
+if ($_SESSION['currentQuestionNum'] == $totalQuestions && isset($_GET['answer'])) {
+    // Store the final answer
+    $_SESSION['userAns'][$_SESSION['currentQuestionNum']] = $_GET['answer'];
+    $_SESSION['userAnsData'][$_SESSION['currentQuestionNum']] = $_SESSION['currentQuestionChoice'][$_GET['answer']] ?? "Invalid choice";
+
+    // Redirect to result page
     echo "<script>
-        if (confirm('$confirm_message')) {
-            window.location.href = 'result.php';
-        }
+        alert('Quiz completed! Redirecting to results...');
+        window.location.href = 'result.php';
     </script>";
+    exit();
 }
-
 ?>
 
 
@@ -86,28 +80,26 @@ if (isset($_GET['result'])) {
                     <button type='submit' name="question" value="<?php echo $prevQuestionNum; ?>" class="secondary-button" id="back-button">
                         <i class="zmdi zmdi-arrow-left"></i>
                     </button>
-                    <h1>Question
-                        <?php
-                        echo $_SESSION['currentQuestionNum']; ?>
+                    <h1>Question <?php echo $_SESSION['currentQuestionNum']; ?></h1>
 
-                    </h1>
                     <?php
-                    $nextQuestionNum = min(10, $_SESSION['currentQuestionNum'] + 1); // Ensure it doesn't exceed 10
-                    if ($_SESSION['currentQuestionNum'] == 10) {
+                    $nextQuestionNum = $_SESSION['currentQuestionNum'] + 1;
+                    if ($_SESSION['currentQuestionNum'] == $totalQuestions) {
                     ?>
-                        <button type="submit" name="result" id="back-button" class='primary-button' type="submit">
-                            <i class="zmdi zmdi-arrow-right"></i>
+                        <!-- Show Submit button on last question -->
+                        <button type="submit" name="submit_quiz" id="submit-button" class='primary-button'>
+                            <i class="zmdi zmdi-check"></i> Submit
                         </button>
                     <?php
                     } else {
                     ?>
-                        <button type="submit" name="question" value="<?php echo  $nextQuestionNum ?>" id="back-button" class='primary-button' type="submit">
+                        <!-- Show Next button for other questions -->
+                        <button type="submit" name="question" value="<?php echo $nextQuestionNum; ?>" id="next-button" class='primary-button'>
                             <i class="zmdi zmdi-arrow-right"></i>
                         </button>
                     <?php
                     }
                     ?>
-
                 </div>
 
                 <div class="describe_box">
@@ -124,28 +116,21 @@ if (isset($_GET['result'])) {
                     </h2>
                     <div class="choice-section">
                         <?php
-                        if (isset($_SESSION['currentQuestion']['question_choice'])) {
-                            $choices = $_SESSION['currentQuestion']['question_choice'];
-                            $i = 1;
-                            foreach ($choices as $choice) {
-                                $_SESSION['currentQuestionChoice'][$i - 1] = $choice;
+                        if (!empty($_SESSION['currentQuestionChoice'])) {
+                            $i = 1; // Choice index starts at 1
+                            foreach ($_SESSION['currentQuestionChoice'] as $choice) {
+                                $isChecked = (isset($_SESSION['userAns'][$_SESSION['currentQuestionNum']]) && 
+                                            $_SESSION['userAns'][$_SESSION['currentQuestionNum']] == $i) ? "checked" : "";
                         ?>
-
-                                <input type='radio' name='answer' id='selection<?php echo $i ?>' value='<?php echo $i ?>'
-                                    <?php
-                                    $temp = $_SESSION['currentQuestionNum'];
-                                    if (isset($_SESSION['userAns'][$temp])) {
-                                        if ($i == $_SESSION['userAns'][$temp]) {
-                                            echo "checked";
-                                        }
-                                    }
-
-                                    ?> />
-                                <label class="choices" for="selection<?php echo $i ?>"><?php echo $choice ?></label>
-
+                                <input type="radio" name="answer" id="selection<?php echo $i; ?>" value="<?php echo $i; ?>" <?php echo $isChecked; ?> />
+                                <label class="choices" for="selection<?php echo $i; ?>">
+                                    <?php echo htmlspecialchars($choice); ?>
+                                </label>
                         <?php
                                 $i++;
                             }
+                        } else {
+                            echo "<p>No choices available for this question.</p>";
                         }
                         ?>
                     </div>
