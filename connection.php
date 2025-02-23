@@ -106,12 +106,12 @@ function addRecord($connection, $userID, $score, $timeTaken, $dateTaken)
     mysqli_stmt_execute($checkStmt);
     mysqli_stmt_store_result($checkStmt);
 
-    if (mysqli_stmt_num_rows($checkStmt) > 0) {
-        mysqli_stmt_bind_result($checkStmt, $existingRecordID);
-        mysqli_stmt_fetch($checkStmt);
-        mysqli_stmt_close($checkStmt);
-        return $existingRecordID;
-    }
+    // if (mysqli_stmt_num_rows($checkStmt) > 0) {
+    //     mysqli_stmt_bind_result($checkStmt, $existingRecordID);
+    //     mysqli_stmt_fetch($checkStmt);
+    //     mysqli_stmt_close($checkStmt);
+    //     return $existingRecordID;
+    // }
     mysqli_stmt_close($checkStmt);
 
     // Insert new record
