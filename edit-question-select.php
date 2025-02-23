@@ -56,8 +56,14 @@ $result = mysqli_query($connection, $query);
                                 <td><?php
                                     echo htmlspecialchars($row['question_title']);
                                     ?></td>
-                                <!-- FIXME: split the choice -->
-                                <td><?php echo htmlspecialchars($temp_choice); ?></td>
+
+                                <td><?php
+                                    foreach ($temp_choice as $temp) {
+                                        echo htmlspecialchars($temp);
+                                        echo "<br>";
+                                    } ?>
+                                </td>
+
                                 <td><?php echo htmlspecialchars($row['question_answer']); ?></td>
                                 <td>
                                     <?php
