@@ -100,14 +100,63 @@ function validateTeacherCredential($connection, $email, $password)
     }
 }
 
-function addRecord($connection, $score, $timeTaken, $userID, $questionID)
+function addRecord($connection, $userID, $score, $timeTaken, $dateTaken) 
 {
-    $date = date("Y-m-d");
-    $query = "INSERT INTO record (score,time_taken,user_id,question_id,date_taken) VALUES ($score,$timeTaken,$userID,'$questionID',$date)";
-    if (!mysqli_query($connection, $query)) {
-        echo "<script>alert('Error when storing record')</script>";
+    $checkQuery = "SELECT record_id FROM record WHERE user_id = ? AND date_taken = ?";
+    $checkStmt = mysqli_prepare($connection, $checkQuery);
+    mysqli_stmt_bind_param($checkStmt, "is", $userID, $dateTaken);
+    mysqli_stmt_execute($checkStmt);
+    mysqli_stmt_store_result($checkStmt);
+
+    if (mysqli_stmt_num_rows($checkStmt) > 0) {
+        mysqli_stmt_bind_result($checkStmt, $existingRecordID);
+        mysqli_stmt_fetch($checkStmt);
+        mysqli_stmt_close($checkStmt);
+        return $existingRecordID;
+    }
+    mysqli_stmt_close($checkStmt);
+
+    // Insert new record
+    $query = "INSERT INTO record (user_id, score, time_taken, date_taken) VALUES (?, ?, ?, ?)";
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "idss", $userID, $score, $timeTaken, $dateTaken);
+
+    if (mysqli_stmt_execute($stmt)) {
+        $recordID = mysqli_insert_id($connection);
+        mysqli_stmt_close($stmt);
+        return $recordID;
+    } else {
+        error_log("Error inserting record: " . mysqli_error($connection));
+        mysqli_stmt_close($stmt);
+        return false;
     }
 }
+
+function saveUserAnswer($connection, $recordID, $questionID, $userAnswer) 
+{
+    $userAnswer = $userAnswer ?? "Not Answered";
+
+    // Check if the answer already exists
+    $checkQuery = "SELECT * FROM record_questions WHERE record_id = ? AND question_id = ?";
+    $checkStmt = mysqli_prepare($connection, $checkQuery);
+    mysqli_stmt_bind_param($checkStmt, "ii", $recordID, $questionID);
+    mysqli_stmt_execute($checkStmt);
+    mysqli_stmt_store_result($checkStmt);
+
+    if (mysqli_stmt_num_rows($checkStmt) == 0) {
+        // Insert only if the answer does not exist
+        $query = "INSERT INTO record_questions (record_id, question_id, user_answer) VALUES (?, ?, ?)";
+        $stmt = mysqli_prepare($connection, $query);
+        mysqli_stmt_bind_param($stmt, "iis", $recordID, $questionID, $userAnswer);
+
+        if (!mysqli_stmt_execute($stmt)) {
+            error_log("Error inserting user answer: " . mysqli_error($connection));
+        }
+        mysqli_stmt_close($stmt);
+    }
+    mysqli_stmt_close($checkStmt);
+}
+
 
 function deleteRecord($connection, $recordID)
 {

@@ -14,10 +14,16 @@ $query = "SELECT
             q.question_subject,
             r.date_taken
           FROM record r
-          JOIN question q ON r.question_id = q.question_id
-          WHERE r.user_id = '$userId'";
+          JOIN record_questions rq ON r.record_id = rq.record_id
+          JOIN question q ON rq.question_id = q.question_id
+          WHERE r.user_id = ? 
+          GROUP BY r.record_id, q.question_form, q.question_subject, r.date_taken
+          ORDER BY r.date_taken DESC";
 
-$result = mysqli_query($connection, $query);
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_bind_param($stmt, "i", $userId);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 ?>
 
 <!DOCTYPE html>

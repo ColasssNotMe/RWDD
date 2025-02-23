@@ -3,46 +3,51 @@ session_start();
 include 'connection.php';
 include 'navigation.php';
 
-$i = 0;
+// Ensure start and end time exist before calculating time taken
+$timeTaken = isset($_SESSION['startTime'], $_SESSION['endTime']) ? $_SESSION['endTime'] - $_SESSION['startTime'] : 0;
+$timeFormatted = gmdate("H:i:s", $timeTaken);
+
 $correctAnsCount = 0;
-$timeTaken = $_SESSION['endTime'] - $_SESSION['startTime'];
-foreach ($_SESSION['userAnsData'] as $choice) {
-    if ($choice == $_SESSION['listOfQuestion'][$i]['question_answer']) {
-        $correctAnsCount++;
+$totalQuestions = count($_SESSION['listOfQuestion'] ?? []);
+
+if ($totalQuestions > 0) {
+    foreach ($_SESSION['listOfQuestion'] as $index => $question) {
+        $userAnswer = $_SESSION['userAnsData'][$index] ?? "No Answer";
+        if ($userAnswer == $question['question_answer']) {
+            $correctAnsCount++;
+        }
     }
-    $i++;
 }
+$percentage = ($totalQuestions > 0) ? ($correctAnsCount / $totalQuestions) * 100 : 0.0;
 
-// Check if the record has already been added
+// Insert record if user is logged in and it hasn't been recorded already
 if (isset($_SESSION['currentLoginUser']) && !isset($_SESSION['recordAdded'])) {
-    $j = 0;
-    foreach ($_SESSION['listOfQuestion'] as $question) {
-        $questionID[$j] = $question['question_id'];
-        $j++;
-    }
-    $questionIDString = implode(",", $questionID);
-    addRecord($connection, $correctAnsCount, $timeTaken, $_SESSION['currentLoginUser']['user_id'], $questionIDString);
+    $userID = $_SESSION['currentLoginUser']['user_id'];
+    $dateTaken = date("Y-m-d");
 
-    // Set a session variable to indicate that the record has been added
+    // Insert record into `record` table
+    $recordID = addRecord($connection, $userID, $correctAnsCount, $timeFormatted, $dateTaken);
+    
+    if ($recordID) {
+        foreach ($_SESSION['listOfQuestion'] as $index => $question) {
+            saveUserAnswer($connection, $recordID, $question['question_id'], $_SESSION['userAnsData'][$index] ?? "No Answer");
+        }
+    }
     $_SESSION['recordAdded'] = true;
 }
-
-$percentage = $correctAnsCount / 10 * 100;
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <?php include_once 'extrahead.php' ?>
+    <?php include_once 'extrahead.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/result.css">
     <title>Result</title>
 </head>
-
 <body>
     <?php require_once 'components/header.php'; ?>
 
@@ -51,24 +56,17 @@ $percentage = $correctAnsCount / 10 * 100;
             <h1>Result</h1>
             <div>
                 <div class="percentage-circle">
-                    <?php echo $percentage ?>%
-
+                    <?php echo number_format($percentage, 2); ?>%
                 </div>
-                <p><strong>Correct Answer:</strong>
-                    <br>
-                    <?php echo $correctAnsCount ?> / 10
-                </p>
-                <p><strong>Time Taken:</strong>
-                    <br>
-                    <?php echo $timeTaken ?>   Seconds
-                </p>
+                <p><strong>Correct Answer:</strong><br><?php echo $correctAnsCount; ?> / <?php echo $totalQuestions; ?></p>
+                <p><strong>Time Taken:</strong><br><?php echo $timeFormatted; ?></p>
             </div>
             <div class="button-div">
                 <button class="secondary-button" id="save-collection">
                     Save as collection
                 </button>
                 <button class="primary-button" id="return-home">
-                    <a href=<?php echo $root ?> id="return-button">Return to home</a>
+                    <a href="<?php echo $root; ?>" id="return-button">Return to home</a>
                 </button>
             </div>
 
@@ -83,18 +81,15 @@ $percentage = $correctAnsCount / 10 * 100;
                     </thead>
                     <tbody>
                         <?php
-                        $j = 1;
+                        $j = 0;
                         foreach ($_SESSION['listOfQuestion'] as $question) {
+                            $userAnswer = $_SESSION['userAnsData'][$j] ?? "No Answer";
+                            $isCorrect = ($userAnswer == $question['question_answer']);
                         ?>
-                            <tr class=<?php if ($question['question_answer'] == $_SESSION['userAnsData'][$j]) {
-                                            echo "right-ans";
-                                        } else {
-                                            echo "wrong-ans";
-                                        }
-                                        ?>>
-                                <td><?php echo $j; ?></td>
-                                <td><?php echo $question['question_title'] ?></td>
-                                <td><?php echo $question['question_answer'] ?></td>
+                            <tr class="<?php echo $isCorrect ? 'right-ans' : 'wrong-ans'; ?>">
+                                <td><?php echo ($j + 1); ?></td>
+                                <td><?php echo htmlspecialchars($question['question_title']); ?></td>
+                                <td><?php echo htmlspecialchars($question['question_answer']); ?></td>
                             </tr>
                         <?php
                             $j++;
@@ -104,10 +99,8 @@ $percentage = $correctAnsCount / 10 * 100;
                 </table>
             </div>
         </div>
-
     </div>
 
     <?php require_once 'components/footer.php'; ?>
 </body>
-
 </html>
