@@ -35,7 +35,8 @@ function previewImage(event) {
 
 function removeImage() {
     document.getElementById('questionImage').src = 'res/img/addImage.jpg'; // Set back to default
-    document.querySelector('input[name="profile_picture"]').value = ''; // Clear input field
+    document.querySelector('input[name="question_image"]').value = ''; // Clear file input
+    document.querySelector('input[name="remove_image"]').value = "true"; // Set hidden input
 }
 
 // function updateIcons() {

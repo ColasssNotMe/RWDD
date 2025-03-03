@@ -42,9 +42,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         changeUserPassword($connection, $userId, $_POST['currentPassword'], $_POST['newPassword'], $_POST['rePassword']);
     }
 }
-if ($_SESSION['currentLoginUser']['user_role'] == 'teacher') {
-    echo "<script>alert('Profile updated successfully!'); window.location.href='teacherdashboard.php';</script>";
-} else {
-    echo "<script>alert('Profile updated successfully!'); window.location.href='account.php';</script>";
-}
 exit();
+?>

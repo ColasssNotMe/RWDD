@@ -221,7 +221,7 @@ function addQuestion($connection, $form, $subject, $picture, $question, $choice,
 
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {
-            echo "<script>alert('Question added successfully!'); window.location.href='addQuestion.php';</script>";
+            echo "<script>alert('Question added successfully!'); window.location.href='index.php';</script>";
             // header("Location: index.php");
         } else {
             echo "Error executing query: " . mysqli_stmt_error($stmt);
@@ -322,10 +322,10 @@ function uploadPicture($file, $currentProfilePath, $uploadFileLocation, $failBac
 
     // Move uploaded file to destination
     if (move_uploaded_file($fileTmpPath, $newPath)) {
-        // Delete old profile picture if exists
-        // if (!empty($currentProfilePath) && file_exists($currentProfilePath)) {
-        //     unlink($currentProfilePath);
-        // }
+        //Delete old profile picture if exists
+        if (!empty($currentProfilePath) && file_exists($currentProfilePath)) {
+            unlink($currentProfilePath);
+        }
         return $newPath;
     } else {
         echo "<script>alert('File upload failed! Please try again.'); window.location.href='$failBackTo';</script>";

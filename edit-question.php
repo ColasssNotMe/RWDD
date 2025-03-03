@@ -47,7 +47,15 @@ if (isset($_POST['submit'])) {
     $choiceString = json_encode($choices, JSON_UNESCAPED_UNICODE);
 
     // Handle image upload
-    $questionImage = uploadPicture($_FILES['question_image'], NULL, 'uploads/question/', 'addQuestion.php');
+    if (isset($_POST['remove_image']) && $_POST['remove_image'] === "true") {
+        if (!empty($picture) && file_exists($picture)) {
+            unlink($picture);
+        }
+        $questionImage = null; // Set image to null in the database
+    } else {
+        $questionImage = uploadPicture($_FILES['question_image'], $picture, 'uploads/question/', 'addQuestion.php');
+    }
+
 
     // Validate answer index to avoid errors
     $answerIndex = $_POST['answer'] ?? null;
@@ -103,6 +111,7 @@ if (isset($_POST['submit'])) {
                             alt="Question Picture" class="question-pic">
                         <input type="file" name="question_image" class="form_style" accept="image/*" onchange="previewImage(event)">
                         <button type="button" onclick="removeImage()" class="secondary-button" id="remove">Remove Picture</button>
+                        <input type="hidden" name="remove_image" value="false">
                         <hr>
                         <h2><b>Enter Choices</b></h2>
                         <label class="form_sub_title" for="choice1">Choice 1</label>
