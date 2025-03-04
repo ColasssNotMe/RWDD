@@ -173,6 +173,11 @@ input[type="radio"]:checked + label {
   }
 }
 
+img {
+  align-self: center;
+  justify-self: center;
+}
+
 .describe_box li div {
   padding: 10px;
   /* border: 2px solid #000; */
