@@ -197,7 +197,7 @@ input[type="radio"]:checked + label {
     height: auto; 
     margin: 10px auto; 
     border-radius: 10px; 
-    box-shadow: 2px 2px 4px #000;; 
+    box-shadow: 2px 2px 4px #000; 
 }
 
 form {
