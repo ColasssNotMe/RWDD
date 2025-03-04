@@ -196,6 +196,15 @@ img {
   width: 1000px;
 }
 
+.question-image {
+    display: block;
+    max-width: 50%; 
+    height: auto; 
+    margin: 10px auto; 
+    border-radius: 10px; 
+    box-shadow: 2px 2px 4px #000;; 
+}
+
 form {
   display: flex;
   flex-direction: column;

@@ -123,7 +123,7 @@ if (isset($_GET['result'])) {
                     <!--For question image  -->
                     <?php if (isset($_SESSION['currentQuestion']['question_picture']) && $_SESSION['currentQuestion']['question_picture']) { ?>
                         <img src=<?php echo $_SESSION['currentQuestion']['question_picture'] ?>
-                            alt="image of the question">
+                            alt="image of the question" class="question-image">
                     <?php } else {
                         echo "<div></div>";
                     } ?>
