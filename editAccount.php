@@ -26,7 +26,7 @@ $userId = $currentLoginUser['user_id'];
     <div class="form-container">
         <div class="form_area">
             <p class="form_title">EDIT DETAILS</p>
-        <form action="updateAccount.php" method="post" enctype="multipart/form-data">
+        <form action="updateAccount.php" method="POST" enctype="multipart/form-data">
             <img id="profilePreview" 
                 src="<?php echo htmlspecialchars($currentLoginUser['user_profile'] ?? 'https://cdn-icons-png.flaticon.com/128/1144/1144760.png'); ?>" 
                 alt="Profile Picture" class="profile-pic">
