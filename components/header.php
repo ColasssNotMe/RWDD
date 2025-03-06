@@ -41,12 +41,18 @@ require 'navigation.php';
         <a href="<?php echo $tns ?>">Terms and Services</a>
 
         <?php if (isset($_SESSION["currentLoginUser"])) {
+<<<<<<< Updated upstream
             if ($_SESSION['currentLoginUser']['user_role'] == "student") { ?>
                 <a href="<?php echo $account ?>">Account</a>
             <?php
             } else { ?>
                 <a href="<?php echo $teacher_dashboard ?>">Account</a>
             <?php }
+=======
+        ?>
+                <a href="<?php echo $account ?>">Account</a>
+            <?php
+>>>>>>> Stashed changes
         } else {
             ?>
             <a href="<?php echo $login ?>">Login</a>
